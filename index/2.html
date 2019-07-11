@@ -1,0 +1,47 @@
+<html>
+<head>
+  
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-143699173-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-143699173-1');
+</script>
+
+  
+<meta charset="UTF-8">
+<title>大豐旅行社</title>   	
+<meta name="description" content="大豐旅行社 國內外旅遊專家">
+<meta name="keywords" content="大豐旅行社,國內旅遊,國外自由行" /> 
+
+<script>
+
+var useragent = navigator.userAgent;
+useragent = useragent.toLowerCase();
+
+if( useragent.indexOf('iphone') != -1 ) setTimeout("location.href='https://tafengtravel.github.io/tafengtravel/index/tafengindex.html'",3000);//iphone
+else if( useragent.indexOf('ipad') != -1 || useragent.indexOf('ipod') != -1) setTimeout("location.href='https://tafengtravel.github.io/tafengtravel/index/tafengindex.html'",3000);//ipad
+else if( useragent.indexOf('android') != -1 ) {
+if( ConsiderLimits() )
+{
+setTimeout("location.href='https://tafengtravel.github.io/tafengtravel/index/tafengindex.html'",3000); // android pad
+}else{
+location.replacesetTimeout("location.href='https://tafengtravel.github.io/tafengtravel/index/tafengindex.html'",3000);// android phone
+}
+}else{
+setTimeout("location.href='http://www.tafeng66.com.tw/webeip/HT00215/'",3000);// PC
+}
+
+function ConsiderLimits(){
+if( screen.width >= 1024 && screen.height >= 600 )
+return 1;
+return 0;
+}
+
+
+</script>
+</head>
+</html>
