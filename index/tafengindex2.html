@@ -22,17 +22,17 @@
 var useragent = navigator.userAgent;
 useragent = useragent.toLowerCase();
 
-if( useragent.indexOf('iphone') != -1 ) location.replace("https://tafengtravel.github.io/tafengtravel/index/tafengindex.html");//iphone
-else if( useragent.indexOf('ipad') != -1 || useragent.indexOf('ipod') != -1) location.replace("https://tafengtravel.github.io/tafengtravel/index/tafengindex.html");//ipad
+if( useragent.indexOf('iphone') != -1 ) setTimeout("location.href='https://tafengtravel.github.io/tafengtravel/index/tafengindex.html'",3000);//iphone
+else if( useragent.indexOf('ipad') != -1 || useragent.indexOf('ipod') != -1) setTimeout("location.href='https://tafengtravel.github.io/tafengtravel/index/tafengindex.html'",3000);//ipad
 else if( useragent.indexOf('android') != -1 ) {
 if( ConsiderLimits() )
 {
-location.replace("https://tafengtravel.github.io/tafengtravel/index/tafengindex.html"); // android pad
+setTimeout("location.href='https://tafengtravel.github.io/tafengtravel/index/tafengindex.html'",3000); // android pad
 }else{
-location.replace("https://tafengtravel.github.io/tafengtravel/index/tafengindex.html"); // android phone
+location.replacesetTimeout("location.href='https://tafengtravel.github.io/tafengtravel/index/tafengindex.html'",3000);// android phone
 }
 }else{
-location.replace("http://www.tafeng66.com.tw/webeip/HT00215/");// PC
+setTimeout("location.href='http://www.tafeng66.com.tw/webeip/HT00215/'",3000);// PC
 }
 
 function ConsiderLimits(){
@@ -40,6 +40,7 @@ if( screen.width >= 1024 && screen.height >= 600 )
 return 1;
 return 0;
 }
+
 
 </script>
 </head>
