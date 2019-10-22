@@ -10,6 +10,25 @@
 
  	 gtag('config', 'UA-143702269-1');
 	</script>
+	   
+	<script>
+	function isMobile() {
+	  try{ 
+		  document.createEvent("TouchEvent"); 
+		  return true; 
+	  }
+	  catch(e){ return false;}
+	}
+	if(isMobile()){
+		jump(); 
+	}
+	else{
+		setTimeout(location.replace("http://www.tafeng66.com.tw/webeip/HT00215/"),2000); 
+	}
+	function jump(){
+		break; 
+	}
+	</script>
 	
 	<script>
 	function preloadImg(image) {
