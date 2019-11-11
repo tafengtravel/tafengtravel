@@ -17,8 +17,8 @@
 	img.src = image;
 	}
 
-	preloadImg("https://tafengtravel.github.io/tafengtravel/index/image/slogan1.jpg");
-	preloadImg("https://tafengtravel.github.io/tafengtravel/index/image/slogan2.jpg");
+	preloadImg("https://tafengtravel.github.io/tafengtravel/index3/cover/cover1.jpg");
+	preloadImg("https://tafengtravel.github.io/tafengtravel/index3/cover/cover1.jpg");
 	preloadImg("https://tafengtravel.github.io/tafengtravel/index/image/slogan3.jpg");
 	preloadImg("https://tafengtravel.github.io/tafengtravel/index/image/slogan4.jpg");
 	preloadImg("https://tafengtravel.github.io/tafengtravel/index/image/slogan5.jpg");
@@ -126,6 +126,49 @@ function hideMenu(){
 </tr>
 </table>
 
+<!---輪播-->
+
+<script type="text/javascript">
+ 
+var curIndex=0; 
+//時間間隔 單位毫秒 
+var timeInterval=3000; 
+
+var arr=new Array(); 
+arr[0]="https://tafengtravel.github.io/tafengtravel/index3/cover/cover1.jpg"; 
+arr[1]="https://tafengtravel.github.io/tafengtravel/index3/cover/cover2.jpg"; 
+arr[2]="https://tafengtravel.github.io/tafengtravel/index3/cover/cover3.jpg"; 
+arr[3]="https://tafengtravel.github.io/tafengtravel/index3/cover/cover4.jpg"; 
+arr[4]="https://tafengtravel.github.io/tafengtravel/index3/cover/cover5.jpg"; 
+arr[5]="https://tafengtravel.github.io/tafengtravel/index3/cover/cover6.jpg"; 
+/* arr[6]="http://mysys.greenscope.com.tw/pubimg/imgLink/HT00215/20190516151918.jpg"; */
+
+ 
+
+setInterval(changeImg,timeInterval); 
+function changeImg() 
+{ 
+var obj=document.getElementById("obj"); 
+if (curIndex==arr.length-1) 
+{ 
+curIndex=0; 
+} 
+else 
+{ 
+curIndex+=1; 
+} 
+obj.src=arr[curIndex]; 
+obj1.href=arr1[curIndex]; 
+
+} 
+</script>
+
+<table style="border:3px #FFFFFF solid " width="750" rules="none"  cellpadding="0" cellspacing="0"   >
+
+ <img id=obj src ="https://tafengtravel.github.io/tafengtravel/index3/cover/cover1.jpg" width="750" height = "400" /></a>
+
+
+<!---輪播-->
 
 <table style="border-bottom:0px orange solid " width="750"  rules="none"  cellpadding="7" cellspacing="0"   >
 <tr>
