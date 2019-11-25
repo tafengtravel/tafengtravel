@@ -35,6 +35,29 @@
       <link rel="shortcut icon" href="https://tafengtravel.github.io/tafengtravel/index1/tafenglogo6.ico" type="image/x-icon" />
  
 <style> 
+html {
+  font-size: 1rem;
+}
+
+@include media-breakpoint-up(sm) {
+  html {
+    font-size: 1.2rem;
+  }
+}
+
+@include media-breakpoint-up(md) {
+  html {
+    font-size: 1.4rem;
+  }
+}
+
+@include media-breakpoint-up(lg) {
+  html {
+    font-size: 1.6rem;
+  }
+}
+
+
 .main-nav {
   border-bottom: 2px solid #FF6600;
   background: #fff;
@@ -395,26 +418,35 @@ $(function() {
 </div>
 
 
-<table style="border:3px #FFFFFF solid ; " bgcolor =lightcyan  width="100%"  rules="none"  cellpadding="4" cellspacing="0"   >
-
-<tr>
-<th COLSPAN=2><div class = "BG0">大豐旅行社有限公司 TA FENG TRAVEL SERVICE CO.,LTD</div>
-<tr>
-<th COLSPAN=2><div class = "BG1">高雄總公司</div>
-<tr>
-<th><div class = "BG">電話:(07)552-3515</div><th><div class = "BG">傳真:(07)552-3517</div>
-<tr>
-<th COLSPAN=2><div class = "BG1">台中分公司</div>
-<tr>
-<th><div class = "BG">電話:(04)2202-5602&emsp;2202-5603</div><th><div class = "BG">傳真:(04)2302-0412</div>
-<tr>
-<th COLSPAN=2><div class = "BG1">台北辦事處</div>
-<tr>
-<th><div class = "BG">電話:(02)2500-0611&emsp;2500-0612</div><th><div class = "BG">傳真:(02)2500-0613</div>
-</tr>
-</th>
+<table class="table table-primary table-borderless">
+  <thead>
+    <tr>
+      <th scope="col" >#</th>
+      <th scope="col">First</th>
+      <th scope="col">Last</th>
+      <th scope="col">Handle</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row">1</th>
+      <td>Mark</td>
+      <td>Otto</td>
+      <td>@mdo</td>
+    </tr>
+    <tr>
+      <th scope="row">2</th>
+      <td>Jacob</td>
+      <td>Thornton</td>
+      <td>@fat</td>
+    </tr>
+    <tr>
+      <th scope="row">3</th>
+      <td colspan="2">Larry the Bird</td>
+      <td>@twitter</td>
+    </tr>
+  </tbody>
 </table>
-
 
 </body>
 </html>
