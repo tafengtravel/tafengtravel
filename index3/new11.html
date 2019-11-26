@@ -58,6 +58,39 @@ html {
 }
 
 
+.BG0 { background-color:lightcyan;text-align:center;font-family:Microsoft JhengHei;}
+.BG { background-color:lightcyan;text-align:left;font-family:Microsoft JhengHei;}
+.BG1{ color:blue;background-color:lightcyan;text-align:left;font-family:Microsoft JhengHei;}
+
+@include media-breakpoint-up(sm) {
+  BG0 {
+    font-size: 1.2rem;
+  }
+}
+
+@include media-breakpoint-up(md) {
+  BG0 {
+    font-size: 1.4rem;
+  }
+}
+
+@include media-breakpoint-up(lg) {
+  BG0 {
+    font-size: 1.6rem;
+  }
+}
+
+
+
+
+.hide-in-phone{display:none} 
+@media only screen and (min-width:576px) { .hide-in-phone { display: block; } }
+
+.hide-in-com{display:none} 
+@media only screen and (max-width:576px) { .hide-in-com { display: block; } }
+
+
+
 .main-nav {
   border-bottom: 2px solid #FF6600;
   background: #fff;
@@ -238,9 +271,7 @@ body {
 	#b4 {text-decoration:none;font-family:Microsoft JhengHei;text-decoration:none;color:white}
 	#b5 {text-decoration:none;font-family:Microsoft JhengHei;text-decoration:none;color:white}
 	#b6 {text-decoration:none;font-family:Microsoft JhengHei;text-decoration:none;color:white}
-	.BG0 { background-color:lightcyan;text-align:center;font-family:Microsoft JhengHei;font-size:14px;}
-	.BG { background-color:lightcyan;text-align:left;font-family:Microsoft JhengHei;font-size:14px;}
-	.BG1{ color:blue;background-color:lightcyan;text-align:left;font-family:Microsoft JhengHei;font-size:14px;}
+
 	.TL0{color:black; background-color:white;text-align:left;font-family:Microsoft JhengHei;font-size:46px;}
 </style> 
    
@@ -305,34 +336,19 @@ $(function() {
 
   <!-- Sample menu definition -->
   <ul id="main-menu" class="sm sm-mint">
-    <li><a href="http://www.smartmenus.org/">Home</a></li>
-    <li><a href="http://www.smartmenus.org/about/">About</a>
-      <ul>
-        <li><a href="http://www.smartmenus.org/about/introduction-to-smartmenus-jquery/">Introduction to SmartMenus jQuery</a></li>
-        <li><a href="http://www.smartmenus.org/about/themes/">Demos + themes</a></li>
-        <li><a href="http://vadikom.com/about/#vasil-dinkov">The author</a></li>
-        <li><a href="http://www.smartmenus.org/about/vadikom/">The company</a>
-          <ul>
-            <li><a href="http://vadikom.com/about/">About Vadikom</a></li>
-            <li><a href="http://vadikom.com/projects/">Projects</a></li>
-            <li><a href="http://vadikom.com/services/">Services</a></li>
-            <li><a href="http://www.smartmenus.org/about/vadikom/privacy-policy/">Privacy policy</a></li>
-          </ul>
-        </li>
-      </ul>
-    </li>
-    <li><a href="http://www.smartmenus.org/download/">Download</a></li>
-    <li><a href="http://www.smartmenus.org/support/">Support</a>
-      <ul>
-        <li><a href="http://www.smartmenus.org/support/premium-support/">Premium support</a></li>
-        <li><a href="http://www.smartmenus.org/support/forums/">Forums</a></li>
-      </ul>
-    </li>
-    <li><a href="http://www.smartmenus.org/docs/">Docs</a></li>
-   
-    <li><a href="http://www.smartmenus.org/contact/">Contact</a></li>
+    <li><a href="https://tafengtravel.github.io/tafengtravel/index3/tafengindex.html">Home</a></li>
+    <li><a href="https://tafengtravel.github.io/tafengtravel/index3/half/halfdaytour.html">Half Day</a>
+    <li><a href="https://tafengtravel.github.io/tafengtravel/index3/one/onedaytour.html">One Day</a></li>
+    <li><a href="https://tafengtravel.github.io/tafengtravel/index3/multi/multidaytour.html">Multi Day</a>
+    <li><a href="https://tafengtravel.github.io/tafengtravel/index3/customs.html">Customs</a></li>   
+    <li><a href="https://tafengtravel.github.io/tafengtravel/index3/contact.html">Contact</a></li>
+	<li><a href="https://tafengtravel.github.io/tafengtravel/index3/about.html">About</a></li>
   </ul>
 </nav>
+
+
+
+
 
 <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
   <ol class="carousel-indicators">
@@ -342,19 +358,20 @@ $(function() {
 	<li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
   </ol>
   
-  
+<div class="hide-in-phone"> 
+<div class="text-center">
   <div class="carousel-inner">
     <div class="carousel-item active ">
-      <img src="https://raw.githubusercontent.com/tafengtravel/tafengtravel/master/index3/cover/cover111.jpg"  class="d-block w-100" alt="...">
+      <img src="https://raw.githubusercontent.com/tafengtravel/tafengtravel/master/index3/cover/cover111.jpg"  class="col col-xl-11" alt="...">
     </div>
-    <div class="carousel-item">
-      <img src="https://raw.githubusercontent.com/tafengtravel/tafengtravel/master/index3/cover/cover111.jpg"  class="d-block w-100" alt="...">
+    <div class="carousel-item ">
+      <img src="https://raw.githubusercontent.com/tafengtravel/tafengtravel/master/index3/cover/cover111.jpg"  class="col col-xl-11" alt="...">
     </div>
-    <div class="carousel-item">
-      <img src="https://raw.githubusercontent.com/tafengtravel/tafengtravel/master/index3/cover/cover111.jpg"  class="d-block w-100" alt="...">
+    <div class="carousel-item ">
+      <img src="https://raw.githubusercontent.com/tafengtravel/tafengtravel/master/index3/cover/cover111.jpg"  class="col col-xl-11" alt="...">
     </div>
-	<div class="carousel-item">
-      <img src="https://raw.githubusercontent.com/tafengtravel/tafengtravel/master/index3/cover/cover111.jpg"  class="d-block w-100" alt="...">
+	<div class="carousel-item ">
+      <img src="https://raw.githubusercontent.com/tafengtravel/tafengtravel/master/index3/cover/cover111.jpg"  class="col col-xl-11" alt="...">
     </div> 
   </div>
   
@@ -368,6 +385,9 @@ $(function() {
     <span class="sr-only">Next</span>
   </a>
 </div>
+</div>
+</div>  
+
 
 <div class="text-center">
 
