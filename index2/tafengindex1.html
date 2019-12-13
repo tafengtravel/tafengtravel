@@ -97,10 +97,16 @@
 }
 
 .table2 {
-  font-size: 22px;
+  font-size: 48px;
   border-left:20px #FF6600 solid
 }
 
+@media(max-width:768px) {
+.table2 {
+    font-size: 24px;
+    border-left:15px #FF6600 solid
+  }
+}
 
 
 .hide-in-phone{display:none} 
@@ -473,7 +479,7 @@ $(function() {
 <div class="row justify-content-top">
 <table class="table2 table-borderless table-sm col-6 col-xl-4">
 	<tr class="text-left"> 
-		<th scope="col" class = "TL0">當季強檔</th>
+		<th scope="col" >當季強檔</th>
 	</tr>
 </table>
   </div>
