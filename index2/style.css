@@ -22,10 +22,19 @@
 #sync2 .item h1 {
   font-size: 18px;
   font-family: Microsoft JhengHei;
-font-weight:bold;
+  font-weight:bold;
 
 
 }
+
+@media(max-width:768px) {
+#sync2 .item h1 {
+  font-size: 12px;
+  font-family: Microsoft JhengHei;
+  font-weight:bold;
+  }
+}
+
 #sync2 .current .item {
   background: #FF6600;
 }
