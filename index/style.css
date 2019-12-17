@@ -33,6 +33,7 @@
   font-family: Microsoft JhengHei;
   font-weight:bold;
   }
+
 }
 
 #sync2 .current .item {
@@ -58,6 +59,18 @@
   position: absolute;
   top: 40%;
 }
+
+@media(max-width:768px) {
+#sync1.owl-theme .owl-next,
+#sync1.owl-theme .owl-prev {
+  width: 22px;
+  height: 40px;
+  margin-top: -20px;
+  position: absolute;
+  top: 50%;
+}
+}
+
 #sync1.owl-theme .owl-prev {
   left: 10px;
 }
