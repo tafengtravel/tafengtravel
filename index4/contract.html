@@ -261,6 +261,7 @@
   .demo-text a {
     color: #999;
   }
+
   </style>  
 
 
@@ -349,26 +350,36 @@
 </div>
 <div class="container">
   <div class="row justify-content-center">
-    <div class="col col-xl-8 col-md-12 col-s-12">
+    <div class="col-12 col-xl-8 col-md-12 col-s-12">
       <span class="lable">合約審閱期為一日，如合約有任何問題請直接於line上向專員反應</span><br>
-      <span class="lable">若合約沒有問題，煩請於line上再次回覆</span>
     </div>
   </div>
 </div>
 <br>
 
-<div class="row justify-content-center">
-  <div class="col-6">
-<span class="lable" ><label>&emsp;團號：</label></span><input type="text" id="number" style="font-size:25px ; ">
-<span class="lable" ><label>代表人：</label></span> <input type="text" id="people" style="font-size:25px;  ">
-<button onclick="search()" id ="search"  type="button" style="font-size:25px"  >查詢</button>
+
+
+<div class="text-center"> 
+<div class="container">
+<div class="row justify-content-xl-center">
+
+
+  <div class="col-12 col-xl-12 col-lg-12 col-md-12 col-sm-12">
+  <span class="lable" ><label>&emsp;團號：</label></span><input type="text" id="number" style="font-size:25px ; ">
+  </div>
+
+
+  <div class="col-12 col-xl-12 col-lg-12 col-md-12 col-sm-12">
+  <span class="lable" ><label>代表人：</label></span> <input type="text" id="people" style="font-size:25px;  ">
+  </div>
+  <div class="col-12 col-xl-12 col-lg-12 col-md-12 col-sm-12">
+  <button onclick="search()" id ="search"  type="button" style="font-size:25px"  >查詢</button>
+  </div>
 </div>
 </div>
-
-
-
-<div class="col-12 col-md-12 col-s-12">
-<iframe id='iframe123' frameborder="0" ></iframe>
+</div>
+<div class="col-12 col-xl-12 col-md-12 col-s-12">
+<iframe id='iframe123' frameborder="0" width=100% height='1000px'></iframe>
 </div>
 
 
@@ -477,14 +488,7 @@ function show(data){
 
 
 }
-
- 
-
-
-
-
-
-
+	
 </script>
 </body>
 </html>
