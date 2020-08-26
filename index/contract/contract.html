@@ -454,10 +454,14 @@ function show(data){
   let pricedetail;
   let date;
 
+  let year = data.合約年;
+  let month = data.合約月;
+  let day = data.合約日;
+
   pricedetail = depdate+'~'+enddate+" "+name+" "+'團費共$'+price
 
   let Today=new Date();
-  date = Today.getFullYear()+"      "+(Today.getMonth()+1)+"      "+Today.getDate();
+  date = year+"      "+month+"      "+day;
 
   //--------------JSpdf-------------
   window.jsPDF = window.jspdf.jsPDF
