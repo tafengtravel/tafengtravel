@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+table, td {
+  border: 1px solid black;
+}
+</style>
+</head>
+<body>
+
+       <!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="/__/firebase/7.14.3/firebase-app.js"></script>
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+
+<!-- Initialize Firebase -->
+<script src="/__/firebase/init.js"></script>
+   
+   <script src="https://www.gstatic.com/firebasejs/4.12.1/firebase.js"></script>
+
+<script src="https://www.gstatic.com/firebasejs/4.12.1/firebase-firestore.js"></script>
+
+
+
+<style>  
+.table1 {
+    font-size: 30px;
+}
+.lable {
+    font-size: 20px;
+    font-family:Microsoft JhengHei;
+    font-weight:bold;
+}
+
+table  {
+    font-size: 25px;
+    border: none ;
+    text-align:center;
+    font-family:Microsoft JhengHei;
+    font-weight:bold;
+    table-layout:fixed;
+       
+}
+
+
+.lable1 {
+    font-size: 30px;
+    font-weight:bold;
+    font-family:Microsoft JhengHei;
+
+}
+
+.title
+{
+    font-size: 60px;
+    text-align: center;
+    font-family:Microsoft JhengHei;
+    font-weight:bold;
+    width:"100%";    
+    background-color:	#AAFFEE;
+}   
+a{
+  color:black; 
+  text-decoration:none;
+} 
+.status{
+  float:right;
+  
+}
+</style> 
+
+<div class="title"  >大豐旅行社帳務系統__當日業績__管理員</div> 
+
+<table width="100%" cellpadding=0px style="background-color:	#AAFFEE" >
+  <tr>
+    <td  style="border: none ; font-size: 30px;"><a href="首頁_管理員.html">回到首頁</a></td>
+    <td  style="border: none ; font-size: 30px;"><a href="修改報帳_散客_管理員.html">修改報帳_散客</a></td>
+    <td  style="border: none ; font-size: 30px;"><a href="修改報帳_團體_管理員.html">修改報帳_團體</a></td>
+    <td  style="border: none ; font-size: 30px;"><a href="表單全覽_散客_管理員.html">表單全覽_散客</a></td>
+    <td  style="border: none ; font-size: 30px;"><a href="表單全覽_團體_管理員.html">表單全覽_團體</a></td>
+    <td  style="border: none ; font-size: 30px;"><a href="年度報表_管理員.html">年度報表_總計</a></td>
+    <td  style="border: none ; font-size: 30px;"><a href="當日業績_管理員.html">當日業績</a></td>
+  </tr>
+</table>
+<br><br>
+
+<span class="status" >
+  <input type="text" id="mail" disabled="disabled" style="font-size:20px ; background-color: transparent; border:none; text-align: center; font-family:Microsoft JhengHei;font-weight:bold;">
+</span>
+
+<span class="lable" ><label>搜尋月份：</label></span>  <input type="date" id="filedate" style="font-size:30px">
+&emsp;<button onclick="clear1()" type="button" style="font-size:30px"  >清除</button>
+&emsp;<button onclick="search()" type="button" style="font-size:30px"  >查詢</button>
+
+&emsp;<span class="lable" ><label>總利潤：</label></span>
+<input type="text" id="totalprofit" style="font-size:20px ;width:100px; background-color: transparent; border:none; text-align: left; font-family:Microsoft JhengHei;font-weight:bold;">
+&emsp;<span class="lable" ><label>總人數：</label></span>
+<input type="text" id="totalpeople" style="font-size:20px ;width:100px; background-color: transparent; border:none; text-align: left; font-family:Microsoft JhengHei;font-weight:bold;">
+
+
+<table class="table" id="myTable">
+  <tr>
+    <td>筆數</td><td>團號</td><td><font color="red">團體</font></td><td>客服</td><td>出發日期</td><td>結束日期</td>
+    <td>團名</td><td>代表人</td><td>人數</td><td>報帳日期</td><td>主管核實</td><td>收入</td><td>OP核實</td>
+  </tr>
+ </table>
+
+
+
+
+ <script src="secure.js" async></script>
+
+<script>
+
+let number;
+let del;
+
+function info(){
+    
+}
+
+
+function clear1(){
+  
+  window.location.reload("");
+}
+
+//let ref = db.collection(filedate.substring(0,4)+'-'+filedate.substring(5,7));
+
+async function search(){
+  let q=1;
+  let filedate = document.getElementById("filedate").value;  
+  let data1 =[];
+  let data2 =[];
+  let k=0;let k1=0;
+  let table = document.getElementById("myTable");
+  let cell = [];  
+  let row; 
+
+  let check; let check1;let check2;
+  let parse; 
+  let people;let profit;let tax;
+  let totalpeople=0;let totalprofit=0;
+  let i=1;
+
+  if(filedate == ""){
+    alert('請選取月份');
+    window.location.reload("");
+  }else{
+  }
+
+  let db = firebase.firestore();
+  let year = filedate.substring(0,4);
+  let month = filedate.substring(5,7);
+  year = parseInt(year);
+  month = parseInt(month);
+
+  
+//判斷是否為0即刪除
+  if(del==0){
+    number=1;
+  }
+  del = 0;
+
+  for(j=1;j<number;j++){
+    table.deleteRow(1);
+
+  }
+//------------
+  
+  if(month > 9){
+    let ref = db.collection(year.toString()+'-'+month.toString());
+  }else if(month<10){
+    let ref = db.collection(year.toString()+'-0'+month.toString());   
+  }
+
+  for(j=0;j<12;j++){
+    if(month > 9){
+      ref = db.collection(year.toString()+'-'+month.toString());
+    }else if(month<10){
+      ref = db.collection(year.toString()+'-0'+month.toString());   
+    }
+    
+
+    await ref.where('報帳日期','==',filedate).get().then(querySnapshot => {
+    querySnapshot.forEach(doc => {      
+
+        data1[k] = doc.data();
+        data1[k]={...data1[k]};
+        k=k+1
+
+        i=i+1;
+        number=i;
+        del=1;
+          
+      });
+    });
+
+    await ref.where('退業績日期','==',filedate).get().then(querySnapshot => {
+    querySnapshot.forEach(doc => {      
+
+        data2[k1] = doc.data();
+        data2[k1]={...data2[k1]};
+        k1=k1+1
+
+        i=i+1;
+        number=i;
+        del=1;
+          
+      });
+    });
+    
+    month = month + 1;
+    if(month > 12){
+      year = year + 1;
+      month = 1;
+    }
+  }
+  
+
+  data1.sort((a, b) => (a.客服).localeCompare(b.客服));
+
+
+
+  for(i=0;i<data1.length;i++){
+
+    profit = parseInt(data1[i].利潤);
+    tax = parseInt(data1[i].稅金);
+    profit = profit+tax;
+
+    if(data1[i].martina核實 == 'True'){
+      check="●";
+    }else if(data1[i].martina核實 == 'False'){
+      check="";
+    }
+
+    if(data1[i].第1筆收入op核實 == 'True'){
+      check1="●";
+    }else if(data1[i].第1筆收入op核實 == 'False'){
+      check1="";
+    }
+
+    if(profit>10000){
+      check2="●";
+    }else if(profit<10000){
+      check2="";
+    }
+
+
+   
+    people = parseInt(data1[i].人數);
+    totalprofit = parseInt(totalprofit);
+    totalpeople = parseInt(totalpeople);
+
+
+    row = table.insertRow(q);
+    cell[0] = row.insertCell(0);
+    cell[0].innerHTML=q;
+    cell[1] = row.insertCell(1);
+    cell[1].innerHTML=data1[i].團號;
+    cell[2] = row.insertCell(2);
+    cell[2].innerHTML=check2;
+    cell[3] = row.insertCell(3);
+    cell[3].innerHTML=data1[i].客服;
+    cell[4] = row.insertCell(4);
+    cell[4].innerHTML=data1[i].出發日期;
+    cell[5] = row.insertCell(5);
+    cell[5].innerHTML=data1[i].結束日期;
+    cell[6] = row.insertCell(6);
+    cell[6].innerHTML=data1[i].團名;
+    cell[7] = row.insertCell(7);
+    cell[7].innerHTML=data1[i].代表人;
+    cell[8] = row.insertCell(8);
+    cell[8].innerHTML=data1[i].人數;
+    cell[9] = row.insertCell(9);
+    cell[9].innerHTML=data1[i].報帳日期;
+    cell[10] = row.insertCell(10);
+    cell[10].innerHTML=check;
+    cell[11] = row.insertCell(11);
+    cell[11].innerHTML=data1[i].第1筆收入;
+    cell[12] = row.insertCell(12);
+    cell[12].innerHTML=check1;
+
+    q=q+1;
+
+    totalprofit = totalprofit + profit ;
+    totalpeople = totalpeople+ people ;
+
+  
+  }
+
+  for(i=0;i<data2.length;i++){
+
+    profit = parseInt(data2[i].利潤);
+    tax = parseInt(data2[i].稅金);
+    profit = profit+tax;
+
+    if(data2[i].martina核實 == 'True'){
+      check="●";
+    }else if(data2[i].martina核實 == 'False'){
+      check="";
+    }
+
+    if(data2[i].第1筆收入op核實 == 'True'){
+      check1="●";
+    }else if(data2[i].第1筆收入op核實 == 'False'){
+      check1="";
+    }
+
+    if(profit>10000){
+      check2="●";
+    }else if(profit<10000){
+      check2="";
+    }
+
+
+
+    people = parseInt(data2[i].人數);
+    totalprofit = parseInt(totalprofit);
+    totalpeople = parseInt(totalpeople);
+
+
+    row = table.insertRow(q);
+    cell[0] = row.insertCell(0);
+    cell[0].innerHTML=q;
+    cell[1] = row.insertCell(1);
+    cell[1].innerHTML=data2[i].團號;
+    cell[2] = row.insertCell(2);
+    cell[2].innerHTML=check2;
+    cell[3] = row.insertCell(3);
+    cell[3].innerHTML=data2[i].客服;
+    cell[4] = row.insertCell(4);
+    cell[4].innerHTML=data2[i].出發日期;
+    cell[5] = row.insertCell(5);
+    cell[5].innerHTML=data2[i].結束日期;
+    cell[6] = row.insertCell(6);
+    cell[6].innerHTML=data2[i].團名;
+    cell[7] = row.insertCell(7);
+    cell[7].innerHTML=data2[i].代表人;
+    cell[8] = row.insertCell(8);
+    cell[8].innerHTML=data2[i].人數;
+    cell[9] = row.insertCell(9);
+    cell[9].innerHTML=data2[i].報帳日期;
+    cell[10] = row.insertCell(10);
+    cell[10].innerHTML=check;
+    cell[11] = row.insertCell(11);
+    cell[11].innerHTML=data2[i].第1筆收入;
+    cell[12] = row.insertCell(12);
+    cell[12].innerHTML=check1;
+
+    q=q+1;
+
+
+  }
+
+document.getElementById("totalprofit").value =totalprofit;
+document.getElementById("totalpeople").value =totalpeople;
+   
+
+}
+
+
+</script>
+
+</body>
+</html>

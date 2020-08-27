@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+table, td {
+  border: 1px solid black;
+}
+</style>
+</head>
+<body>
+
+       <!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="/__/firebase/7.14.3/firebase-app.js"></script>
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+
+<!-- Initialize Firebase -->
+<script src="/__/firebase/init.js"></script>
+   
+   <script src="https://www.gstatic.com/firebasejs/4.12.1/firebase.js"></script>
+
+<script src="https://www.gstatic.com/firebasejs/4.12.1/firebase-firestore.js"></script>
+
+
+
+<style>  
+table ,td,tr {
+    font-size: 40px;
+    border: none ;
+    text-align:center;
+    font-family:Microsoft JhengHei;
+    font-weight:bold;
+    background-color:	#AAFFEE;
+    table-layout:fixed;
+}
+.lable1 {
+    font-size: 30px;
+    font-weight:bold;
+    font-family:Microsoft JhengHei;
+
+}
+
+.title
+{
+    font-size: 60px;
+    text-align: center;
+    font-family:Microsoft JhengHei;
+    font-weight:bold;
+    width:"100%";    
+    background-color:	#AAFFEE;
+}   
+a{
+  color:black; 
+  text-decoration:none;
+} 
+.status{
+  float:right;
+  
+}
+</style> 
+
+<div class="title"  >大豐旅行社帳務系統__首頁__管理員</div> 
+
+
+
+<table width="100%" >
+  <tr>
+    <td  style="border: none ; font-size: 30px;"><a href="首頁_管理員.html">回到首頁</a></td>
+    <td  style="border: none ; font-size: 30px;"><a href="修改報帳_散客_管理員.html">修改報帳_散客</a></td>
+    <td  style="border: none ; font-size: 30px;"><a href="修改報帳_團體_管理員.html">修改報帳_團體</a></td>
+    <td  style="border: none ; font-size: 30px;"><a href="表單全覽_散客_管理員.html">表單全覽_散客</a></td>
+    <td  style="border: none ; font-size: 30px;"><a href="表單全覽_團體_管理員.html">表單全覽_團體</a></td>
+    <td  style="border: none ; font-size: 30px;"><a href="年度報表_管理員.html">年度報表_總計</a></td>
+    <td  style="border: none ; font-size: 30px;"><a href="當日業績_管理員.html">當日業績</a></td>
+  </tr>
+</table>
+<br><br>
+
+<span class="status" >
+  <input type="text" id="mail" disabled="disabled" style="font-size:20px ; background-color: transparent; border:none; text-align: center; font-family:Microsoft JhengHei;font-weight:bold;">
+</span>
+
+
+<span class="lable1" >登入帳號</span><br><br>
+<span class="lable1" >帳號：</span> <input id="email" style="font-size:30px"><br>
+<span class="lable1" >密碼：</span> <input id="password" type="password" style="font-size:30px"><br><br>
+<button onclick="login()" id="submit" style="font-size:30px">登入</button><br><br>
+<!--
+<div class="lable1" id="id" style =  >已登入帳號：</div> 
+<div class="lable1" id="id1" style =  ></div>
+-->
+<br><br>
+
+
+
+
+
+
+<script src="secure.js" async></script>
+
+<script>
+function info(){
+    
+}
+
+
+
+async function login(){ 
+  var email = document.getElementById("email").value;  
+  var password = document.getElementById("password").value;  
+
+  await firebase.auth().signInWithEmailAndPassword(email, password).then(() => {
+
+    alert("登入成功");
+    window.location.reload()
+
+  }).catch((error) => {
+    console.log(error.message);
+  });
+  
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,857 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>  
+  .table1 {
+      font-size: 30px;
+  }
+  .lable {
+      font-size: 20px;
+      font-family:Microsoft JhengHei;
+      font-weight:bold;
+  }
+  .lable2 {
+      font-size: 20px;
+      font-family:Microsoft JhengHei;
+      color: 	#5B5B5B;
+      font-weight:bold;
+  }
+  
+  table  {
+      font-size: 25px;
+      border: none ;
+      text-align:center;
+      font-family:Microsoft JhengHei;
+      font-weight:bold;
+      table-layout:fixed;
+         
+  }
+  
+  
+  .lable1 {
+      font-size: 30px;
+      font-weight:bold;
+      font-family:Microsoft JhengHei;
+  
+  }
+  
+  .title
+  {
+      font-size: 60px;
+      text-align: center;
+      font-family:Microsoft JhengHei;
+      font-weight:bold;
+      width:"100%";    
+      background-color:	#AAFFEE;
+  }   
+  a{
+    color:black; 
+    text-decoration:none;
+  } 
+  .status{
+    float:right;
+    
+  }
+  </style> 
+</head>
+<body>
+
+       <!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="/__/firebase/7.14.3/firebase-app.js"></script>
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+
+<!-- Initialize Firebase -->
+<script src="/__/firebase/init.js"></script>
+   
+   <script src="https://www.gstatic.com/firebasejs/4.12.1/firebase.js"></script>
+
+<script src="https://www.gstatic.com/firebasejs/4.12.1/firebase-firestore.js"></script>
+
+
+<div class="title"  >大豐旅行社帳務系統__年度報表</div> 
+
+
+
+<table width="100%" cellpadding=0px style="background-color:	#AAFFEE" >
+  <tr>
+    <td  style="border: none ; font-size: 30px;"><a href="首頁_管理員.html">回到首頁</a></td>
+    <td  style="border: none ; font-size: 30px;"><a href="修改報帳_散客_管理員.html">修改報帳_散客</a></td>
+    <td  style="border: none ; font-size: 30px;"><a href="修改報帳_團體_管理員.html">修改報帳_團體</a></td>
+    <td  style="border: none ; font-size: 30px;"><a href="表單全覽_散客_管理員.html">表單全覽_散客</a></td>
+    <td  style="border: none ; font-size: 30px;"><a href="表單全覽_團體_管理員.html">表單全覽_團體</a></td>
+    <td  style="border: none ; font-size: 30px;"><a href="年度報表_管理員.html">年度報表_總計</a></td>
+    <td  style="border: none ; font-size: 30px;"><a href="當日業績_管理員.html">當日業績</a></td>
+  </tr>
+</table>
+<br><br>
+
+<span class="lable" ><label>搜尋年份：</label></span>  <input type="date" id="depdate" style="font-size:30px">
+&emsp;<button onclick="search()" id ="search"  type="button" style="font-size:30px"  >查詢</button>
+<span class="status" >
+<input type="text" id="mail" style="font-size:20px ; background-color: transparent; border:none; text-align: center; font-family:Microsoft JhengHei;font-weight:bold;">
+</span>
+
+
+
+<!--
+<div class="lable1" id="id" style =  >已登入帳號：</div> 
+<div class="lable1" id="id1" style =  ></div>
+-->
+<br><br>
+
+<script src="secure.js" async>
+</script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+<script src="https://www.chartjs.org/dist/2.9.3/Chart.min.js"></script>
+<script src="https://www.chartjs.org/samples/latest/utils.js"></script>
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
+
+
+<div class="w3-row">
+  <div class="w3-col s10" id="canvas-holder" >
+    <div id="canvas-css" style="width: 85%; margin: 0 auto; " > 
+      <canvas id="canvas"></canvas>
+    </div>
+  </div>
+  <div class="w3-col s2" id="canvas-holder" >
+    <span class="lable2" ><label>01月：</label></span>
+    <input type="text" id="month1" style="font-size:20px ; width:100px ; background-color: transparent; border:none; text-align: center; font-family:Microsoft JhengHei;font-weight:bold; color:#5B5B5B ;text-align:left;"><br><br>
+    <span class="lable2" ><label>02月：</label></span>
+    <input type="text" id="month2" style="font-size:20px ; width:100px ; background-color: transparent; border:none; text-align: center; font-family:Microsoft JhengHei;font-weight:bold; color:#5B5B5B ;text-align:left;"><br><br>
+    <span class="lable2" ><label>03月：</label></span>
+    <input type="text" id="month3" style="font-size:20px ; width:100px ; background-color: transparent; border:none; text-align: center; font-family:Microsoft JhengHei;font-weight:bold; color:#5B5B5B ;text-align:left;"><br><br>
+    <span class="lable2" ><label>04月：</label></span>
+    <input type="text" id="month4" style="font-size:20px ; width:100px ; background-color: transparent; border:none; text-align: center; font-family:Microsoft JhengHei;font-weight:bold; color:#5B5B5B ;text-align:left;"><br><br>
+    <span class="lable2" ><label>05月：</label></span>
+    <input type="text" id="month5" style="font-size:20px ; width:100px ; background-color: transparent; border:none; text-align: center; font-family:Microsoft JhengHei;font-weight:bold; color:#5B5B5B ;text-align:left;"><br><br>
+    <span class="lable2" ><label>06月：</label></span>
+    <input type="text" id="month6" style="font-size:20px ; width:100px ; background-color: transparent; border:none; text-align: center; font-family:Microsoft JhengHei;font-weight:bold; color:#5B5B5B ;text-align:left;"><br><br>
+    <span class="lable2" ><label>07月：</label></span>
+    <input type="text" id="month7" style="font-size:20px ; width:100px ; background-color: transparent; border:none; text-align: center; font-family:Microsoft JhengHei;font-weight:bold; color:#5B5B5B ;text-align:left;"><br><br>
+    <span class="lable2" ><label>08月：</label></span>
+    <input type="text" id="month8" style="font-size:20px ; width:100px ; background-color: transparent; border:none; text-align: center; font-family:Microsoft JhengHei;font-weight:bold; color:#5B5B5B ;text-align:left;"><br><br>
+    <span class="lable2" ><label>09月：</label></span>
+    <input type="text" id="month9" style="font-size:20px ; width:100px ; background-color: transparent; border:none; text-align: center; font-family:Microsoft JhengHei;font-weight:bold; color:#5B5B5B ;text-align:left;"><br><br>
+    <span class="lable2" ><label>10月：</label></span>
+    <input type="text" id="month10" style="font-size:20px ; width:100px ; background-color: transparent; border:none; text-align: center; font-family:Microsoft JhengHei;font-weight:bold; color:#5B5B5B ;text-align:left;"><br><br>
+    <span class="lable2" ><label>11月：</label></span>
+    <input type="text" id="month11" style="font-size:20px ; width:100px ; background-color: transparent; border:none; text-align: center; font-family:Microsoft JhengHei;font-weight:bold; color:#5B5B5B ;text-align:left;"><br><br>
+    <span class="lable2" ><label>12月：</label></span>
+    <input type="text" id="month12" style="font-size:20px ; width:100px ; background-color: transparent; border:none; text-align: center; font-family:Microsoft JhengHei;font-weight:bold; color:#5B5B5B ;text-align:left;"><br><br>
+    <span class="lable2" ><label>總計：</label></span>
+    <input type="text" id="totalprofit" style="font-size:20px ; width:100px ; background-color: transparent; border:none; text-align: center; font-family:Microsoft JhengHei;font-weight:bold; color:#5B5B5B ;text-align:left;"><br><br>
+
+  </div>
+</div>
+
+
+
+<div class="w3-row">
+  <div class="w3-col s3" id="canvas-holder" >
+    <canvas id="chart-area1"></canvas>
+  </div>
+  <div class="w3-col s3 " id="canvas-holder" >
+    <canvas id="chart-area2"></canvas>
+  </div>
+  <div class="w3-col s3 " id="canvas-holder" >
+    <canvas id="chart-area3"></canvas>
+  </div>
+  <div class="w3-col s3 " id="canvas-holder" >
+    <canvas id="chart-area4"></canvas>
+  </div>
+  <div class="w3-col s3 " id="canvas-holder" >
+    <canvas id="chart-area5"></canvas>
+  </div>
+  <div class="w3-col s3 " id="canvas-holder" >
+    <canvas id="chart-area6"></canvas>
+  </div>
+  <div class="w3-col s3" id="canvas-holder" >
+    <canvas id="chart-area7"></canvas>
+  </div>
+  <div class="w3-col s3 " id="canvas-holder" >
+    <canvas id="chart-area8"></canvas>
+  </div>
+  <div class="w3-col s3 " id="canvas-holder" >
+    <canvas id="chart-area9"></canvas>
+  </div>
+  <div class="w3-col s3 " id="canvas-holder" >
+    <canvas id="chart-area10"></canvas>
+  </div>
+  <div class="w3-col s3 " id="canvas-holder" >
+    <canvas id="chart-area11"></canvas>
+  </div>
+  <div class="w3-col s3 " id="canvas-holder" >
+    <canvas id="chart-area12"></canvas>
+  </div>
+</div>
+
+<script>
+
+function info(){
+    
+}
+
+let penghu=[]; green=[]; lanyu=[]; kinmen=[]; matsu=[]; car=[]; cruise=[]; season =[]; unknown=[]; subsidy=[];
+let people=[]; revenue=[]; profit=[]; totalprofit=0;
+let i=1; year=0;
+
+async function search(){  
+
+  let db = firebase.firestore();
+  let depdate = document.getElementById("depdate").value; 
+
+  if(depdate == ""){
+    alert('請選取年份');
+    return;
+  }else{
+  }
+
+  var ref = db.collection(depdate.substring(0,4)+'-total');
+  year = parseInt(depdate.substring(0,4))
+
+  await ref.get().then(querySnapshot => {
+    querySnapshot.forEach(doc => {   
+
+      i=parseInt(doc.id);
+      console.log(i);
+
+
+      penghu[i]=parseInt(doc.data().澎湖);
+      green[i]=parseInt(doc.data().綠島);
+      lanyu[i]=parseInt(doc.data().蘭嶼);
+      kinmen[i]=parseInt(doc.data().金門);
+      matsu[i]=parseInt(doc.data().馬祖);
+      car[i]=parseInt(doc.data().代訂車);
+      cruise[i]=parseInt(doc.data().郵輪);
+      season[i]=parseInt(doc.data().季節旅遊);
+
+      unknown[i]=parseInt(doc.data().未知);
+
+      subsidy[i]=parseInt(doc.data().補助);
+      if (isNaN(subsidy[i])){
+        subsidy[i]=0;
+      }
+
+      people[i]=parseInt(doc.data().總人數);
+      revenue[i]=parseInt(doc.data().營業額);
+      profit[i]=parseInt(doc.data().總利潤);
+
+      
+
+    });
+  });
+
+  if(year = 2020){
+    for(i=6;i<13;i++){
+      profit[i]=profit[i]+subsidy[i];
+    }
+  }else{
+    for(i=1;i<13;i++){
+      profit[i]=profit[i]+subsidy[i];
+    }
+  }
+
+  for(i=1;i<13;i++){
+    totalprofit = profit[i]+totalprofit;
+    document.getElementById('month'+i).value=profit[i];
+  }
+ 
+  document.getElementById('totalprofit').value=totalprofit;
+
+  window.myDoughnut1.data.datasets[0].data = [penghu[1],green[1],lanyu[1],kinmen[1],matsu[1],car[1],cruise[1],season[1]];
+  window.myDoughnut1.update();
+  window.myDoughnut2.data.datasets[0].data = [penghu[2],green[2],lanyu[2],kinmen[2],matsu[2],car[2],cruise[2],season[2],];
+  window.myDoughnut2.update();
+  window.myDoughnut3.data.datasets[0].data = [penghu[3],green[3],lanyu[3],kinmen[3],matsu[3],car[3],cruise[3],season[3]];
+  window.myDoughnut3.update();
+  window.myDoughnut4.data.datasets[0].data = [penghu[4],green[4],lanyu[4],kinmen[4],matsu[4],car[4],cruise[4],season[4]];
+  window.myDoughnut4.update();
+  window.myDoughnut5.data.datasets[0].data = [penghu[5],green[5],lanyu[5],kinmen[5],matsu[5],car[5],cruise[5],season[5]];
+  window.myDoughnut5.update();
+  window.myDoughnut6.data.datasets[0].data = [penghu[6],green[6],lanyu[6],kinmen[6],matsu[6],car[6],cruise[6],season[6]];
+  window.myDoughnut6.update();
+  window.myDoughnut7.data.datasets[0].data = [penghu[7],green[7],lanyu[7],kinmen[7],matsu[7],car[7],cruise[7],season[7]];
+  window.myDoughnut7.update();
+  window.myDoughnut8.data.datasets[0].data = [penghu[8],green[8],lanyu[8],kinmen[8],matsu[8],car[8],cruise[8],season[8]];
+  window.myDoughnut8.update();
+  window.myDoughnut9.data.datasets[0].data = [penghu[9],green[9],lanyu[9],kinmen[9],matsu[9],car[9],cruise[9],season[9]];
+  window.myDoughnut9.update();
+  window.myDoughnut10.data.datasets[0].data = [penghu[10],green[10],lanyu[10],kinmen[10],matsu[10],car[10],cruise[10],season[10]];
+  window.myDoughnut10.update();
+  window.myDoughnut11.data.datasets[0].data = [penghu[11],green[11],lanyu[11],kinmen[11],matsu[11],car[11],cruise[11],season[11]];
+  window.myDoughnut11.update();
+  window.myDoughnut12.data.datasets[0].data = [penghu[12],green[12],lanyu[12],kinmen[12],matsu[12],car[12],cruise[12],season[12]];
+  window.myDoughnut12.update();
+
+  window.myBar.data.datasets[0].data = [penghu[1],penghu[2],penghu[3],penghu[4],penghu[5],penghu[6],penghu[7],penghu[8],penghu[9],penghu[10],penghu[11],penghu[12]];
+  window.myBar.data.datasets[1].data = [green[1],green[2],green[3],green[4],green[5],green[6],green[7],green[8],green[9],green[10],green[11],green[12]];
+  window.myBar.data.datasets[2].data = [lanyu[1],lanyu[2],lanyu[3],lanyu[4],lanyu[5],lanyu[6],lanyu[7],lanyu[8],lanyu[9],lanyu[10],lanyu[11],lanyu[12]];
+  window.myBar.data.datasets[3].data = [kinmen[1],kinmen[2],kinmen[3],kinmen[4],kinmen[5],kinmen[6],kinmen[7],kinmen[8],kinmen[9],kinmen[10],kinmen[11],kinmen[12]];
+  window.myBar.data.datasets[4].data = [matsu[1],matsu[2],matsu[3],matsu[4],matsu[5],matsu[6],matsu[7],matsu[8],matsu[9],matsu[10],matsu[11],matsu[12]];
+  window.myBar.data.datasets[5].data = [car[1],car[2],car[3],car[4],car[5],car[6],car[7],car[8],car[9],car[10],car[11],car[12]];
+  window.myBar.data.datasets[6].data = [cruise[1],cruise[2],cruise[3],cruise[4],cruise[5],cruise[6],cruise[7],cruise[8],cruise[9],cruise[10],cruise[11],cruise[12]];
+  window.myBar.data.datasets[7].data = [season[1],season[2],season[3],season[4],season[5],season[6],season[7],season[8],season[9],season[10],season[11],season[12]];
+  window.myBar.data.datasets[8].data = [unknown[1],unknown[2],unknown[3],unknown[4],unknown[5],unknown[6],unknown[7],unknown[8],unknown[9],unknown[10],unknown[11],unknown[12]];
+  window.myBar.data.datasets[9].data = [subsidy[1],subsidy[2],subsidy[3],subsidy[4],subsidy[5],subsidy[6],subsidy[7],subsidy[8],subsidy[9],subsidy[10],subsidy[11],subsidy[12]];
+  window.myBar.update();
+
+
+
+}
+
+function search1(){
+  window.myDoughnut.update();
+  window.myBar.update();
+}
+</script>
+
+<script>
+
+Chart.defaults.global.defaultFontSize =22;
+Chart.defaults.global.defaultFontFamily ='Microsoft JhengHei';
+Chart.defaults.global.defaultFontStyle = 'Bold' 
+var barChartData = {
+			labels: ['1月', '2月', '3月', '4月', '5月', '6月', '7月','8月','9月','10月','11月','12月'],
+			datasets: [{
+				label: '澎湖',
+				backgroundColor: window.chartColors.red,
+				data: [
+					penghu[1],penghu[2],penghu[3],penghu[4],penghu[5],penghu[6],
+          penghu[7],penghu[8],penghu[9],penghu[10],penghu[11],penghu[12],
+				]
+			}, {
+				label: '綠島',
+				backgroundColor: window.chartColors.orange,
+				data: [
+          green[1],green[2],green[3],green[4],green[5],green[6],
+          green[7],green[8],green[9],green[10],green[11],green[12],
+				]
+			}, {
+				label: '蘭嶼',
+				backgroundColor: window.chartColors.yellow,
+				data: [
+          lanyu[1],lanyu[2],lanyu[3],lanyu[4],lanyu[5],lanyu[6],
+          lanyu[7],lanyu[8],lanyu[9],lanyu[10],lanyu[11],lanyu[12],
+				]
+			}, {
+				label: '金門',
+				backgroundColor: window.chartColors.green,
+				data: [
+          kinmen[1],kinmen[2],kinmen[3],kinmen[4],kinmen[5],kinmen[6],
+          kinmen[7],kinmen[8],kinmen[9],kinmen[10],kinmen[11],kinmen[12],
+				]
+			}, {
+				label: '馬祖',
+				backgroundColor: window.chartColors.blue,
+				data: [
+          matsu[1],matsu[2],matsu[3],matsu[4],matsu[5],matsu[6],
+          matsu[7],matsu[8],matsu[9],matsu[10],matsu[11],matsu[12],
+				]
+			}, {
+				label: '代訂車',
+				backgroundColor: window.chartColors.gray,
+				data: [
+          car[1],car[2],car[3],car[4],car[5],car[6],
+          car[7],car[8],car[9],car[10],car[11],car[12],
+				]
+			}, {
+				label: '郵輪',
+				backgroundColor: '#9F35FF',
+				data: [
+          cruise[1],cruise[2],cruise[3],cruise[4],cruise[5],cruise[6],
+          cruise[7],cruise[8],cruise[9],cruise[10],cruise[11],cruise[12],
+				]
+			}, {
+				label: '季節旅遊',
+				backgroundColor: '#C07AB8',
+				data: [
+          season[1],season[2],season[3],season[4],season[5],season[6],
+          season[7],season[8],season[9],season[10],season[11],season[12],
+				]
+			}, {
+				label: '未知',
+				backgroundColor: '#AD5A5A',
+				data: [
+          unknown[1],unknown[2],unknown[3],unknown[4],unknown[5],unknown[6],
+          unknown[7],unknown[8],unknown[9],unknown[10],unknown[11],unknown[12],
+				]
+			}, {
+				label: '補助',
+				backgroundColor: '#C2C287',
+				data: [
+          subsidy[1],subsidy[2],subsidy[3],subsidy[4],subsidy[5],subsidy[6],
+          subsidy[7],subsidy[8],subsidy[9],subsidy[10],subsidy[11],subsidy[12],
+				]
+			}]
+
+		};
+		
+</script>
+
+<script>
+  
+
+
+  var randomScalingFactor = function() {
+    return Math.round(Math.random() * 100);
+  };
+
+  var config1 = {
+    type: 'doughnut',
+    data: {
+      datasets: [{
+        data: [
+          penghu[1],green[1],lanyu[1],kinmen[1],matsu[1],car[1],cruise[1],season[1],
+        ],
+        backgroundColor: [
+          window.chartColors.red,window.chartColors.orange,window.chartColors.yellow,
+          window.chartColors.green,window.chartColors.blue,window.chartColors.gray,'#9F35FF','#C07AB8',
+        ],
+        label: 'Dataset 1'
+      }],
+      labels: [
+        '澎湖','綠島','蘭嶼','金門','馬祖','代訂車','郵輪','季節旅遊'
+      ]
+    },
+    options: {
+      responsive: true,
+      legend: {
+        display: false,
+      },
+      title: {
+        display: true,
+        text: '1月'
+      },
+      animation: {
+        animateScale: true,
+        animateRotate: true
+      }
+    }
+  };
+
+  var config2 = {
+    type: 'doughnut',
+    data: {
+      datasets: [{
+        data: [
+          penghu[2],green[2],lanyu[2],kinmen[2],matsu[2],car[2],cruise[2],season[2],
+        ],
+        backgroundColor: [
+          window.chartColors.red,window.chartColors.orange,window.chartColors.yellow,
+          window.chartColors.green,window.chartColors.blue,window.chartColors.gray,'#9F35FF','#C07AB8',
+        ],
+        label: 'Dataset 1'
+      }],
+      labels: [
+        '澎湖','綠島','蘭嶼','金門','馬祖','代訂車','郵輪','季節旅遊'
+      ]
+    },
+    options: {
+      responsive: true,
+      legend: {
+        display: false,
+      },
+      title: {
+        display: true,
+        text: '2月'
+      },
+      animation: {
+        animateScale: true,
+        animateRotate: true
+      }
+    }
+  };
+
+  var config3 = {
+    type: 'doughnut',
+    data: {
+      datasets: [{
+        data: [
+          penghu[3],green[3],lanyu[3],kinmen[3],matsu[3],car[3],cruise[3],season[3],
+        ],
+        backgroundColor: [
+          window.chartColors.red,window.chartColors.orange,window.chartColors.yellow,
+          window.chartColors.green,window.chartColors.blue,window.chartColors.gray,'#9F35FF','#C07AB8',
+        ],
+        label: 'Dataset 1'
+      }],
+      labels: [
+        '澎湖','綠島','蘭嶼','金門','馬祖','代訂車','郵輪','季節旅遊'
+      ]
+    },
+    options: {
+      responsive: true,
+      legend: {
+        display: false,
+      },
+      title: {
+        display: true,
+        text: '3月'
+      },
+      animation: {
+        animateScale: true,
+        animateRotate: true
+      }
+    }
+  };
+
+  var config4 = {
+    type: 'doughnut',
+    data: {
+      datasets: [{
+        data: [
+          penghu[4],green[4],lanyu[4],kinmen[4],matsu[4],car[4],cruise[4],season[4],
+        ],
+        backgroundColor: [
+          window.chartColors.red,window.chartColors.orange,window.chartColors.yellow,
+          window.chartColors.green,window.chartColors.blue,window.chartColors.gray,'#9F35FF','#C07AB8',
+        ],
+        label: 'Dataset 1'
+      }],
+      labels: [
+        '澎湖','綠島','蘭嶼','金門','馬祖','代訂車','郵輪','季節旅遊'
+      ]
+    },
+    options: {
+      responsive: true,
+      legend: {
+        display: false,
+      },
+      title: {
+        display: true,
+        text: '4月'
+      },
+      animation: {
+        animateScale: true,
+        animateRotate: true
+      }
+    }
+  };
+
+  var config5 = {
+    type: 'doughnut',
+    data: {
+      datasets: [{
+        data: [
+          penghu[5],green[5],lanyu[5],kinmen[5],matsu[5],car[5],cruise[5],season[5],
+        ],
+        backgroundColor: [
+          window.chartColors.red,window.chartColors.orange,window.chartColors.yellow,
+          window.chartColors.green,window.chartColors.blue,window.chartColors.gray,'#9F35FF','#C07AB8',
+        ],
+        label: 'Dataset 1'
+      }],
+      labels: [
+        '澎湖','綠島','蘭嶼','金門','馬祖','代訂車','郵輪','季節旅遊'
+      ]
+    },
+    options: {
+      responsive: true,
+      legend: {
+        display: false,
+      },
+      title: {
+        display: true,
+        text: '5月'
+      },
+      animation: {
+        animateScale: true,
+        animateRotate: true
+      }
+    }
+  };
+
+  var config6 = {
+    type: 'doughnut',
+    data: {
+      datasets: [{
+        data: [
+          penghu[6],green[6],lanyu[6],kinmen[6],matsu[6],car[6],cruise[6],season[6],
+        ],
+        backgroundColor: [
+          window.chartColors.red,window.chartColors.orange,window.chartColors.yellow,
+          window.chartColors.green,window.chartColors.blue,window.chartColors.gray,'#9F35FF','#C07AB8',
+        ],
+        label: 'Dataset 1'
+      }],
+      labels: [
+        '澎湖','綠島','蘭嶼','金門','馬祖','代訂車','郵輪','季節旅遊'
+      ]
+    },
+    options: {
+      responsive: true,
+      legend: {
+        display: false,
+      },
+      title: {
+        display: true,
+        text: '6月'
+      },
+      animation: {
+        animateScale: true,
+        animateRotate: true
+      }
+    }
+  };
+
+  var config7 = {
+    type: 'doughnut',
+    data: {
+      datasets: [{
+        data: [
+          penghu[7],green[7],lanyu[7],kinmen[7],matsu[7],car[7],cruise[7],season[7],
+        ],
+        backgroundColor: [
+          window.chartColors.red,window.chartColors.orange,window.chartColors.yellow,
+          window.chartColors.green,window.chartColors.blue,window.chartColors.gray,'#9F35FF','#C07AB8',
+        ],
+        label: 'Dataset 1'
+      }],
+      labels: [
+        '澎湖','綠島','蘭嶼','金門','馬祖','代訂車','郵輪','季節旅遊'
+      ]
+    },
+    options: {
+      responsive: true,
+      legend: {
+        display: false,
+      },
+      title: {
+        display: true,
+        text: '7月'
+      },
+      animation: {
+        animateScale: true,
+        animateRotate: true
+      }
+    }
+  };
+
+  var config8 = {
+    type: 'doughnut',
+    data: {
+      datasets: [{
+        data: [
+          penghu[8],green[8],lanyu[8],kinmen[8],matsu[8],car[8],cruise[8],season[8],
+        ],
+        backgroundColor: [
+          window.chartColors.red,window.chartColors.orange,window.chartColors.yellow,
+          window.chartColors.green,window.chartColors.blue,window.chartColors.gray,'#9F35FF','#C07AB8',
+        ],
+        label: 'Dataset 1'
+      }],
+      labels: [
+        '澎湖','綠島','蘭嶼','金門','馬祖','代訂車','郵輪','季節旅遊'
+      ]
+    },
+    options: {
+      responsive: true,
+      legend: {
+        display: false,
+      },
+      title: {
+        display: true,
+        text: '8月'
+      },
+      animation: {
+        animateScale: true,
+        animateRotate: true
+      }
+    }
+  };
+
+  var config9 = {
+    type: 'doughnut',
+    data: {
+      datasets: [{
+        data: [
+          penghu[9],green[9],lanyu[9],kinmen[9],matsu[9],car[9],cruise[9],season[9],
+        ],
+        backgroundColor: [
+          window.chartColors.red,window.chartColors.orange,window.chartColors.yellow,
+          window.chartColors.green,window.chartColors.blue,window.chartColors.gray,'#9F35FF','#C07AB8',
+        ],
+        label: 'Dataset 1'
+      }],
+      labels: [
+        '澎湖','綠島','蘭嶼','金門','馬祖','代訂車','郵輪','季節旅遊'
+      ]
+    },
+    options: {
+      responsive: true,
+      legend: {
+        display: false,
+      },
+      title: {
+        display: true,
+        text: '9月'
+      },
+      animation: {
+        animateScale: true,
+        animateRotate: true
+      }
+    }
+  };
+
+  var config10 = {
+    type: 'doughnut',
+    data: {
+      datasets: [{
+        data: [
+          penghu[10],green[10],lanyu[10],kinmen[10],matsu[10],car[10],cruise[10],season[10],
+        ],
+        backgroundColor: [
+          window.chartColors.red,window.chartColors.orange,window.chartColors.yellow,
+          window.chartColors.green,window.chartColors.blue,window.chartColors.gray,'#9F35FF','#C07AB8',
+        ],
+        label: 'Dataset 1'
+      }],
+      labels: [
+        '澎湖','綠島','蘭嶼','金門','馬祖','代訂車','郵輪','季節旅遊'
+      ]
+    },
+    options: {
+      responsive: true,
+      legend: {
+        display: false,
+      },
+      title: {
+        display: true,
+        text: '10月'
+      },
+      animation: {
+        animateScale: true,
+        animateRotate: true
+      }
+    }
+  };
+
+  var config11 = {
+    type: 'doughnut',
+    data: {
+      datasets: [{
+        data: [
+          penghu[11],green[11],lanyu[11],kinmen[11],matsu[11],car[11],cruise[11],season[11],
+        ],
+        backgroundColor: [
+          window.chartColors.red,window.chartColors.orange,window.chartColors.yellow,
+          window.chartColors.green,window.chartColors.blue,window.chartColors.gray,'#9F35FF','#C07AB8',
+        ],
+        label: 'Dataset 1'
+      }],
+      labels: [
+        '澎湖','綠島','蘭嶼','金門','馬祖','代訂車','郵輪','季節旅遊'
+      ]
+    },
+    options: {
+      responsive: true,
+      legend: {
+        display: false,
+      },
+      title: {
+        display: true,
+        text: '11月'
+      },
+      animation: {
+        animateScale: true,
+        animateRotate: true
+      }
+    }
+  };
+
+  var config12 = {
+    type: 'doughnut',
+    data: {
+      datasets: [{
+        data: [
+          penghu[12],green[12],lanyu[12],kinmen[12],matsu[12],car[12],cruise[12],season[12],
+        ],
+        backgroundColor: [
+          window.chartColors.red,window.chartColors.orange,window.chartColors.yellow,
+          window.chartColors.green,window.chartColors.blue,window.chartColors.gray,'#9F35FF','#C07AB8',
+        ],
+        label: 'Dataset 1'
+      }],
+      labels: [
+        '澎湖','綠島','蘭嶼','金門','馬祖','代訂車','郵輪','季節旅遊'
+      ]
+    },
+    options: {
+      responsive: true,
+      legend: {
+        display: false,
+      },
+      title: {
+        display: true,
+        text: '12月'
+      },
+      animation: {
+        animateScale: true,
+        animateRotate: true
+      }
+    }
+  };
+
+
+  window.onload = function() {
+    var ctx = document.getElementById('chart-area1').getContext('2d');
+    window.myDoughnut1 = new Chart(ctx, config1);
+    var ctx = document.getElementById('chart-area2').getContext('2d');
+    window.myDoughnut2 = new Chart(ctx, config2);
+    var ctx = document.getElementById('chart-area3').getContext('2d');
+    window.myDoughnut3 = new Chart(ctx, config3);
+
+    var ctx = document.getElementById('chart-area4').getContext('2d');
+    window.myDoughnut4 = new Chart(ctx, config4);
+    var ctx = document.getElementById('chart-area5').getContext('2d');
+    window.myDoughnut5 = new Chart(ctx, config5);
+    var ctx = document.getElementById('chart-area6').getContext('2d');
+    window.myDoughnut6 = new Chart(ctx, config6);
+
+    var ctx = document.getElementById('chart-area7').getContext('2d');
+    window.myDoughnut7 = new Chart(ctx, config7);
+    var ctx = document.getElementById('chart-area8').getContext('2d');
+    window.myDoughnut8 = new Chart(ctx, config8);
+    var ctx = document.getElementById('chart-area9').getContext('2d');
+    window.myDoughnut9 = new Chart(ctx, config9);
+
+    var ctx = document.getElementById('chart-area10').getContext('2d');
+    window.myDoughnut10 = new Chart(ctx, config10);
+    var ctx = document.getElementById('chart-area11').getContext('2d');
+    window.myDoughnut11 = new Chart(ctx, config11);
+    var ctx = document.getElementById('chart-area12').getContext('2d');
+    window.myDoughnut12 = new Chart(ctx, config12);
+
+    var ctx = document.getElementById('canvas').getContext('2d');
+			window.myBar = new Chart(ctx, {
+				type: 'bar',
+				data: barChartData,
+				options: {
+					title: {
+						display: true,
+						text: '財報表'
+					},
+					tooltips: {
+						mode: 'index',
+						intersect: false
+					},
+					responsive: true,
+					scales: {
+						xAxes: [{
+							stacked: true,
+						}],
+						yAxes: [{
+							stacked: true
+						}]
+					}
+				}
+			});
+  };
+
+
+</script>
+</body>
+</html>
