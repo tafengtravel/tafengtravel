@@ -22,7 +22,10 @@
 
 <script src="https://www.gstatic.com/firebasejs/4.12.1/firebase-firestore.js"></script>
 
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+<link href="https://unpkg.com/bootstrap-table@1.17.1/dist/bootstrap-table.min.css" rel="stylesheet">
 
+<script src="https://unpkg.com/bootstrap-table@1.17.1/dist/bootstrap-table.min.js"></script>
 
 
 
@@ -69,6 +72,12 @@ a{
 .status{
   float:right;
   
+}.table-responsive {
+  display: block;
+  width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  -ms-overflow-style: -ms-autohiding-scrollbar;
 }
 </style> 
 
@@ -114,11 +123,11 @@ a{
 
 
 
-<div style="overflow-x:auto;">
+<div class="w3-responsive">
   <table id="myTable" class="w3-table-all w3-large" >
   <tr>
-    <th>筆數</th><th>團號</th><th><font color="red">團體</font></th><th>客服</th><th>出發日期</th><th>結束日期</th>
-    <th>團名</th><th>代表人</th><th>人數</th><th>聯絡電話</th><th>利潤</th><th>主管核實</th><th>備註</th><th>地點</th>
+    <th class="text-nowrap">筆數</th><th class="text-nowrap">團號</th><th class="text-nowrap"><font color="red">團體</font></th><th class="text-nowrap">客服</th><th class="text-nowrap">出發日期</th><th class="text-nowrap">結束日期</th>
+    <th class="text-nowrap">團名</th><th class="text-nowrap">代表人</th><th class="text-nowrap">人數</th><th class="text-nowrap">聯絡電話</th><th class="text-nowrap">利潤</th><th class="text-nowrap">主管核實</th><th class="text-nowrap">備註</th><th class="text-nowrap">地點</th>
   </tr>
  </table>
 </div>
