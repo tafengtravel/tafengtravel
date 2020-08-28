@@ -73,22 +73,30 @@
   <input type="text" id="mail" disabled="disabled" style="font-size:20px ; background-color: transparent; border:none; text-align: center; font-family:Microsoft JhengHei;font-weight:bold;">
 </span>
 
-<span class="lable2" ><label>搜尋月份：</label></span>  <input type="date" id="filedate" style="font-size:30px">
-&emsp;<button onclick="clear1()" type="button" style="font-size:30px"  >清除</button>
-&emsp;<button onclick="search()" type="button" style="font-size:30px"  >查詢</button>
+<div class="w3-row">
 
-&emsp;<span class="lable2" ><label>總利潤：</label></span>
-<input type="text" id="totalprofit" style="font-size:20px ;width:100px; background-color: transparent; border:none; text-align: left; font-family:Microsoft JhengHei;font-weight:bold;">
-&emsp;<span class="lable2" ><label>總人數：</label></span>
-<input type="text" id="totalpeople" style="font-size:20px ;width:100px; background-color: transparent; border:none; text-align: left; font-family:Microsoft JhengHei;font-weight:bold;">
+  <div class="w3-col s12 m6 l3 ">
+    <span class="lable2" ><label>搜尋月份：</label></span>
+    <input type="date" id="depdate" style="font-size:20px">
+    <button onclick="search()" type="button" style="font-size:20px"  >查詢</button>
+  </div>
+  <div class="w3-col s12 m6 l4 ">
+    <span class="lable2" ><label>總利潤：</label></span>
+    <input type="text" id="totalprofit" style="font-size:20px ;width:100px; background-color: transparent; border:none; text-align: left; font-family:Microsoft JhengHei;font-weight:bold;">
+    <span class="lable2" ><label>總人數：</label></span>
+    <input type="text" id="totalpeople" style="font-size:20px ;width:100px; background-color: transparent; border:none; text-align: left; font-family:Microsoft JhengHei;font-weight:bold;">
+  </div>
+</div>
 
 
-<table class="table" id="myTable">
+<div class="w3-responsive">
+  <table id="myTable" class="w3-table-all w3-large" >
   <tr>
-    <td>筆數</td><td>團號</td><td><font color="red">團體</font></td><td>客服</td><td>出發日期</td><td>結束日期</td>
-    <td>團名</td><td>代表人</td><td>人數</td><td>報帳日期</td><td>主管核實</td><td>收入</td><td>OP核實</td>
+    <th class="text-nowrap">筆數</th><th class="text-nowrap">團號</th><th class="text-nowrap"><font color="red">團體</font></th><th class="text-nowrap">客服</th><th class="text-nowrap">出發日期</th><th class="text-nowrap">結束日期</th>
+    <th class="text-nowrap">團名</th><th class="text-nowrap">代表人</th><th class="text-nowrap">人數</th><th class="text-nowrap">報帳日期</th><th class="text-nowrap">主管核實</th><th class="text-nowrap">收入</th><th class="text-nowrap">OP核實</th>
   </tr>
  </table>
+</div>
 
 
 
