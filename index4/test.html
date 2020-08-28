@@ -75,212 +75,300 @@
 
 
 
-<div class="row justify-content-center">
-  <span class="lable1" >合約注意事項</span><br><br>
-</div>
-<div class="container">
-  <div class="row justify-content-center">
-    <div class="col-12 col-xl-8 col-md-12 col-s-12">
-      <span class="lable">合約審閱期為一日，如合約有任何問題請直接於line上向專員反應</span><br>
-    </div>
+<span class="status" >
+  <input type="text" id="mail" disabled="disabled" style="font-size:20px ; background-color: transparent; border:none; text-align: center; font-family:Microsoft JhengHei;font-weight:bold;">
+</span>
+
+
+<div class="w3-row">
+  <div class="w3-col s12 m4 l2 "lable2>
+    <span class="lable2" ><label>搜尋月份：</label></span>
+    <input type="date" id="depdate" style="font-size:20px">
+  </div>
+  <div class="w3-col s6 m4 l1 ">
+    <span class="lable2" ><label>客服：</label></span>  
+
+    <select id="cs" style="font-size:20px">
+      <option value="all">全部</option><option value="A1">A1</option><option value="A2">A2</option><option value="A3">A3</option><option value="A4">A4</option>
+      <option value="B1">B1</option><option value="B2">B2</option><option value="B3">B3</option><option value="B4">B4</option>
+      <option value="B5">B5</option><option value="B6">B6</option><option value="B7">B7</option><option value="B8">B8</option>
+      <option value="B9">B9</option><option value="B10">B10</option><option value="B11">B11</option><option value="B12">B12</option>
+    </select>
+  </div>
+  <div class="w3-col s6 m4 l2">
+    <span class="lable2" ><label>排序：</label></span>  
+    <select id="orderby" style="font-size:20px">
+      <option value="團號">團號</option><option value="出發日期">出發日期</option>
+    </select>
+    <button onclick="search()" id ="search"  type="button" style="font-size:20px"  >查詢</button>
+  </div>
+
+  <div class="w3-col m4 l2 ">
+    <span class="lable2" ><label>營業額：</label></span>
+    <input type="text" id="revenue" style="font-size:20px ;width:100px; background-color: transparent; border:none; text-align: left; font-family:Microsoft JhengHei;font-weight:bold;">
+  </div>
+  <div class="w3-col m4 l2 ">
+    <span class="lable2" ><label>總利潤：</label></span>
+    <input type="text" id="totalprofit" style="font-size:20px ;width:100px; background-color: transparent; border:none; text-align: left; font-family:Microsoft JhengHei;font-weight:bold;">
+  </div>
+  <div class="w3-col m4 l2 ">
+    <span class="lable2" ><label>總人數：</label></span>
+    <input type="text" id="totalpeople" style="font-size:20px ;width:100px; background-color: transparent; border:none; text-align: left; font-family:Microsoft JhengHei;font-weight:bold;">
   </div>
 </div>
-<br>
 
 
-
-<div class="text-center"> 
-<div class="container">
-<div class="row justify-content-xl-center">
-
-
-  <div class="col-12 col-xl-12 col-lg-12 col-md-12 col-sm-12">
-  <span class="lable" ><label>&emsp;團號：</label></span><input type="text" id="number" style="font-size:25px ; ">
-  </div>
-
-
-  <div class="col-12 col-xl-12 col-lg-12 col-md-12 col-sm-12">
-  <span class="lable" ><label>代表人：</label></span><input type="text" id="people" style="font-size:25px;  ">
-  </div>
-  <div class="col-12 col-xl-12 col-lg-12 col-md-12 col-sm-12">
-  <button onclick="search()" id ="search"  type="button" style="font-size:25px"  >查詢</button>
-  </div>
-</div>
-</div>
-</div>
-<div class="col-12 col-xl-12 col-md-12 col-s-12">
-<iframe id='iframe123' frameborder="0" width=100% height='1000px'></iframe>
-</div>
-
-
-<br> 
-<div class="text-center"> 
-<div class="container">
-<div class="row ">
-    <div class="col">
-		<a href="https://www.facebook.com/tafengtour/">
-        <img src="https://raw.githubusercontent.com/tafengtravel/tafengtravel/master/index/image/fb1.png"  width="140"   class="figure-img img-fluid rounded" alt="">
-    </a></div>
-    <div class="col">
-		<a href="http://line.me/R/ti/p/%40zok5012a">
-        <img id="contact" src="https://raw.githubusercontent.com/tafengtravel/tafengtravel/master/index/image/line1.png" width="140"  class="figure-img img-fluid rounded" alt="">
-    </a></div>
-    <div class="col">
-		<a href="https://www.instagram.com/tafengtour/">
-        <img src="https://raw.githubusercontent.com/tafengtravel/tafengtravel/master/index/image/ig1.png"  width="140"   class="figure-img img-fluid rounded" alt="">
-    </a></div>
-	<div class="col">
-		<a href="http://www.tafeng66.com.tw/webeip/HT00215/customizetour.asp">
-        <img src="https://raw.githubusercontent.com/tafengtravel/tafengtravel/master/index/image/wechat1.png" width="140"   class="figure-img img-fluid rounded" alt="">
-    </a></div>
-  </div>  
- </div>
-
-</div>
-
-<br>
-
-<div class="container">
-<div class="row justify-content-center">
-<table class="table table-borderless table-sm col-10 col-xl-10 ">
-    <tr class="text-center">      
-	  <th scope="col" COLSPAN=2>大豐旅行社有限公司 TA FENG TRAVEL SERVICE CO.,LTD</th>
-    </tr>
-    <tr class="text-center">
-      <th scope="col" >高雄總公司</th>
-	  <th scope="col">電話:(07)552-3515</th>
-    </tr>
-   	<tr class="text-center">
-      <th scope="col" >台中分公司</th>
-	  <th scope="col">電話:(04)2202-5602&emsp;2202-5603</th>
-    </tr>
-	<tr class="text-center">
-      <th scope="col" >台北辦事處</th>
-	   <th scope="col">電話:(02)2500-0611&emsp;2500-0612</th>
-    </tr>
-</table>
-</div>
+<div class="w3-responsive">
+  <table id="myTable" class="w3-table-all w3-large" >
+  <tr>
+    <th class="text-nowrap">筆數</th><th class="text-nowrap">團號</th><th class="text-nowrap"><font color="red">團體</font>
+    </th><th class="text-nowrap">客服</th><th class="text-nowrap">出發日期&emsp;&emsp;</th>
+    <th class="text-nowrap">結束日期&emsp;&emsp;</th><th class="text-nowrap">團名&emsp;&emsp;</th><th class="text-nowrap">代表人&emsp;&emsp;</th>
+    <th class="text-nowrap">人數</th><th class="text-nowrap">聯絡電話</th><th class="text-nowrap">利潤</th><th class="text-nowrap">主管核實</th><th class="text-nowrap">備註&emsp;&emsp;&emsp;&emsp;</th><th class="text-nowrap">地點&emsp;</th>
+  </tr>
+ </table>
 </div>
 
 
 
-<!--
-<div class="lable1" id="id" style =  >已登入帳號：</div> 
-<div class="lable1" id="id1" style =  ></div>
--->
-
-
-<script src="secure.js" async>
-</script>
 
 
 
+ <script src="secure.js" async></script>
 
+<script>  
 
-
-
-
-
-<script type="text/javascript" src="datauri.js"></script>
-<script src="imguri.js"></script>
-<script src="imguri1.js"></script>
-<script>
+let number;
+let del;
 
 function info(){
     
 }
 
-</script>
+
+function clear1(){
+  
+  window.location.reload("");
+}
 
 
+async function search(){  
 
-<script>
+  var db = firebase.firestore();
+  var depdate = document.getElementById("depdate").value; 
+  var cs = document.getElementById("cs").value;
+  var orderby = document.getElementById("orderby").value;
+  var table = document.getElementById("myTable");
 
-function search(){
+  if(depdate == ""){
+    alert('請選取月份');
+    window.location.reload("");
+  }else{
+  }
 
-  let db = firebase.firestore();
-  let number = document.getElementById("number").value; 
-  let people = document.getElementById("people").value; 
+  
+//判斷是否為0即刪除
+  if(del==0){
+    number=1;
+  }
+  del = 0;
+  console.log(number);
+  for(j=1;j<number;j++){
+    table.deleteRow(1);
 
-  let ref = db.collection('contract').doc(number);
-
-    ref.get().then(doc => {
-
-    i=parseInt(doc.id);
-    console.log(i);
-
-    if (doc.data().代表人 == people){
-      show(doc.data());
-    }else if (doc.data() != people){
-      alert('資料錯誤');
-      return 0; 
-    }
-
+  }
+//------------
 
 
+  if(cs == 'all'){
+  var ref = db.collection(depdate.substring(0,4)+'-'+depdate.substring(5,7));
+  var id1=[];
+  var data1=[];
+  var j =0;
+  var cell = [];
+  var i=1;
+
+  var row;
+  var check;let check1;
+  var totalprofit = 0;
+  var profit = 0;
+  var people = 0;
+  var totalpeople = 0;
+  let tax = 0;
+  let revenue = 0;
+  let price = 0;
+
+  await ref.orderBy(orderby, 'asc').get().then(querySnapshot => {
+    querySnapshot.forEach(doc => {       
+
+      profit = parseInt(doc.data().利潤);
+      people = parseInt(doc.data().人數);
+      tax = parseInt(doc.data().稅金);
+
+      price = parseInt(doc.data().團費);
+      revenue = price+revenue;
+
+      if (isNaN(tax)){
+        tax=0;
+      }
+      profit = profit+tax;
+
+      totalprofit = parseInt(totalprofit);
+      totalpeople = parseInt(totalpeople);
+
+      if(profit>10000){
+        check = "●";
+      }else{
+        check = "";
+      }
+
+      if(doc.data().martina核實 == 'True'){
+        check1="●";
+      }else if(doc.data().martina核實 == 'False'){
+        check1="";
+      }
+
+      row = table.insertRow(i);
+      cell[0] = row.insertCell(0);
+      cell[0].innerHTML=i;
+      cell[1] = row.insertCell(1);
+      cell[1].innerHTML=doc.id;
+      cell[2] = row.insertCell(2);
+      cell[2].innerHTML=check;
+      cell[3] = row.insertCell(3);
+      cell[3].innerHTML=doc.data().客服;
+      cell[4] = row.insertCell(4);
+      cell[4].innerHTML=doc.data().出發日期;
+      cell[5] = row.insertCell(5);
+      cell[5].innerHTML=doc.data().結束日期;
+      cell[6] = row.insertCell(6);
+      cell[6].innerHTML=doc.data().團名;
+      cell[7] = row.insertCell(7);
+      cell[7].innerHTML=doc.data().代表人;
+      cell[8] = row.insertCell(8);
+      cell[8].innerHTML=doc.data().人數;
+      cell[9] = row.insertCell(9);
+      cell[9].innerHTML=doc.data().聯絡電話;
+      cell[10] = row.insertCell(10);
+      cell[10].innerHTML=doc.data().利潤;
+      cell[11] = row.insertCell(11);
+      cell[11].innerHTML=check1;
+      cell[12] = row.insertCell(12);
+      cell[12].innerHTML=doc.data().其他項備註;
+      cell[13] = row.insertCell(13);
+      cell[13].innerHTML=doc.data().地點;
+      i=i+1;
+      totalprofit = totalprofit + profit ;
+      totalpeople = totalpeople+ people ;
+
+      console.log(i)
+
+      number=i;
+      del=1;
+
+    });
+  });
+  document.getElementById("totalprofit").value =totalprofit;
+  document.getElementById("totalpeople").value =totalpeople;
+  document.getElementById("revenue").value =revenue;
+
+  }else{
+  var ref = db.collection(depdate.substring(0,4)+'-'+depdate.substring(5,7));
+  var id1=[];
+  var data1=[];
+  var j =0;
+  var cell = [];
+  var i=1;
+
+  var row;
+  var check;let check1;
+  var totalprofit = 0;
+  var totalpeople = 0;
+  var profit = 0;
+  let tax = 0;
+  let revenue = 0;
+
+  await ref.orderBy(orderby, 'asc').where('客服','==',cs).get().then(querySnapshot => {
+    querySnapshot.forEach(doc => {    
+      profit = parseInt(doc.data().利潤);
+      people = parseInt(doc.data().人數);
+      tax = parseInt(doc.data().稅金);
+      
+      price = parseInt(doc.data().團費);
+      revenue = price+revenue;
+
+      if (isNaN(tax)){
+        tax=0;
+      }
+
+      profit = profit+tax;
+      
+      totalprofit = parseInt(totalprofit);
+      totalpeople = parseInt(totalpeople);
+
+      
+
+      if(profit>10000){
+        check = "●";
+      }else{
+        check = "";
+      }
+
+      if(doc.data().martina核實 == 'True'){
+        check1="●";
+      }else if(doc.data().martina核實 == 'False'){
+        check1="";
+      }
+
+      row = table.insertRow(i);
+      cell[0] = row.insertCell(0);
+      cell[0].innerHTML=i;
+      cell[1] = row.insertCell(1);
+      cell[1].innerHTML=doc.id;
+      cell[2] = row.insertCell(2);
+      cell[2].innerHTML=check;
+      cell[3] = row.insertCell(3);
+      cell[3].innerHTML=doc.data().客服;
+      cell[4] = row.insertCell(4);
+      cell[4].innerHTML=doc.data().出發日期;
+      cell[5] = row.insertCell(5);
+      cell[5].innerHTML=doc.data().結束日期;
+      cell[6] = row.insertCell(6);
+      cell[6].innerHTML=doc.data().團名;
+      cell[7] = row.insertCell(7);
+      cell[7].innerHTML=doc.data().代表人;
+      cell[8] = row.insertCell(8);
+      cell[8].innerHTML=doc.data().人數;
+      cell[9] = row.insertCell(9);
+      cell[9].innerHTML=doc.data().聯絡電話;
+      cell[10] = row.insertCell(10);
+      cell[10].innerHTML=doc.data().利潤;
+      cell[11] = row.insertCell(11);
+      cell[11].innerHTML=check1;
+      cell[12] = row.insertCell(12);
+      cell[12].innerHTML=doc.data().其他項備註;
+      i=i+1;
+      totalprofit = totalprofit + profit ;
+      totalpeople = totalpeople+ people ;
+
+      number=i;
+      del=1;
+      
+
+    });
   });
 
 
-}
 
-function show(data){
-  let people = data.代表人;
-  let name = data.團名;
-  let depdate = data.出發日期;
-  let enddate = data.結束日期;
-  let price = data.團費;
-  let contractdownpay = data.定金;
-  let contractother = data.合約備註;
-  let pricedetail;
-  let date;
-
-  let year = data.合約年;
-  let month = data.合約月;
-  let day = data.合約日;
-
-  pricedetail = depdate+'~'+enddate+" "+name+" "+'團費共$'+price
-
-  let Today=new Date();
-  date = year+"      "+month+"      "+day;
-
-  //--------------JSpdf-------------
-  window.jsPDF = window.jspdf.jsPDF
-
-  // Don't forget, that there are CORS-Restrictions. So if you want to run it without a Server in your Browser you need to transform the image to a dataURL
-  // Use http://dataurl.net/#dataurlmaker
-  window.jsPDF.API.events.push(['addFonts', function () {
-  this.addFileToVFS('BiauKai-normal.ttf', res);
-  this.addFont('BiauKai-normal.ttf', 'BiauKai', 'normal');
-  // console.log('BiauKai-normal ok')
-  }])
-
-  var doc = new jsPDF();  
-
-  doc.setFont('BiauKai')
-  doc.addImage(img, "JPEG", 5, 5, 200, 280);
-  doc.setFontSize(10);
-  
-  doc.text(people, 29, 47.5);      
-  doc.text(depdate, 39, 143);
-  doc.text(pricedetail, 12, 171);
-  doc.text('定金$'+contractdownpay, 32, 190.5);
-
-  doc.addPage();     
-  doc.addImage(img1, "JPEG", 5, 5, 200, 280);
-  doc.text(contractother, 113, 17);
-  doc.text(date, 141, 261);
-  document.getElementById('iframe123').src = doc.output('datauri');
-
+  document.getElementById("totalprofit").value =totalprofit;
+  document.getElementById("totalpeople").value =totalpeople;
+  document.getElementById("revenue").value =revenue;
+  } 
 
 }
-
- 
-
-
-
-
 
 
 </script>
+
 </body>
 </html>
