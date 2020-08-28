@@ -78,33 +78,51 @@
   <input type="text" id="mail" disabled="disabled" style="font-size:20px ; background-color: transparent; border:none; text-align: center; font-family:Microsoft JhengHei;font-weight:bold;">
 </span>
 
-<span class="lable2" ><label>搜尋月份：</label></span>  <input type="date" id="depdate" style="font-size:30px">
-<span class="lable2" ><label>客服：</label></span>  
-  <select id="cs" style="font-size:30px">
-    <option value="all">全部</option><option value="A1">A1</option><option value="A2">A2</option><option value="A3">A3</option><option value="A4">A4</option>
-    <option value="B1">B1</option><option value="B2">B2</option><option value="B3">B3</option><option value="B4">B4</option>
-    <option value="B5">B5</option><option value="B6">B6</option><option value="B7">B7</option><option value="B8">B8</option>
-    <option value="B9">B9</option><option value="B10">B10</option><option value="B11">B11</option><option value="B12">B12</option>
-  </select>
-<span class="lable2" ><label>排序：</label></span>  
-  <select id="orderby" style="font-size:30px">
-    <option value="團號">團號</option><option value="出發日期">出發日期</option>
-  </select>
-&emsp;<button onclick="search()" id ="search"  type="button" style="font-size:30px"  >查詢</button>
 
-&emsp;<span class="lable2" ><label>營業額：</label></span>
-<input type="text" id="revenue" style="font-size:20px ;width:100px; background-color: transparent; border:none; text-align: left; font-family:Microsoft JhengHei;font-weight:bold;">
-&emsp;<span class="lable2" ><label>總利潤：</label></span>
-<input type="text" id="totalprofit" style="font-size:20px ;width:100px; background-color: transparent; border:none; text-align: left; font-family:Microsoft JhengHei;font-weight:bold;">
-&emsp;<span class="lable2" ><label>總人數：</label></span>
-<input type="text" id="totalpeople" style="font-size:20px ;width:100px; background-color: transparent; border:none; text-align: left; font-family:Microsoft JhengHei;font-weight:bold;">
+<div class="w3-row">
+  <div class="w3-col s12 m4 l2 "lable2>
+    <span class="lable2" ><label>搜尋月份：</label></span>
+    <input type="date" id="depdate" style="font-size:20px">
+  </div>
+  <div class="w3-col s4 m4 l1 ">
+    <span class="lable2" ><label>客服：</label></span>  
+
+    <select id="cs" style="font-size:20px">
+      <option value="all">全部</option><option value="A1">A1</option><option value="A2">A2</option><option value="A3">A3</option><option value="A4">A4</option>
+      <option value="B1">B1</option><option value="B2">B2</option><option value="B3">B3</option><option value="B4">B4</option>
+      <option value="B5">B5</option><option value="B6">B6</option><option value="B7">B7</option><option value="B8">B8</option>
+      <option value="B9">B9</option><option value="B10">B10</option><option value="B11">B11</option><option value="B12">B12</option>
+    </select>
+  </div>
+  <div class="w3-col s8 m4 l2">
+    <span class="lable2" ><label>排序：</label></span>  
+    <select id="orderby" style="font-size:20px">
+      <option value="團號">團號</option><option value="出發日期">出發日期</option>
+    </select>
+    <button onclick="search()" id ="search"  type="button" style="font-size:20px"  >查詢</button>
+  </div>
+
+  <div class="w3-col m4 l2 ">
+    <span class="lable2" ><label>營業額：</label></span>
+    <input type="text" id="revenue" style="font-size:20px ;width:100px; background-color: transparent; border:none; text-align: left; font-family:Microsoft JhengHei;font-weight:bold;">
+  </div>
+  <div class="w3-col m4 l2 ">
+    <span class="lable2" ><label>總利潤：</label></span>
+    <input type="text" id="totalprofit" style="font-size:20px ;width:100px; background-color: transparent; border:none; text-align: left; font-family:Microsoft JhengHei;font-weight:bold;">
+  </div>
+  <div class="w3-col m4 l2 ">
+    <span class="lable2" ><label>總人數：</label></span>
+    <input type="text" id="totalpeople" style="font-size:20px ;width:100px; background-color: transparent; border:none; text-align: left; font-family:Microsoft JhengHei;font-weight:bold;">
+  </div>
+</div>
+
 
 
 <div class="w3-responsive">
   <table id="myTable" class="w3-table-all w3-large" >
   <tr>
-    <th class="text-nowrap">筆數</td><th class="text-nowrap">團號</td><th class="text-nowrap"><font color="red">團體</font></td><th class="text-nowrap">客服</td><th class="text-nowrap">出發日期</td><th class="text-nowrap">結束日期</td>
-    <th class="text-nowrap">團名</td><th class="text-nowrap">公司名稱</td><th class="text-nowrap">代表人</td><th class="text-nowrap">人數</td><th class="text-nowrap">聯絡電話</td><th class="text-nowrap">利潤</td><th class="text-nowrap">備註</td>
+    <th class="text-nowrap">筆數</th><th class="text-nowrap">團號</th><th class="text-nowrap"><font color="red">團體</font></th><th class="text-nowrap">客服</th><th class="text-nowrap">出發日期</th><th class="text-nowrap">結束日期</th>
+    <th class="text-nowrap">團名</th><th class="text-nowrap">公司名稱</th><th class="text-nowrap">代表人</th><th class="text-nowrap">人數</th><th class="text-nowrap">聯絡電話</th><th class="text-nowrap">利潤</th><th class="text-nowrap">備註</th>
   </tr>
  </table>
  </div>>
