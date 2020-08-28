@@ -1,12 +1,24 @@
 .table {
     font-size: 22px;
   }
+
+  #myTable{
+    font-size: 20px;
+  }
   
   @media(max-width:768px) {
   .table {
       font-size: 10px;
     }
+
+  #myTable{
+      font-size: 10px;
+    }
+
   }
+
+ 
+  
   
   .table2 {
     font-size: 48px;
