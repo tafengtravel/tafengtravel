@@ -1,0 +1,48 @@
+.table1 {
+    font-size: 30px;
+}
+.lable {
+    font-size: 20px;
+    font-family:Microsoft JhengHei;
+    
+}
+.lable2 {
+    font-size: 20px;
+    font-family:Microsoft JhengHei;
+    font-weight:bold;
+}
+
+table  {
+    border: none ;
+    text-align:center;
+    font-family:Microsoft JhengHei;
+    font-weight:bold;
+ 
+  
+}
+
+
+.lable1 {
+    font-size: 30px;
+    font-weight:bold;
+    font-family:Microsoft JhengHei;
+
+}
+
+.title
+{
+    font-size: 40px;
+    text-align: center;
+    font-family:Microsoft JhengHei;
+    font-weight:bold;
+    width:"100%";    
+
+}   
+a{
+  color:black; 
+  text-decoration:none;
+} 
+.status{
+  float:right;
+  
+}
