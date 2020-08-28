@@ -1,288 +1,23 @@
 <!DOCTYPE html>
 <html>
 <head>
-<!-- SmartMenus core CSS (required) -->
+
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+<link rel="icon" href="https://tafengtravel.github.io/tafengtravel/index1/tafenglogo6.ico" type="image/x-icon" />
+<link rel="shortcut icon" href="https://tafengtravel.github.io/tafengtravel/index1/tafenglogo6.ico" type="image/x-icon" />
+
 <link href='https://tafengtravel.github.io/tafengtravel/index/sm-css/sm-core-css.css' rel='stylesheet' type='text/css' />
 <!-- "sm-blue" menu theme (optional, you can use your own CSS, too) -->
 <link href='https://tafengtravel.github.io/tafengtravel/index/sm-css/sm-mint/sm-mint.css' rel='stylesheet' type='text/css' />
-
-<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.0.0-beta.3/assets/owl.carousel.min.css'>
-<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.0.0-beta.3/assets/owl.theme.default.min.css'><link rel="stylesheet" href="./style.css">
-
+<link href='smart1.css' rel='stylesheet' type='text/css'>
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-<link rel='stylesheet' href='table.css'>
 
-<link href='https://tafengtravel.github.io/tafengtravel/index/sm-css/sm-core-css.css' rel='stylesheet' type='text/css' />
-<!-- "sm-blue" menu theme (optional, you can use your own CSS, too) -->
-<link href='https://tafengtravel.github.io/tafengtravel/index/sm-css/sm-mint/sm-mint.css' rel='stylesheet' type='text/css' />
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.0.0/jspdf.umd.min.js"></script>
+
+
+<link rel='stylesheet' href='table.css'>
 <style>
  
- .table1 {
-      font-size: 30px;
-  }
-  .lable {
-      font-size: 25px;
-      font-family:Microsoft JhengHei;
-      font-weight:bold;
-  }
-  .lable2 {
-      font-size: 20px;
-      font-family:Microsoft JhengHei;
-      color: 	#5B5B5B;
-      font-weight:bold;
-  }
-  
-
-  
-  
-  .lable1 {
-      font-size: 30px;
-      font-weight:bold;
-      font-family:Microsoft JhengHei;
-  
-  }
-  
-  .title
-  {
-      font-size: 60px;
-      text-align: center;
-      font-family:Microsoft JhengHei;
-      font-weight:bold;
-      width:"100%";    
-      background-color:	#AAFFEE;
-  }   
-  a{
-    color:black; 
-    text-decoration:none;
-  } 
-  .status{
-    float:right;
-    
-  }
-  </style> 
-
-<style>  
-  .table {
-    font-size: 22px;
-  }
-  
-  @media(max-width:768px) {
-  .table {
-      font-size: 10px;
-    }
-  .lable {
-    font-size: 15px;
-    font-family:Microsoft JhengHei;
-    font-weight:bold;
-    }
-  .lable1 {
-    font-size: 20px;
-    font-family:Microsoft JhengHei;
-    font-weight:bold;
-  }
-  }
-  
-  
-  
-  .main-nav {
-    border-bottom: 2px solid #FF6600;
-    background: #fff;
-  }
-  
-  .main-nav:after {
-    clear: both;
-    content: "\00a0";
-    display: block;
-    height: 0;
-    font: 0px/0 serif;
-    overflow: hidden;
-  }
-  
-  .nav-brand {
-    float: left;
-    margin: 0;
-  }
-  
-  .nav-brand a {
-    display: block;
-    padding: 11px 11px 11px 20px;
-    color: #333;
-    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-    font-size: 22px;
-    font-weight: normal;
-    line-height: 17px;
-    text-decoration: none;
-  }
-  
-  #main-menu {
-    clear: both;
-    border-bottom: 0;
-  }
-  
-  @media (min-width: 768px) {
-    #main-menu {
-      float: right;
-      clear: none;
-    }
-  }
-  
-  
-  /* Mobile menu toggle button */
-  
-  .main-menu-btn {
-    float: right;
-    margin: 5px 10px;
-    position: relative;
-    display: inline-block;
-    width: 29px;
-    height: 29px;
-    text-indent: 29px;
-    white-space: nowrap;
-    overflow: hidden;
-    cursor: pointer;
-    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-  }
-  
-  
-  /* hamburger icon */
-  
-  .main-menu-btn-icon,
-  .main-menu-btn-icon:before,
-  .main-menu-btn-icon:after {
-    position: absolute;
-    top: 50%;
-    left: 2px;
-    height: 2px;
-    width: 24px;
-    background: #333;
-    -webkit-transition: all 0.25s;
-    transition: all 0.25s;
-  }
-  
-  .main-menu-btn-icon:before {
-    content: '';
-    top: -7px;
-    left: 0;
-  }
-  
-  .main-menu-btn-icon:after {
-    content: '';
-    top: 7px;
-    left: 0;
-  }
-  
-  
-  /* x icon */
-  
-  #main-menu-state:checked ~ .main-menu-btn .main-menu-btn-icon {
-    height: 0;
-    background: transparent;
-  }
-  
-  #main-menu-state:checked ~ .main-menu-btn .main-menu-btn-icon:before {
-    top: 0;
-    -webkit-transform: rotate(-45deg);
-    transform: rotate(-45deg);
-  }
-  
-  #main-menu-state:checked ~ .main-menu-btn .main-menu-btn-icon:after {
-    top: 0;
-    -webkit-transform: rotate(45deg);
-    transform: rotate(45deg);
-  }
-  
-  
-  /* hide menu state checkbox (keep it visible to screen readers) */
-  
-  #main-menu-state {
-    position: absolute;
-    width: 1px;
-    height: 1px;
-    margin: -1px;
-    border: 0;
-    padding: 0;
-    overflow: hidden;
-    clip: rect(1px, 1px, 1px, 1px);
-  }
-  
-  
-  /* hide the menu in mobile view */
-  
-  #main-menu-state:not(:checked) ~ #main-menu {
-    display: none;
-  }
-  
-  #main-menu-state:checked ~ #main-menu {
-    display: block;
-  }
-  
-  @media (min-width: 768px) {
-    /* hide the button in desktop view */
-    .main-menu-btn {
-      position: absolute;
-      top: -99999px;
-    }
-    /* always show the menu in desktop view */
-    #main-menu-state:not(:checked) ~ #main-menu {
-      display: block;
-    }
-  }
-  
-  
-  /* IGNORE: Unrelated generic demo styles */
-  
-  body {
-    margin: 8px;
-    background: #fff;
-    color: #000000;
-    font: 18px/1.5em 'Helvetica Neue',Microsoft JhengHei;;
-  }
-  
-  .demo-text {
-    margin: 3em 22px;
-  }
-  
-  .demo-text p {
-    margin-bottom: 1em;
-  }
-  
-  .demo-text a {
-    color: #999;
-  }
 </style>
-
-<script type="text/javascript">
-
-  $(function() {
-    $('#main-menu').smartmenus({
-      subMenusSubOffsetX: 6,
-      subMenusSubOffsetY: -8
-    });
-  });
-  
-  // SmartMenus mobile menu toggle button
-  $(function() {
-    var $mainMenuState = $('#main-menu-state');
-    if ($mainMenuState.length) {
-      // animate mobile menu
-      $mainMenuState.change(function(e) {
-        var $menu = $('#main-menu');
-        if (this.checked) {
-          $menu.hide().slideDown(250, function() { $menu.css('display', ''); });
-        } else {
-          $menu.show().slideUp(250, function() { $menu.css('display', ''); });
-        }
-      });
-      // hide mobile menu beforeunload
-      $(window).bind('beforeunload unload', function() {
-        if ($mainMenuState[0].checked) {
-          $mainMenuState[0].click();
-        }
-      });
-    }
-  });
-  </script>  
 
 
 </head>
@@ -301,7 +36,7 @@
 
 <script src="https://www.gstatic.com/firebasejs/4.12.1/firebase-firestore.js"></script>
 
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+
 
 
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
@@ -319,7 +54,7 @@
   <!-- Mobile menu toggle button (hamburger/x icon) -->
   <input id="main-menu-state" type="checkbox" />
   <label class="main-menu-btn" for="main-menu-state">
-    <span class="main-menu-btn-icon"></span> 
+    <span class="main-menu-btn-icon"></span> Toggle main menu visibility
   </label>
 
   <h2 class="nav-brand"><span class="title" >報帳系統__管理員</span></h2>
