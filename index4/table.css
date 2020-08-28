@@ -9,7 +9,7 @@
 .lable2 {
     font-size: 20px;
     font-family:Microsoft JhengHei;
-    font-weight:bold;
+    
 }
 
 table  {
@@ -37,7 +37,18 @@ table  {
     font-weight:bold;
     width:"100%";    
 
-}   
+} 
+
+@media(max-width:768px) {
+.title{
+    font-size: 20px;
+    text-align: center;
+    font-family:Microsoft JhengHei;
+    font-weight:bold;
+    width:"100%";    
+    }   
+}
+  
 a{
   color:black; 
   text-decoration:none;
