@@ -8,7 +8,7 @@
 
 <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.0.0-beta.3/assets/owl.carousel.min.css'>
 <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.0.0-beta.3/assets/owl.theme.default.min.css'><link rel="stylesheet" href="./style.css">
-<link rel='stylesheet' href='smart1.css' type='text/css'>
+
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <link rel='stylesheet' href='table.css'>
 
@@ -16,7 +16,239 @@
 <!-- "sm-blue" menu theme (optional, you can use your own CSS, too) -->
 <link href='https://tafengtravel.github.io/tafengtravel/index/sm-css/sm-mint/sm-mint.css' rel='stylesheet' type='text/css' />
 <style>
+ 
+ .table1 {
+      font-size: 30px;
+  }
+  .lable {
+      font-size: 25px;
+      font-family:Microsoft JhengHei;
+      font-weight:bold;
+  }
+  .lable2 {
+      font-size: 20px;
+      font-family:Microsoft JhengHei;
+      color: 	#5B5B5B;
+      font-weight:bold;
+  }
+  
 
+  
+  
+  .lable1 {
+      font-size: 30px;
+      font-weight:bold;
+      font-family:Microsoft JhengHei;
+  
+  }
+  
+  .title
+  {
+      font-size: 60px;
+      text-align: center;
+      font-family:Microsoft JhengHei;
+      font-weight:bold;
+      width:"100%";    
+      background-color:	#AAFFEE;
+  }   
+  a{
+    color:black; 
+    text-decoration:none;
+  } 
+  .status{
+    float:right;
+    
+  }
+  </style> 
+
+<style>  
+  .table {
+    font-size: 22px;
+  }
+  
+  @media(max-width:768px) {
+  .table {
+      font-size: 10px;
+    }
+  .lable {
+    font-size: 15px;
+    font-family:Microsoft JhengHei;
+    font-weight:bold;
+    }
+  .lable1 {
+    font-size: 20px;
+    font-family:Microsoft JhengHei;
+    font-weight:bold;
+  }
+  }
+  
+  
+  
+  .main-nav {
+    border-bottom: 2px solid #FF6600;
+    background: #fff;
+  }
+  
+  .main-nav:after {
+    clear: both;
+    content: "\00a0";
+    display: block;
+    height: 0;
+    font: 0px/0 serif;
+    overflow: hidden;
+  }
+  
+  .nav-brand {
+    float: left;
+    margin: 0;
+  }
+  
+  .nav-brand a {
+    display: block;
+    padding: 11px 11px 11px 20px;
+    color: #333;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-size: 22px;
+    font-weight: normal;
+    line-height: 17px;
+    text-decoration: none;
+  }
+  
+  #main-menu {
+    clear: both;
+    border-bottom: 0;
+  }
+  
+  @media (min-width: 768px) {
+    #main-menu {
+      float: right;
+      clear: none;
+    }
+  }
+  
+  
+  /* Mobile menu toggle button */
+  
+  .main-menu-btn {
+    float: right;
+    margin: 5px 10px;
+    position: relative;
+    display: inline-block;
+    width: 29px;
+    height: 29px;
+    text-indent: 29px;
+    white-space: nowrap;
+    overflow: hidden;
+    cursor: pointer;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  }
+  
+  
+  /* hamburger icon */
+  
+  .main-menu-btn-icon,
+  .main-menu-btn-icon:before,
+  .main-menu-btn-icon:after {
+    position: absolute;
+    top: 50%;
+    left: 2px;
+    height: 2px;
+    width: 24px;
+    background: #333;
+    -webkit-transition: all 0.25s;
+    transition: all 0.25s;
+  }
+  
+  .main-menu-btn-icon:before {
+    content: '';
+    top: -7px;
+    left: 0;
+  }
+  
+  .main-menu-btn-icon:after {
+    content: '';
+    top: 7px;
+    left: 0;
+  }
+  
+  
+  /* x icon */
+  
+  #main-menu-state:checked ~ .main-menu-btn .main-menu-btn-icon {
+    height: 0;
+    background: transparent;
+  }
+  
+  #main-menu-state:checked ~ .main-menu-btn .main-menu-btn-icon:before {
+    top: 0;
+    -webkit-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+  }
+  
+  #main-menu-state:checked ~ .main-menu-btn .main-menu-btn-icon:after {
+    top: 0;
+    -webkit-transform: rotate(45deg);
+    transform: rotate(45deg);
+  }
+  
+  
+  /* hide menu state checkbox (keep it visible to screen readers) */
+  
+  #main-menu-state {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    border: 0;
+    padding: 0;
+    overflow: hidden;
+    clip: rect(1px, 1px, 1px, 1px);
+  }
+  
+  
+  /* hide the menu in mobile view */
+  
+  #main-menu-state:not(:checked) ~ #main-menu {
+    display: none;
+  }
+  
+  #main-menu-state:checked ~ #main-menu {
+    display: block;
+  }
+  
+  @media (min-width: 768px) {
+    /* hide the button in desktop view */
+    .main-menu-btn {
+      position: absolute;
+      top: -99999px;
+    }
+    /* always show the menu in desktop view */
+    #main-menu-state:not(:checked) ~ #main-menu {
+      display: block;
+    }
+  }
+  
+  
+  /* IGNORE: Unrelated generic demo styles */
+  
+  body {
+    margin: 8px;
+    background: #fff;
+    color: #000000;
+    font: 18px/1.5em 'Helvetica Neue',Microsoft JhengHei;;
+  }
+  
+  .demo-text {
+    margin: 3em 22px;
+  }
+  
+  .demo-text p {
+    margin-bottom: 1em;
+  }
+  
+  .demo-text a {
+    color: #999;
+  }
 </style>
 
 <script type="text/javascript">
@@ -73,7 +305,7 @@
 
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
-
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
 
 
 
