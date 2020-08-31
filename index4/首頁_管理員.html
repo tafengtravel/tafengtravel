@@ -109,7 +109,9 @@ async function login(){
     window.location.reload()
 
   }).catch((error) => {
-    console.log(error.message);
+    alert('帳密錯誤')
+    console.log('error.message');
+
   });
   
 }
