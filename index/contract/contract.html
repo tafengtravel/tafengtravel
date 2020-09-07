@@ -487,6 +487,7 @@ function search(){
 }
 
 function show(data){
+  let number = document.getElementById("number").value; 
   let people = data.代表人;
   let name = data.團名;
   let depdate = data.出發日期;
@@ -533,6 +534,8 @@ function show(data){
   doc.text(contractother, 113, 17);
   doc.text(date, 141, 261);
   document.getElementById('iframe123').src = doc.output('datauri');
+
+  doc.save(number+'_'+people+'_'+name+'.pdf');
 
 
 }
