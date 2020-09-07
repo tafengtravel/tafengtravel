@@ -7,7 +7,7 @@
     
 }
 .lable2 {
-    font-size: 20px;
+    font-size: 18px;
     font-family:Microsoft JhengHei;
     font-weight:bold;
 }
@@ -47,7 +47,21 @@ table  {
     font-weight:bold;
     width:"100%";    
     }   
+.lable2 {
+    font-size: 12px;
+    font-family:Microsoft JhengHei;
+    font-weight:bold;
+    }
 }
+@media (min-width: 768px) and (max-width: 1199.98px) { 
+.lable2 {
+    font-size: 16px;
+    font-family:Microsoft JhengHei;
+    font-weight:bold;
+    }
+
+}
+
   
 a{
   color:black; 
