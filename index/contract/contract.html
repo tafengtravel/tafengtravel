@@ -533,7 +533,6 @@ function show(data){
   doc.addImage(img1, "JPEG", 5, 5, 200, 280);
   doc.text(contractother, 113, 17);
   doc.text(date, 141, 261);
-  document.getElementById('iframe123').src = doc.output('datauri');
 
   doc.save(number+'_'+people+'_'+name+'.pdf');
 
