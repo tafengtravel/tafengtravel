@@ -88,12 +88,13 @@
 <div class="w3-row">
   <div class="w3-col s12 m4 l2 ">
     <span class="lable2" ><label>搜尋月份：</label></span>
-    <input type="date" id="depdate" style="font-size:20px">
+    <input class="lable2" type="date" id="depdate" >
+
   </div>
   <div class="w3-col s4 m4 l1 ">
     <span class="lable2" ><label>客服：</label></span>  
-
-    <select id="cs" style="font-size:20px">
+    <span class="lable2" >
+    <select class="lable2" id="cs" >
       <option value="all">全部</option><option value="A1">A1</option><option value="A2">A2</option><option value="A3">A3</option><option value="A4">A4</option>
       <option value="B1">B1</option><option value="B2">B2</option><option value="B3">B3</option><option value="B4">B4</option>
       <option value="B5">B5</option><option value="B6">B6</option><option value="B7">B7</option><option value="B8">B8</option>
@@ -101,24 +102,28 @@
     </select>
   </div>
   <div class="w3-col s8 m4 l2">
-    <span class="lable2" ><label>排序：</label></span>  
-    <select id="orderby" style="font-size:20px">
-      <option value="團號">團號</option><option value="出發日期">出發日期</option>
+    <span class="lable2" ><label>排序：</label>
+    <select class="lable2" id="orderby">
+      <option  value="團號">團號</option><option value="出發日期">出發日期</option>
     </select>
-    <button onclick="search()" id ="search"  type="button" style="font-size:20px"  >查詢</button>
+    <button class="lable2" onclick="search()" id ="search"  type="button" >查詢</button>
+    </span>  
   </div>
 
   <div class="w3-col m4 l2 ">
-    <span class="lable2" ><label>營業額：</label></span>
-    <input type="text" id="revenue" style="font-size:20px ;width:100px; background-color: transparent; border:none; text-align: left; font-family:Microsoft JhengHei;font-weight:bold;">
+    <span class="lable2" ><label>營業額：</label>
+    <input class="lable2" type="text" id="revenue" style="font-size:20px ;width:100px; background-color: transparent; border:none; text-align: left; font-family:Microsoft JhengHei;font-weight:bold;">
+    </span>
   </div>
   <div class="w3-col m4 l2 ">
-    <span class="lable2" ><label>總利潤：</label></span>
-    <input type="text" id="totalprofit" style="font-size:20px ;width:100px; background-color: transparent; border:none; text-align: left; font-family:Microsoft JhengHei;font-weight:bold;">
+    <span class="lable2" ><label>總利潤：</label>
+    <input class="lable2" type="text" id="totalprofit" style="font-size:20px ;width:100px; background-color: transparent; border:none; text-align: left; font-family:Microsoft JhengHei;font-weight:bold;">
+    </span>
   </div>
   <div class="w3-col m4 l2 ">
-    <span class="lable2" ><label>總人數：</label></span>
-    <input type="text" id="totalpeople" style="font-size:20px ;width:100px; background-color: transparent; border:none; text-align: left; font-family:Microsoft JhengHei;font-weight:bold;">
+    <span class="lable2" ><label>總人數：</label>
+    <input class="lable2" type="text" id="totalpeople" style="font-size:20px ;width:100px; background-color: transparent; border:none; text-align: left; font-family:Microsoft JhengHei;font-weight:bold;">
+    </span>
   </div>
 </div>
 
