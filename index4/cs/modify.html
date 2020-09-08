@@ -1,0 +1,2920 @@
+<html>
+   <head> 
+
+
+   </head>
+   <body>
+   
+   
+<style>  
+.lable {
+  font-size: 28px;
+  font-family:Microsoft JhengHei;
+}
+
+table {
+  font-size: 30px;
+  border: none ;
+  text-align:center;
+  font-family:Microsoft JhengHei;
+  font-weight:bold;
+  background-color:	#AAFFEE;
+  table-layout:fixed;
+}
+.lable1 
+{
+    font-size: 60px;
+    text-align: center;
+    font-family:Microsoft JhengHei;
+    font-weight:bold;
+    width:"100%";    
+    background-color:	#AAFFEE;
+} 
+
+.title
+{
+    font-size: 60px;
+    text-align: center;
+    font-family:Microsoft JhengHei;
+    font-weight:bold;
+    width:"100%";    
+    background-color:	#AAFFEE;
+}    
+a{
+  color:black; 
+  text-decoration:none;
+} 
+.lable2 {
+    font-size: 35px;
+    font-weight:bold;
+    font-family:Microsoft JhengHei;
+
+}
+.r1{
+  background-color: #D4D4D4;
+}
+.r2{
+  background-color: #FFDA96;
+}
+.r3{
+  background-color: #B9E5FF;
+}
+.r4{
+  background-color: #FFD8D3;
+}
+.r5{
+  background-color: #DBFFD1;
+}
+.r6{
+  background-color: #D4D4D4;
+}
+.status{
+  float:right;  
+}
+.r7{
+  background-color: #BEBEBE	;
+}
+.lableop{
+  font-size: 28px;
+  font-family:Microsoft JhengHei;
+  color:rgb(12, 9, 177);
+  font-weight:bold;
+}
+.lablecheck{
+  font-size: 28px;
+  font-family:Microsoft JhengHei;
+  color:#8F0000;
+  font-weight:bold;
+}.lablemanager{
+  font-size: 28px;
+  font-family:Microsoft JhengHei;
+  color:rgb(248, 8, 248);
+  font-weight:bold;
+}
+@media(max-width:768px) {
+      
+    .title{
+      font-size: 30px;
+    } 
+    table  {
+      font-size: 10px;
+      border: none ;
+      text-align:center;
+      font-family:Microsoft JhengHei;
+      font-weight:bold;
+    } 
+
+}
+   
+</style> 
+   
+<div class="title"  >大豐旅行社帳務系統__修改報帳</div> 
+
+<table width="100%"  cellpadding=0px style="background-color:	#AAFFEE" >
+  <tr>
+    <td  style="border: none ; "><a href="home.html">回到首頁</a></td>
+    <td  style="border: none ; "><a href="new.html">新增報帳</a></td>
+    <td  style="border: none ; "><a href="modify.html">修改報帳</a></td>
+    <td  style="border: none ; "><a href="table.html">表單全覽</a></td>
+    <td  style="border: none ; "><a href="company_search.html">搜尋廠商</a></td>
+    <td  style="border: none ; "><a href="today.html">當日業績</a></td>
+    <td  style="border: none ; "><a href="deadline.html">當日DL</a></td>
+  </tr>
+</table>
+
+
+
+<div class="r1">
+  <br><br>
+  
+  <span class="status" >
+    <input type="text" id="mail" disabled="disabled" style="font-size:20px ; background-color: transparent; border:none; text-align: center; font-family:Microsoft JhengHei;font-weight:bold;">
+  </span>
+  
+  <span class="lable2" >基本資料</span><br><br>
+  <span class="lable" ><label>團號：</label></span>  <input type="text" id="number" style="font-size:30px ;width : 350">
+  &emsp;&emsp;<span class="lable" ><label>團名：</label></span>  <input type="text" id="name" style="font-size:30px ">
+  &emsp;&emsp;<span class="lable" ><label>地點：</label></span>  
+  <select id="location" style="font-size:30px">
+  <option value="" disabled selected hidden></option>
+  <optgroup label="國內離島"> 
+  <option value="澎湖">澎湖</option><option value="綠島">綠島</option><option value="蘭嶼">蘭嶼</option><option value="金門">金門</option>
+  <option value="馬祖">馬祖</option>
+  <optgroup label="國旅"> 
+  <option value="代訂車">代訂車</option><option value="季節旅遊">季節旅遊</option>
+  <optgroup label="中港澳"> 
+  <option value="香港">香港</option><option value="澳門">澳門</option><option value="中國">中國</option>
+  <optgroup label="日本"> 
+  <option value="東京">東京</option><option value="大阪">大阪</option><option value="沖繩">沖繩</option><option value="北九州">北九州</option><option value="福岡">福岡</option>
+  <option value="北海道">北海道</option>
+  <optgroup label="韓國"> 
+  <option value="首爾">首爾</option><option value="釜山">釜山</option><option value="大邱">大邱</option><option value="濟州島">濟州島</option>
+  <optgroup label="東南亞"> 
+  <option value="曼谷">曼谷</option><option value="胡志明">胡志明</option><option value="峴港">峴港</option><option value="清邁">清邁</option><option value="新加坡">新加坡</option>
+  <optgroup label="海島"> 
+  <option value="沙巴">沙巴</option><option value="長灘島">長灘島</option><option value="巴拉望">巴拉望</option><option value="宿霧">宿霧</option><option value="峇里島">峇里島</option><option value="馬爾地夫">馬爾地夫</option>
+  <optgroup label="郵輪"> 
+  <option value="郵輪">郵輪</option>
+  </select> 
+  <br><br>
+  <span class="lable" ><label>代表人：</label></span>  <input type="text" id="people" style="font-size:30px ;width : 320">
+  &emsp;&emsp;<span class="lable" ><label>人數：</label></span>  <input type="text" id="howmanypeople" style="font-size:30px ;width : 100">
+  <span class="lable" ><label>聯絡電話：</label></span>  <input type="text" id="phone" style="font-size:30px">
+  &emsp;<button onclick="search()" type="button" style="font-size:30px"  >查詢</button>
+  <br><br>
+  <span class="lable" ><label>出發日期：</label></span>  <input type="date" id="depdate" style="font-size:30px; width:290px">
+  &emsp;&emsp;<span class="lable" ><label>結束日期：</label></span>  <input type="date" id="enddate" style="font-size:30px">
+  <span class="lable" ><label>報帳日期：</label></span>  <input type="date" id="date" style="font-size:30px">
+  <br><br>
+  <span class="lable" ><label>總團費：</label></span>  <input type="text" id="price"  disabled="disabled" style="font-size:30px ;width : 319">
+  &emsp;&emsp;<span class="lable" ><label>客服：</label></span>  
+    <select id="cs" style="font-size:30px">
+      <option value="A1">A1</option><option value="A2">A2</option><option value="A3">A3</option><option value="A4">A4</option>
+      <option value="B1">B1</option><option value="B2">B2</option><option value="B3">B3</option><option value="B4">B4</option>
+      <option value="B5">B5</option><option value="B6">B6</option><option value="B7">B7</option><option value="B8">B8</option>
+      <option value="B9">B9</option><option value="B10">B10</option><option value="B11">B11</option><option value="B12">B12</option>
+    </select>
+
+&ensp;&ensp;<span class="lable" ><label>退業績：</label></span>
+<select id="cancel" style="font-size:30px">
+  <option value="False">False</option><option value="True">True</option>
+</select>
+&ensp;&ensp;<span class="lable" ><label>退業績日期：</label></span><input type="date" id="canceldate" style="font-size:30px">
+</div>
+
+<div class="r2">
+<br><br>
+<span class="lable2" >估價單</span>
+<br><br>
+<span class="lable" ><label>1.團費：</label></span>
+<br><br>
+<span class="lable" ><label>品項：</label></span> <input type="text" id="qtname1" style="font-size:30px">
+<span class="lable" ><label>&ensp;&ensp;單價：</label></span> <input type="text" id="qtmoney1" style="font-size:30px ;width:150">
+<span class="lable" ><label>&ensp;x&ensp;人數：</label></span> <input type="text" id="qtnumber1" style="font-size:30px; width:100">
+<span class="lable" ><label>&ensp;=&ensp;總金額：</label></span> <input type="text" id="qttotalmoney1" disabled="disabled" style="font-size:30px ;width:150">
+<br><br>
+<span class="lable" ><label>品項：</label></span> <input type="text" id="qtname2" style="font-size:30px">
+<span class="lable" ><label>&ensp;&ensp;單價：</label></span> <input type="text" id="qtmoney2" style="font-size:30px ;width:150">
+<span class="lable" ><label>&ensp;x&ensp;人數：</label></span> <input type="text" id="qtnumber2" style="font-size:30px; width:100">
+<span class="lable" ><label>&ensp;=&ensp;總金額：</label></span> <input type="text" id="qttotalmoney2" disabled="disabled" style="font-size:30px ;width:150">
+<br><br>
+<span class="lable" ><label>品項：</label></span> <input type="text" id="qtname3" style="font-size:30px">
+<span class="lable" ><label>&ensp;&ensp;單價：</label></span> <input type="text" id="qtmoney3" style="font-size:30px ;width:150">
+<span class="lable" ><label>&ensp;x&ensp;人數：</label></span> <input type="text" id="qtnumber3" style="font-size:30px; width:100">
+<span class="lable" ><label>&ensp;=&ensp;總金額：</label></span> <input type="text" id="qttotalmoney3" disabled="disabled" style="font-size:30px ;width:150">
+<br><br>
+<span class="lable" ><label>品項：</label></span> <input type="text" id="qtname4" style="font-size:30px">
+<span class="lable" ><label>&ensp;&ensp;單價：</label></span> <input type="text" id="qtmoney4" style="font-size:30px ;width:150">
+<span class="lable" ><label>&ensp;x&ensp;人數：</label></span> <input type="text" id="qtnumber4" style="font-size:30px; width:100">
+<span class="lable" ><label>&ensp;=&ensp;總金額：</label></span> <input type="text" id="qttotalmoney4" disabled="disabled" style="font-size:30px ;width:150">
+<br><br>
+<span class="lable" ><label>品項：</label></span> <input type="text" id="qtname5" style="font-size:30px">
+<span class="lable" ><label>&ensp;&ensp;單價：</label></span> <input type="text" id="qtmoney5" style="font-size:30px ;width:150">
+<span class="lable" ><label>&ensp;x&ensp;人數：</label></span> <input type="text" id="qtnumber5" style="font-size:30px; width:100">
+<span class="lable" ><label>&ensp;=&ensp;總金額：</label></span> <input type="text" id="qttotalmoney5" disabled="disabled" style="font-size:30px ;width:150">
+<br><br>
+<span class="lable" ><label>2.加購項目：</label></span>
+<br><br>
+<span class="lable" ><label>品項：</label></span> <input type="text" id="qtextraname1" style="font-size:30px">
+<span class="lable" ><label>&ensp;&ensp;單價：</label></span> <input type="text" id="qtextramoney1" style="font-size:30px ;width:150">
+<span class="lable" ><label>&ensp;x&ensp;數量：</label></span> <input type="text" id="qtextranumber1" style="font-size:30px; width:100">
+<span class="lable" ><label>&ensp;x&ensp;天數：</label></span> <input type="text" id="qtextradays1" style="font-size:30px; width:100">
+<span class="lable" ><label>&ensp;=&ensp;總金額：</label></span> <input type="text" id="qtextratotalmoney1" disabled="disabled" style="font-size:30px ;width:150">
+<br><br>
+<span class="lable" ><label>品項：</label></span> <input type="text" id="qtextraname2" style="font-size:30px">
+<span class="lable" ><label>&ensp;&ensp;單價：</label></span> <input type="text" id="qtextramoney2" style="font-size:30px ;width:150">
+<span class="lable" ><label>&ensp;x&ensp;數量：</label></span> <input type="text" id="qtextranumber2" style="font-size:30px; width:100">
+<span class="lable" ><label>&ensp;x&ensp;天數：</label></span> <input type="text" id="qtextradays2" style="font-size:30px; width:100">
+<span class="lable" ><label>&ensp;=&ensp;總金額：</label></span> <input type="text" id="qtextratotalmoney2" disabled="disabled" style="font-size:30px ;width:150">
+<br><br>
+<span class="lable" ><label>品項：</label></span> <input type="text" id="qtextraname3" style="font-size:30px">
+<span class="lable" ><label>&ensp;&ensp;單價：</label></span> <input type="text" id="qtextramoney3" style="font-size:30px ;width:150">
+<span class="lable" ><label>&ensp;x&ensp;數量：</label></span> <input type="text" id="qtextranumber3" style="font-size:30px; width:100">
+<span class="lable" ><label>&ensp;x&ensp;天數：</label></span> <input type="text" id="qtextradays3" style="font-size:30px; width:100">
+<span class="lable" ><label>&ensp;=&ensp;總金額：</label></span> <input type="text" id="qtextratotalmoney3" disabled="disabled" style="font-size:30px ;width:150">
+<br><br>
+<span class="lable" ><label>品項：</label></span> <input type="text" id="qtextraname4" style="font-size:30px">
+<span class="lable" ><label>&ensp;&ensp;單價：</label></span> <input type="text" id="qtextramoney4" style="font-size:30px ;width:150">
+<span class="lable" ><label>&ensp;x&ensp;數量：</label></span> <input type="text" id="qtextranumber4" style="font-size:30px; width:100">
+<span class="lable" ><label>&ensp;x&ensp;天數：</label></span> <input type="text" id="qtextradays4" style="font-size:30px; width:100">
+<span class="lable" ><label>&ensp;=&ensp;總金額：</label></span> <input type="text" id="qtextratotalmoney4" disabled="disabled" style="font-size:30px ;width:150">
+<br><br>
+<span class="lable" ><label>品項：</label></span> <input type="text" id="qtextraname5" style="font-size:30px">
+<span class="lable" ><label>&ensp;&ensp;單價：</label></span> <input type="text" id="qtextramoney5" style="font-size:30px ;width:150">
+<span class="lable" ><label>&ensp;x&ensp;數量：</label></span> <input type="text" id="qtextranumber5" style="font-size:30px; width:100">
+<span class="lable" ><label>&ensp;x&ensp;天數：</label></span> <input type="text" id="qtextradays5" style="font-size:30px; width:100">
+<span class="lable" ><label>&ensp;=&ensp;總金額：</label></span> <input type="text" id="qtextratotalmoney5" disabled="disabled" style="font-size:30px ;width:150">
+<br><br>
+<span class="lable" ><label>品項：</label></span> <input type="text" id="qtextraname6" style="font-size:30px">
+<span class="lable" ><label>&ensp;&ensp;單價：</label></span> <input type="text" id="qtextramoney6" style="font-size:30px ;width:150">
+<span class="lable" ><label>&ensp;x&ensp;數量：</label></span> <input type="text" id="qtextranumber6" style="font-size:30px; width:100">
+<span class="lable" ><label>&ensp;x&ensp;天數：</label></span> <input type="text" id="qtextradays6" style="font-size:30px; width:100">
+<span class="lable" ><label>&ensp;=&ensp;總金額：</label></span> <input type="text" id="qtextratotalmoney6" disabled="disabled" style="font-size:30px ;width:150">
+<br><br>
+<span class="lable" ><label>品項：</label></span> <input type="text" id="qtextraname7" style="font-size:30px">
+<span class="lable" ><label>&ensp;&ensp;單價：</label></span> <input type="text" id="qtextramoney7" style="font-size:30px ;width:150">
+<span class="lable" ><label>&ensp;x&ensp;數量：</label></span> <input type="text" id="qtextranumber7" style="font-size:30px; width:100">
+<span class="lable" ><label>&ensp;x&ensp;天數：</label></span> <input type="text" id="qtextradays7" style="font-size:30px; width:100">
+<span class="lable" ><label>&ensp;=&ensp;總金額：</label></span> <input type="text" id="qtextratotalmoney7" disabled="disabled" style="font-size:30px ;width:150">
+<br><br>
+<span class="lable" ><label>品項：</label></span> <input type="text" id="qtextraname8" style="font-size:30px">
+<span class="lable" ><label>&ensp;&ensp;單價：</label></span> <input type="text" id="qtextramoney8" style="font-size:30px ;width:150">
+<span class="lable" ><label>&ensp;x&ensp;數量：</label></span> <input type="text" id="qtextranumber8" style="font-size:30px; width:100">
+<span class="lable" ><label>&ensp;x&ensp;天數：</label></span> <input type="text" id="qtextradays8" style="font-size:30px; width:100">
+<span class="lable" ><label>&ensp;=&ensp;總金額：</label></span> <input type="text" id="qtextratotalmoney8" disabled="disabled" style="font-size:30px ;width:150">
+<br><br>
+<span class="lable" ><label>品項：</label></span> <input type="text" id="qtextraname9" style="font-size:30px">
+<span class="lable" ><label>&ensp;&ensp;單價：</label></span> <input type="text" id="qtextramoney9" style="font-size:30px ;width:150">
+<span class="lable" ><label>&ensp;x&ensp;數量：</label></span> <input type="text" id="qtextranumber9" style="font-size:30px; width:100">
+<span class="lable" ><label>&ensp;x&ensp;天數：</label></span> <input type="text" id="qtextradays9" style="font-size:30px; width:100">
+<span class="lable" ><label>&ensp;=&ensp;總金額：</label></span> <input type="text" id="qtextratotalmoney9" disabled="disabled" style="font-size:30px ;width:150">
+<br><br>
+<span class="lable" ><label>品項：</label></span> <input type="text" id="qtextraname10" style="font-size:30px">
+<span class="lable" ><label>&ensp;&ensp;單價：</label></span> <input type="text" id="qtextramoney10" style="font-size:30px ;width:150">
+<span class="lable" ><label>&ensp;x&ensp;數量：</label></span> <input type="text" id="qtextranumber10" style="font-size:30px; width:100">
+<span class="lable" ><label>&ensp;x&ensp;天數：</label></span> <input type="text" id="qtextradays10" style="font-size:30px; width:100">
+<span class="lable" ><label>&ensp;=&ensp;總金額：</label></span> <input type="text" id="qtextratotalmoney10" disabled="disabled" style="font-size:30px ;width:150">
+<br><br>
+<span class="lablemanager" ><label>Martina 核實：</label></span> 
+<select id="martina" style="font-size:30px">
+  <option value="False">False</option>
+  <option value="True">True</option>
+</select>
+<span class="lable" ><label>&ensp;&ensp;已更改：</label></span> 
+<select id="change" style="font-size:30px">
+  <option value="False">False</option>
+  <option value="True">True</option>
+</select>
+</div>
+
+
+<!----------------------------收入--------------------------------->
+
+
+<div class="r3">
+  <br><br>
+  <span class="lable2" >收入</span>
+  <br><br>
+  <span class="lable" ><label>(1)報帳日期：</label></span>  <input type="date" id="moneydate1" style="font-size:20px">
+  <span class="lable" ><label>品&emsp;&emsp;項：</label></span>  <input type="text" id="moneyname1" style="font-size:20px">
+  <span class="lable" ><label>收入：</label></span>  <input type="text" id="money1" style="font-size:20px">
+  <span class="lable" ><label>收款方式：</label></span>  
+  <select id="moneytype1" style="font-size:20px">
+    <option value="匯款">匯款</option>
+    <option value="刷卡">刷卡</option>
+    <option value="現金">現金</option>
+    <option value="支票">支票</option>
+    <option value="其他">其他</option>
+    <option value="三倍券">三倍券</option>
+  </select>
+  <span class="lable" ><label>國旅卡：</label></span>  
+  <select id="card1" style="font-size:20px">
+    <option value="False">False</option>
+    <option value="True">True</option>
+  </select>
+  <br><br>
+  &ensp;&ensp;&ensp;&ensp;<span class="lable" ><label>收款日期：</label></span>  <input type="date" id="rmoneydate1" style="font-size:20px">
+  <span class="lable" ><label>收款證明：</label></span>  <input type="text" id="moneyprove1" style="font-size:20px">
+  <span class="lable" ><label>備註：</label></span> <input type="text" id="moneyother1" style="font-size:20px ;">
+  <span class="lableop" ><label>O&ensp;P核實：</label></span> 
+    <select id="opmoneycheck1" style="font-size:20px">
+      <option value="False">False</option>
+      <option value="True">True</option>
+    </select>
+  <span class="lablecheck" ><label>財務核實：</label></span> 
+    <select id="moneycheck1" style="font-size:20px">
+      <option value="False">False</option>
+      <option value="True">True</option>
+    </select>
+  
+  <br><br>
+  
+  <span class="lable" ><label>(2)報帳日期：</label></span>  <input type="date" id="moneydate2" style="font-size:20px">
+  <span class="lable" ><label>品&emsp;&emsp;項：</label></span>  <input type="text" id="moneyname2" style="font-size:20px">
+  <span class="lable" ><label>收入：</label></span>  <input type="text" id="money2" style="font-size:20px">
+  <span class="lable" ><label>收款方式：</label></span>  
+  <select id="moneytype2" style="font-size:20px">
+    <option value="匯款">匯款</option>
+    <option value="刷卡">刷卡</option>
+    <option value="現金">現金</option>
+    <option value="支票">支票</option>
+    <option value="其他">其他</option>
+    <option value="三倍券">三倍券</option>
+  </select>
+  <span class="lable" ><label>國旅卡：</label></span>  
+  <select id="card2" style="font-size:20px">
+    <option value="False">False</option>
+    <option value="True">True</option>
+  </select>
+  <br><br>
+  &ensp;&ensp;&ensp;&ensp;<span class="lable" ><label>收款日期：</label></span>  <input type="date" id="rmoneydate2" style="font-size:20px">
+  <span class="lable" ><label>收款證明：</label></span>  <input type="text" id="moneyprove2" style="font-size:20px">
+  <span class="lable" ><label>備註：</label></span> <input type="text" id="moneyother2" style="font-size:20px ;">
+  <span class="lableop" ><label>O&ensp;P核實：</label></span> 
+    <select id="opmoneycheck2" style="font-size:20px">
+      <option value="False">False</option>
+      <option value="True">True</option>
+    </select>
+  <span class="lablecheck" ><label>財務核實：</label></span> 
+    <select id="moneycheck2" style="font-size:20px">
+      <option value="False">False</option>
+      <option value="True">True</option>
+    </select>
+  
+  <br><br>
+  
+  <span class="lable" ><label>(3)報帳日期：</label></span>  <input type="date" id="moneydate3" style="font-size:20px">
+  <span class="lable" ><label>品&emsp;&emsp;項：</label></span>  <input type="text" id="moneyname3" style="font-size:20px">
+  <span class="lable" ><label>收入：</label></span>  <input type="text" id="money3" style="font-size:20px">
+  <span class="lable" ><label>收款方式：</label></span>  
+  <select id="moneytype3" style="font-size:20px">
+    <option value="匯款">匯款</option>
+    <option value="刷卡">刷卡</option>
+    <option value="現金">現金</option>
+    <option value="支票">支票</option>
+    <option value="其他">其他</option>
+    <option value="三倍券">三倍券</option>
+  </select>
+  <span class="lable" ><label>國旅卡：</label></span>  
+  <select id="card3" style="font-size:20px">
+    <option value="False">False</option>
+    <option value="True">True</option>
+  </select>
+  <br><br>
+  &ensp;&ensp;&ensp;&ensp;<span class="lable" ><label>收款日期：</label></span>  <input type="date" id="rmoneydate3" style="font-size:20px">
+  <span class="lable" ><label>收款證明：</label></span>  <input type="text" id="moneyprove3" style="font-size:20px">
+  <span class="lable" ><label>備註：</label></span> <input type="text" id="moneyother3" style="font-size:20px ;">
+  <span class="lableop" ><label>O&ensp;P核實：</label></span> 
+    <select id="opmoneycheck3" style="font-size:20px">
+      <option value="False">False</option>
+      <option value="True">True</option>
+    </select>
+  <span class="lablecheck" ><label>財務核實：</label></span> 
+    <select id="moneycheck3" style="font-size:20px">
+      <option value="False">False</option>
+      <option value="True">True</option>
+    </select>
+  
+  <br><br>
+  
+  <span class="lable" ><label>(4)報帳日期：</label></span>  <input type="date" id="moneydate4" style="font-size:20px">
+  <span class="lable" ><label>品&emsp;&emsp;項：</label></span>  <input type="text" id="moneyname4" style="font-size:20px">
+  <span class="lable" ><label>收入：</label></span>  <input type="text" id="money4" style="font-size:20px">
+  <span class="lable" ><label>收款方式：</label></span>  
+  <select id="moneytype4" style="font-size:20px">
+    <option value="匯款">匯款</option>
+    <option value="刷卡">刷卡</option>
+    <option value="現金">現金</option>
+    <option value="支票">支票</option>
+    <option value="其他">其他</option>
+    <option value="三倍券">三倍券</option>
+  </select>
+  <span class="lable" ><label>國旅卡：</label></span>  
+  <select id="card4" style="font-size:20px">
+    <option value="False">False</option>
+    <option value="True">True</option>
+  </select>
+  <br><br>
+  &ensp;&ensp;&ensp;&ensp;<span class="lable" ><label>收款日期：</label></span>  <input type="date" id="rmoneydate4" style="font-size:20px">
+  <span class="lable" ><label>收款證明：</label></span>  <input type="text" id="moneyprove4" style="font-size:20px">
+  <span class="lable" ><label>備註：</label></span> <input type="text" id="moneyother4" style="font-size:20px ;">
+  <span class="lableop" ><label>O&ensp;P核實：</label></span> 
+    <select id="opmoneycheck4" style="font-size:20px">
+      <option value="False">False</option>
+      <option value="True">True</option>
+    </select>
+  <span class="lablecheck" ><label>財務核實：</label></span> 
+    <select id="moneycheck4" style="font-size:20px">
+      <option value="False">False</option>
+      <option value="True">True</option>
+    </select>
+  
+  <br><br>
+  
+  <span class="lable" ><label>(5)報帳日期：</label></span>  <input type="date" id="moneydate5" style="font-size:20px">
+  <span class="lable" ><label>品&emsp;&emsp;項：</label></span>  <input type="text" id="moneyname5" style="font-size:20px">
+  <span class="lable" ><label>收入：</label></span>  <input type="text" id="money5" style="font-size:20px">
+  <span class="lable" ><label>收款方式：</label></span>  
+  <select id="moneytype5" style="font-size:20px">
+    <option value="匯款">匯款</option>
+    <option value="刷卡">刷卡</option>
+    <option value="現金">現金</option>
+    <option value="支票">支票</option>
+    <option value="其他">其他</option>
+    <option value="三倍券">三倍券</option>
+  </select>
+  <span class="lable" ><label>國旅卡：</label></span>  
+  <select id="card5" style="font-size:20px">
+    <option value="False">False</option>
+    <option value="True">True</option>
+  </select>
+  <br><br>
+  &ensp;&ensp;&ensp;&ensp;<span class="lable" ><label>收款日期：</label></span>  <input type="date" id="rmoneydate5" style="font-size:20px">
+  <span class="lable" ><label>收款證明：</label></span>  <input type="text" id="moneyprove5" style="font-size:20px">
+  <span class="lable" ><label>備註：</label></span> <input type="text" id="moneyother5" style="font-size:20px ;">
+  <span class="lableop" ><label>O&ensp;P核實：</label></span> 
+    <select id="opmoneycheck5" style="font-size:20px">
+      <option value="False">False</option>
+      <option value="True">True</option>
+    </select>
+  <span class="lablecheck" ><label>財務核實：</label></span> 
+    <select id="moneycheck5" style="font-size:20px">
+      <option value="False">False</option>
+      <option value="True">True</option>
+    </select>
+  
+  <br><br>
+  
+  <span class="lable" ><label>(6)報帳日期：</label></span>  <input type="date" id="moneydate6" style="font-size:20px">
+  <span class="lable" ><label>品&emsp;&emsp;項：</label></span>  <input type="text" id="moneyname6" style="font-size:20px">
+  <span class="lable" ><label>收入：</label></span>  <input type="text" id="money6" style="font-size:20px">
+  <span class="lable" ><label>收款方式：</label></span>  
+  <select id="moneytype6" style="font-size:20px">
+    <option value="匯款">匯款</option>
+    <option value="刷卡">刷卡</option>
+    <option value="現金">現金</option>
+    <option value="支票">支票</option>
+    <option value="其他">其他</option>
+    <option value="三倍券">三倍券</option>
+  </select>
+  <span class="lable" ><label>國旅卡：</label></span>  
+  <select id="card6" style="font-size:20px">
+    <option value="False">False</option>
+    <option value="True">True</option>
+  </select>
+  <br><br>
+  &ensp;&ensp;&ensp;&ensp;<span class="lable" ><label>收款日期：</label></span>  <input type="date" id="rmoneydate6" style="font-size:20px">
+  <span class="lable" ><label>收款證明：</label></span>  <input type="text" id="moneyprove6" style="font-size:20px">
+  <span class="lable" ><label>備註：</label></span> <input type="text" id="moneyother6" style="font-size:20px ;">
+  <span class="lableop" ><label>O&ensp;P核實：</label></span> 
+    <select id="opmoneycheck6" style="font-size:20px">
+      <option value="False">False</option>
+      <option value="True">True</option>
+    </select>
+  <span class="lablecheck" ><label>財務核實：</label></span> 
+    <select id="moneycheck6" style="font-size:20px">
+      <option value="False">False</option>
+      <option value="True">True</option>
+    </select>
+  
+  <br><br>
+  
+  <span class="lable" ><label>(7)報帳日期：</label></span>  <input type="date" id="moneydate7" style="font-size:20px">
+  <span class="lable" ><label>品&emsp;&emsp;項：</label></span>  <input type="text" id="moneyname7" style="font-size:20px">
+  <span class="lable" ><label>收入：</label></span>  <input type="text" id="money7" style="font-size:20px">
+  <span class="lable" ><label>收款方式：</label></span>  
+  <select id="moneytype7" style="font-size:20px">
+    <option value="匯款">匯款</option>
+    <option value="刷卡">刷卡</option>
+    <option value="現金">現金</option>
+    <option value="支票">支票</option>
+    <option value="其他">其他</option>
+    <option value="三倍券">三倍券</option>
+  </select>
+  <span class="lable" ><label>國旅卡：</label></span>  
+  <select id="card7" style="font-size:20px">
+    <option value="False">False</option>
+    <option value="True">True</option>
+  </select>
+  <br><br>
+  &ensp;&ensp;&ensp;&ensp;<span class="lable" ><label>收款日期：</label></span>  <input type="date" id="rmoneydate7" style="font-size:20px">
+  <span class="lable" ><label>收款證明：</label></span>  <input type="text" id="moneyprove7" style="font-size:20px">
+  <span class="lable" ><label>備註：</label></span> <input type="text" id="moneyother7" style="font-size:20px ;">
+  <span class="lableop" ><label>O&ensp;P核實：</label></span> 
+    <select id="opmoneycheck7" style="font-size:20px">
+      <option value="False">False</option>
+      <option value="True">True</option>
+    </select>
+  <span class="lablecheck" ><label>財務核實：</label></span> 
+    <select id="moneycheck7" style="font-size:20px">
+      <option value="False">False</option>
+      <option value="True">True</option>
+    </select>
+  
+  <br><br>
+  
+  <span class="lable" ><label>(8)報帳日期：</label></span>  <input type="date" id="moneydate8" style="font-size:20px">
+  <span class="lable" ><label>品&emsp;&emsp;項：</label></span>  <input type="text" id="moneyname8" style="font-size:20px">
+  <span class="lable" ><label>收入：</label></span>  <input type="text" id="money8" style="font-size:20px">
+  <span class="lable" ><label>收款方式：</label></span>  
+  <select id="moneytype8" style="font-size:20px">
+    <option value="匯款">匯款</option>
+    <option value="刷卡">刷卡</option>
+    <option value="現金">現金</option>
+    <option value="支票">支票</option>
+    <option value="其他">其他</option>
+    <option value="三倍券">三倍券</option>
+  </select>
+  <span class="lable" ><label>國旅卡：</label></span>  
+  <select id="card8" style="font-size:20px">
+    <option value="False">False</option>
+    <option value="True">True</option>
+  </select>
+  <br><br>
+  &ensp;&ensp;&ensp;&ensp;<span class="lable" ><label>收款日期：</label></span>  <input type="date" id="rmoneydate8" style="font-size:20px">
+  <span class="lable" ><label>收款證明：</label></span>  <input type="text" id="moneyprove8" style="font-size:20px">
+  <span class="lable" ><label>備註：</label></span> <input type="text" id="moneyother8" style="font-size:20px ;">
+  <span class="lableop" ><label>O&ensp;P核實：</label></span> 
+    <select id="opmoneycheck8" style="font-size:20px">
+      <option value="False">False</option>
+      <option value="True">True</option>
+    </select>
+  <span class="lablecheck" ><label>財務核實：</label></span> 
+    <select id="moneycheck8" style="font-size:20px">
+      <option value="False">False</option>
+      <option value="True">True</option>
+    </select>
+  </div>
+
+
+<!-------------------------------------------------支出--------------------------------------------------------->
+<div class="r4">
+  <br><br>
+  <span class="lable2" >支出</span>
+  <br><br>
+  <span class="lable" ><label>(1)報帳日期：</label></span>  <input type="date" id="paydate1" style="font-size:20px ;width:180">
+  <span class="lable" ><label>廠&emsp;&emsp;商：</label></span>  <input type="text" id="paycompany1" style="font-size:20px ;width:180">
+  <span class="lable" ><label>品&emsp;&emsp;項：</label></span>  <input type="text" id="payname1" style="font-size:20px ;width:180">
+  <span class="lable" ><label>明&emsp;&emsp;細：</label></span>  <input type="text" id="paydetail1" style="font-size:20px ;width:180">
+  <span class="lable" ><label>支&emsp;&emsp;出：</label></span>  <input type="text" id="pay1" style="font-size:20px ;width:180">
+  <br><br>&ensp;&ensp;&ensp;&ensp;
+  <span class="lable" ><label>付款日期：</label></span>  <input type="date" id="paymoneydate1" style="font-size:20px ;width:180">
+  <span class="lable" ><label>付款方式：</label></span>  
+  <select id="paytype1" style="font-size:20px">
+    <option value="轉帳">轉帳</option>
+    <option value="郵局">郵局</option>
+    <option value="刷卡">刷卡</option>
+    <option value="支票">支票</option>
+  </select>
+  <span class="lable" ><label>&emsp;&emsp;&emsp;&emsp;付款證明：</label></span>  <input type="text" id="payprove1" style="font-size:20px ;width:180">
+  <span class="lableop" ><label>O&ensp;P核實：</label></span> 
+    <select id="opcheck1" style="font-size:20px">
+      <option value="False">False</option>
+      <option value="True">True</option>
+    </select>
+  <span class="lablecheck" ><label>&emsp;&emsp;&emsp;&emsp;財務核實：</label></span> 
+    <select id="paycheck1" style="font-size:20px">
+      <option value="False">False</option>
+      <option value="True">True</option>
+    </select>
+  
+  <br><br>
+  </div>
+  <div class="r7">
+  &ensp;&ensp;&ensp;&ensp;
+  
+  <span class="lable" ><label>O&ensp;P支付：</label></span> 
+    <select id="op1" style="font-size:20px">
+      <option value="False">False</option><option value="True">True</option>
+    </select>
+  <span class="lable" ><label>&emsp;&emsp;&emsp;&emsp;定金D/L：</label></span>  <input type="date" id="downpaydatedl1" style="font-size:20px;width:180">
+  <span class="lable" ><label>尾款D/L：</label></span>  <input type="date" id="lastpaydatedl1" style="font-size:20px;width:180">
+  
+  <br><br>&ensp;&ensp;&ensp;&ensp;
+  
+  <span class="lable" ><label>O&ensp;P定金：</label></span>  <input type="text" id="opdownpay1" style="font-size:20px;width:180">
+  <span class="lable" ><label>付款日期：</label></span>  <input type="date" id="opdownpaydate1" style="font-size:20px ;width:180">
+  <span class="lable" ><label>付款方式：</label></span>  
+  <select id="opdownpaytype1" style="font-size:20px">
+    <option value="轉帳">轉帳</option>
+    <option value="郵局">郵局</option>
+    <option value="刷卡">刷卡</option>
+    <option value="支票">支票</option>
+    <option value="其他">其他</option>
+  </select>
+  <span class="lable" ><label>付款證明：</label></span>  <input type="text" id="downpayprove1" style="font-size:20px ;width:180">
+  <span class="lableop" ><label>O&ensp;P核實：</label></span> 
+    <select id="opdowncheck1" style="font-size:20px">
+      <option value="False">False</option>
+      <option value="True">True</option>
+    </select>
+  <span class="lablecheck" ><label>財務核實：</label></span> 
+    <select id="downcheck1" style="font-size:20px">
+      <option value="False">False</option>
+      <option value="True">True</option>
+    </select>
+  
+  <br><br>&ensp;&ensp;&ensp;&ensp;
+  
+  <span class="lable" ><label>O&ensp;P尾款：</label></span>  <input type="text" id="oplastpay1" style="font-size:20px;width:180">
+  <span class="lable" ><label>付款日期：</label></span>  <input type="date" id="oplastpaydate1" style="font-size:20px ;width:180">
+  <span class="lable" ><label>付款方式：</label></span>  
+  <select id="oplastpaytype1" style="font-size:20px">
+    <option value="轉帳">轉帳</option>
+    <option value="郵局">郵局</option>
+    <option value="刷卡">刷卡</option>
+    <option value="支票">支票</option>
+    <option value="其他">其他</option>
+  </select>
+  <span class="lable" ><label>付款證明：</label></span>  <input type="text" id="lastpayprove1" style="font-size:20px ;width:180">
+  <span class="lableop" ><label>O&ensp;P核實：</label></span> 
+    <select id="oplastcheck1" style="font-size:20px">
+      <option value="False">False</option>
+      <option value="True">True</option>
+    </select>
+  <span class="lablecheck" ><label>財務核實：</label></span> 
+    <select id="lastcheck1" style="font-size:20px">
+      <option value="False">False</option>
+      <option value="True">True</option>
+    </select>
+  
+  </div>
+  
+  
+  <div class="r4">
+  <br><br>
+  <span class="lable" ><label>(2)報帳日期：</label></span>  <input type="date" id="paydate2" style="font-size:20px ;width:180">
+  <span class="lable" ><label>廠&emsp;&emsp;商：</label></span>  <input type="text" id="paycompany2" style="font-size:20px ;width:180">
+  <span class="lable" ><label>品&emsp;&emsp;項：</label></span>  <input type="text" id="payname2" style="font-size:20px ;width:180">
+  <span class="lable" ><label>明&emsp;&emsp;細：</label></span>  <input type="text" id="paydetail2" style="font-size:20px ;width:180">
+  <span class="lable" ><label>支&emsp;&emsp;出：</label></span>  <input type="text" id="pay2" style="font-size:20px ;width:180">
+  <br><br>&ensp;&ensp;&ensp;&ensp;
+  <span class="lable" ><label>付款日期：</label></span>  <input type="date" id="paymoneydate2" style="font-size:20px ;width:180">
+  <span class="lable" ><label>付款方式：</label></span>  
+  <select id="paytype2" style="font-size:20px">
+    <option value="轉帳">轉帳</option>
+    <option value="郵局">郵局</option>
+    <option value="刷卡">刷卡</option>
+    <option value="支票">支票</option>
+    <option value="其他">其他</option>
+  </select>
+  <span class="lable" ><label>&emsp;&emsp;&emsp;&emsp;付款證明：</label></span>  <input type="text" id="payprove2" style="font-size:20px ;width:180">
+  <span class="lableop" ><label>O&ensp;P核實：</label></span> 
+    <select id="opcheck2" style="font-size:20px">
+      <option value="False">False</option>
+      <option value="True">True</option>
+    </select>
+  <span class="lablecheck" ><label>&emsp;&emsp;&emsp;&emsp;財務核實：</label></span> 
+    <select id="paycheck2" style="font-size:20px">
+      <option value="False">False</option>
+      <option value="True">True</option>
+    </select>
+  
+  <br><br>
+  </div>
+  <div class="r7">
+  &ensp;&ensp;&ensp;&ensp;
+  
+  <span class="lable" ><label>O&ensp;P支付：</label></span> 
+    <select id="op2" style="font-size:20px">
+      <option value="False">False</option><option value="True">True</option>
+    </select>
+  <span class="lable" ><label>&emsp;&emsp;&emsp;&emsp;定金D/L：</label></span>  <input type="date" id="downpaydatedl2" style="font-size:20px;width:180">
+  <span class="lable" ><label>尾款D/L：</label></span>  <input type="date" id="lastpaydatedl2" style="font-size:20px;width:180">
+  
+  <br><br>&ensp;&ensp;&ensp;&ensp;
+  
+  <span class="lable" ><label>O&ensp;P定金：</label></span>  <input type="text" id="opdownpay2" style="font-size:20px;width:180">
+  <span class="lable" ><label>付款日期：</label></span>  <input type="date" id="opdownpaydate2" style="font-size:20px ;width:180">
+  <span class="lable" ><label>付款方式：</label></span>  
+  <select id="opdownpaytype2" style="font-size:20px">
+    <option value="轉帳">轉帳</option>
+    <option value="郵局">郵局</option>
+    <option value="刷卡">刷卡</option>
+    <option value="支票">支票</option>
+    <option value="其他">其他</option>
+  </select>
+  <span class="lable" ><label>付款證明：</label></span>  <input type="text" id="downpayprove2" style="font-size:20px ;width:180">
+  <span class="lableop" ><label>O&ensp;P核實：</label></span> 
+    <select id="opdowncheck2" style="font-size:20px">
+      <option value="False">False</option>
+      <option value="True">True</option>
+    </select>
+  <span class="lablecheck" ><label>財務核實：</label></span> 
+    <select id="downcheck2" style="font-size:20px">
+      <option value="False">False</option>
+      <option value="True">True</option>
+    </select>
+  
+  <br><br>&ensp;&ensp;&ensp;&ensp;
+  
+  <span class="lable" ><label>O&ensp;P尾款：</label></span>  <input type="text" id="oplastpay2" style="font-size:20px;width:180">
+  <span class="lable" ><label>付款日期：</label></span>  <input type="date" id="oplastpaydate2" style="font-size:20px ;width:180">
+  <span class="lable" ><label>付款方式：</label></span>  
+  <select id="oplastpaytype2" style="font-size:20px">
+    <option value="轉帳">轉帳</option>
+    <option value="郵局">郵局</option>
+    <option value="刷卡">刷卡</option>
+    <option value="支票">支票</option>
+    <option value="其他">其他</option>
+  </select>
+  <span class="lable" ><label>付款證明：</label></span>  <input type="text" id="lastpayprove2" style="font-size:20px ;width:180">
+  <span class="lableop" ><label>O&ensp;P核實：</label></span> 
+    <select id="oplastcheck2" style="font-size:20px">
+      <option value="False">False</option>
+      <option value="True">True</option>
+    </select>
+  <span class="lablecheck" ><label>財務核實：</label></span> 
+    <select id="lastcheck2" style="font-size:20px">
+      <option value="False">False</option>
+      <option value="True">True</option>
+    </select>
+  
+  </div>
+  
+  <div class="r4">
+    <br><br>
+    <span class="lable" ><label>(3)報帳日期：</label></span>  <input type="date" id="paydate3" style="font-size:20px ;width:180">
+    <span class="lable" ><label>廠&emsp;&emsp;商：</label></span>  <input type="text" id="paycompany3" style="font-size:20px ;width:180">
+    <span class="lable" ><label>品&emsp;&emsp;項：</label></span>  <input type="text" id="payname3" style="font-size:20px ;width:180">
+    <span class="lable" ><label>明&emsp;&emsp;細：</label></span>  <input type="text" id="paydetail3" style="font-size:20px ;width:180">
+    <span class="lable" ><label>支&emsp;&emsp;出：</label></span>  <input type="text" id="pay3" style="font-size:20px ;width:180">
+    <br><br>&ensp;&ensp;&ensp;&ensp;
+    <span class="lable" ><label>付款日期：</label></span>  <input type="date" id="paymoneydate3" style="font-size:20px ;width:180">
+    <span class="lable" ><label>付款方式：</label></span>  
+    <select id="paytype3" style="font-size:20px">
+      <option value="轉帳">轉帳</option>
+      <option value="郵局">郵局</option>
+      <option value="刷卡">刷卡</option>
+      <option value="支票">支票</option>
+      <option value="其他">其他</option>
+    </select>
+    <span class="lable" ><label>&emsp;&emsp;&emsp;&emsp;付款證明：</label></span>  <input type="text" id="payprove3" style="font-size:20px ;width:180">
+    <span class="lableop" ><label>O&ensp;P核實：</label></span> 
+      <select id="opcheck3" style="font-size:20px">
+        <option value="False">False</option>
+        <option value="True">True</option>
+      </select>
+    <span class="lablecheck" ><label>&emsp;&emsp;&emsp;&emsp;財務核實：</label></span> 
+      <select id="paycheck3" style="font-size:20px">
+        <option value="False">False</option>
+        <option value="True">True</option>
+      </select>
+    
+    <br><br>
+    </div>
+    <div class="r7">
+    &ensp;&ensp;&ensp;&ensp;
+    
+    <span class="lable" ><label>O&ensp;P支付：</label></span> 
+      <select id="op3" style="font-size:20px">
+        <option value="False">False</option><option value="True">True</option>
+      </select>
+    <span class="lable" ><label>&emsp;&emsp;&emsp;&emsp;定金D/L：</label></span>  <input type="date" id="downpaydatedl3" style="font-size:20px;width:180">
+    <span class="lable" ><label>尾款D/L：</label></span>  <input type="date" id="lastpaydatedl3" style="font-size:20px;width:180">
+    
+    <br><br>&ensp;&ensp;&ensp;&ensp;
+    
+    <span class="lable" ><label>O&ensp;P定金：</label></span>  <input type="text" id="opdownpay3" style="font-size:20px;width:180">
+    <span class="lable" ><label>付款日期：</label></span>  <input type="date" id="opdownpaydate3" style="font-size:20px ;width:180">
+    <span class="lable" ><label>付款方式：</label></span>  
+    <select id="opdownpaytype3" style="font-size:20px">
+      <option value="轉帳">轉帳</option>
+      <option value="郵局">郵局</option>
+      <option value="刷卡">刷卡</option>
+      <option value="支票">支票</option>
+      <option value="其他">其他</option>
+    </select>
+    <span class="lable" ><label>付款證明：</label></span>  <input type="text" id="downpayprove3" style="font-size:20px ;width:180">
+    <span class="lableop" ><label>O&ensp;P核實：</label></span> 
+      <select id="opdowncheck3" style="font-size:20px">
+        <option value="False">False</option>
+        <option value="True">True</option>
+      </select>
+    <span class="lablecheck" ><label>財務核實：</label></span> 
+      <select id="downcheck3" style="font-size:20px">
+        <option value="False">False</option>
+        <option value="True">True</option>
+      </select>
+    
+    <br><br>&ensp;&ensp;&ensp;&ensp;
+    
+    <span class="lable" ><label>O&ensp;P尾款：</label></span>  <input type="text" id="oplastpay3" style="font-size:20px;width:180">
+    <span class="lable" ><label>付款日期：</label></span>  <input type="date" id="oplastpaydate3" style="font-size:20px ;width:180">
+    <span class="lable" ><label>付款方式：</label></span>  
+    <select id="oplastpaytype3" style="font-size:20px">
+      <option value="轉帳">轉帳</option>
+      <option value="郵局">郵局</option>
+      <option value="刷卡">刷卡</option>
+      <option value="支票">支票</option>
+      <option value="其他">其他</option>
+    </select>
+    <span class="lable" ><label>付款證明：</label></span>  <input type="text" id="lastpayprove3" style="font-size:20px ;width:180">
+    <span class="lableop" ><label>O&ensp;P核實：</label></span> 
+      <select id="oplastcheck3" style="font-size:20px">
+        <option value="False">False</option>
+        <option value="True">True</option>
+      </select>
+    <span class="lablecheck" ><label>財務核實：</label></span> 
+      <select id="lastcheck3" style="font-size:20px">
+        <option value="False">False</option>
+        <option value="True">True</option>
+      </select>
+    
+    </div>
+  
+  <div class="r4">
+    <br><br>
+    <span class="lable" ><label>(4)報帳日期：</label></span>  <input type="date" id="paydate4" style="font-size:20px ;width:180">
+    <span class="lable" ><label>廠&emsp;&emsp;商：</label></span>  <input type="text" id="paycompany4" style="font-size:20px ;width:180">
+    <span class="lable" ><label>品&emsp;&emsp;項：</label></span>  <input type="text" id="payname4" style="font-size:20px ;width:180">
+    <span class="lable" ><label>明&emsp;&emsp;細：</label></span>  <input type="text" id="paydetail4" style="font-size:20px ;width:180">
+    <span class="lable" ><label>支&emsp;&emsp;出：</label></span>  <input type="text" id="pay4" style="font-size:20px ;width:180">
+    <br><br>&ensp;&ensp;&ensp;&ensp;
+    <span class="lable" ><label>付款日期：</label></span>  <input type="date" id="paymoneydate4" style="font-size:20px ;width:180">
+    <span class="lable" ><label>付款方式：</label></span>  
+    <select id="paytype4" style="font-size:20px">
+      <option value="轉帳">轉帳</option>
+      <option value="郵局">郵局</option>
+      <option value="刷卡">刷卡</option>
+      <option value="支票">支票</option>
+      <option value="其他">其他</option>
+    </select>
+    <span class="lable" ><label>&emsp;&emsp;&emsp;&emsp;付款證明：</label></span>  <input type="text" id="payprove4" style="font-size:20px ;width:180">
+    <span class="lableop" ><label>O&ensp;P核實：</label></span> 
+      <select id="opcheck4" style="font-size:20px">
+        <option value="False">False</option>
+        <option value="True">True</option>
+      </select>
+    <span class="lablecheck" ><label>&emsp;&emsp;&emsp;&emsp;財務核實：</label></span> 
+      <select id="paycheck4" style="font-size:20px">
+        <option value="False">False</option>
+        <option value="True">True</option>
+      </select>
+    
+    <br><br>
+    </div>
+    <div class="r7">
+    &ensp;&ensp;&ensp;&ensp;
+    
+    <span class="lable" ><label>O&ensp;P支付：</label></span> 
+      <select id="op4" style="font-size:20px">
+        <option value="False">False</option><option value="True">True</option>
+      </select>
+    <span class="lable" ><label>&emsp;&emsp;&emsp;&emsp;定金D/L：</label></span>  <input type="date" id="downpaydatedl4" style="font-size:20px;width:180">
+    <span class="lable" ><label>尾款D/L：</label></span>  <input type="date" id="lastpaydatedl4" style="font-size:20px;width:180">
+    
+    <br><br>&ensp;&ensp;&ensp;&ensp;
+    
+    <span class="lable" ><label>O&ensp;P定金：</label></span>  <input type="text" id="opdownpay4" style="font-size:20px;width:180">
+    <span class="lable" ><label>付款日期：</label></span>  <input type="date" id="opdownpaydate4" style="font-size:20px ;width:180">
+    <span class="lable" ><label>付款方式：</label></span>  
+    <select id="opdownpaytype4" style="font-size:20px">
+      <option value="轉帳">轉帳</option>
+      <option value="郵局">郵局</option>
+      <option value="刷卡">刷卡</option>
+      <option value="支票">支票</option>
+      <option value="其他">其他</option>
+    </select>
+    <span class="lable" ><label>付款證明：</label></span>  <input type="text" id="downpayprove4" style="font-size:20px ;width:180">
+    <span class="lableop" ><label>O&ensp;P核實：</label></span> 
+      <select id="opdowncheck4" style="font-size:20px">
+        <option value="False">False</option>
+        <option value="True">True</option>
+      </select>
+    <span class="lablecheck" ><label>財務核實：</label></span> 
+      <select id="downcheck4" style="font-size:20px">
+        <option value="False">False</option>
+        <option value="True">True</option>
+      </select>
+    
+    <br><br>&ensp;&ensp;&ensp;&ensp;
+    
+    <span class="lable" ><label>O&ensp;P尾款：</label></span>  <input type="text" id="oplastpay4" style="font-size:20px;width:180">
+    <span class="lable" ><label>付款日期：</label></span>  <input type="date" id="oplastpaydate4" style="font-size:20px ;width:180">
+    <span class="lable" ><label>付款方式：</label></span>  
+    <select id="oplastpaytype4" style="font-size:20px">
+      <option value="轉帳">轉帳</option>
+      <option value="郵局">郵局</option>
+      <option value="刷卡">刷卡</option>
+      <option value="支票">支票</option>
+      <option value="其他">其他</option>
+    </select>
+    <span class="lable" ><label>付款證明：</label></span>  <input type="text" id="lastpayprove4" style="font-size:20px ;width:180">
+    <span class="lableop" ><label>O&ensp;P核實：</label></span> 
+      <select id="oplastcheck4" style="font-size:20px">
+        <option value="False">False</option>
+        <option value="True">True</option>
+      </select>
+    <span class="lablecheck" ><label>財務核實：</label></span> 
+      <select id="lastcheck4" style="font-size:20px">
+        <option value="False">False</option>
+        <option value="True">True</option>
+      </select>
+    
+  </div>
+  
+  <div class="r4">
+    <br><br>
+    <span class="lable" ><label>(5)報帳日期：</label></span>  <input type="date" id="paydate5" style="font-size:20px ;width:180">
+    <span class="lable" ><label>廠&emsp;&emsp;商：</label></span>  <input type="text" id="paycompany5" style="font-size:20px ;width:180">
+    <span class="lable" ><label>品&emsp;&emsp;項：</label></span>  <input type="text" id="payname5" style="font-size:20px ;width:180">
+    <span class="lable" ><label>明&emsp;&emsp;細：</label></span>  <input type="text" id="paydetail5" style="font-size:20px ;width:180">
+    <span class="lable" ><label>支&emsp;&emsp;出：</label></span>  <input type="text" id="pay5" style="font-size:20px ;width:180">
+    <br><br>&ensp;&ensp;&ensp;&ensp;
+    <span class="lable" ><label>付款日期：</label></span>  <input type="date" id="paymoneydate5" style="font-size:20px ;width:180">
+    <span class="lable" ><label>付款方式：</label></span>  
+    <select id="paytype5" style="font-size:20px">
+      <option value="轉帳">轉帳</option>
+      <option value="郵局">郵局</option>
+      <option value="刷卡">刷卡</option>
+      <option value="支票">支票</option>
+      <option value="其他">其他</option>
+    </select>
+    <span class="lable" ><label>&emsp;&emsp;&emsp;&emsp;付款證明：</label></span>  <input type="text" id="payprove5" style="font-size:20px ;width:180">
+    <span class="lableop" ><label>O&ensp;P核實：</label></span> 
+      <select id="opcheck5" style="font-size:20px">
+        <option value="False">False</option>
+        <option value="True">True</option>
+      </select>
+    <span class="lablecheck" ><label>&emsp;&emsp;&emsp;&emsp;財務核實：</label></span> 
+      <select id="paycheck5" style="font-size:20px">
+        <option value="False">False</option>
+        <option value="True">True</option>
+      </select>
+    
+    <br><br>
+    </div>
+    <div class="r7">
+    &ensp;&ensp;&ensp;&ensp;
+    
+    <span class="lable" ><label>O&ensp;P支付：</label></span> 
+      <select id="op5" style="font-size:20px">
+        <option value="False">False</option><option value="True">True</option>
+      </select>
+    <span class="lable" ><label>&emsp;&emsp;&emsp;&emsp;定金D/L：</label></span>  <input type="date" id="downpaydatedl5" style="font-size:20px;width:180">
+    <span class="lable" ><label>尾款D/L：</label></span>  <input type="date" id="lastpaydatedl5" style="font-size:20px;width:180">
+    
+    <br><br>&ensp;&ensp;&ensp;&ensp;
+    
+    <span class="lable" ><label>O&ensp;P定金：</label></span>  <input type="text" id="opdownpay5" style="font-size:20px;width:180">
+    <span class="lable" ><label>付款日期：</label></span>  <input type="date" id="opdownpaydate5" style="font-size:20px ;width:180">
+    <span class="lable" ><label>付款方式：</label></span>  
+    <select id="opdownpaytype5" style="font-size:20px">
+      <option value="轉帳">轉帳</option>
+      <option value="郵局">郵局</option>
+      <option value="刷卡">刷卡</option>
+      <option value="支票">支票</option>
+      <option value="其他">其他</option>
+    </select>
+    <span class="lable" ><label>付款證明：</label></span>  <input type="text" id="downpayprove5" style="font-size:20px ;width:180">
+    <span class="lableop" ><label>O&ensp;P核實：</label></span> 
+      <select id="opdowncheck5" style="font-size:20px">
+        <option value="False">False</option>
+        <option value="True">True</option>
+      </select>
+    <span class="lablecheck" ><label>財務核實：</label></span> 
+      <select id="downcheck5" style="font-size:20px">
+        <option value="False">False</option>
+        <option value="True">True</option>
+      </select>
+    
+    <br><br>&ensp;&ensp;&ensp;&ensp;
+    
+    <span class="lable" ><label>O&ensp;P尾款：</label></span>  <input type="text" id="oplastpay5" style="font-size:20px;width:180">
+    <span class="lable" ><label>付款日期：</label></span>  <input type="date" id="oplastpaydate5" style="font-size:20px ;width:180">
+    <span class="lable" ><label>付款方式：</label></span>  
+    <select id="oplastpaytype5" style="font-size:20px">
+      <option value="轉帳">轉帳</option>
+      <option value="郵局">郵局</option>
+      <option value="刷卡">刷卡</option>
+      <option value="支票">支票</option>
+      <option value="其他">其他</option>
+    </select>
+    <span class="lable" ><label>付款證明：</label></span>  <input type="text" id="lastpayprove5" style="font-size:20px ;width:180">
+    <span class="lableop" ><label>O&ensp;P核實：</label></span> 
+      <select id="oplastcheck5" style="font-size:20px">
+        <option value="False">False</option>
+        <option value="True">True</option>
+      </select>
+    <span class="lablecheck" ><label>財務核實：</label></span> 
+      <select id="lastcheck5" style="font-size:20px">
+        <option value="False">False</option>
+        <option value="True">True</option>
+      </select>
+    
+  </div>
+  
+  <div class="r4">
+    <br><br>
+    <span class="lable" ><label>(6)報帳日期：</label></span>  <input type="date" id="paydate6" style="font-size:20px ;width:180">
+    <span class="lable" ><label>廠&emsp;&emsp;商：</label></span>  <input type="text" id="paycompany6" style="font-size:20px ;width:180">
+    <span class="lable" ><label>品&emsp;&emsp;項：</label></span>  <input type="text" id="payname6" style="font-size:20px ;width:180">
+    <span class="lable" ><label>明&emsp;&emsp;細：</label></span>  <input type="text" id="paydetail6" style="font-size:20px ;width:180">
+    <span class="lable" ><label>支&emsp;&emsp;出：</label></span>  <input type="text" id="pay6" style="font-size:20px ;width:180">
+    <br><br>&ensp;&ensp;&ensp;&ensp;
+    <span class="lable" ><label>付款日期：</label></span>  <input type="date" id="paymoneydate6" style="font-size:20px ;width:180">
+    <span class="lable" ><label>付款方式：</label></span>  
+    <select id="paytype6" style="font-size:20px">
+      <option value="轉帳">轉帳</option>
+      <option value="郵局">郵局</option>
+      <option value="刷卡">刷卡</option>
+      <option value="支票">支票</option>
+      <option value="其他">其他</option>
+    </select>
+    <span class="lable" ><label>&emsp;&emsp;&emsp;&emsp;付款證明：</label></span>  <input type="text" id="payprove6" style="font-size:20px ;width:180">
+    <span class="lableop" ><label>O&ensp;P核實：</label></span> 
+      <select id="opcheck6" style="font-size:20px">
+        <option value="False">False</option>
+        <option value="True">True</option>
+      </select>
+    <span class="lablecheck" ><label>&emsp;&emsp;&emsp;&emsp;財務核實：</label></span> 
+      <select id="paycheck6" style="font-size:20px">
+        <option value="False">False</option>
+        <option value="True">True</option>
+      </select>
+    
+    <br><br>
+    </div>
+    <div class="r7">
+    &ensp;&ensp;&ensp;&ensp;
+    
+    <span class="lable" ><label>O&ensp;P支付：</label></span> 
+      <select id="op6" style="font-size:20px">
+        <option value="False">False</option><option value="True">True</option>
+      </select>
+    <span class="lable" ><label>&emsp;&emsp;&emsp;&emsp;定金D/L：</label></span>  <input type="date" id="downpaydatedl6" style="font-size:20px;width:180">
+    <span class="lable" ><label>尾款D/L：</label></span>  <input type="date" id="lastpaydatedl6" style="font-size:20px;width:180">
+    
+    <br><br>&ensp;&ensp;&ensp;&ensp;
+    
+    <span class="lable" ><label>O&ensp;P定金：</label></span>  <input type="text" id="opdownpay6" style="font-size:20px;width:180">
+    <span class="lable" ><label>付款日期：</label></span>  <input type="date" id="opdownpaydate6" style="font-size:20px ;width:180">
+    <span class="lable" ><label>付款方式：</label></span>  
+    <select id="opdownpaytype6" style="font-size:20px">
+      <option value="轉帳">轉帳</option>
+      <option value="郵局">郵局</option>
+      <option value="刷卡">刷卡</option>
+      <option value="支票">支票</option>
+      <option value="其他">其他</option>
+    </select>
+    <span class="lable" ><label>付款證明：</label></span>  <input type="text" id="downpayprove6" style="font-size:20px ;width:180">
+    <span class="lableop" ><label>O&ensp;P核實：</label></span> 
+      <select id="opdowncheck6" style="font-size:20px">
+        <option value="False">False</option>
+        <option value="True">True</option>
+      </select>
+    <span class="lablecheck" ><label>財務核實：</label></span> 
+      <select id="downcheck6" style="font-size:20px">
+        <option value="False">False</option>
+        <option value="True">True</option>
+      </select>
+    
+    <br><br>&ensp;&ensp;&ensp;&ensp;
+    
+    <span class="lable" ><label>O&ensp;P尾款：</label></span>  <input type="text" id="oplastpay6" style="font-size:20px;width:180">
+    <span class="lable" ><label>付款日期：</label></span>  <input type="date" id="oplastpaydate6" style="font-size:20px ;width:180">
+    <span class="lable" ><label>付款方式：</label></span>  
+    <select id="oplastpaytype6" style="font-size:20px">
+      <option value="轉帳">轉帳</option>
+      <option value="郵局">郵局</option>
+      <option value="刷卡">刷卡</option>
+      <option value="支票">支票</option>
+      <option value="其他">其他</option>
+    </select>
+    <span class="lable" ><label>付款證明：</label></span>  <input type="text" id="lastpayprove6" style="font-size:20px ;width:180">
+    <span class="lableop" ><label>O&ensp;P核實：</label></span> 
+      <select id="oplastcheck6" style="font-size:20px">
+        <option value="False">False</option>
+        <option value="True">True</option>
+      </select>
+    <span class="lablecheck" ><label>財務核實：</label></span> 
+      <select id="lastcheck6" style="font-size:20px">
+        <option value="False">False</option>
+        <option value="True">True</option>
+      </select>
+    
+  </div>
+  
+  <div class="r4">
+    <br><br>
+    <span class="lable" ><label>(7)報帳日期：</label></span>  <input type="date" id="paydate7" style="font-size:20px ;width:180">
+    <span class="lable" ><label>廠&emsp;&emsp;商：</label></span>  <input type="text" id="paycompany7" style="font-size:20px ;width:180">
+    <span class="lable" ><label>品&emsp;&emsp;項：</label></span>  <input type="text" id="payname7" style="font-size:20px ;width:180">
+    <span class="lable" ><label>明&emsp;&emsp;細：</label></span>  <input type="text" id="paydetail7" style="font-size:20px ;width:180">
+    <span class="lable" ><label>支&emsp;&emsp;出：</label></span>  <input type="text" id="pay7" style="font-size:20px ;width:180">
+    <br><br>&ensp;&ensp;&ensp;&ensp;
+    <span class="lable" ><label>付款日期：</label></span>  <input type="date" id="paymoneydate7" style="font-size:20px ;width:180">
+    <span class="lable" ><label>付款方式：</label></span>  
+    <select id="paytype7" style="font-size:20px">
+      <option value="轉帳">轉帳</option>
+      <option value="郵局">郵局</option>
+      <option value="刷卡">刷卡</option>
+      <option value="支票">支票</option>
+      <option value="其他">其他</option>
+    </select>
+    <span class="lable" ><label>&emsp;&emsp;&emsp;&emsp;付款證明：</label></span>  <input type="text" id="payprove7" style="font-size:20px ;width:180">
+    <span class="lableop" ><label>O&ensp;P核實：</label></span> 
+      <select id="opcheck7" style="font-size:20px">
+        <option value="False">False</option>
+        <option value="True">True</option>
+      </select>
+    <span class="lablecheck" ><label>&emsp;&emsp;&emsp;&emsp;財務核實：</label></span> 
+      <select id="paycheck7" style="font-size:20px">
+        <option value="False">False</option>
+        <option value="True">True</option>
+      </select>
+    
+    <br><br>
+    </div>
+    <div class="r7">
+    &ensp;&ensp;&ensp;&ensp;
+    
+    <span class="lable" ><label>O&ensp;P支付：</label></span> 
+      <select id="op7" style="font-size:20px">
+        <option value="False">False</option><option value="True">True</option>
+      </select>
+    <span class="lable" ><label>&emsp;&emsp;&emsp;&emsp;定金D/L：</label></span>  <input type="date" id="downpaydatedl7" style="font-size:20px;width:180">
+    <span class="lable" ><label>尾款D/L：</label></span>  <input type="date" id="lastpaydatedl7" style="font-size:20px;width:180">
+    
+    <br><br>&ensp;&ensp;&ensp;&ensp;
+    
+    <span class="lable" ><label>O&ensp;P定金：</label></span>  <input type="text" id="opdownpay7" style="font-size:20px;width:180">
+    <span class="lable" ><label>付款日期：</label></span>  <input type="date" id="opdownpaydate7" style="font-size:20px ;width:180">
+    <span class="lable" ><label>付款方式：</label></span>  
+    <select id="opdownpaytype7" style="font-size:20px">
+      <option value="轉帳">轉帳</option>
+      <option value="郵局">郵局</option>
+      <option value="刷卡">刷卡</option>
+      <option value="支票">支票</option>
+      <option value="其他">其他</option>
+    </select>
+    <span class="lable" ><label>付款證明：</label></span>  <input type="text" id="downpayprove7" style="font-size:20px ;width:180">
+    <span class="lableop" ><label>O&ensp;P核實：</label></span> 
+      <select id="opdowncheck7" style="font-size:20px">
+        <option value="False">False</option>
+        <option value="True">True</option>
+      </select>
+    <span class="lablecheck" ><label>財務核實：</label></span> 
+      <select id="downcheck7" style="font-size:20px">
+        <option value="False">False</option>
+        <option value="True">True</option>
+      </select>
+    
+    <br><br>&ensp;&ensp;&ensp;&ensp;
+    
+    <span class="lable" ><label>O&ensp;P尾款：</label></span>  <input type="text" id="oplastpay7" style="font-size:20px;width:180">
+    <span class="lable" ><label>付款日期：</label></span>  <input type="date" id="oplastpaydate7" style="font-size:20px ;width:180">
+    <span class="lable" ><label>付款方式：</label></span>  
+    <select id="oplastpaytype7" style="font-size:20px">
+      <option value="轉帳">轉帳</option>
+      <option value="郵局">郵局</option>
+      <option value="刷卡">刷卡</option>
+      <option value="支票">支票</option>
+      <option value="其他">其他</option>
+    </select>
+    <span class="lable" ><label>付款證明：</label></span>  <input type="text" id="lastpayprove7" style="font-size:20px ;width:180">
+    <span class="lableop" ><label>O&ensp;P核實：</label></span> 
+      <select id="oplastcheck7" style="font-size:20px">
+        <option value="False">False</option>
+        <option value="True">True</option>
+      </select>
+    <span class="lablecheck" ><label>財務核實：</label></span> 
+      <select id="lastcheck7" style="font-size:20px">
+        <option value="False">False</option>
+        <option value="True">True</option>
+      </select>
+    
+  </div>
+  
+  <div class="r4">
+    <br><br>
+    <span class="lable" ><label>(8)報帳日期：</label></span>  <input type="date" id="paydate8" style="font-size:20px ;width:180">
+    <span class="lable" ><label>廠&emsp;&emsp;商：</label></span>  <input type="text" id="paycompany8" style="font-size:20px ;width:180">
+    <span class="lable" ><label>品&emsp;&emsp;項：</label></span>  <input type="text" id="payname8" style="font-size:20px ;width:180">
+    <span class="lable" ><label>明&emsp;&emsp;細：</label></span>  <input type="text" id="paydetail8" style="font-size:20px ;width:180">
+    <span class="lable" ><label>支&emsp;&emsp;出：</label></span>  <input type="text" id="pay8" style="font-size:20px ;width:180">
+    <br><br>&ensp;&ensp;&ensp;&ensp;
+    <span class="lable" ><label>付款日期：</label></span>  <input type="date" id="paymoneydate8" style="font-size:20px ;width:180">
+    <span class="lable" ><label>付款方式：</label></span>  
+    <select id="paytype8" style="font-size:20px">
+      <option value="轉帳">轉帳</option>
+      <option value="郵局">郵局</option>
+      <option value="刷卡">刷卡</option>
+      <option value="支票">支票</option>
+      <option value="其他">其他</option>
+    </select>
+    <span class="lable" ><label>&emsp;&emsp;&emsp;&emsp;付款證明：</label></span>  <input type="text" id="payprove8" style="font-size:20px ;width:180">
+    <span class="lableop" ><label>O&ensp;P核實：</label></span> 
+      <select id="opcheck8" style="font-size:20px">
+        <option value="False">False</option>
+        <option value="True">True</option>
+      </select>
+    <span class="lablecheck" ><label>&emsp;&emsp;&emsp;&emsp;財務核實：</label></span> 
+      <select id="paycheck8" style="font-size:20px">
+        <option value="False">False</option>
+        <option value="True">True</option>
+      </select>
+    
+    <br><br>
+    </div>
+    <div class="r7">
+    &ensp;&ensp;&ensp;&ensp;
+    
+    <span class="lable" ><label>O&ensp;P支付：</label></span> 
+      <select id="op8" style="font-size:20px">
+        <option value="False">False</option><option value="True">True</option>
+      </select>
+    <span class="lable" ><label>&emsp;&emsp;&emsp;&emsp;定金D/L：</label></span>  <input type="date" id="downpaydatedl8" style="font-size:20px;width:180">
+    <span class="lable" ><label>尾款D/L：</label></span>  <input type="date" id="lastpaydatedl8" style="font-size:20px;width:180">
+    
+    <br><br>&ensp;&ensp;&ensp;&ensp;
+    
+    <span class="lable" ><label>O&ensp;P定金：</label></span>  <input type="text" id="opdownpay8" style="font-size:20px;width:180">
+    <span class="lable" ><label>付款日期：</label></span>  <input type="date" id="opdownpaydate8" style="font-size:20px ;width:180">
+    <span class="lable" ><label>付款方式：</label></span>  
+    <select id="opdownpaytype8" style="font-size:20px">
+      <option value="轉帳">轉帳</option>
+      <option value="郵局">郵局</option>
+      <option value="刷卡">刷卡</option>
+      <option value="支票">支票</option>
+      <option value="其他">其他</option>
+    </select>
+    <span class="lable" ><label>付款證明：</label></span>  <input type="text" id="downpayprove8" style="font-size:20px ;width:180">
+    <span class="lableop" ><label>O&ensp;P核實：</label></span> 
+      <select id="opdowncheck8" style="font-size:20px">
+        <option value="False">False</option>
+        <option value="True">True</option>
+      </select>
+    <span class="lablecheck" ><label>財務核實：</label></span> 
+      <select id="downcheck8" style="font-size:20px">
+        <option value="False">False</option>
+        <option value="True">True</option>
+      </select>
+    
+    <br><br>&ensp;&ensp;&ensp;&ensp;
+    
+    <span class="lable" ><label>O&ensp;P尾款：</label></span>  <input type="text" id="oplastpay8" style="font-size:20px;width:180">
+    <span class="lable" ><label>付款日期：</label></span>  <input type="date" id="oplastpaydate8" style="font-size:20px ;width:180">
+    <span class="lable" ><label>付款方式：</label></span>  
+    <select id="oplastpaytype8" style="font-size:20px">
+      <option value="轉帳">轉帳</option>
+      <option value="郵局">郵局</option>
+      <option value="刷卡">刷卡</option>
+      <option value="支票">支票</option>
+      <option value="其他">其他</option>
+    </select>
+    <span class="lable" ><label>付款證明：</label></span>  <input type="text" id="lastpayprove8" style="font-size:20px ;width:180">
+    <span class="lableop" ><label>O&ensp;P核實：</label></span> 
+      <select id="oplastcheck8" style="font-size:20px">
+        <option value="False">False</option>
+        <option value="True">True</option>
+      </select>
+    <span class="lablecheck" ><label>財務核實：</label></span> 
+      <select id="lastcheck8" style="font-size:20px">
+        <option value="False">False</option>
+        <option value="True">True</option>
+      </select>
+    
+  </div>
+  
+  <div class="r4">
+    <br><br>
+    <span class="lable" ><label>(9)報帳日期：</label></span>  <input type="date" id="paydate9" style="font-size:20px ;width:180">
+    <span class="lable" ><label>廠&emsp;&emsp;商：</label></span>  <input type="text" id="paycompany9" style="font-size:20px ;width:180">
+    <span class="lable" ><label>品&emsp;&emsp;項：</label></span>  <input type="text" id="payname9" style="font-size:20px ;width:180">
+    <span class="lable" ><label>明&emsp;&emsp;細：</label></span>  <input type="text" id="paydetail9" style="font-size:20px ;width:180">
+    <span class="lable" ><label>支&emsp;&emsp;出：</label></span>  <input type="text" id="pay9" style="font-size:20px ;width:180">
+    <br><br>&ensp;&ensp;&ensp;&ensp;
+    <span class="lable" ><label>付款日期：</label></span>  <input type="date" id="paymoneydate9" style="font-size:20px ;width:180">
+    <span class="lable" ><label>付款方式：</label></span>  
+    <select id="paytype9" style="font-size:20px">
+      <option value="轉帳">轉帳</option>
+      <option value="郵局">郵局</option>
+      <option value="刷卡">刷卡</option>
+      <option value="支票">支票</option>
+      <option value="其他">其他</option>
+    </select>
+    <span class="lable" ><label>&emsp;&emsp;&emsp;&emsp;付款證明：</label></span>  <input type="text" id="payprove9" style="font-size:20px ;width:180">
+    <span class="lableop" ><label>O&ensp;P核實：</label></span> 
+      <select id="opcheck9" style="font-size:20px">
+        <option value="False">False</option>
+        <option value="True">True</option>
+      </select>
+    <span class="lablecheck" ><label>&emsp;&emsp;&emsp;&emsp;財務核實：</label></span> 
+      <select id="paycheck9" style="font-size:20px">
+        <option value="False">False</option>
+        <option value="True">True</option>
+      </select>
+    
+    <br><br>
+    </div>
+    <div class="r7">
+    &ensp;&ensp;&ensp;&ensp;
+    
+    <span class="lable" ><label>O&ensp;P支付：</label></span> 
+      <select id="op9" style="font-size:20px">
+        <option value="False">False</option><option value="True">True</option>
+      </select>
+    <span class="lable" ><label>&emsp;&emsp;&emsp;&emsp;定金D/L：</label></span>  <input type="date" id="downpaydatedl9" style="font-size:20px;width:180">
+    <span class="lable" ><label>尾款D/L：</label></span>  <input type="date" id="lastpaydatedl9" style="font-size:20px;width:180">
+    
+    <br><br>&ensp;&ensp;&ensp;&ensp;
+    
+    <span class="lable" ><label>O&ensp;P定金：</label></span>  <input type="text" id="opdownpay9" style="font-size:20px;width:180">
+    <span class="lable" ><label>付款日期：</label></span>  <input type="date" id="opdownpaydate9" style="font-size:20px ;width:180">
+    <span class="lable" ><label>付款方式：</label></span>  
+    <select id="opdownpaytype9" style="font-size:20px">
+      <option value="轉帳">轉帳</option>
+      <option value="郵局">郵局</option>
+      <option value="刷卡">刷卡</option>
+      <option value="支票">支票</option>
+      <option value="其他">其他</option>
+    </select>
+    <span class="lable" ><label>付款證明：</label></span>  <input type="text" id="downpayprove9" style="font-size:20px ;width:180">
+    <span class="lableop" ><label>O&ensp;P核實：</label></span> 
+      <select id="opdowncheck9" style="font-size:20px">
+        <option value="False">False</option>
+        <option value="True">True</option>
+      </select>
+    <span class="lablecheck" ><label>財務核實：</label></span> 
+      <select id="downcheck9" style="font-size:20px">
+        <option value="False">False</option>
+        <option value="True">True</option>
+      </select>
+    
+    <br><br>&ensp;&ensp;&ensp;&ensp;
+    
+    <span class="lable" ><label>O&ensp;P尾款：</label></span>  <input type="text" id="oplastpay9" style="font-size:20px;width:180">
+    <span class="lable" ><label>付款日期：</label></span>  <input type="date" id="oplastpaydate9" style="font-size:20px ;width:180">
+    <span class="lable" ><label>付款方式：</label></span>  
+    <select id="oplastpaytype9" style="font-size:20px">
+      <option value="轉帳">轉帳</option>
+      <option value="郵局">郵局</option>
+      <option value="刷卡">刷卡</option>
+      <option value="支票">支票</option>
+      <option value="其他">其他</option>
+    </select>
+    <span class="lable" ><label>付款證明：</label></span>  <input type="text" id="lastpayprove9" style="font-size:20px ;width:180">
+    <span class="lableop" ><label>O&ensp;P核實：</label></span> 
+      <select id="oplastcheck9" style="font-size:20px">
+        <option value="False">False</option>
+        <option value="True">True</option>
+      </select>
+    <span class="lablecheck" ><label>財務核實：</label></span> 
+      <select id="lastcheck9" style="font-size:20px">
+        <option value="False">False</option>
+        <option value="True">True</option>
+      </select>
+    
+  </div>
+  
+  <div class="r4">
+    <br><br>
+    <span class="lable" ><label>(10)報帳日期：</label></span>  <input type="date" id="paydate10" style="font-size:20px ;width:180">
+    <span class="lable" ><label>廠&emsp;&emsp;商：</label></span>  <input type="text" id="paycompany10" style="font-size:20px ;width:180">
+    <span class="lable" ><label>品&emsp;&emsp;項：</label></span>  <input type="text" id="payname10" style="font-size:20px ;width:180">
+    <span class="lable" ><label>明&emsp;&emsp;細：</label></span>  <input type="text" id="paydetail10" style="font-size:20px ;width:180">
+    <span class="lable" ><label>支&emsp;&emsp;出：</label></span>  <input type="text" id="pay10" style="font-size:20px ;width:180">
+    <br><br>&ensp;&ensp;&ensp;&ensp;
+    <span class="lable" ><label>付款日期：</label></span>  <input type="date" id="paymoneydate10" style="font-size:20px ;width:180">
+    <span class="lable" ><label>付款方式：</label></span>  
+    <select id="paytype10" style="font-size:20px">
+      <option value="轉帳">轉帳</option>
+      <option value="郵局">郵局</option>
+      <option value="刷卡">刷卡</option>
+      <option value="支票">支票</option>
+      <option value="其他">其他</option>
+    </select>
+    <span class="lable" ><label>&emsp;&emsp;&emsp;&emsp;付款證明：</label></span>  <input type="text" id="payprove10" style="font-size:20px ;width:180">
+    <span class="lableop" ><label>O&ensp;P核實：</label></span> 
+      <select id="opcheck10" style="font-size:20px">
+        <option value="False">False</option>
+        <option value="True">True</option>
+      </select>
+    <span class="lablecheck" ><label>&emsp;&emsp;&emsp;&emsp;財務核實：</label></span> 
+      <select id="paycheck10" style="font-size:20px">
+        <option value="False">False</option>
+        <option value="True">True</option>
+      </select>
+    
+    <br><br>
+    </div>
+    <div class="r7">
+    &ensp;&ensp;&ensp;&ensp;
+    
+    <span class="lable" ><label>O&ensp;P支付：</label></span> 
+      <select id="op10" style="font-size:20px">
+        <option value="False">False</option><option value="True">True</option>
+      </select>
+    <span class="lable" ><label>&emsp;&emsp;&emsp;&emsp;定金D/L：</label></span>  <input type="date" id="downpaydatedl10" style="font-size:20px;width:180">
+    <span class="lable" ><label>尾款D/L：</label></span>  <input type="date" id="lastpaydatedl10" style="font-size:20px;width:180">
+    
+    <br><br>&ensp;&ensp;&ensp;&ensp;
+    
+    <span class="lable" ><label>O&ensp;P定金：</label></span>  <input type="text" id="opdownpay10" style="font-size:20px;width:180">
+    <span class="lable" ><label>付款日期：</label></span>  <input type="date" id="opdownpaydate10" style="font-size:20px ;width:180">
+    <span class="lable" ><label>付款方式：</label></span>  
+    <select id="opdownpaytype10" style="font-size:20px">
+      <option value="轉帳">轉帳</option>
+      <option value="郵局">郵局</option>
+      <option value="刷卡">刷卡</option>
+      <option value="支票">支票</option>
+      <option value="其他">其他</option>
+    </select>
+    <span class="lable" ><label>付款證明：</label></span>  <input type="text" id="downpayprove10" style="font-size:20px ;width:180">
+    <span class="lableop" ><label>O&ensp;P核實：</label></span> 
+      <select id="opdowncheck10" style="font-size:20px">
+        <option value="False">False</option>
+        <option value="True">True</option>
+      </select>
+    <span class="lablecheck" ><label>財務核實：</label></span> 
+      <select id="downcheck10" style="font-size:20px">
+        <option value="False">False</option>
+        <option value="True">True</option>
+      </select>
+    
+    <br><br>&ensp;&ensp;&ensp;&ensp;
+    
+    <span class="lable" ><label>O&ensp;P尾款：</label></span>  <input type="text" id="oplastpay10" style="font-size:20px;width:180">
+    <span class="lable" ><label>付款日期：</label></span>  <input type="date" id="oplastpaydate10" style="font-size:20px ;width:180">
+    <span class="lable" ><label>付款方式：</label></span>  
+    <select id="oplastpaytype10" style="font-size:20px">
+      <option value="轉帳">轉帳</option>
+      <option value="郵局">郵局</option>
+      <option value="刷卡">刷卡</option>
+      <option value="支票">支票</option>
+      <option value="其他">其他</option>
+    </select>
+    <span class="lable" ><label>付款證明：</label></span>  <input type="text" id="lastpayprove10" style="font-size:20px ;width:180">
+    <span class="lableop" ><label>O&ensp;P核實：</label></span> 
+      <select id="oplastcheck10" style="font-size:20px">
+        <option value="False">False</option>
+        <option value="True">True</option>
+      </select>
+    <span class="lablecheck" ><label>財務核實：</label></span> 
+      <select id="lastcheck10" style="font-size:20px">
+        <option value="False">False</option>
+        <option value="True">True</option>
+      </select>
+    
+  </div>
+  
+  <div class="r4">
+    <br><br>
+    <span class="lable" ><label>(11)報帳日期：</label></span>  <input type="date" id="paydate11" style="font-size:20px ;width:180">
+    <span class="lable" ><label>廠&emsp;&emsp;商：</label></span>  <input type="text" id="paycompany11" style="font-size:20px ;width:180">
+    <span class="lable" ><label>品&emsp;&emsp;項：</label></span>  <input type="text" id="payname11" style="font-size:20px ;width:180">
+    <span class="lable" ><label>明&emsp;&emsp;細：</label></span>  <input type="text" id="paydetail11" style="font-size:20px ;width:180">
+    <span class="lable" ><label>支&emsp;&emsp;出：</label></span>  <input type="text" id="pay11" style="font-size:20px ;width:180">
+    <br><br>&ensp;&ensp;&ensp;&ensp;
+    <span class="lable" ><label>付款日期：</label></span>  <input type="date" id="paymoneydate11" style="font-size:20px ;width:180">
+    <span class="lable" ><label>付款方式：</label></span>  
+    <select id="paytype11" style="font-size:20px">
+      <option value="轉帳">轉帳</option>
+      <option value="郵局">郵局</option>
+      <option value="刷卡">刷卡</option>
+      <option value="支票">支票</option>
+      <option value="其他">其他</option>
+    </select>
+    <span class="lable" ><label>&emsp;&emsp;&emsp;&emsp;付款證明：</label></span>  <input type="text" id="payprove11" style="font-size:20px ;width:180">
+    <span class="lableop" ><label>O&ensp;P核實：</label></span> 
+      <select id="opcheck11" style="font-size:20px">
+        <option value="False">False</option>
+        <option value="True">True</option>
+      </select>
+    <span class="lablecheck" ><label>&emsp;&emsp;&emsp;&emsp;財務核實：</label></span> 
+      <select id="paycheck11" style="font-size:20px">
+        <option value="False">False</option>
+        <option value="True">True</option>
+      </select>
+    
+    <br><br>
+    </div>
+    <div class="r7">
+    &ensp;&ensp;&ensp;&ensp;
+    
+    <span class="lable" ><label>O&ensp;P支付：</label></span> 
+      <select id="op11" style="font-size:20px">
+        <option value="False">False</option><option value="True">True</option>
+      </select>
+    <span class="lable" ><label>&emsp;&emsp;&emsp;&emsp;定金D/L：</label></span>  <input type="date" id="downpaydatedl11" style="font-size:20px;width:180">
+    <span class="lable" ><label>尾款D/L：</label></span>  <input type="date" id="lastpaydatedl11" style="font-size:20px;width:180">
+    
+    <br><br>&ensp;&ensp;&ensp;&ensp;
+    
+    <span class="lable" ><label>O&ensp;P定金：</label></span>  <input type="text" id="opdownpay11" style="font-size:20px;width:180">
+    <span class="lable" ><label>付款日期：</label></span>  <input type="date" id="opdownpaydate11" style="font-size:20px ;width:180">
+    <span class="lable" ><label>付款方式：</label></span>  
+    <select id="opdownpaytype11" style="font-size:20px">
+      <option value="轉帳">轉帳</option>
+      <option value="郵局">郵局</option>
+      <option value="刷卡">刷卡</option>
+      <option value="支票">支票</option>
+      <option value="其他">其他</option>
+    </select>
+    <span class="lable" ><label>付款證明：</label></span>  <input type="text" id="downpayprove11" style="font-size:20px ;width:180">
+    <span class="lableop" ><label>O&ensp;P核實：</label></span> 
+      <select id="opdowncheck11" style="font-size:20px">
+        <option value="False">False</option>
+        <option value="True">True</option>
+      </select>
+    <span class="lablecheck" ><label>財務核實：</label></span> 
+      <select id="downcheck11" style="font-size:20px">
+        <option value="False">False</option>
+        <option value="True">True</option>
+      </select>
+    
+    <br><br>&ensp;&ensp;&ensp;&ensp;
+    
+    <span class="lable" ><label>O&ensp;P尾款：</label></span>  <input type="text" id="oplastpay11" style="font-size:20px;width:180">
+    <span class="lable" ><label>付款日期：</label></span>  <input type="date" id="oplastpaydate11" style="font-size:20px ;width:180">
+    <span class="lable" ><label>付款方式：</label></span>  
+    <select id="oplastpaytype11" style="font-size:20px">
+      <option value="轉帳">轉帳</option>
+      <option value="郵局">郵局</option>
+      <option value="刷卡">刷卡</option>
+      <option value="支票">支票</option>
+      <option value="其他">其他</option>
+    </select>
+    <span class="lable" ><label>付款證明：</label></span>  <input type="text" id="lastpayprove11" style="font-size:20px ;width:180">
+    <span class="lableop" ><label>O&ensp;P核實：</label></span> 
+      <select id="oplastcheck11" style="font-size:20px">
+        <option value="False">False</option>
+        <option value="True">True</option>
+      </select>
+    <span class="lablecheck" ><label>財務核實：</label></span> 
+      <select id="lastcheck11" style="font-size:20px">
+        <option value="False">False</option>
+        <option value="True">True</option>
+      </select>
+    
+  </div>
+  
+  <div class="r4">
+    <br><br>
+    <span class="lable" ><label>(12)報帳日期：</label></span>  <input type="date" id="paydate12" style="font-size:20px ;width:180">
+    <span class="lable" ><label>廠&emsp;&emsp;商：</label></span>  <input type="text" id="paycompany12" style="font-size:20px ;width:180">
+    <span class="lable" ><label>品&emsp;&emsp;項：</label></span>  <input type="text" id="payname12" style="font-size:20px ;width:180">
+    <span class="lable" ><label>明&emsp;&emsp;細：</label></span>  <input type="text" id="paydetail12" style="font-size:20px ;width:180">
+    <span class="lable" ><label>支&emsp;&emsp;出：</label></span>  <input type="text" id="pay12" style="font-size:20px ;width:180">
+    <br><br>&ensp;&ensp;&ensp;&ensp;
+    <span class="lable" ><label>付款日期：</label></span>  <input type="date" id="paymoneydate12" style="font-size:20px ;width:180">
+    <span class="lable" ><label>付款方式：</label></span>  
+    <select id="paytype12" style="font-size:20px">
+      <option value="轉帳">轉帳</option>
+      <option value="郵局">郵局</option>
+      <option value="刷卡">刷卡</option>
+      <option value="支票">支票</option>
+      <option value="其他">其他</option>
+    </select>
+    <span class="lable" ><label>&emsp;&emsp;&emsp;&emsp;付款證明：</label></span>  <input type="text" id="payprove12" style="font-size:20px ;width:180">
+    <span class="lableop" ><label>O&ensp;P核實：</label></span> 
+      <select id="opcheck12" style="font-size:20px">
+        <option value="False">False</option>
+        <option value="True">True</option>
+      </select>
+    <span class="lablecheck" ><label>&emsp;&emsp;&emsp;&emsp;財務核實：</label></span> 
+      <select id="paycheck12" style="font-size:20px">
+        <option value="False">False</option>
+        <option value="True">True</option>
+      </select>
+    
+    <br><br>
+    </div>
+    <div class="r7">
+    &ensp;&ensp;&ensp;&ensp;
+    
+    <span class="lable" ><label>O&ensp;P支付：</label></span> 
+      <select id="op12" style="font-size:20px">
+        <option value="False">False</option><option value="True">True</option>
+      </select>
+    <span class="lable" ><label>&emsp;&emsp;&emsp;&emsp;定金D/L：</label></span>  <input type="date" id="downpaydatedl12" style="font-size:20px;width:180">
+    <span class="lable" ><label>尾款D/L：</label></span>  <input type="date" id="lastpaydatedl12" style="font-size:20px;width:180">
+    
+    <br><br>&ensp;&ensp;&ensp;&ensp;
+    
+    <span class="lable" ><label>O&ensp;P定金：</label></span>  <input type="text" id="opdownpay12" style="font-size:20px;width:180">
+    <span class="lable" ><label>付款日期：</label></span>  <input type="date" id="opdownpaydate12" style="font-size:20px ;width:180">
+    <span class="lable" ><label>付款方式：</label></span>  
+    <select id="opdownpaytype12" style="font-size:20px">
+      <option value="轉帳">轉帳</option>
+      <option value="郵局">郵局</option>
+      <option value="刷卡">刷卡</option>
+      <option value="支票">支票</option>
+      <option value="其他">其他</option>
+    </select>
+    <span class="lable" ><label>付款證明：</label></span>  <input type="text" id="downpayprove12" style="font-size:20px ;width:180">
+    <span class="lableop" ><label>O&ensp;P核實：</label></span> 
+      <select id="opdowncheck12" style="font-size:20px">
+        <option value="False">False</option>
+        <option value="True">True</option>
+      </select>
+    <span class="lablecheck" ><label>財務核實：</label></span> 
+      <select id="downcheck12" style="font-size:20px">
+        <option value="False">False</option>
+        <option value="True">True</option>
+      </select>
+    
+    <br><br>&ensp;&ensp;&ensp;&ensp;
+    
+    <span class="lable" ><label>O&ensp;P尾款：</label></span>  <input type="text" id="oplastpay12" style="font-size:20px;width:180">
+    <span class="lable" ><label>付款日期：</label></span>  <input type="date" id="oplastpaydate12" style="font-size:20px ;width:180">
+    <span class="lable" ><label>付款方式：</label></span>  
+    <select id="oplastpaytype12" style="font-size:20px">
+      <option value="轉帳">轉帳</option>
+      <option value="郵局">郵局</option>
+      <option value="刷卡">刷卡</option>
+      <option value="支票">支票</option>
+      <option value="其他">其他</option>
+    </select>
+    <span class="lable" ><label>付款證明：</label></span>  <input type="text" id="lastpayprove12" style="font-size:20px ;width:180">
+    <span class="lableop" ><label>O&ensp;P核實：</label></span> 
+      <select id="oplastcheck12" style="font-size:20px">
+        <option value="False">False</option>
+        <option value="True">True</option>
+      </select>
+    <span class="lablecheck" ><label>財務核實：</label></span> 
+      <select id="lastcheck12" style="font-size:20px">
+        <option value="False">False</option>
+        <option value="True">True</option>
+      </select>
+    
+  </div>
+  
+  <div class="r4">
+    <br><br>
+    <span class="lable" ><label>(13)報帳日期：</label></span>  <input type="date" id="paydate13" style="font-size:20px ;width:180">
+    <span class="lable" ><label>廠&emsp;&emsp;商：</label></span>  <input type="text" id="paycompany13" style="font-size:20px ;width:180">
+    <span class="lable" ><label>品&emsp;&emsp;項：</label></span>  <input type="text" id="payname13" style="font-size:20px ;width:180">
+    <span class="lable" ><label>明&emsp;&emsp;細：</label></span>  <input type="text" id="paydetail13" style="font-size:20px ;width:180">
+    <span class="lable" ><label>支&emsp;&emsp;出：</label></span>  <input type="text" id="pay13" style="font-size:20px ;width:180">
+    <br><br>&ensp;&ensp;&ensp;&ensp;
+    <span class="lable" ><label>付款日期：</label></span>  <input type="date" id="paymoneydate13" style="font-size:20px ;width:180">
+    <span class="lable" ><label>付款方式：</label></span>  
+    <select id="paytype13" style="font-size:20px">
+      <option value="轉帳">轉帳</option>
+      <option value="郵局">郵局</option>
+      <option value="刷卡">刷卡</option>
+      <option value="支票">支票</option>
+      <option value="其他">其他</option>
+    </select>
+    <span class="lable" ><label>&emsp;&emsp;&emsp;&emsp;付款證明：</label></span>  <input type="text" id="payprove13" style="font-size:20px ;width:180">
+    <span class="lableop" ><label>O&ensp;P核實：</label></span> 
+      <select id="opcheck13" style="font-size:20px">
+        <option value="False">False</option>
+        <option value="True">True</option>
+      </select>
+    <span class="lablecheck" ><label>&emsp;&emsp;&emsp;&emsp;財務核實：</label></span> 
+      <select id="paycheck13" style="font-size:20px">
+        <option value="False">False</option>
+        <option value="True">True</option>
+      </select>
+    
+    <br><br>
+    </div>
+    <div class="r7">
+    &ensp;&ensp;&ensp;&ensp;
+    
+    <span class="lable" ><label>O&ensp;P支付：</label></span> 
+      <select id="op13" style="font-size:20px">
+        <option value="False">False</option><option value="True">True</option>
+      </select>
+    <span class="lable" ><label>&emsp;&emsp;&emsp;&emsp;定金D/L：</label></span>  <input type="date" id="downpaydatedl13" style="font-size:20px;width:180">
+    <span class="lable" ><label>尾款D/L：</label></span>  <input type="date" id="lastpaydatedl13" style="font-size:20px;width:180">
+    
+    <br><br>&ensp;&ensp;&ensp;&ensp;
+    
+    <span class="lable" ><label>O&ensp;P定金：</label></span>  <input type="text" id="opdownpay13" style="font-size:20px;width:180">
+    <span class="lable" ><label>付款日期：</label></span>  <input type="date" id="opdownpaydate13" style="font-size:20px ;width:180">
+    <span class="lable" ><label>付款方式：</label></span>  
+    <select id="opdownpaytype13" style="font-size:20px">
+      <option value="轉帳">轉帳</option>
+      <option value="郵局">郵局</option>
+      <option value="刷卡">刷卡</option>
+      <option value="支票">支票</option>
+      <option value="其他">其他</option>
+    </select>
+    <span class="lable" ><label>付款證明：</label></span>  <input type="text" id="downpayprove13" style="font-size:20px ;width:180">
+    <span class="lableop" ><label>O&ensp;P核實：</label></span> 
+      <select id="opdowncheck13" style="font-size:20px">
+        <option value="False">False</option>
+        <option value="True">True</option>
+      </select>
+    <span class="lablecheck" ><label>財務核實：</label></span> 
+      <select id="downcheck13" style="font-size:20px">
+        <option value="False">False</option>
+        <option value="True">True</option>
+      </select>
+    
+    <br><br>&ensp;&ensp;&ensp;&ensp;
+    
+    <span class="lable" ><label>O&ensp;P尾款：</label></span>  <input type="text" id="oplastpay13" style="font-size:20px;width:180">
+    <span class="lable" ><label>付款日期：</label></span>  <input type="date" id="oplastpaydate13" style="font-size:20px ;width:180">
+    <span class="lable" ><label>付款方式：</label></span>  
+    <select id="oplastpaytype13" style="font-size:20px">
+      <option value="轉帳">轉帳</option>
+      <option value="郵局">郵局</option>
+      <option value="刷卡">刷卡</option>
+      <option value="支票">支票</option>
+      <option value="其他">其他</option>
+    </select>
+    <span class="lable" ><label>付款證明：</label></span>  <input type="text" id="lastpayprove13" style="font-size:20px ;width:180">
+    <span class="lableop" ><label>O&ensp;P核實：</label></span> 
+      <select id="oplastcheck13" style="font-size:20px">
+        <option value="False">False</option>
+        <option value="True">True</option>
+      </select>
+    <span class="lablecheck" ><label>財務核實：</label></span> 
+      <select id="lastcheck13" style="font-size:20px">
+        <option value="False">False</option>
+        <option value="True">True</option>
+      </select>
+    
+  </div>
+  
+  <div class="r4">
+    <br><br>
+    <span class="lable" ><label>(14)報帳日期：</label></span>  <input type="date" id="paydate14" style="font-size:20px ;width:180">
+    <span class="lable" ><label>廠&emsp;&emsp;商：</label></span>  <input type="text" id="paycompany14" style="font-size:20px ;width:180">
+    <span class="lable" ><label>品&emsp;&emsp;項：</label></span>  <input type="text" id="payname14" style="font-size:20px ;width:180">
+    <span class="lable" ><label>明&emsp;&emsp;細：</label></span>  <input type="text" id="paydetail14" style="font-size:20px ;width:180">
+    <span class="lable" ><label>支&emsp;&emsp;出：</label></span>  <input type="text" id="pay14" style="font-size:20px ;width:180">
+    <br><br>&ensp;&ensp;&ensp;&ensp;
+    <span class="lable" ><label>付款日期：</label></span>  <input type="date" id="paymoneydate14" style="font-size:20px ;width:180">
+    <span class="lable" ><label>付款方式：</label></span>  
+    <select id="paytype14" style="font-size:20px">
+      <option value="轉帳">轉帳</option>
+      <option value="郵局">郵局</option>
+      <option value="刷卡">刷卡</option>
+      <option value="支票">支票</option>
+      <option value="其他">其他</option>
+    </select>
+    <span class="lable" ><label>&emsp;&emsp;&emsp;&emsp;付款證明：</label></span>  <input type="text" id="payprove14" style="font-size:20px ;width:180">
+    <span class="lableop" ><label>O&ensp;P核實：</label></span> 
+      <select id="opcheck14" style="font-size:20px">
+        <option value="False">False</option>
+        <option value="True">True</option>
+      </select>
+    <span class="lablecheck" ><label>&emsp;&emsp;&emsp;&emsp;財務核實：</label></span> 
+      <select id="paycheck14" style="font-size:20px">
+        <option value="False">False</option>
+        <option value="True">True</option>
+      </select>
+    
+    <br><br>
+    </div>
+    <div class="r7">
+    &ensp;&ensp;&ensp;&ensp;
+    
+    <span class="lable" ><label>O&ensp;P支付：</label></span> 
+      <select id="op14" style="font-size:20px">
+        <option value="False">False</option>
+        <option value="True">True</option>
+      </select>
+    <span class="lable" ><label>&emsp;&emsp;&emsp;&emsp;定金D/L：</label></span>  <input type="date" id="downpaydatedl14" style="font-size:20px;width:180">
+    <span class="lable" ><label>尾款D/L：</label></span>  <input type="date" id="lastpaydatedl14" style="font-size:20px;width:180">
+    
+    <br><br>&ensp;&ensp;&ensp;&ensp;
+    
+    <span class="lable" ><label>O&ensp;P定金：</label></span>  <input type="text" id="opdownpay14" style="font-size:20px;width:180">
+    <span class="lable" ><label>付款日期：</label></span>  <input type="date" id="opdownpaydate14" style="font-size:20px ;width:180">
+    <span class="lable" ><label>付款方式：</label></span>  
+    <select id="opdownpaytype14" style="font-size:20px">
+      <option value="轉帳">轉帳</option>
+      <option value="郵局">郵局</option>
+      <option value="刷卡">刷卡</option>
+      <option value="支票">支票</option>
+      <option value="其他">其他</option>
+    </select>
+    <span class="lable" ><label>付款證明：</label></span>  <input type="text" id="downpayprove14" style="font-size:20px ;width:180">
+    <span class="lableop" ><label>O&ensp;P核實：</label></span> 
+      <select id="opdowncheck14" style="font-size:20px">
+        <option value="False">False</option>
+        <option value="True">True</option>
+      </select>
+    <span class="lablecheck" ><label>財務核實：</label></span> 
+      <select id="downcheck14" style="font-size:20px">
+        <option value="False">False</option>
+        <option value="True">True</option>
+      </select>
+    
+    <br><br>&ensp;&ensp;&ensp;&ensp;
+    
+    <span class="lable" ><label>O&ensp;P尾款：</label></span>  <input type="text" id="oplastpay14" style="font-size:20px;width:180">
+    <span class="lable" ><label>付款日期：</label></span>  <input type="date" id="oplastpaydate14" style="font-size:20px ;width:180">
+    <span class="lable" ><label>付款方式：</label></span>  
+    <select id="oplastpaytype14" style="font-size:20px">
+      <option value="轉帳">轉帳</option>
+      <option value="郵局">郵局</option>
+      <option value="刷卡">刷卡</option>
+      <option value="支票">支票</option>
+      <option value="其他">其他</option>
+    </select>
+    <span class="lable" ><label>付款證明：</label></span>  <input type="text" id="lastpayprove14" style="font-size:20px ;width:180">
+    <span class="lableop" ><label>O&ensp;P核實：</label></span> 
+      <select id="oplastcheck14" style="font-size:20px">
+        <option value="False">False</option>
+        <option value="True">True</option>
+      </select>
+    <span class="lablecheck" ><label>財務核實：</label></span> 
+      <select id="lastcheck14" style="font-size:20px">
+        <option value="False">False</option>
+        <option value="True">True</option>
+      </select>
+    
+  </div>
+  
+  <div class="r4">
+    <br><br>
+    <span class="lable" ><label>(15)報帳日期：</label></span>  <input type="date" id="paydate15" style="font-size:20px ;width:180">
+    <span class="lable" ><label>廠&emsp;&emsp;商：</label></span>  <input type="text" id="paycompany15" style="font-size:20px ;width:180">
+    <span class="lable" ><label>品&emsp;&emsp;項：</label></span>  <input type="text" id="payname15" style="font-size:20px ;width:180">
+    <span class="lable" ><label>明&emsp;&emsp;細：</label></span>  <input type="text" id="paydetail15" style="font-size:20px ;width:180">
+    <span class="lable" ><label>支&emsp;&emsp;出：</label></span>  <input type="text" id="pay15" style="font-size:20px ;width:180">
+    <br><br>&ensp;&ensp;&ensp;&ensp;
+    <span class="lable" ><label>付款日期：</label></span>  <input type="date" id="paymoneydate15" style="font-size:20px ;width:180">
+    <span class="lable" ><label>付款方式：</label></span>  
+    <select id="paytype15" style="font-size:20px">
+      <option value="轉帳">轉帳</option>
+      <option value="郵局">郵局</option>
+      <option value="刷卡">刷卡</option>
+      <option value="支票">支票</option>
+      <option value="其他">其他</option>
+    </select>
+    <span class="lable" ><label>&emsp;&emsp;&emsp;&emsp;付款證明：</label></span>  <input type="text" id="payprove15" style="font-size:20px ;width:180">
+    <span class="lableop" ><label>O&ensp;P核實：</label></span> 
+      <select id="opcheck15" style="font-size:20px">
+        <option value="False">False</option>
+        <option value="True">True</option>
+      </select>
+    <span class="lablecheck" ><label>&emsp;&emsp;&emsp;&emsp;財務核實：</label></span> 
+      <select id="paycheck15" style="font-size:20px">
+        <option value="False">False</option>
+        <option value="True">True</option>
+      </select>
+    
+    <br><br>
+    </div>
+    <div class="r7">
+    &ensp;&ensp;&ensp;&ensp;
+    
+    <span class="lable" ><label>O&ensp;P支付：</label></span> 
+      <select id="op15" style="font-size:20px">
+        <option value="False">False</option>
+        <option value="True">True</option>
+      </select>
+    <span class="lable" ><label>&emsp;&emsp;&emsp;&emsp;定金D/L：</label></span>  <input type="date" id="downpaydatedl15" style="font-size:20px;width:180">
+    <span class="lable" ><label>尾款D/L：</label></span>  <input type="date" id="lastpaydatedl15" style="font-size:20px;width:180">
+    
+    <br><br>&ensp;&ensp;&ensp;&ensp;
+    
+    <span class="lable" ><label>O&ensp;P定金：</label></span>  <input type="text" id="opdownpay15" style="font-size:20px;width:180">
+    <span class="lable" ><label>付款日期：</label></span>  <input type="date" id="opdownpaydate15" style="font-size:20px ;width:180">
+    <span class="lable" ><label>付款方式：</label></span>  
+    <select id="opdownpaytype15" style="font-size:20px">
+      <option value="轉帳">轉帳</option>
+      <option value="郵局">郵局</option>
+      <option value="刷卡">刷卡</option>
+      <option value="支票">支票</option>
+      <option value="其他">其他</option>
+    </select>
+    <span class="lable" ><label>付款證明：</label></span>  <input type="text" id="downpayprove15" style="font-size:20px ;width:180">
+    <span class="lableop" ><label>O&ensp;P核實：</label></span> 
+      <select id="opdowncheck15" style="font-size:20px">
+        <option value="False">False</option>
+        <option value="True">True</option>
+      </select>
+    <span class="lablecheck" ><label>財務核實：</label></span> 
+      <select id="downcheck15" style="font-size:20px">
+        <option value="False">False</option>
+        <option value="True">True</option>
+      </select>
+    
+    <br><br>&ensp;&ensp;&ensp;&ensp;
+    
+    <span class="lable" ><label>O&ensp;P尾款：</label></span>  <input type="text" id="oplastpay15" style="font-size:20px;width:180">
+    <span class="lable" ><label>付款日期：</label></span>  <input type="date" id="oplastpaydate15" style="font-size:20px ;width:180">
+    <span class="lable" ><label>付款方式：</label></span>  
+    <select id="oplastpaytype15" style="font-size:20px">
+      <option value="轉帳">轉帳</option>
+      <option value="郵局">郵局</option>
+      <option value="刷卡">刷卡</option>
+      <option value="支票">支票</option>
+      <option value="其他">其他</option>
+    </select>
+    <span class="lable" ><label>付款證明：</label></span>  <input type="text" id="lastpayprove15" style="font-size:20px ;width:180">
+    <span class="lableop" ><label>O&ensp;P核實：</label></span> 
+      <select id="oplastcheck15" style="font-size:20px">
+        <option value="False">False</option>
+        <option value="True">True</option>
+      </select>
+    <span class="lablecheck" ><label>財務核實：</label></span> 
+      <select id="lastcheck15" style="font-size:20px">
+        <option value="False">False</option>
+        <option value="True">True</option>
+      </select>
+    
+</div>
+<!--------------------合約------------------>
+<div class="r2">
+<span class="lable2" >合約</span>
+<br><br>
+<span class="lable" ><label>合約備註項：</label></span><textarea  id="contractother" style="font-size:20px ;width:500;height:200; "></textarea>
+<span class="lable" ><label>定金：</label><input type="text" id="contractdownpay" style="font-size:20px;width:150">
+<span class="lable" ><label>合約項目：</label>
+<select id="contracttype" style="font-size:20px">
+  <option value="國內個別">國內個別</option>
+  <option value="國內團體">國內團體</option>
+  <option value="國外個別">國外個別</option>
+  <option value="國外團體">國外團體</option>
+</select>
+&emsp;<button onclick="contract()" type="button" style="font-size:30px"  >生成</button> 
+</div>
+<!-------------------保險------------------->
+<div class="r5">
+<br><br>
+<span class="lable2" >保險</span>
+<br><br>
+<span class="lable" ><label>是否保旅責險：</label></span> 
+<select id="insurance1" style="font-size:20px">
+  <option value="False">False</option><option value="True">True</option>
+</select>
+<span class="lable" ><label>&emsp;&emsp;&emsp;金額：</label></span> <input type="text" id="inmoney1" style="font-size:20px;width:100">
+<span class="lable" ><label>&ensp;x&ensp;天數：</label></span> <input type="text" id="indays1" style="font-size:20px;width:100">
+<span class="lable" ><label>&ensp;x&ensp;人數：</label></span> <input type="text" id="inpeople1" style="font-size:20px;width:100">
+<span class="lable" ><label>&ensp;=&ensp;總共：</label></span> <input type="text" id="intotal1" disabled="disabled" style="font-size:20px;width:200">
+
+<br><br>
+
+<span class="lable" ><label>是否保旅平險：</label></span> 
+<select id="insurance2" style="font-size:20px">
+  <option value="False">False</option><option value="True">True</option>
+</select>
+<span class="lable" ><label>&emsp;&emsp;&emsp;金額：</label></span> <input type="text" id="inmoney2" style="font-size:20px;width:100">
+<span class="lable" ><label>&ensp;x&ensp;天數：</label></span> <input type="text" id="indays2" style="font-size:20px;width:100">
+<span class="lable" ><label>&ensp;x&ensp;人數：</label></span> <input type="text" id="inpeople2" style="font-size:20px;width:100">
+<span class="lable" ><label>&ensp;=&ensp;總共：</label></span> <input type="text" id="intotal2" disabled="disabled" style="font-size:20px;width:200">
+</div>
+
+<div class ="r6">
+<br><br>
+<span class="lable" ><label>進項代收轉付：</label></span>  <input type="text" id="incollectpay" style="font-size:30px; width:1500">
+<br><br>
+<span class="lable" ><label>銷項代收轉付：</label></span>  <input type="text" id="outcollectpay" style="font-size:30px; width:1500">
+<br><br>
+<span class="lable" ><label>其他項目備註：</label></span> <input type="text" id="other" style="font-size:30px ; width:1500;">
+<br><br>
+<!---------------利潤---------------->
+<span class="lable" ><label>總團費：</label></span>  <input type="text" id="price1"  disabled="disabled" style="font-size:30px">
+<span class="lable" ><label>總NET：</label></span>  <input type="text" id="net"  disabled="disabled" style="font-size:30px">
+<span class="lable" ><label>利潤：</label></span>  <input type="text" id="profit"  disabled="disabled" style="font-size:30px">
+<br><br>
+<span class="lable" ><label>總收入：</label></span>  <input type="text" id="moneytotal"  disabled="disabled" style="font-size:30px">
+<span class="lable" ><label>5%稅金：</label></span>  <input type="text" id="tax"  disabled="disabled" style="font-size:30px ;width:370">
+
+
+&emsp;<button onclick="count()" type="button" style="font-size:30px"  >試算</button> 
+&ensp;&ensp;<button onclick="send()" id="send" type="button" style="font-size:30px" disabled="disabled"  >送出</button>
+</div>
+
+   <!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="/__/firebase/7.14.3/firebase-app.js"></script>
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+
+<!-- Initialize Firebase -->
+<script src="/__/firebase/init.js"></script>
+   
+   <script src="https://www.gstatic.com/firebasejs/4.12.1/firebase.js"></script>
+
+<script src="https://www.gstatic.com/firebasejs/4.12.1/firebase-firestore.js"></script>
+
+<script src="secure.js" async></script>
+
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
+
+
+
+
+<script >
+//--------------修改紀錄--------------//
+let usermail;
+let time;
+let record;
+let todaydate;
+let Today=new Date();
+limitdate();
+
+function limitdate(){
+
+  if (Today.getMonth()+1 > 9){
+    todaydate = Today.getFullYear()+"-"+(Today.getMonth()+1)+"-"+Today.getDate();
+    document.getElementById('date').setAttribute('min', todaydate); 
+
+    for(i=1;i<9;i++){
+      document.getElementById("moneydate"+i).setAttribute('min', todaydate);
+    }
+
+  }else if (Today.getMonth()+1 < 10){
+    todaydate = Today.getFullYear()+"-0"+(Today.getMonth()+1)+"-"+Today.getDate();
+    document.getElementById('date').setAttribute('min', todaydate); 
+
+    for(i=1;i<9;i++){
+      document.getElementById("moneydate"+i).setAttribute('min', todaydate);
+    }
+
+  }
+}
+
+function info(mail){
+
+  time = Today.getFullYear()+"-"+(Today.getMonth()+1)+"-"+Today.getDate()+" "+Today.getHours()+":"+Today.getMinutes();
+  usermail = mail;
+
+}
+
+
+async function search(){
+
+    var  number = document.getElementById("number").value;  
+    var  depdate = document.getElementById("depdate").value;  
+    var db = firebase.firestore();
+
+    if(depdate == ''){
+      alert('請選取月份');
+      window.location.reload("");
+    }else if(number == ''){
+      alert('請輸入團號');
+      window.location.reload("");
+    }
+
+    console.log(depdate.substring(0,4));
+    console.log(depdate.substring(5,7));
+    console.log(depdate.substr(8,10));
+
+    var ref = db.collection(depdate.substring(0,4)+'-'+depdate.substring(5,7)).doc(number);
+
+    await ref.onSnapshot(doc => { 
+
+      if(typeof(doc.data()) == 'undefined'){
+      alert('請輸入正確團號');
+      window.location.reload("");
+      }
+
+    show(doc.data());
+    
+    });
+    
+
+}
+
+</script>
+
+
+
+</script>
+
+
+<script >
+function show(data){
+
+  document.getElementById('send').disabled=false;
+
+  document.getElementById('number').disabled=true;
+  document.getElementById('name').value=data.團名;
+  document.getElementById('name').disabled=true;
+  document.getElementById('people').value=data.代表人;
+  document.getElementById('people').disabled=true;
+  document.getElementById('phone').value=data.聯絡電話;
+  document.getElementById('phone').disabled=true;
+  document.getElementById('depdate').value=data.出發日期;
+  document.getElementById('depdate').disabled=true;
+  document.getElementById('enddate').value=data.結束日期;
+  document.getElementById('enddate').disabled=true;
+  document.getElementById("date").value=data.報帳日期;
+  document.getElementById('date').disabled=true;
+  document.getElementById('price').value=data.團費;
+  document.getElementById('price').disabled=true;
+  document.getElementById('cs').value=data.客服;
+  document.getElementById('cs').disabled=true;
+  document.getElementById('other').value=data.其他項備註;
+  document.getElementById('location').value=data.地點;
+  document.getElementById('location').disabled=true;
+
+  document.getElementById('net').value=data.總net;
+  document.getElementById('net').disabled=true;
+  document.getElementById('profit').value=data.利潤;
+  document.getElementById('profit').disabled=true;
+  document.getElementById('price1').value=data.團費;
+  document.getElementById('price1').disabled=true;
+  document.getElementById('howmanypeople').value=data.人數;
+  document.getElementById('howmanypeople').disabled=true;
+  document.getElementById('moneytotal').value=data.總收入;
+
+  document.getElementById('martina').value=data.martina核實;  
+  document.getElementById('change').value=data.已更改;
+  document.getElementById('incollectpay').value=data.進項代收轉付;
+  document.getElementById('outcollectpay').value=data.銷項代收轉付;
+
+  document.getElementById('cancel').value=data.退業績;
+  document.getElementById('canceldate').value=data.退業績日期;
+  document.getElementById('tax').value=data.稅金;
+
+  //--------------合約----------------
+  document.getElementById("contractother").value=data.合約備註;
+  document.getElementById("contractdownpay").value=data.定金;
+  document.getElementById("contracttype").value=data.合約類型;
+
+
+  //--------------修改紀錄-------------------
+  let recordnum;
+
+  record = data.修改紀錄;
+  console.log(record);
+
+  if(typeof(record) == "undefined"){
+    record = {};
+    console.log('null');
+    record = {0:  usermail +" "+time};
+    console.log(record);
+  }else {
+    recordnum=(Object.keys(record)).length;
+    record[recordnum] = usermail +" "+time;
+    console.log(record);
+  }
+
+//---------------團費估價讀取------------------//
+  for(i=1;i<6;i++){
+
+    if(document.getElementById('martina').value == 'False'){
+      document.getElementById('qtname' + i).disabled=false;
+      document.getElementById('qtmoney' + i).disabled=false;
+      document.getElementById('qtnumber' + i).disabled=false;
+    }else{
+      document.getElementById('qtname' + i).disabled=true;
+      document.getElementById('qtmoney' + i).disabled=true;
+      document.getElementById('qtnumber' + i).disabled=true;
+    }
+
+
+    document.getElementById("qtname" + i).value=data['第' + i + '筆估價團費品項'];
+    document.getElementById("qtmoney" + i).value=data['第' + i + '筆估價團費單價'];
+    document.getElementById("qtnumber" + i).value=data['第' + i + '筆估價團費人數'];
+    document.getElementById("qttotalmoney" + i).value=data['第' + i + '筆估價團費總金額'];
+  }
+//---------------加購項目讀取------------------//
+  for(i=1;i<11;i++){
+
+    if(document.getElementById('martina').value == 'False'){
+      document.getElementById('qtextraname' + i).disabled=false;
+      document.getElementById('qtextramoney' + i).disabled=false;
+      document.getElementById('qtextranumber' + i).disabled=false;
+      document.getElementById('qtextradays' + i).disabled=false;
+    }else{
+      document.getElementById('qtextraname' + i).disabled=true;
+      document.getElementById('qtextramoney' + i).disabled=true;
+      document.getElementById('qtextranumber' + i).disabled=true;
+      document.getElementById('qtextradays' + i).disabled=true;
+    }
+
+    document.getElementById("qtextraname" + i).value=data['第' + i + '筆估價加購品項'];
+    document.getElementById("qtextramoney" + i).value=data['第' + i + '筆估價加購單價'];
+    document.getElementById("qtextranumber" + i).value=data['第' + i + '筆估價加購數量'];
+    document.getElementById("qtextradays" + i).value=data['第' + i + '筆估價加購天數'];
+    document.getElementById("qtextratotalmoney" + i).value=data['第' + i + '筆估價加購金額'];
+  }
+
+
+//---------------收入讀取--------------------//
+  for(i=1;i<9;i++){
+    document.getElementById('moneydate'+i).value=data['第'+i+'筆收入報帳日期'];
+    document.getElementById('moneyname'+i).value=data['第'+i+'筆收入品項'];
+    document.getElementById('money'+i).value=data['第'+i+'筆收入'];
+    document.getElementById('moneytype'+i).value=data['第'+i+'筆收入收款方式'];
+    document.getElementById('card'+i).value=data['第'+i+'筆國旅卡'];
+    document.getElementById('rmoneydate'+i).value=data['第'+i+'筆收款日期'];
+    document.getElementById('moneyprove'+i).value=data['第'+i+'筆收入證明'];
+    document.getElementById('moneyother'+i).value=data['第'+i+'筆收入備註'];
+    document.getElementById('moneycheck'+i).value=data['第'+i+'筆收入財務核實'];
+    document.getElementById('opmoneycheck'+i).value=data['第'+i+'筆收入op核實'];
+  }
+
+  
+
+  for(i=1;i<9;i++){
+      if (document.getElementById('opmoneycheck'+i).value == "False"){
+      document.getElementById('moneydate'+i).disabled=false;
+      document.getElementById('moneyname'+i).disabled=false;
+      document.getElementById('money'+i).disabled=false;
+      document.getElementById('moneytype'+i).disabled=false;
+      document.getElementById('card'+i).disabled=false;
+      document.getElementById('rmoneydate'+i).disabled=false;
+      document.getElementById('moneyprove'+i).disabled=false;
+      document.getElementById('moneyother'+i).disabled=false;
+      }else{
+      document.getElementById('moneydate'+i).disabled=true;
+      document.getElementById('moneyname'+i).disabled=true;
+      document.getElementById('money'+i).disabled=true;
+      document.getElementById('moneytype'+i).disabled=true;
+      document.getElementById('card'+i).disabled=true;
+      document.getElementById('rmoneydate'+i).disabled=true;
+      document.getElementById('moneyprove'+i).disabled=true;
+      document.getElementById('moneyother'+i).disabled=true;
+      }
+  }  
+
+
+  for(i=1;i<9;i++){        
+      document.getElementById('moneycheck'+i).disabled=true;
+  }
+  for(i=1;i<9;i++){        
+      document.getElementById('opmoneycheck'+i).disabled=true;
+  }
+
+
+//------------------支出讀取-----------------
+
+  for(i=1;i<16;i++){
+    document.getElementById('paydate'+i).value=data['第'+i+'筆支出報帳日期'];
+    document.getElementById('paycompany'+i).value=data['第'+i+'筆支出廠商'];
+    document.getElementById('payname'+i).value=data['第'+i+'筆支出品項'];
+    document.getElementById('paydetail'+i).value=data['第'+i+'筆支出明細'];
+    document.getElementById('pay'+i).value=data['第'+i+'筆支出'];
+    document.getElementById('paymoneydate'+i).value=data['第'+i+'筆付款日期'];
+    document.getElementById('paytype'+i).value=data['第'+i+'筆付款方式'];
+    document.getElementById('payprove'+i).value=data['第'+i+'筆付款證明'];
+    document.getElementById('opcheck'+i).value=data['第'+i+'筆支出op核實'];
+    document.getElementById('paycheck'+i).value=data['第'+i+'筆支出財務核實'];
+    document.getElementById('op'+i).value=data['第'+i+'筆op支付'];
+    document.getElementById('downpaydatedl'+i).value=data['第'+i+'筆定金DL'];
+    document.getElementById('lastpaydatedl'+i).value=data['第'+i+'筆尾款DL'];
+    
+    document.getElementById('opdownpay'+i).value=data['第'+i+'筆op定金'];
+    document.getElementById('opdownpaydate'+i).value=data['第'+i+'筆op定金付款日期'];
+    document.getElementById('opdownpaytype'+i).value=data['第'+i+'筆op定金付款方式'];
+    document.getElementById('downpayprove'+i).value=data['第'+i+'筆op定金付款證明'];
+    document.getElementById('opdowncheck'+i).value=data['第'+i+'筆op定金op核實'];
+    document.getElementById('downcheck'+i).value=data['第'+i+'筆op定金財務核實'];
+
+    document.getElementById('oplastpay'+i).value=data['第'+i+'筆op尾款'];
+    document.getElementById('oplastpaydate'+i).value=data['第'+i+'筆op尾款付款日期'];
+    document.getElementById('oplastpaytype'+i).value=data['第'+i+'筆op尾款付款方式'];
+    document.getElementById('lastpayprove'+i).value=data['第'+i+'筆op尾款付款證明'];
+    document.getElementById('oplastcheck'+i).value=data['第'+i+'筆op尾款op核實'];
+    document.getElementById('lastcheck'+i).value=data['第'+i+'筆op尾款財務核實'];
+
+  }  
+
+
+
+  for(i=1;i<16;i++){
+    if (document.getElementById('opcheck'+i).value == "False"){
+    document.getElementById('paydate'+i).disabled=false;
+    document.getElementById('paycompany'+i).disabled=false;
+    document.getElementById('payname'+i).disabled=false;
+    document.getElementById('paydetail'+i).disabled=false;
+    document.getElementById('pay'+i).disabled=false;
+    document.getElementById('paymoneydate'+i).disabled=false;
+    document.getElementById('paytype'+i).disabled=false;
+    document.getElementById('payprove'+i).disabled=false;
+    }else{
+    document.getElementById('paydate'+i).disabled=true;
+    document.getElementById('paycompany'+i).disabled=true;
+    document.getElementById('payname'+i).disabled=true;
+    document.getElementById('paydetail'+i).disabled=true;
+    document.getElementById('pay'+i).disabled=true;
+    document.getElementById('paymoneydate'+i).disabled=true;
+    document.getElementById('paytype'+i).disabled=true;
+    document.getElementById('payprove'+i).disabled=true;
+    }
+  }
+
+  for(i=1;i<16;i++){
+    if (document.getElementById('opdowncheck'+i).value == "False"){
+      document.getElementById('downpaydatedl'+i).disabled=false;
+      document.getElementById('opdownpay'+i).disabled=false;
+      document.getElementById('opdownpaydate'+i).disabled=false;
+      document.getElementById('opdownpaytype'+i).disabled=false;
+      document.getElementById('downpayprove'+i).disabled=false;
+      document.getElementById('op'+i).disabled=false;
+    }else{
+      document.getElementById('downpaydatedl'+i).disabled=true;
+      document.getElementById('opdownpay'+i).disabled=true;
+      document.getElementById('opdownpaydate'+i).disabled=true;
+      document.getElementById('opdownpaytype'+i).disabled=true;
+      document.getElementById('downpayprove'+i).disabled=true;
+      document.getElementById('op'+i).disabled=true;
+    }
+  }
+
+  for(i=1;i<16;i++){
+    if (document.getElementById('oplastcheck'+i).value == "False"){
+      document.getElementById('lastpaydatedl'+i).disabled=false;
+      document.getElementById('oplastpay'+i).disabled=false;
+      document.getElementById('oplastpaydate'+i).disabled=false;
+      document.getElementById('oplastpaytype'+i).disabled=false;
+      document.getElementById('lastpayprove'+i).disabled=false;
+    }else{
+      document.getElementById('lastpaydatedl'+i).disabled=true;
+      document.getElementById('oplastpay'+i).disabled=true;
+      document.getElementById('oplastpaydate'+i).disabled=true;
+      document.getElementById('oplastpaytype'+i).disabled=true;
+      document.getElementById('lastpayprove'+i).disabled=true;
+    }
+  }
+
+  
+  for(i=1;i<16;i++){        
+      document.getElementById('paycheck'+i).disabled=true;
+      document.getElementById('opcheck'+i).disabled=true;
+      document.getElementById('opdowncheck'+i).disabled=true;
+      document.getElementById('downcheck'+i).disabled=true;
+      document.getElementById('oplastcheck'+i).disabled=true;
+      document.getElementById('lastcheck'+i).disabled=true;
+ 
+  }  
+
+  //--------------保險---------------------
+
+  document.getElementById('insurance1').value=data.是否保旅責險;
+  document.getElementById('inmoney1').value=data.旅責險金額;
+  document.getElementById('indays1').value=data.旅責險天數;
+  document.getElementById('inpeople1').value=data.旅責險人數;
+  document.getElementById('intotal1').value=data.旅責險總共;
+  document.getElementById('insurance2').value=data.是否保旅平險;
+  document.getElementById('inmoney2').value=data.旅平險金額;
+  document.getElementById('indays2').value=data.旅平險天數;
+  document.getElementById('inpeople2').value=data.旅平險人數;
+  document.getElementById('intotal2').value=data.旅平險總共;
+
+
+}
+ 
+
+</script>
+   
+<script >
+function contract(){
+  let number = document.getElementById("number").value;
+  let name = document.getElementById("name").value;
+  let people = document.getElementById("people").value;
+  let depdate = document.getElementById("depdate").value;
+  let enddate = document.getElementById("enddate").value;
+  let price = document.getElementById("price").value;
+  let contractother = document.getElementById("contractother").value;
+  let contractdownpay = document.getElementById("contractdownpay").value;
+  let contracttype = document.getElementById("contracttype").value;
+
+  let db = firebase.firestore();
+  let ref = db.collection('contract').doc(number);
+
+  let Today=new Date();
+  let year = Today.getFullYear(); 
+  let month = Today.getMonth()+1;
+  let day = Today.getDate();
+
+  ref.set({
+    團名: name,
+    代表人: people,
+    出發日期: depdate,
+    結束日期: enddate,
+    團費: price,
+    定金: contractdownpay,
+    合約類型: contracttype,
+    合約備註: contractother,  
+    合約年: year,
+    合約月: month,
+    合約日: day,
+
+  }).then(() => {
+    console.log('update data successful');
+    alert('合約已生成，請告知客人團號及代表人供查詢')
+  });
+
+
+}
+
+function count(){
+
+var qtname = [];
+var qtmoney = [];
+var qtnumber = [];
+var qttotalmoney = [];
+var qtextraname = [];
+var qtextramoney = [];
+var qtextranumber = [];
+var qtextradays = [];
+var qtextratotalmoney = [];
+var moneytype = [];
+var money = [];
+
+var price = 0;
+
+var pay = [];
+
+var net=0;
+var profit = 0;
+var cardtotal = 0;
+var moneytotal =0;
+let tax = 0;
+
+var intotal1,intotal2;
+var inmoney = [];
+var indays = [];
+var inpeople = [];
+var intotal = [];
+
+
+
+//----------團費-----------------//
+
+for(i=1;i<6;i++){
+  qtname[i]= document.getElementById("qtname"+i).value;
+  qtmoney[i]= document.getElementById("qtmoney"+i).value;
+  qtnumber[i]= document.getElementById("qtnumber"+i).value;
+  qttotalmoney[i]= document.getElementById("qttotalmoney"+i).value;
+  
+
+  qtmoney[i]=parseFloat(qtmoney[i]);
+  qtnumber[i]=parseFloat(qtnumber[i]);
+  qttotalmoney[i]=qtmoney[i]*qtnumber[i];
+
+  if (isNaN(qttotalmoney[i])) {
+    qttotalmoney[i]=0;
+  }  
+
+  document.getElementById("qttotalmoney"+i).value=qttotalmoney[i]  
+}
+
+for(i=6;i<11;i++){
+  qttotalmoney[i]=0;
+}
+
+for(i=1;i<11;i++){
+  qtextraname[i]= document.getElementById("qtextraname"+i).value;
+  qtextramoney[i]= document.getElementById("qtextramoney"+i).value;
+  qtextranumber[i]= document.getElementById("qtextranumber"+i).value;
+  qtextradays[i]= document.getElementById("qtextradays"+i).value;
+  qtextratotalmoney[i]= document.getElementById("qtextratotalmoney"+i).value;
+
+  qtextramoney[i]=parseFloat(qtextramoney[i]);
+  qtextranumber[i]=parseFloat(qtextranumber[i]);
+  qtextradays[i]=parseFloat(qtextradays[i]);
+  qtextratotalmoney[i]=qtextramoney[i]*qtextranumber[i]*qtextradays[i];
+
+  if (isNaN(qtextratotalmoney[i])) {
+    qtextratotalmoney[i]=0;
+  }
+
+  document.getElementById("qtextratotalmoney"+i).value=qtextratotalmoney[i]
+
+  price=qttotalmoney[i]+qtextratotalmoney[i]+price;
+  console.log(price);
+}
+console.log(price);
+
+//----------利潤-----------------//
+
+for (i=1;i<16;i++){
+  pay[i]= document.getElementById("pay"+i).value;
+  pay[i]=parseFloat(pay[i]);
+
+  if (isNaN(pay[i])) {
+    pay[i]=0;
+  }
+  net = pay[i]+net;
+}
+//-----------保險------------//
+for (i=1;i<3;i++){
+  inmoney[i]= document.getElementById("inmoney"+i).value;
+  indays[i]= document.getElementById("indays"+i).value;
+  inpeople[i]= document.getElementById("inpeople"+i).value;
+  intotal[i]= document.getElementById("intotal"+i).value;
+
+  inmoney[i]=parseFloat(inmoney[i]);
+  indays[i]=parseFloat(indays[i]);
+  inpeople[i]=parseFloat(inpeople[i]);
+
+  if (isNaN(inmoney[i])) {
+    inmoney[i]=0;
+  }
+  if (isNaN(indays[i])) {
+
+    indays[i]=0;
+  }
+  if (isNaN(inpeople[i])) {
+    inpeople[i]=0;
+  }
+  intotal[i]=inmoney[i]*indays[i]*inpeople[i];
+  document.getElementById("intotal"+i).value=intotal[i]
+  net = intotal[i]+net;
+}
+//-------------抓出刷卡2%---------------//
+for(i=1;i<9;i++){
+  money[i]= document.getElementById("money"+i).value;
+  moneytype[i]= document.getElementById("moneytype"+i).value;
+
+  money[i]=parseFloat(money[i]);
+  if (isNaN(money[i])) {
+    money[i]=0;
+  }
+  moneytotal = moneytotal+money[i]
+
+  if(moneytype[i] == '刷卡'){
+    cardtotal = money[i] + cardtotal;
+  }
+}
+console.log(cardtotal);
+cardtotal = cardtotal*0.02;
+console.log(cardtotal);
+net = cardtotal+net;
+net = net.toFixed(0);
+//-------------總計算---------------//
+profit = price-net;
+//-------------稅金----------------//
+if(profit>9999){
+  tax = profit*0.05;
+  profit = profit*0.95;
+}
+tax = tax.toFixed(0);
+profit = profit.toFixed(0);
+
+document.getElementById("moneytotal").value= moneytotal;
+document.getElementById("price").value=price;
+document.getElementById("price1").value=price;
+document.getElementById("net").value=net;
+document.getElementById("profit").value=profit;
+document.getElementById("tax").value=tax;
+
+
+
+}
+
+function send(){
+
+var number = document.getElementById("number").value;
+var name = document.getElementById("name").value;
+var people = document.getElementById("people").value;
+var phone = document.getElementById("phone").value;
+var depdate = document.getElementById("depdate").value;
+var enddate = document.getElementById("enddate").value;
+var date = document.getElementById("date").value;
+var price = document.getElementById("price").value;
+var cs = document.getElementById("cs").value;
+var other = document.getElementById("other").value;
+var howmanypeople = document.getElementById("howmanypeople").value;
+var moneytotal = document.getElementById("moneytotal").value;
+
+
+let martina = document.getElementById("martina").value;
+let change = document.getElementById("change").value;
+let incollectpay = document.getElementById("incollectpay").value;
+let outcollectpay = document.getElementById("outcollectpay").value;
+
+let cancel = document.getElementById("cancel").value;
+let canceldate = document.getElementById("canceldate").value;
+
+let location = document.getElementById('location').value;
+
+//-------收入-------//
+var moneydate = [];
+var moneyname = [];
+var money = [];
+var moneytype = [];
+var card = [];
+var rmoneydate =[];
+var moneyprove = [];
+var moneyother = [];
+var moneycheck = [];
+var opmoneycheck = [];
+
+//-------支出-------//
+var paydate = [];
+var paycompany = [];
+var payname = [];
+var paydetail =[];
+var pay = [];
+var paymoneydate = [];
+var payprove = [];
+var paytype = [];
+var opcheck = [];
+var paycheck = [];
+var op = [];
+var downpaydatedl = [];
+var lastpaydatedl = [];
+
+var opdownpay = [];
+var opdownpaydate = [];
+var opdownpaytype = [];
+var downpayprove = [];
+var opdowncheck = [];
+var downcheck = [];
+
+var oplastpay = [];
+var oplastpaydate = [];
+var oplastpaytype = [];
+var lastpayprove = [];
+var oplastcheck = [];
+var lastcheck = [];
+
+//-------保險--------//
+var insurance=[];
+var inmoney=[]; 
+var indays=[];
+var inpeople=[];
+var intotal=[];
+//------------------//
+var qtname = [];
+var qtmoney = [];
+var qtnumber = [];
+var qttotalmoney = [];
+var qtextraname = [];
+var qtextramoney = [];
+var qtextranumber = [];
+var qtextratotalmoney = [];
+
+var price = 0;
+
+var pay = [];
+
+var net=0;
+var profit = 0;
+let tax = 0;
+//-------合約--------
+
+let contractother = document.getElementById("contractother").value;
+let contractdownpay = document.getElementById("contractdownpay").value;
+let contracttype = document.getElementById("contracttype").value;
+
+
+if (number == ''){
+  alert('請輸入團號');
+  return;
+}else if(name == ''){
+  alert('請輸入團名');
+  return;
+}else if(people == ''){
+  alert('請輸入代表人');
+  return;
+}else if(depdate == ''){
+  alert('請選取出發日期');
+  return;
+}else if(enddate == ''){
+  alert('請選取結束日期');
+  return;
+}else if(date == ''){
+  alert('請選取輸入日期');
+  return;
+}else if(howmanypeople == ''){
+  alert('請輸入人數');
+  return;
+}else if(location == ''){
+  alert('請輸入旅遊地點');
+  return;
+}
+
+
+//---------收入-----------------
+for(i=1;i<9;i++){
+  moneydate[i]= document.getElementById("moneydate"+i).value;
+  moneyname[i]= document.getElementById("moneyname"+i).value;
+  money[i]= document.getElementById("money"+i).value;
+  moneytype[i]= document.getElementById("moneytype"+i).value;
+  card[i]= document.getElementById("card"+i).value;
+  rmoneydate[i]= document.getElementById("rmoneydate"+i).value;
+  moneyprove[i]= document.getElementById("moneyprove"+i).value;
+  moneyother[i]= document.getElementById("moneyother"+i).value;
+  moneycheck[i]= document.getElementById("moneycheck"+i).value;
+  opmoneycheck[i]= document.getElementById("opmoneycheck"+i).value;
+}
+
+//---------支出-----------------
+
+for(i=1;i<16;i++){
+  paydate[i]= document.getElementById("paydate"+i).value;
+  paycompany[i]= document.getElementById("paycompany"+i).value;
+  payname[i]= document.getElementById("payname"+i).value;
+  paydetail[i]= document.getElementById("paydetail"+i).value;
+  pay[i]= document.getElementById("pay"+i).value;
+  paymoneydate[i]= document.getElementById("paymoneydate"+i).value;
+  payprove[i]= document.getElementById("payprove"+i).value;
+  paytype[i]= document.getElementById("paytype"+i).value;
+  opcheck[i]= document.getElementById("opcheck"+i).value;
+  paycheck[i]= document.getElementById("paycheck"+i).value;
+  downpaydatedl[i]= document.getElementById("downpaydatedl"+i).value;
+  lastpaydatedl[i]= document.getElementById("lastpaydatedl"+i).value;
+  opdownpay[i]= document.getElementById("opdownpay"+i).value;
+  opdownpaydate[i]= document.getElementById("opdownpaydate"+i).value;
+  opdownpaytype[i]= document.getElementById("opdownpaytype"+i).value;
+  downpayprove[i]= document.getElementById("downpayprove"+i).value;
+  opdowncheck[i]= document.getElementById("opdowncheck"+i).value;
+  downcheck[i]= document.getElementById("downcheck"+i).value;
+  oplastpay[i]= document.getElementById("oplastpay"+i).value;
+  oplastpaydate[i]= document.getElementById("oplastpaydate"+i).value;
+  oplastpaytype[i]= document.getElementById("oplastpaytype"+i).value;
+  lastpayprove[i]= document.getElementById("lastpayprove"+i).value;
+  oplastcheck[i]= document.getElementById("oplastcheck"+i).value;
+  lastcheck[i]= document.getElementById("lastcheck"+i).value;
+}
+//--------保險--------------------
+for(i=1;i<3;i++){ 
+  insurance[i]= document.getElementById("insurance"+i).value;
+  inmoney[i]= document.getElementById("inmoney"+i).value;
+  indays[i]= document.getElementById("indays"+i).value;
+  inpeople[i]= document.getElementById("inpeople"+i).value;
+  intotal[i]= document.getElementById("intotal"+i).value;
+}
+//----------團費估價--------
+for(i=1;i<6;i++){
+  qtname[i]= document.getElementById("qtname"+i).value;
+  qtmoney[i]= document.getElementById("qtmoney"+i).value;
+  qtnumber[i]= document.getElementById("qtnumber"+i).value;
+  qttotalmoney[i]= document.getElementById("qttotalmoney"+i).value;
+
+}
+//----------加購項目--------
+for(i=1;i<11;i++){
+  qtextraname[i]= document.getElementById("qtextraname"+i).value;
+  qtextramoney[i]= document.getElementById("qtextramoney"+i).value;
+  qtextranumber[i]= document.getElementById("qtextranumber"+i).value;
+  qtextratotalmoney[i]= document.getElementById("qtextratotalmoney"+i).value;
+}
+
+price = document.getElementById("price").value;
+net = document.getElementById("net").value;
+profit = document.getElementById("profit").value;
+tax = document.getElementById("tax").value;
+
+
+
+
+var year;var month;var day;
+
+console.log(depdate.substring(0,4));
+console.log(depdate.substring(5,7));
+console.log(depdate.substr(8,10));
+
+
+//var lastpayment = price - money;
+//price = parseInt(price);
+//money = parseInt(money);
+
+
+var db = firebase.firestore();
+
+
+var ref = db.collection(depdate.substring(0,4)+'-'+depdate.substring(5,7)).doc(number);
+
+var obj = {
+        團號: number,
+        團名: name,
+        代表人: people,
+        聯絡電話: phone,
+        出發日期: depdate,
+        結束日期: enddate,
+        報帳日期: date,
+        團費: price,
+        客服: cs,
+        人數: howmanypeople,
+        其他項備註: other || '',
+        是否保旅責險: insurance[1],
+        旅責險金額: inmoney[1],
+        旅責險天數: indays[1],
+        旅責險人數: inpeople[1],
+        旅責險總共: intotal[1],
+        是否保旅平險: insurance[2],
+        旅平險金額: inmoney[2],
+        旅平險天數: indays[2],
+        旅平險人數: inpeople[2],
+        旅平險總共: intotal[2],
+
+        總net: net,
+        利潤: profit,
+        總收入: moneytotal,
+        
+        martina核實: martina,
+        已更改: change,
+        進項代收轉付: incollectpay || '',
+        銷項代收轉付: outcollectpay || '',
+        
+        退業績: cancel,
+        退業績日期: canceldate,
+
+        修改紀錄: record,
+        稅金: tax,
+
+        地點: location,
+        定金: contractdownpay,
+        合約類型: contracttype,
+        合約備註: contractother,  
+      }
+
+      for (i = 1; i < 9; i++) {
+        obj = {
+          ...obj,
+          ['第' + i + '筆收入報帳日期']: document.getElementById("moneydate" + i).value || '',
+          ['第' + i + '筆收入品項']:  document.getElementById("moneyname" + i).value || '',
+          ['第' + i + '筆收入']: document.getElementById("money" + i).value || '',
+          ['第' + i + '筆收入收款方式']: document.getElementById("moneytype" + i).value || '',
+          ['第' + i + '筆國旅卡']: document.getElementById("card" + i).value || '',
+          ['第' + i + '筆收款日期']: document.getElementById("rmoneydate" + i).value || '',
+          ['第' + i + '筆收入證明']: document.getElementById("moneyprove" + i).value || '',
+          ['第' + i + '筆收入備註']: document.getElementById("moneyother" + i).value || '',
+          ['第' + i + '筆收入財務核實']: document.getElementById("moneycheck" + i).value || '',
+          ['第' + i + '筆收入op核實']: document.getElementById("opmoneycheck" + i).value || '',
+        }
+      }
+      for (i = 1; i < 16; i++) {
+        obj = {
+          ...obj,
+          ['第' + i + '筆支出報帳日期']: document.getElementById("paydate" + i).value || '',
+          ['第' + i + '筆支出廠商']:document.getElementById("paycompany" + i).value|| '',
+          ['第' + i + '筆支出品項']: document.getElementById("payname" + i).value || '',
+          ['第' + i + '筆支出明細']: document.getElementById("paydetail" + i).value || '',
+          ['第' + i + '筆支出']: document.getElementById("pay" + i).value || '',
+          ['第' + i + '筆付款日期']: document.getElementById("paymoneydate" + i).value || '',
+          ['第' + i + '筆付款方式']: document.getElementById("paytype" + i).value || '',
+          ['第' + i + '筆付款證明']: document.getElementById("payprove" + i).value || '',
+          ['第' + i + '筆支出op核實']: document.getElementById("opcheck" + i).value || '',
+          ['第' + i + '筆支出財務核實']: document.getElementById("paycheck" + i).value || '',
+          
+          ['第' + i + '筆op支付']: document.getElementById("op" + i).value || '',
+          ['第' + i + '筆定金DL']: document.getElementById("downpaydatedl" + i).value || '',
+          ['第' + i + '筆尾款DL']: document.getElementById("lastpaydatedl" + i).value || '',
+          ['第' + i + '筆op定金']: document.getElementById("opdownpay" + i).value || '',
+          ['第' + i + '筆op定金付款日期']: document.getElementById("opdownpaydate" + i).value || '',
+          ['第' + i + '筆op定金付款方式']: document.getElementById("opdownpaytype" + i).value || '',
+          ['第' + i + '筆op定金付款證明']: document.getElementById("downpayprove" + i).value || '',
+          ['第' + i + '筆op定金op核實']: document.getElementById("opdowncheck" + i).value || '',
+          ['第' + i + '筆op定金財務核實']: document.getElementById("downcheck" + i).value || '',
+
+          ['第' + i + '筆op尾款']: document.getElementById("oplastpay" + i).value || '',
+          ['第' + i + '筆op尾款付款日期']: document.getElementById("oplastpaydate" + i).value || '',
+          ['第' + i + '筆op尾款付款方式']: document.getElementById("oplastpaytype" + i).value || '',
+          ['第' + i + '筆op尾款付款證明']: document.getElementById("lastpayprove" + i).value || '',
+          ['第' + i + '筆op尾款op核實']: document.getElementById("oplastcheck" + i).value || '',
+          ['第' + i + '筆op尾款財務核實']: document.getElementById("lastcheck" + i).value || '',
+
+        }
+      }
+      for (i = 1; i < 6; i++){
+        obj = {
+          ...obj,
+          ['第' + i + '筆估價團費品項']: document.getElementById("qtname" + i).value || '',
+          ['第' + i + '筆估價團費單價']: document.getElementById("qtmoney" + i).value || '',
+          ['第' + i + '筆估價團費人數']: document.getElementById("qtnumber" + i).value || '',
+          ['第' + i + '筆估價團費總金額']: document.getElementById("qttotalmoney" + i).value || '',
+        }
+      }
+      for (i = 1; i < 11; i++){
+        obj = {
+          ...obj,
+          ['第' + i + '筆估價加購品項']: document.getElementById("qtextraname" + i).value || '',
+          ['第' + i + '筆估價加購單價']: document.getElementById("qtextramoney" + i).value || '',
+          ['第' + i + '筆估價加購數量']: document.getElementById("qtextranumber" + i).value || '',
+          ['第' + i + '筆估價加購天數']: document.getElementById("qtextradays" + i).value || '',
+          ['第' + i + '筆估價加購金額']: document.getElementById("qtextratotalmoney" + i).value || '',
+ 
+        }
+      }
+
+
+
+      ref.update(obj).then(() => {
+        console.log('set data successful');
+        alert('新增成功');
+        window.location.reload("");
+      });
+
+
+
+}
+
+</script>
+
+
+</body>
+</html>
