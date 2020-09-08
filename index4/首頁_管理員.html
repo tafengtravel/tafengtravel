@@ -97,17 +97,14 @@ function info(){
     
 }
 
-
-
 async function login(){ 
   var email = document.getElementById("email").value;  
   var password = document.getElementById("password").value;  
 
   await firebase.auth().signInWithEmailAndPassword(email, password).then(() => {
-
-    alert("登入成功");
-    window.location.reload()
-
+    document.getElementById("email").value='';
+    document.getElementById("password").value='';
+    alert('登入成功')
   }).catch((error) => {
     alert('帳密錯誤')
     console.log('error.message');
