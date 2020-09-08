@@ -78,7 +78,8 @@
 <span class="lable1" >登入帳號</span><br><br>
 <span class="lable1" >帳號：</span> <input id="email" style="font-size:30px"><br>
 <span class="lable1" >密碼：</span> <input id="password" type="password" style="font-size:30px"><br><br>
-<button onclick="login()" id="submit" style="font-size:30px">登入</button><br><br>
+<button onclick="login()" id="submit" style="font-size:30px">登入</button>
+<button onclick="logout()" id="submit" style="font-size:30px">登出</button><br><br>
 <!--
 <div class="lable1" id="id" style =  >已登入帳號：</div> 
 <div class="lable1" id="id1" style =  ></div>
@@ -111,6 +112,13 @@ async function login(){
 
   });
   
+}
+
+async function logout(){ 
+
+  firebase.auth().signOut()
+  alert('登出成功')
+
 }
 
 
