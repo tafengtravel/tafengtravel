@@ -51,15 +51,17 @@ table, td {
     <td  style="border: none ; "><a href="deadline.html">當日DL</a></td>
   </tr>
 </table>
-<br><br>
 
 <span class="status" >
-  <input type="text" id="mail" disabled="disabled" style="font-size:20px ; background-color: transparent; border:none; text-align: center; font-family:Microsoft JhengHei;font-weight:bold;">
+  <input type="text" class="lable" id="mail" disabled="disabled" style="background-color: transparent; border:none; text-align: center; font-family:Microsoft JhengHei;font-weight:bold;">
 </span>
 
-<span class="lable" ><label>搜尋月份：</label></span>  <input type="date" id="filedate" style="font-size:30px">
-&emsp;<button onclick="search()" type="button" style="font-size:30px"  >查詢</button>
-
+<div class="w3-row">
+  <div class="w3-col s12 m6 l3 ">
+    <span class="lable" ><label>搜尋月份：</label></span>  <input class="lable" type="date" id="filedate" >
+    &emsp;<button onclick="search()" class="lable" type="button" >查詢</button>
+  </div>
+</div>
 
 <div class="w3-responsive">
   <table id="myTable" class="w3-table-all" >
