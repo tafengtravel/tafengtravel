@@ -525,10 +525,10 @@ function show(data){
 
   var doc = new jsPDF();  
   doc.setFont('BiauKai')
-  doc.setFontSize(10);
+
 
   if(type == '國內個別'){
-
+    doc.setFontSize(10);
     doc.addImage(img, "JPEG", 5, 5, 200, 280);    
     doc.text(people, 29, 47.5);      
     doc.text(depdate, 39, 143);
@@ -541,12 +541,19 @@ function show(data){
     doc.text(date, 141, 261);
 
   }else if(type == '國內團體'){
+    doc.setFontSize(8);
     doc.addImage(img2, "JPEG", 5, 5, 200, 280);    
-    doc.text(people, 29, 47.5);     
+    doc.text(people+'共'+' '+'人', 18, 42);    
+
+    doc.text(depdate.substring(0,4), 28, 115.5);    
+    doc.text(depdate.substring(5,7), 39, 115.5);    
+    doc.text(depdate.substring(8,10), 46.5, 115.5);    
+
+    doc.text('定金$'+contractdownpay, 57, 130.5);
     /* 
     doc.text(depdate, 39, 143);
     doc.text(pricedetail, 12, 171);
-    doc.text('定金$'+contractdownpay, 32, 190.5);
+
    */
     doc.addPage();     
     doc.addImage(img3, "JPEG", 5, 5, 200, 280);
