@@ -14,7 +14,7 @@ firebase.auth().onAuthStateChanged(function(user) {
     document.getElementById("mail").value = "登入狀態：已登入";
     info(user.email);
     
-    if (user.uid == 'bnICmkLxO0OTHTbOopiNtWwTKY83' || user.uid == '9my42qdbUFUYqQO4WNykOTgzekY2' || user.uid == 'mPaUjWY6SjfX52nEXjGKQy1XXav2' || user.uid == ' bDbwj0BKjnY0hg5q5orSvnE1Gfi1'){
+    if (user.uid == 'bnICmkLxO0OTHTbOopiNtWwTKY83' || user.uid == '9my42qdbUFUYqQO4WNykOTgzekY2' || user.uid == 'mPaUjWY6SjfX52nEXjGKQy1XXav2' || user.uid == 'bDbwj0BKjnY0hg5q5orSvnE1Gfi1'){
       console.log(user.uid);
       return 0;
 
