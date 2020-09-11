@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+
+</style>
+</head>
+<body>
+
+       <!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="/__/firebase/7.14.3/firebase-app.js"></script>
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+
+<!-- Initialize Firebase -->
+<script src="/__/firebase/init.js"></script>
+   
+   <script src="https://www.gstatic.com/firebasejs/4.12.1/firebase.js"></script>
+
+<script src="https://www.gstatic.com/firebasejs/4.12.1/firebase-firestore.js"></script>
+
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel='stylesheet' href='table.css' type='text/css'>
+
+
+
+<div class="title"  >大豐旅行社帳務系統__表單全覽__OP</div> 
+
+<table width="100%" cellpadding=0px style="background-color:	#AAFFEE" >
+  <tr>
+    <td><a href="home.html">回到首頁</a></td>
+    <td><a href="modify.html">修改報帳</a></td>
+    <td><a href="table.html">表單全覽</a></td>
+    <td><a href="company_search.html">搜尋廠商</a></td>
+    <td><a href="income.html">當日收入</a></td>
+    <td><a href="today.html">當日業績</a></td>
+    <td><a href="deadline.html">當日DL</a></td>
+  </tr>
+</table>
+
+<span class="status" >
+  <input type="text" id="mail" disabled="disabled" class="lable" style="background-color: transparent; border:none; text-align: center; font-family:Microsoft JhengHei;font-weight:bold; ">
+</span>
+
+
+<div class="w3-row">
+  <div class="w3-col s12 m12 l3 ">
+    <span class="lable" ><label>搜尋月份：</label></span>  <input type="date" id="depdate" class="lable">
+  </div>
+  <div class="w3-col s12 m12 l8 ">
+    <span class="lable" ><label>客服：</label></span>  
+    <select id="cs" class="lable">
+      <option value="all">全部</option><option value="A1">A1</option><option value="A2">A2</option><option value="A3">A3</option><option value="A4">A4</option>
+      <option value="B1">B1</option><option value="B2">B2</option><option value="B3">B3</option><option value="B4">B4</option>
+      <option value="B5">B5</option><option value="B6">B6</option><option value="B7">B7</option><option value="B8">B8</option>
+      <option value="B9">B9</option><option value="B10">B10</option><option value="B11">B11</option><option value="B12">B12</option>
+    </select>
+    <span class="lable" ><label>排序：</label></span>  
+      <select id="orderby" class="lable">
+        <option value="團號">團號</option><option value="出發日期">出發日期</option>
+      </select>
+    &emsp;<button onclick="search()" id ="search"  type="button" class="lable"  >查詢</button>
+  </div>
+</div>
+
+<div class="w3-responsive">
+  <table id="myTable" class="w3-table-all" >
+    <tr>
+      <th nowrap>筆數</th><th nowrap>團號</th><th nowrap><font color="red">團體</font></th><th nowrap>客服</th>
+      <th nowrap>出發日期&emsp;&emsp;</th><th nowrap>結束日期&emsp;&emsp;</th><th nowrap>團名&emsp;&emsp;</th>
+      <th nowrap>代表人&emsp;&emsp;</th><th nowrap>人數</th><th nowrap>聯絡電話&emsp;&emsp;</th><th nowrap>未收尾款</th>
+      <th nowrap>備註&emsp;&emsp;&emsp;&emsp;</th>
+    </tr>
+  </table>
+</div> 
+
+<script src="secure.js" async></script>
+
+<script>
+
+let number;
+let del;
+
+function info(){
+    
+}
+
+
+function clear1(){
+  
+  window.location.reload("");
+}
+
+
+function search(){
+
+
+  var db = firebase.firestore();
+  var depdate = document.getElementById("depdate").value; 
+  var cs = document.getElementById("cs").value;
+  var orderby = document.getElementById("orderby").value;
+  var table = document.getElementById("myTable");
+  if(depdate == ""){
+    alert('請選取月份');
+    window.location.reload("");
+  }else{
+  }
+
+//判斷是否為0即刪除
+  if(del==0){
+    number=1;
+  }
+  del = 0;
+
+  for(j=1;j<number;j++){
+    table.deleteRow(1);
+
+  }
+//------------
+
+  if(cs == 'all'){
+  var ref = db.collection(depdate.substring(0,4)+'-'+depdate.substring(5,7));
+  var cell = [];
+  var i=1;
+
+  var row;
+  var check;
+  let price;
+  let moneytotal;
+
+
+
+
+  ref.orderBy(orderby, 'asc').get().then(querySnapshot => {
+    querySnapshot.forEach(doc => {       
+
+      profit = parseInt(doc.data().利潤);
+      price = parseFloat(doc.data().團費);
+      moneytotal = parseFloat(doc.data().總收入);
+
+      price = price-moneytotal;
+
+      
+      if(profit>10000){
+        check = "●";
+      }else{
+        check = "";
+      }
+
+      row = table.insertRow(i);
+      cell[0] = row.insertCell(0);
+      cell[0].innerHTML=i;
+      cell[1] = row.insertCell(1);
+      cell[1].innerHTML=doc.id;
+      cell[2] = row.insertCell(2);
+      cell[2].innerHTML=check;
+      cell[3] = row.insertCell(3);
+      cell[3].innerHTML=doc.data().客服;
+      cell[4] = row.insertCell(4);
+      cell[4].innerHTML=doc.data().出發日期;
+      cell[5] = row.insertCell(5);
+      cell[5].innerHTML=doc.data().結束日期;
+      cell[6] = row.insertCell(6);
+      cell[6].innerHTML=doc.data().團名;
+      cell[7] = row.insertCell(7);
+      cell[7].innerHTML=doc.data().代表人;
+      cell[8] = row.insertCell(8);
+      cell[8].innerHTML=doc.data().人數;
+      cell[9] = row.insertCell(9);
+      cell[9].innerHTML=doc.data().聯絡電話;
+      cell[10] = row.insertCell(10);
+      cell[10].innerHTML=price;
+      cell[11] = row.insertCell(11);
+      cell[11].innerHTML=doc.data().其他項備註;
+      i=i+1;
+      number=i;
+      del=1;
+
+    });
+  });
+  }else{
+  var ref = db.collection(depdate.substring(0,4)+'-'+depdate.substring(5,7));
+  var j =0;
+  var cell = [];
+  var i=1;
+  var table = document.getElementById("myTable");
+  var row;
+  var check;
+
+  ref.orderBy(orderby, 'asc').where('客服','==',cs).get().then(querySnapshot => {
+    querySnapshot.forEach(doc => {    
+      profit = parseInt(doc.data().利潤);
+
+
+      price = parseFloat(doc.data().團費);
+      moneytotal = parseFloat(doc.data().總收入);
+      price = price-moneytotal;
+              
+      if(profit>10000){
+        check = "●";
+      }else{
+        check = "";
+      }
+
+      row = table.insertRow(i);
+      cell[0] = row.insertCell(0);
+      cell[0].innerHTML=i;
+      cell[1] = row.insertCell(1);
+      cell[1].innerHTML=doc.id;
+      cell[2] = row.insertCell(2);
+      cell[2].innerHTML=check;
+      cell[3] = row.insertCell(3);
+      cell[3].innerHTML=doc.data().客服;
+      cell[4] = row.insertCell(4);
+      cell[4].innerHTML=doc.data().出發日期;
+      cell[5] = row.insertCell(5);
+      cell[5].innerHTML=doc.data().結束日期;
+      cell[6] = row.insertCell(6);
+      cell[6].innerHTML=doc.data().團名;
+      cell[7] = row.insertCell(7);
+      cell[7].innerHTML=doc.data().代表人;
+      cell[8] = row.insertCell(8);
+      cell[8].innerHTML=doc.data().人數;
+      cell[9] = row.insertCell(9);
+      cell[9].innerHTML=doc.data().聯絡電話;
+      cell[10] = row.insertCell(10);
+      cell[10].innerHTML=price;
+      cell[11] = row.insertCell(11);
+      cell[11].innerHTML=doc.data().其他項備註;
+      i=i+1;
+      number=i;
+      del=1;
+
+      });
+  });
+
+  } 
+
+}
+
+
+</script>
+
+</body>
+</html>
