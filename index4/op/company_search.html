@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+
+</style>
+</head>
+<body>
+
+       <!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="/__/firebase/7.14.3/firebase-app.js"></script>
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+
+<!-- Initialize Firebase -->
+<script src="/__/firebase/init.js"></script>
+   
+   <script src="https://www.gstatic.com/firebasejs/4.12.1/firebase.js"></script>
+
+<script src="https://www.gstatic.com/firebasejs/4.12.1/firebase-firestore.js"></script>
+
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel='stylesheet' href='table.css' type='text/css'>
+
+
+<div class="title"  >大豐旅行社帳務系統__搜尋廠商__OP</div> 
+
+<table width="100%" cellpadding=0px style="background-color:	#AAFFEE" >
+  <tr>
+    <td><a href="home.html">回到首頁</a></td>
+    <td><a href="modify.html">修改報帳</a></td>
+    <td><a href="table.html">表單全覽</a></td>
+    <td><a href="company_search.html">搜尋廠商</a></td>
+    <td><a href="income.html">當日收入</a></td>
+    <td><a href="today.html">當日業績</a></td>
+    <td><a href="deadline.html">當日DL</a></td>
+  </tr>
+</table>
+
+<span class="status" >
+  <input type="text" id="mail" disabled="disabled" class="lable" style="background-color: transparent; border:none; text-align: center; font-family:Microsoft JhengHei;font-weight:bold; ">
+</span>
+
+<div class="w3-row">
+  <div class="w3-col s12 m6 l3 ">
+  <span class="lable" ><label>搜尋月份：</label></span><input class="lable" type="date" id="depdate" >
+  </div>
+  <div class="w3-col s12 m6 l6 ">
+  <span class="lable" ><label>搜尋廠商：</label></span>  
+  <input class="lable" type="text" id="name">
+  
+  <span class="lable" ><label>排序：</label></span>  
+    <select class="lable" id="orderby" >
+      <option value="團號">團號</option><option value="出發日期">出發日期</option>
+    </select>
+  &emsp;<button onclick="search()" class="lable" type="button"  >查詢</button>
+  </div>
+</div>
+
+<div class="w3-responsive">
+  <table id="myTable" class="w3-table-all" >
+    <tr>
+      <th nowrap>筆數</th><th nowrap>團號</th><th nowrap>客服</th>
+      <th nowrap>出發日期&emsp;&emsp;</th><th nowrap>結束日期&emsp;&emsp;</th><th nowrap>團名&emsp;&emsp;</th>
+      <th nowrap>代表人&emsp;&emsp;</th><th nowrap>廠商&emsp;&emsp;</th><th nowrap>品項&emsp;&emsp;</th><th nowrap>支出</th>
+      <th nowrap>定金D/L&emsp;&emsp;</th><th nowrap>定金</th><th nowrap>尾款D/L&emsp;&emsp;</th><th nowrap>尾款</th>
+    </tr>
+  </table>
+</div> 
+
+
+<span class="lable1" ><label>總支出：</label></span>
+<input type="text" id="totalpay" disabled="disabled" class="lable1" style="background-color: transparent; border:none; text-align: center; font-family:Microsoft JhengHei;font-weight:bold;width:200px">
+
+
+ <script src="secure.js" async></script>
+
+<script>
+
+let number;
+let del;
+
+function info(){
+    
+}
+
+function clear1(){
+  window.location.reload("");
+}
+
+ 
+
+async function search(){
+  var orderby = document.getElementById("orderby").value;
+  var depdate = document.getElementById("depdate").value;  
+  var name = document.getElementById("name").value;  
+  if(depdate == ""){
+    alert('請選取月份');
+    window.location.reload("");
+  }else{
+  }
+
+  if(name == ""){
+    alert('請輸入廠商');
+    window.location.reload("");
+  }else{
+  }
+
+
+
+
+    
+  var db = firebase.firestore();
+
+  var ref = db.collection(depdate.substring(0,4)+'-'+depdate.substring(5,7));
+  var cell = [];  
+  var table = document.getElementById("myTable");
+  var row;
+  var j=1;
+  var data1 =[];
+  var k=0;
+  let payment=0;
+  let downpayment=0;
+  let lastpayment=0;
+  let a=1;
+  let totalpay=0;
+
+//判斷是否為0即刪除
+  if(del==0){
+    number=1;
+  }
+  del = 0;
+
+  for(q=1;q<number;q++){
+    table.deleteRow(1);
+
+  }
+//------------
+
+
+   for(i=1;i<16;i++){
+    await ref.where('第'+i+'筆支出廠商','==',name).get().then(querySnapshot => {
+    querySnapshot.forEach(doc => {      
+
+          data1[k] = doc.data();
+          data1[k]={...data1[k],項目:i};
+          k=k+1;
+          a=a+1;
+          number=a;
+          del=1;
+    });
+  });
+  
+  }
+
+  console.log(data1[0].出發日期);
+
+
+  if(orderby == '團號'){
+    data1.sort((a, b) => (a.團號).localeCompare(b.團號));
+  }else if(orderby == '出發日期'){
+    data1.sort((a, b) => (a.出發日期).localeCompare(b.出發日期));
+  }
+
+
+
+/*
+  for(i=0;i<data1.length-1;i++){
+    for (j=0; j<data1.length-1;j++){
+      if(data1[j].出發日期 > data1[j+1].出發日期) {
+        let temp = data1[j];
+        data1[j] = data1[j+1];
+        data1[j+1] = temp;
+      }
+      console.log(j);
+    }
+  }
+*/
+
+
+
+  for(i=0;i<data1.length;i++){
+
+    k = data1[i].項目;
+
+    payment = data1[i]['第'+k+'筆支出'];
+    downpayment= data1[i]['第'+k+'筆op定金'];
+
+    payment = parseFloat(payment);
+    downpayment = parseFloat(downpayment);
+    if (isNaN(downpayment)) {
+      downpayment=0;
+    }
+    if (isNaN(payment)) {
+      payment=0;
+    }
+
+    totalpay = totalpay + payment;
+    lastpayment = payment - downpayment;
+    
+    row = table.insertRow(j);
+    cell[0] = row.insertCell(0);
+    cell[0].innerHTML=j;
+    cell[1] = row.insertCell(1);
+    cell[1].innerHTML=data1[i].團號;
+    cell[2] = row.insertCell(2);
+    cell[2].innerHTML=data1[i].客服;
+    cell[3] = row.insertCell(3);
+    cell[3].innerHTML=data1[i].出發日期;
+    cell[4] = row.insertCell(4);
+    cell[4].innerHTML=data1[i].結束日期;
+    cell[5] = row.insertCell(5);
+    cell[5].innerHTML=data1[i].團名;
+    cell[6] = row.insertCell(6);
+    cell[6].innerHTML=data1[i].代表人;
+    cell[7] = row.insertCell(7);
+    cell[7].innerHTML=data1[i]['第'+k+'筆支出廠商'];
+    cell[8] = row.insertCell(8);
+    cell[8].innerHTML=data1[i]['第'+k+'筆支出品項'];
+    cell[9] = row.insertCell(9);
+    cell[9].innerHTML=data1[i]['第'+k+'筆支出'];
+    cell[10] = row.insertCell(10);
+    cell[10].innerHTML=data1[i]['第'+k+'筆定金DL'];
+    cell[11] = row.insertCell(11);
+    cell[11].innerHTML=data1[i]['第'+k+'筆op定金'];
+    cell[12] = row.insertCell(12);
+    cell[12].innerHTML=data1[i]['第'+k+'筆尾款DL'];
+    cell[13] = row.insertCell(13);
+    cell[13].innerHTML=data1[i]['第'+k+'筆op尾款'];
+
+
+    j=j+1;
+
+    
+  }
+
+document.getElementById("totalpay").value = totalpay;
+
+
+}
+
+
+</script>
+
+</body>
+</html>
