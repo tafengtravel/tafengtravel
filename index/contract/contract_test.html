@@ -448,7 +448,10 @@
 <script src="imguri.js"></script>
 <script src="imguri1.js"></script>
 <script src="imguri2.js"></script>
+<script src="imguri3.js"></script>
 <script>
+
+
 
 function info(){
     
@@ -537,7 +540,6 @@ function show(data){
     doc.text(contractother, 113, 17);
     doc.text(date, 141, 261);
 
-    doc.save(number+'_'+people+'_'+name+'.pdf');
   }else if(type == '國內團體'){
     doc.addImage(img2, "JPEG", 5, 5, 200, 280);    
     doc.text(people, 29, 47.5);     
@@ -545,13 +547,16 @@ function show(data){
     doc.text(depdate, 39, 143);
     doc.text(pricedetail, 12, 171);
     doc.text('定金$'+contractdownpay, 32, 190.5);
-
+   */
     doc.addPage();     
-    doc.addImage(img1, "JPEG", 5, 5, 200, 280);
+    doc.addImage(img3, "JPEG", 5, 5, 200, 280);
+    /*
     doc.text(contractother, 113, 17);
     doc.text(date, 141, 261);
     */
-
+    /*
+    document.getElementById('iframe123').src= doc.output('datauristring')
+    */
     doc.save(number+'_'+people+'_'+name+'.pdf');
 
   }
