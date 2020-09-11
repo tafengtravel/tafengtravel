@@ -4,7 +4,7 @@ firebase.initializeApp({
     authDomain: "tafengtravel-7cf35.firebaseapp.com",
     databaseURL: "https://tafengtravel-7cf35.firebaseio.com/",
   }); 
-firebase.auth().setPersistence(firebase.auth.Auth.Persistence.LOCAL)
+firebase.auth().setPersistence(firebase.auth.Auth.Persistence.SESSION)
 var mail;
 
 
