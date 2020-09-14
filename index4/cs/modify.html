@@ -2395,6 +2395,7 @@ function contract(){
   let contractother = document.getElementById("contractother").value;
   let contractdownpay = document.getElementById("contractdownpay").value;
   let contracttype = document.getElementById("contracttype").value;
+  let howmanypeople = document.getElementById("howmanypeople").value;
 
   let db = firebase.firestore();
   let ref = db.collection('contract').doc(number);
@@ -2416,6 +2417,7 @@ function contract(){
     合約年: year,
     合約月: month,
     合約日: day,
+    人數: howmanypeople,
 
   }).then(() => {
     console.log('update data successful');
