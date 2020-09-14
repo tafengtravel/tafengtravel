@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+table, td {
+  border: 1px solid black;
+}
+</style>
+</head>
+<body>
+
+       <!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="/__/firebase/7.14.3/firebase-app.js"></script>
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+
+<!-- Initialize Firebase -->
+<script src="/__/firebase/init.js"></script>
+   
+   <script src="https://www.gstatic.com/firebasejs/4.12.1/firebase.js"></script>
+
+<script src="https://www.gstatic.com/firebasejs/4.12.1/firebase-firestore.js"></script>
+
+
+
+<style>  
+.table1 {
+    font-size: 30px;
+}
+.lable {
+    font-size: 20px;
+    font-family:Microsoft JhengHei;
+    font-weight:bold;
+}
+
+table  {
+    font-size: 25px;
+    border: none ;
+    text-align:center;
+    font-family:Microsoft JhengHei;
+    font-weight:bold;
+    table-layout:fixed;
+       
+}
+
+
+.lable1 {
+    font-size: 30px;
+    font-weight:bold;
+    font-family:Microsoft JhengHei;
+
+}
+
+.title
+{
+    font-size: 60px;
+    text-align: center;
+    font-family:Microsoft JhengHei;
+    font-weight:bold;
+    width:"100%";    
+    background-color:	#AAFFEE;
+}   
+a{
+  color:black; 
+  text-decoration:none;
+} 
+.status{
+  float:right;
+  
+}
+</style> 
+
+<div class="title"  >大豐旅行社帳務系統__統計各類數值__管理員</div> 
+
+<table width="100%" cellpadding=0px style="background-color:	#AAFFEE" >
+  <tr>
+  </tr>
+</table>
+<br><br>
+
+<span class="status" >
+  <input type="text" id="mail" disabled="disabled" style="font-size:20px ; background-color: transparent; border:none; text-align: center; font-family:Microsoft JhengHei;font-weight:bold;">
+</span>
+
+<span class="lable" ><label>搜尋月份：</label></span>  <input type="date" id="depdate" style="font-size:30px">
+<span class="lable" ><label>客服：</label></span>  
+  <select id="cs" style="font-size:30px">
+    <option value="all">全部</option><option value="A1">A1</option><option value="A2">A2</option><option value="A3">A3</option><option value="A4">A4</option>
+    <option value="B1">B1</option><option value="B2">B2</option><option value="B3">B3</option><option value="B4">B4</option>
+    <option value="B5">B5</option><option value="B6">B6</option><option value="B7">B7</option><option value="B8">B8</option>
+    <option value="B9">B9</option><option value="B10">B10</option><option value="B11">B11</option><option value="B12">B12</option>
+  </select>
+<span class="lable" ><label>排序：</label></span>  
+  <select id="orderby" style="font-size:30px">
+    <option value="團號">團號</option><option value="出發日期">出發日期</option>
+  </select>
+&emsp;<button onclick="search()" id ="search"  type="button" style="font-size:30px"  >查詢</button>
+
+
+ <script src="secure.js" async></script>
+
+<script>  
+
+let number;
+let del;
+
+function info(){
+    
+}
+
+
+function clear1(){
+  
+  window.location.reload("");
+}
+
+
+async function search(){  
+
+  var db = firebase.firestore();
+  var depdate = document.getElementById("depdate").value; 
+  var cs = document.getElementById("cs").value;
+  var orderby = document.getElementById("orderby").value;
+
+
+  let green=0; penghu=0;lanyu=0;kinmen=0;matsu=0;cruise=0;car=0;season=0;
+  let green_people=0;penghu_people=0;lanyu_people=0;kinmen_people=0;matsu_people=0;cruise_people=0;car_people=0;season_people=0;
+  
+
+  if(depdate == ""){
+    alert('請選取月份');
+    window.location.reload("");
+  }else{
+  }
+
+//------------
+
+  var ref = db.collection(depdate.substring(0,4)+'-'+depdate.substring(5,7));
+
+  var totalprofit = 0;
+  var profit = 0;
+  var people = 0;
+  var totalpeople = 0;
+  let revenue = 0;
+  let price = 0;
+  
+
+  await ref.orderBy(orderby, 'asc').get().then(querySnapshot => {
+    querySnapshot.forEach(doc => {   
+
+      profit = parseInt(doc.data().利潤);
+      people = parseInt(doc.data().人數);
+      tax = parseInt(doc.data().稅金);
+
+      if (doc.data().地點 == '澎湖'){
+        penghu = penghu + profit;
+        penghu_people = penghu_people + people;
+      }else if(doc.data().地點 == '綠島'){
+        green = green + profit;
+        green_people = green_people + people;
+      }else if(doc.data().地點 == '蘭嶼'){
+        lanyu = lanyu + profit;
+        lanyu_people = lanyu_people + people;
+      }else if(doc.data().地點 == '金門'){
+        kinmen = kinmen + profit;
+        kinmen_people = kinmen_people + people;
+      }else if(doc.data().地點 == '馬祖'){
+        matsu = matsu + profit;
+        matsu_people = matsu_people + people;
+      }else if(doc.data().地點 == '代訂車'){
+        car = car + profit;
+        car_people = car_people + people;
+      }else if(doc.data().地點 == '郵輪'){
+        cruise = cruise + profit;
+        cruise_people = cruise_people + people;
+      }else if(doc.data().地點 == '季節旅遊'){
+        season = season + profit;
+        season_people = season_people + people;
+      }
+
+
+      price = parseInt(doc.data().團費);
+      revenue = price+revenue;
+
+      if (isNaN(tax)){
+        tax=0;
+      }
+      profit = profit+tax;
+
+      totalprofit = parseInt(totalprofit);
+      totalpeople = parseInt(totalpeople);
+
+      if(doc.data().地點 != '跨年'){
+      totalprofit = totalprofit + profit ;
+      }
+          
+      totalpeople = totalpeople+ people ;
+
+    });
+  });
+
+
+ ref = db.collection(depdate.substring(0,4)+'-total').doc(depdate.substring(5,7));
+ ref.update({
+   澎湖: penghu,
+   綠島: green,
+   蘭嶼: lanyu,
+   金門: kinmen,
+   馬祖: matsu,
+   代訂車: car,
+   郵輪: cruise,
+   季節旅遊: season,   
+
+   澎湖人數: penghu_people,
+   綠島人數: green_people,
+   蘭嶼人數: lanyu_people,
+   金門人數: kinmen_people,
+   馬祖人數: matsu_people,
+   代訂車人數: car_people,
+   郵輪人數: cruise_people,
+   季節旅遊人數: season_people,  
+
+   總利潤:totalprofit,
+   總人數:totalpeople,
+   營業額:revenue,
+
+
+  }).then(() => {
+    console.log('update data successful');
+  });
+
+
+}
+
+
+</script>
+
+</body>
+</html>
