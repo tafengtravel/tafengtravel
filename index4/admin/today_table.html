@@ -16,6 +16,9 @@
 <!-- "sm-blue" menu theme (optional, you can use your own CSS, too) -->
 <link href='https://tafengtravel.github.io/tafengtravel/index/sm-css/sm-mint/sm-mint.css' rel='stylesheet' type='text/css' />
 
+<link rel="icon" href="https://tafengtravel.github.io/tafengtravel/index1/tafenglogo6.ico" type="image/x-icon" />
+<link rel="shortcut icon" href="https://tafengtravel.github.io/tafengtravel/index1/tafenglogo6.ico" type="image/x-icon" />
+
 <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.0.0-beta.3/assets/owl.carousel.min.css'>
 <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.0.0-beta.3/assets/owl.theme.default.min.css'><link rel="stylesheet" href="./style.css">
 <link rel='stylesheet' href='smart.css' type='text/css'>
@@ -268,13 +271,19 @@ async function search(){
     cell[10] = row.insertCell(10);
     cell[10].innerHTML=check;
     cell[11] = row.insertCell(11);
+    /*
     cell[11].innerHTML=data1[i].第1筆收入;
+    */
+    cell[11].innerHTML=profit;
     cell[12] = row.insertCell(12);
     cell[12].innerHTML=check1;
 
     q=q+1;
 
-    totalprofit = totalprofit + profit ;
+    if(data1[i].地點 != '跨年'){
+      totalprofit = totalprofit + profit ;
+    }
+
     totalpeople = totalpeople+ people ;
 
   
