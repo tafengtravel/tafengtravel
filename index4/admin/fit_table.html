@@ -268,7 +268,11 @@ async function search(){
       cell[13] = row.insertCell(13);
       cell[13].innerHTML=doc.data().地點;
       i=i+1;
-      totalprofit = totalprofit + profit ;
+
+      if(doc.data().地點 != '跨年'){
+        totalprofit = totalprofit + profit ;
+      }
+
       totalpeople = totalpeople+ people ;
 
       console.log(i)
@@ -310,9 +314,7 @@ async function search(){
       if (isNaN(tax)){
         tax=0;
       }
-
-      profit = profit+tax;
-      
+  
       totalprofit = parseInt(totalprofit);
       totalpeople = parseInt(totalpeople);
 
@@ -358,7 +360,11 @@ async function search(){
       cell[12] = row.insertCell(12);
       cell[12].innerHTML=doc.data().其他項備註;
       i=i+1;
-      totalprofit = totalprofit + profit ;
+
+      if(doc.data().地點 != '跨年'){
+        totalprofit = totalprofit + profit ;
+      }
+
       totalpeople = totalpeople+ people ;
 
       number=i;
