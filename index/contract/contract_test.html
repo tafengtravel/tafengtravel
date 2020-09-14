@@ -507,11 +507,12 @@ function show(data){
   let year = data.合約年;
   let month = data.合約月;
   let day = data.合約日;
+  let location = data.地點;
 
   pricedetail = depdate+'~'+enddate+" "+name+" "+'團費共$'+price
 
   let Today=new Date();
-  date = year+"      "+month+"      "+day;
+
 
   //--------------JSpdf-------------
   window.jsPDF = window.jspdf.jsPDF
@@ -530,6 +531,8 @@ function show(data){
 
   if(type == '國內個別'){
     doc.setFontSize(10);
+    date = year+"      "+month+"      "+day;
+
     doc.addImage(img, "JPEG", 5, 5, 200, 280);    
     doc.text(people+'共'+howmanypeople+'人', 29, 47.5);      
     doc.text(depdate, 39, 143);
@@ -544,11 +547,15 @@ function show(data){
     doc.save(number+'_'+people+'_'+name+'.pdf');
 
   }else if(type == '國內團體'){
-    doc.setFontSize(8);
-    doc.addImage(img2, "JPEG", 5, 5, 200, 280);    
-    doc.text(people+'共'+howmanypeople+'人', 18, 42);    
+    doc.setFontSize(7);
+    date = year+"         "+month+"      "+day;
 
-    doc.text(depdate.substring(0,4), 28, 115);    
+    doc.addImage(img2, "JPEG", 5, 5, 200, 280);    
+    doc.text(people+'共'+howmanypeople+'人', 18, 32.5);    
+
+    doc.text(pricedetail, 30, 84.5);
+    doc.text(location, 63, 87.5);
+    doc.text(depdate.substring(0,4), 29, 115);    
     doc.text(depdate.substring(5,7), 39, 115);    
     doc.text(depdate.substring(8,10), 46.5, 115);    
 
@@ -556,7 +563,7 @@ function show(data){
 
     doc.addPage();     
     doc.addImage(img3, "JPEG", 5, 5, 200, 280);
-    doc.text(date, 122, 244);
+    doc.text(date, 122, 243.5);
 
     doc.save(number+'_'+people+'_'+name+'.pdf');
 
