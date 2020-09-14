@@ -2187,6 +2187,7 @@ function contract(){
   let contractdownpay = document.getElementById("contractdownpay").value;
   let contracttype = document.getElementById("contracttype").value;
   let howmanypeople = document.getElementById("howmanypeople").value;
+  let location = document.getElementById('location').value;
 
   let db = firebase.firestore();
   let ref = db.collection('contract').doc(number);
@@ -2209,6 +2210,7 @@ function contract(){
     合約月: month,
     合約日: day,
     人數: howmanypeople,
+    地點: location,
 
   }).then(() => {
     console.log('update data successful');
