@@ -502,6 +502,7 @@ function show(data){
   let pricedetail;
   let date;
   let type = data.合約類型;
+  let howmanypeople = data.人數;
 
   let year = data.合約年;
   let month = data.合約月;
@@ -530,7 +531,7 @@ function show(data){
   if(type == '國內個別'){
     doc.setFontSize(10);
     doc.addImage(img, "JPEG", 5, 5, 200, 280);    
-    doc.text(people, 29, 47.5);      
+    doc.text(people+'共'+howmanypeople+'人', 29, 47.5);      
     doc.text(depdate, 39, 143);
     doc.text(pricedetail, 12, 171);
     doc.text('定金$'+contractdownpay, 32, 190.5);
@@ -540,30 +541,23 @@ function show(data){
     doc.text(contractother, 113, 17);
     doc.text(date, 141, 261);
 
+    doc.save(number+'_'+people+'_'+name+'.pdf');
+
   }else if(type == '國內團體'){
     doc.setFontSize(8);
     doc.addImage(img2, "JPEG", 5, 5, 200, 280);    
-    doc.text(people+'共'+' '+'人', 18, 42);    
+    doc.text(people+'共'+howmanypeople+'人', 18, 42);    
 
-    doc.text(depdate.substring(0,4), 28, 115.5);    
-    doc.text(depdate.substring(5,7), 39, 115.5);    
-    doc.text(depdate.substring(8,10), 46.5, 115.5);    
+    doc.text(depdate.substring(0,4), 28, 115);    
+    doc.text(depdate.substring(5,7), 39, 115);    
+    doc.text(depdate.substring(8,10), 46.5, 115);    
 
-    doc.text('定金$'+contractdownpay, 57, 130.5);
-    /* 
-    doc.text(depdate, 39, 143);
-    doc.text(pricedetail, 12, 171);
+    doc.text('定金$'+contractdownpay, 61, 130.5);
 
-   */
     doc.addPage();     
     doc.addImage(img3, "JPEG", 5, 5, 200, 280);
-    /*
-    doc.text(contractother, 113, 17);
-    doc.text(date, 141, 261);
-    */
-    /*
-    document.getElementById('iframe123').src= doc.output('datauristring')
-    */
+    doc.text(date, 122, 244);
+
     doc.save(number+'_'+people+'_'+name+'.pdf');
 
   }
