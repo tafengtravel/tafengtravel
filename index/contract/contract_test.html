@@ -563,7 +563,9 @@ function show(data){
 
     doc.addPage();     
     doc.addImage(img3, "JPEG", 5, 5, 200, 280);
+    doc.text(contractother, 114, 79);
     doc.text(date, 122, 243.5);
+    
 
     doc.save(number+'_'+people+'_'+name+'.pdf');
 
