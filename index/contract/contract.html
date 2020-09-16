@@ -578,9 +578,10 @@ function show(data){
     let days = (parseInt(Math.abs(b - a)/1000/60/60/24)+1).toString();
 
     doc.setFontSize(9);
-   // date = year+"         "+month+"      "+day;
+    date = (parseInt(year)-1911).toString()+"        "+month+"       "+day;
     
     doc.addImage(img4, "JPEG", 5, 5, 200, 280); 
+    doc.text(people, 57.5, 56); 
     doc.text(howmanypeople, 51.5, 73); 
     doc.text((parseInt(depdate.substring(0,4))-1911).toString(), 52.5, 77); 
     doc.text(depdate.substring(5,7), 65.5, 77);   
@@ -592,17 +593,14 @@ function show(data){
     doc.text(days, 20, 93.5);    
     doc.text(price, 46, 93.5);   
     doc.text(contractdownpay, 22, 119.5);   
-    doc.text((parseInt(price)-parseInt(contractdownpay)).toString(), 65.5, 119.5);   
-       
+    doc.text((parseInt(price)-parseInt(contractdownpay)).toString(), 65.5, 119.5);  
+    doc.text(contractother, 110, 196);   
     
-
     doc.addPage();    
-
     doc.addImage(img5, "JPEG", 5, 5, 200, 280); 
-    document.getElementById('iframe123').src = doc.output('datauristring');//在iframe中顯示
- 
+    doc.text(date, 45, 94.5); 
 
-   // doc.save(number+'_'+people+'_'+name+'.pdf');
+    doc.save(number+'_'+people+'_'+name+'.pdf');
   }
 
 
