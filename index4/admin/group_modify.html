@@ -21,6 +21,12 @@
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <link rel='stylesheet' href='table.css' type='text/css'>
 
+<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.1/default-skin/default-skin.min.css'>
+<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.1/photoswipe.min.css'>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.1/photoswipe-ui-default.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.1/photoswipe.min.js"></script>
+
    </head>
    <body>
    
@@ -175,21 +181,32 @@ a{
 <div id="msg1" style="font-size:20px ;font-family:Microsoft JhengHei; "></div>
 <span class="lable" ><label>客報：</label></span> 
 <input type="text" id="photoname1" disabled="disabled" style="font-size:20px; width:400; background-color: transparent; border:none; text-align: center; font-family:Microsoft JhengHei;font-weight:bold;">
-<div class="photo"><img id="photo1" src="" alt="" width=></div>
+<br><br>
+<button onclick="photo1()" id="photo1" type="button" style="font-size:20px" disabled="disabled"  >顯示圖片</button> 
 <br><br>
 <br><br>
 <input type="file" value="upload" id="uploadBtn2" disabled="disabled" style="font-size:20px; font-family:Microsoft JhengHei; "></br>
 <div id="msg2" style="font-size:20px ;font-family:Microsoft JhengHei; "></div>
 <span class="lable" ><label>NET：</label></span>
 <input type="text" id="photoname2" disabled="disabled" style="font-size:20px; width:400;background-color: transparent; border:none; text-align: center; font-family:Microsoft JhengHei;font-weight:bold;"> 
-<div class="photo"><img id="photo2" src="" alt="" width=></div>
+<br><br>
+<button onclick="photo2()" id="photo2" type="button" style="font-size:20px" disabled="disabled"  >顯示圖片</button> 
 <br><br>
 <br><br>
 <input type="file" value="upload" id="uploadBtn3" disabled="disabled" style="font-size:20px; font-family:Microsoft JhengHei; "></br>
 <div id="msg3" style="font-size:20px ;font-family:Microsoft JhengHei; "></div>
 <span class="lable" ><label>行程：</label></span> 
 <input type="text" id="photoname3" disabled="disabled" style="font-size:20px; width:400; background-color: transparent; border:none; text-align: center; font-family:Microsoft JhengHei;font-weight:bold;">
-<div class="photo"><img id="photo3" src="" alt="" width=></div>
+<br><br>
+<button onclick="photo3()" id="photo3" type="button" style="font-size:20px" disabled="disabled"  >顯示圖片</button> 
+<br><br>
+<br><br>
+<input type="file" value="upload" id="uploadBtn4" disabled="disabled" style="font-size:20px; font-family:Microsoft JhengHei; "></br>
+<div id="msg4" style="font-size:20px ;font-family:Microsoft JhengHei; "></div>
+<span class="lable" ><label>行程：</label></span> 
+<input type="text" id="photoname4" disabled="disabled" style="font-size:20px; width:400; background-color: transparent; border:none; text-align: center; font-family:Microsoft JhengHei;font-weight:bold;">
+<br><br>
+<button onclick="photo4()" id="photo4" type="button" style="font-size:20px" disabled="disabled"  >顯示圖片</button> 
 <br><br>
 <span class="lable" ><label>總團費：</label></span> <input type="text" id="price1" style="font-size:20px">
 <br><br>
@@ -759,6 +776,89 @@ a{
 &ensp;&ensp;<button onclick="send()" id=send disabled="disabled" type="button" style="font-size:30px"  >送出</button>
 </div>
 
+
+<!---------------gallery---------------->
+
+
+
+
+
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+  <!-- Background of PhotoSwipe. 
+       It's a separate element, as animating opacity is faster than rgba(). -->
+  <div class="pswp__bg"></div>
+
+  <!-- Slides wrapper with overflow:hidden. -->
+  <div class="pswp__scroll-wrap">
+
+      <!-- Container that holds slides. PhotoSwipe keeps only 3 slides in DOM to save memory. -->
+      <div class="pswp__container">
+          <!-- don't modify these 3 pswp__item elements, data is added later on -->
+          <div class="pswp__item"></div>
+          <div class="pswp__item"></div>
+          <div class="pswp__item"></div>
+      </div>
+
+      <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+      <div class="pswp__ui pswp__ui--hidden">
+
+          <div class="pswp__top-bar">
+
+              <!--  Controls are self-explanatory. Order can be changed. -->
+
+              <div class="pswp__counter"></div>
+
+              <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+              <button class="pswp__button pswp__button--share" title="Share"></button>
+
+              <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+              <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+              <!-- Preloader demo https://codepen.io/dimsemenov/pen/yyBWoR -->
+              <!-- element will get class pswp__preloader--active when preloader is running -->
+              <div class="pswp__preloader">
+                  <div class="pswp__preloader__icn">
+                    <div class="pswp__preloader__cut">
+                      <div class="pswp__preloader__donut"></div>
+                    </div>
+                  </div>
+              </div>
+          </div>
+
+          <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+              <div class="pswp__share-tooltip"></div> 
+          </div>
+
+          <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+          </button>
+
+          <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+          </button>
+
+          <div class="pswp__caption">
+              <div class="pswp__caption__center"></div>
+          </div>
+
+        </div>
+
+      </div>
+
+</div>
+
+
+
+
+<!---------------gallery---------------->
+
+
+
+
+
    <!-- The core Firebase JS SDK is always required and must be listed first -->
 <script src="/__/firebase/7.14.3/firebase-app.js"></script>
 
@@ -863,24 +963,20 @@ function show(data){
   document.getElementById('canceldate').value=data.退業績日期;
   document.getElementById('tax').value=data.稅金;
 
-  document.getElementById("photo1").src=data.圖片網址1;
-  document.getElementById("photo2").src=data.圖片網址2;
-  document.getElementById("photo3").src=data.圖片網址3;
-
   document.getElementById('uploadBtn1').disabled=false;
   document.getElementById('uploadBtn2').disabled=false;
   document.getElementById('uploadBtn3').disabled=false;
+  document.getElementById('uploadBtn4').disabled=false;
 
-  document.getElementById('photoname1').value=data.圖片檔名1;
-  document.getElementById('photoname2').value=data.圖片檔名2;
-  document.getElementById('photoname3').value=data.圖片檔名3;
+  document.getElementById('photo1').disabled=false;
+  document.getElementById('photo2').disabled=false;
+  document.getElementById('photo3').disabled=false;
+  document.getElementById('photo4').disabled=false;
 
-  oldfile1 = data.圖片檔名1;
-  oldfile2 = data.圖片檔名2;
-  oldfile3 = data.圖片檔名3;
   photourl1 = data.圖片網址1;
   photourl2 = data.圖片網址2;
   photourl3 = data.圖片網址3;
+  photourl4 = data.圖片網址4;
 
   number2 = document.getElementById('number').value;
   console.log(number2);
@@ -1006,9 +1102,13 @@ let name;
 let oldfile1 ; 
 let oldfile2 ; 
 let oldfile3 ; 
+let oldfile4 ; 
 let photourl1;
 let photourl2;
 let photourl3;
+let photourl4;
+
+let photonum;
 
 const uploadBtn1 = document.getElementById("uploadBtn1");
 const msg1 = document.getElementById("msg1");
@@ -1016,6 +1116,8 @@ const uploadBtn2 = document.getElementById("uploadBtn2");
 const msg2 = document.getElementById("msg2");
 const uploadBtn3 = document.getElementById("uploadBtn3");
 const msg3 = document.getElementById("msg3");
+const uploadBtn4 = document.getElementById("uploadBtn4");
+const msg4 = document.getElementById("msg4");
 
 uploadBtn1.addEventListener("change", event => {
 
@@ -1051,8 +1153,14 @@ uploadBtn1.addEventListener("change", event => {
   // .ref() 指向已存在 storage 中的檔案位置後 可以透過 getDownloadURL 取得連結
       fileRef.getDownloadURL().then(function (url) {
         console.log(url) 
-        document.getElementById("photo1").src=url;
-        photourl1 = url;
+   
+        if(photourl1[0] == ''){
+          photourl1[0] = url;
+        }else{
+          photonum=(Object.keys(photourl1)).length;
+          photourl1[photonum] =  url;
+          photo1();
+        }
       })
 
     }
@@ -1095,8 +1203,15 @@ uploadBtn2.addEventListener("change", event => {
   // .ref() 指向已存在 storage 中的檔案位置後 可以透過 getDownloadURL 取得連結
     fileRef.getDownloadURL().then(function (url) {
       console.log(url) 
-      document.getElementById("photo2").src=url;
-      photourl2 = url;
+
+      if(photourl2[0] == ''){
+        photourl2[0] = url;
+      }else{
+        photonum=(Object.keys(photourl2)).length;
+        photourl2[photonum] =  url;
+        photo2();
+      }
+
     })
 
   }
@@ -1139,8 +1254,67 @@ function complete() {
 // .ref() 指向已存在 storage 中的檔案位置後 可以透過 getDownloadURL 取得連結
    fileRef.getDownloadURL().then(function (url) {
     console.log(url) 
+ 
+    if(photourl3[0] == ''){
+      photourl3[0] = url;
+    }else{
+      photonum=(Object.keys(photourl3)).length;
+      photourl3[photonum] =  url;
+      photo3();
+    }
+
+  })
+
+}
+);
+
+});
+//----------------4-----------------
+uploadBtn4.addEventListener("change", event => {
+
+let depdate = document.getElementById("depdate").value; 
+console.log(oldfile4);
+
+msg4.textContent = "";
+
+// 取得檔案資訊
+const file = event.target.files[0];
+const path = file.name;
+
+oldfile4 = depdate.substring(0,4)+'-'+depdate.substring(5,7)+'/'+number2+'/'+path;
+
+// 取得 storage 對應的位置
+const storageRef = firebase.storage().ref(depdate.substring(0,4)+'-'+depdate.substring(5,7)+'/'+number2+'/'+path);
+
+// .put() 方法把東西丟到該位置裡
+const task = storageRef.put(file);
+
+task.on(
+"state_changed",
+function progress(snapshot) {
+},
+function error(err) {
+  msg4.textContent = "上傳失敗";
+},
+function complete() {
+  msg4.textContent = "上傳成功";
+  const fileRef = firebase.storage().ref(depdate.substring(0,4)+'-'+depdate.substring(5,7)+'/'+number2+'/'+path);
+  document.getElementById('photoname4').value=oldfile4;
+
+// .ref() 指向已存在 storage 中的檔案位置後 可以透過 getDownloadURL 取得連結
+   fileRef.getDownloadURL().then(function (url) {
+    console.log(url) 
+    if(photourl4[0] == ''){
+      photourl4[0] = url;
+    }else{
+      photonum=(Object.keys(photourl4)).length;
+      photourl4[photonum] =  url;
+      photo4();
+    }
+    /*
     document.getElementById("photo3").src=url;
     photourl3 = url;
+    */
   })
 
 }
@@ -1151,6 +1325,260 @@ function complete() {
 </script>
    
 <script >
+
+//--------------相簿1---------------------
+function photo1() {
+    console.log(photourl1);
+    let photonum = (Object.keys(photourl1)).length;
+    
+    var pswpElement = document.querySelectorAll('.pswp')[0];   
+
+    var items = [
+    {
+      src: photourl1[0],
+      w:0,
+      h:0 
+    }
+    ];
+    
+    // define options (if needed)
+    var options = {
+             // history & focus options are disabled on CodePen        
+        history: false,
+        focus: false,
+
+        showAnimationDuration: 0,
+        hideAnimationDuration: 0
+        
+    };
+    
+    var gallery = new PhotoSwipe( pswpElement, PhotoSwipeUI_Default, items, options);
+
+    gallery.listen('imageLoadComplete', function (index, item) {
+      if (item.h < 1 || item.w < 1) {
+        let img = new Image()
+        img.onload = () => {
+          item.w = img.width
+          item.h = img.height
+          gallery.invalidateCurrItems()
+          gallery.updateSize(true)
+        }
+        img.src = item.src
+      }
+    })
+    gallery.init()
+
+    for(i=1;i<photonum;i++){
+      gallery.items.push({
+      src: photourl1[i], 
+      w:0,
+      h:0      
+    });
+
+    gallery.listen('gettingData', function (index, item) {
+      if (item.h < 1 || item.w < 1) {
+        let img = new Image()
+        img.onload = () => {
+          item.w = img.width
+          item.h = img.height
+          gallery.invalidateCurrItems()
+          gallery.updateSize(true)
+        }
+        img.src = item.src
+      }
+    })
+    }
+  };
+
+//--------------相簿2---------------------
+  function photo2() {
+    let photonum = (Object.keys(photourl2)).length;
+
+    var pswpElement = document.querySelectorAll('.pswp')[0];   
+
+    var items = [
+    {
+      src: photourl2[0],
+      w:0,
+      h:0 
+    }
+    ];
+    
+    // define options (if needed)
+    var options = {
+             // history & focus options are disabled on CodePen        
+        history: false,
+        focus: false,
+
+        showAnimationDuration: 0,
+        hideAnimationDuration: 0
+        
+    };
+    
+    var gallery = new PhotoSwipe( pswpElement, PhotoSwipeUI_Default, items, options);
+
+    gallery.listen('imageLoadComplete', function (index, item) {
+      if (item.h < 1 || item.w < 1) {
+        let img = new Image()
+        img.onload = () => {
+          item.w = img.width
+          item.h = img.height
+          gallery.invalidateCurrItems()
+          gallery.updateSize(true)
+        }
+        img.src = item.src
+      }
+    })
+    gallery.init()
+
+    for(i=1;i<photonum;i++){
+      gallery.items.push({
+      src: photourl2[i], 
+      w:0,
+      h:0      
+    });
+
+    gallery.listen('gettingData', function (index, item) {
+      if (item.h < 1 || item.w < 1) {
+        let img = new Image()
+        img.onload = () => {
+          item.w = img.width
+          item.h = img.height
+          gallery.invalidateCurrItems()
+          gallery.updateSize(true)
+        }
+        img.src = item.src
+      }
+    })
+    }
+  };
+//--------------相簿3---------------------
+  function photo3() {
+    let photonum = (Object.keys(photourl3)).length;
+
+    var pswpElement = document.querySelectorAll('.pswp')[0];   
+
+    var items = [
+    {
+      src: photourl3[0],
+      w:0,
+      h:0 
+    }
+    ];
+    
+    // define options (if needed)
+    var options = {
+             // history & focus options are disabled on CodePen        
+        history: false,
+        focus: false,
+
+        showAnimationDuration: 0,
+        hideAnimationDuration: 0
+        
+    };
+    
+    var gallery = new PhotoSwipe( pswpElement, PhotoSwipeUI_Default, items, options);
+
+    gallery.listen('imageLoadComplete', function (index, item) {
+      if (item.h < 1 || item.w < 1) {
+        let img = new Image()
+        img.onload = () => {
+          item.w = img.width
+          item.h = img.height
+          gallery.invalidateCurrItems()
+          gallery.updateSize(true)
+        }
+        img.src = item.src
+      }
+    })
+    gallery.init()
+
+    for(i=1;i<photonum;i++){
+      gallery.items.push({
+      src: photourl3[i], 
+      w:0,
+      h:0      
+    });
+
+    gallery.listen('gettingData', function (index, item) {
+      if (item.h < 1 || item.w < 1) {
+        let img = new Image()
+        img.onload = () => {
+          item.w = img.width
+          item.h = img.height
+          gallery.invalidateCurrItems()
+          gallery.updateSize(true)
+        }
+        img.src = item.src
+      }
+    })
+    }
+  };
+//--------------相簿4---------------------
+function photo4() {
+  let photonum = (Object.keys(photourl4)).length;
+  console.log(photonum)
+
+  var pswpElement = document.querySelectorAll('.pswp')[0];   
+
+  var items = [
+  {
+    src: photourl4[0],
+    w:0,
+    h:0 
+  }
+  ];
+  
+  // define options (if needed)
+  var options = {
+            // history & focus options are disabled on CodePen        
+      history: false,
+      focus: false,
+
+      showAnimationDuration: 0,
+      hideAnimationDuration: 0
+      
+  };
+  
+  var gallery = new PhotoSwipe( pswpElement, PhotoSwipeUI_Default, items, options);
+
+  gallery.listen('imageLoadComplete', function (index, item) {
+    if (item.h < 1 || item.w < 1) {
+      let img = new Image()
+      img.onload = () => {
+        item.w = img.width
+        item.h = img.height
+        gallery.invalidateCurrItems()
+        gallery.updateSize(true)
+      }
+      img.src = item.src
+    }
+  })
+  gallery.init()
+
+  for(i=1;i<photonum;i++){
+    gallery.items.push({
+    src: photourl4[i], 
+    w:0,
+    h:0      
+  });
+
+  }
+  gallery.listen('gettingData', function (index, item) {
+    if (item.h < 1 || item.w < 1) {
+      let img = new Image()
+      img.onload = () => {
+        item.w = img.width
+        item.h = img.height
+        gallery.invalidateCurrItems()
+        gallery.updateSize(true)
+      }
+      img.src = item.src
+    }
+  })
+   
+  console.log(gallery.items)
+};
 
 //--------------修改紀錄------------------//
 let usermail;
@@ -1463,16 +1891,12 @@ var obj = {
         退業績日期: canceldate,
         稅金: tax,
 
-        圖片檔名1: oldfile1,
-        圖片檔名2: oldfile2,
-        圖片檔名3: oldfile3,
-        圖片網址1: photourl1,
-        圖片網址2: photourl2,
-        圖片網址3: photourl3,
+        圖片網址1: photourl1 || '',
+        圖片網址2: photourl2 || '',
+        圖片網址3: photourl3 || '',
+        圖片網址4: photourl4 || '',
 
-        修改紀錄 :{
-          0:usermail +" "+time,
-        }
+        修改紀錄 :record
 
      
 
@@ -1508,9 +1932,9 @@ var obj = {
         }
       }  
 
-      ref.set(obj).then(() => {
-        console.log('set data successful');
-        alert('新增成功');
+      ref.update(obj).then(() => {
+        console.log('update data successful');
+        alert('修改成功');
         window.location.reload("");
       });
 
