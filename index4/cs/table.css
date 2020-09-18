@@ -43,6 +43,11 @@
     #myTable{
         font-size: 20px;
     }
+    html,body{
+      font-family:Verdana,sans-serif;
+      font-size:15px;
+      line-height:1.2
+    }
     @media(max-width:768px) {
     
       #myTable{
