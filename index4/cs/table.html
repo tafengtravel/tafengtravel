@@ -191,14 +191,26 @@ async function search(){
       cell[10].innerHTML=price;
       cell[11] = row.insertCell(11);
       cell[11].innerHTML=doc.data().其他項備註;
+      
       i=i+1;
       number=i;
       del=1;
 
+      cell[1].addEventListener("click", function(e){
+        console.log(e.target.innerText);
+
+        let modify = window.open('modify.html');
+
+        localStorage.setItem("oldnumber", e.target.innerText);
+        localStorage.setItem("depdate", depdate);
+      
+      });
+
+
     });  
   });
- 
 
+  
 
   console.log(number);
   }else{
@@ -278,7 +290,15 @@ async function search(){
 
   } 
 
+  function tableText(){
+    console.log(e.target.innerText);
+  }
+
+
+
 }
+
+
 
 
 </script>
