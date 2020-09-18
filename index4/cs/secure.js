@@ -15,12 +15,26 @@ firebase.auth().onAuthStateChanged(function(user) {
     document.getElementById("mail").value = "登入狀態：已登入";
 
     info(user.email);
+    oldnumber();
 
   } else {
     console.log("x");
     document.getElementById("mail").value = "登入狀態：未登入";
   }
 });
+
+function oldnumber(){
+
+  let oldnumber = localStorage.getItem("oldnumber");
+  let depdate= localStorage.getItem("depdate");
+  console.log(oldnumber);
+  if (oldnumber != null){
+    document.getElementById('number').value=oldnumber
+    document.getElementById('depdate').value=depdate
+    search();
+  }
+  localStorage.clear()
+}
 
 
 
