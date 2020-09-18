@@ -284,6 +284,16 @@ async function search(){
       number=i;
       del=1;
 
+      cell[1].addEventListener("click", function(e){
+        console.log(e.target.innerText);
+
+        let modify = window.open('modify.html');
+
+        localStorage.setItem("oldnumber", e.target.innerText);
+        localStorage.setItem("depdate", depdate);
+      
+      });
+
 
       });
   });
