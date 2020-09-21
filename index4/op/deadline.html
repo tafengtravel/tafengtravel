@@ -248,9 +248,20 @@ async function search(){
     cell[13] = row.insertCell(13);
     cell[13].innerHTML=data1[i]['第'+k+'筆op尾款'];
 
-
     q=q+1;
 
+    cell[1].addEventListener("click", function(e){
+      console.log(e.target.innerText);
+
+      console.log();
+      console.log();
+
+      let modify = window.open('modify.html');
+
+      localStorage.setItem("oldnumber", e.target.innerText);
+      localStorage.setItem("depdate", (parseInt(e.target.innerText.substring(3,6))+1911).toString()+'-'+e.target.innerText.substring(6,8)+'-01');
+    
+    });
 
    }
 
