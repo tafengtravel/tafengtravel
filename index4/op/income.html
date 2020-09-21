@@ -224,6 +224,19 @@ async function search(){
 
     q=q+1;
 
+    cell[1].addEventListener("click", function(e){
+      console.log(e.target.innerText);
+
+      console.log();
+      console.log();
+
+      let modify = window.open('modify.html');
+
+      localStorage.setItem("oldnumber", e.target.innerText);
+      localStorage.setItem("depdate", (parseInt(e.target.innerText.substring(3,6))+1911).toString()+'-'+e.target.innerText.substring(6,8)+'-01');
+    
+    });
+
     parse = parseInt(data1[i]['第'+k+'筆收入'])
     if (isNaN(parse)){
       parse=0;
