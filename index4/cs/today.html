@@ -57,7 +57,7 @@ table, td {
 </span>
 
 <div class="w3-row">
-  <div class="w3-col s12 m6 l3 ">
+  <div class="w3-col s12 m6 l4 ">
     <span class="lable" ><label>搜尋月份：</label></span>  <input class="lable" type="date" id="filedate" >
     &emsp;<button onclick="search()" class="lable" type="button" >查詢</button>
   </div>
@@ -247,8 +247,20 @@ async function search(){
     q=q+1;
 
     totalprofit = totalprofit + profit ;
-    totalpeople = totalpeople+ people ;
+    totalpeople = totalpeople + people ;
 
+    cell[1].addEventListener("click", function(e){
+      console.log(e.target.innerText);
+
+      console.log();
+      console.log();
+
+      let modify = window.open('modify.html');
+
+      localStorage.setItem("oldnumber", e.target.innerText);
+      localStorage.setItem("depdate", (parseInt(e.target.innerText.substring(3,6))+1911).toString()+'-'+e.target.innerText.substring(6,8)+'-01');
+    
+    });
   
   }
 
@@ -307,6 +319,18 @@ async function search(){
 
     q=q+1;
 
+    cell[1].addEventListener("click", function(e){
+      console.log(e.target.innerText);
+
+      console.log();
+      console.log();
+
+      let modify = window.open('modify.html');
+
+      localStorage.setItem("oldnumber", e.target.innerText);
+      localStorage.setItem("depdate", (parseInt(e.target.innerText.substring(3,6))+1911).toString()+'-'+e.target.innerText.substring(6,8)+'-01');
+    
+    });
 
   }
 
