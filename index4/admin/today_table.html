@@ -69,17 +69,17 @@
 </nav>
 
 <span class="status" >
-  <input type="text" id="mail" disabled="disabled" style="font-size:20px ; background-color: transparent; border:none; text-align: center; font-family:Microsoft JhengHei;font-weight:bold;">
+  <input type="text" id="mail" disabled="disabled" class="lable2" style="background-color: transparent; border:none; text-align: center; font-family:Microsoft JhengHei;font-weight:bold;">
 </span>
 
 <div class="w3-row">
 
-  <div class="w3-col s12 m6 l3 ">
+  <div class="w3-col s12 m12 l4 ">
     <span class="lable2" ><label>搜尋月份：</label></span>
-    <input type="date" id="depdate" style="font-size:20px">
-    <button onclick="search()" type="button" style="font-size:20px"  >查詢</button>
+    <input type="date" id="depdate" class="lable2" >
+    <button onclick="search()" type="button" class="lable2" >查詢</button>
   </div>
-  <div class="w3-col s12 m6 l4 ">
+  <div class="w3-col s12 m12 l8 ">
     <span class="lable2" ><label>總利潤：</label></span>
     <input type="text" id="totalprofit" style="font-size:20px ;width:100px; background-color: transparent; border:none; text-align: left; font-family:Microsoft JhengHei;font-weight:bold;">
     <span class="lable2" ><label>總人數：</label></span>
@@ -286,6 +286,18 @@ async function search(){
 
     totalpeople = totalpeople+ people ;
 
+    cell[1].addEventListener("click", function(e){
+      console.log(e.target.innerText);
+
+      console.log();
+      console.log();
+
+      let modify = window.open('modify.html');
+
+      localStorage.setItem("oldnumber", e.target.innerText);
+      localStorage.setItem("depdate", (parseInt(e.target.innerText.substring(3,6))+1911).toString()+'-'+e.target.innerText.substring(6,8)+'-01');
+    
+    });
   
   }
 
@@ -350,6 +362,18 @@ async function search(){
 
     q=q+1;
 
+    cell[1].addEventListener("click", function(e){
+      console.log(e.target.innerText);
+
+      console.log();
+      console.log();
+
+      let modify = window.open('modify.html');
+
+      localStorage.setItem("oldnumber", e.target.innerText);
+      localStorage.setItem("depdate", (parseInt(e.target.innerText.substring(3,6))+1911).toString()+'-'+e.target.innerText.substring(6,8)+'-01');
+    
+    });
 
   }
 
