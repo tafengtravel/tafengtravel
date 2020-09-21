@@ -60,7 +60,7 @@ table, td {
   <div class="w3-col s12 m6 l3 ">
     <span class="lable" ><label>搜尋月份：</label></span>  <input class="lable" type="date" id="depdate">
   </div>
-  <div class="w3-col s12 m6 l3 ">
+  <div class="w3-col s12 m6 l8 ">
     <span class="lable" ><label>客服：</label></span>  
     <select class="lable" id="cs">
       <option value="all">全部</option><option value="A1">A1</option><option value="A2">A2</option><option value="A3">A3</option><option value="A4">A4</option>
@@ -198,7 +198,7 @@ async function search(){
 
       cell[1].addEventListener("click", function(e){
         console.log(e.target.innerText);
-
+        
         let modify = window.open('modify.html');
 
         localStorage.setItem("oldnumber", e.target.innerText);
