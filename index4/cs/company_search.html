@@ -57,10 +57,10 @@ table, td {
 </span>
 
 <div class="w3-row">
-<div class="w3-col s12 m6 l3 ">
+<div class="w3-col s12 m12 l4 ">
 <span class="lable" ><label>搜尋月份：</label></span><input class="lable" type="date" id="depdate" >
 </div>
-<div class="w3-col s12 m6 l6 ">
+<div class="w3-col s12 m12 l8 ">
 <span class="lable" ><label>搜尋廠商：</label></span>  
 <input class="lable" type="text" id="name">
 
@@ -234,9 +234,17 @@ async function search(){
     cell[13] = row.insertCell(13);
     cell[13].innerHTML=data1[i]['第'+k+'筆op尾款'];
 
-
     j=j+1;
 
+    cell[1].addEventListener("click", function(e){
+      console.log(e.target.innerText);
+
+      let modify = window.open('modify.html');
+
+      localStorage.setItem("oldnumber", e.target.innerText);
+      localStorage.setItem("depdate", depdate);
+    
+    });
     
   }
 
