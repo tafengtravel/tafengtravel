@@ -87,13 +87,12 @@ table, td {
   var password = document.getElementById("password").value;  
 
  firebase.auth().signInWithEmailAndPassword(email, password).then(() => {
-
-  alert("登入成功");
-  window.location.reload("");
-  console.log("登入成功");
-
+    alert("登入成功");
+    window.location.reload("");
+    console.log("登入成功");
   }).catch((error) => {
     console.log(error.message);
+    alert('帳密錯誤');
   });
   
 }
