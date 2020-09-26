@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>報帳系統__廠商搜尋__團體</title>   	
+ 
+  <meta http-equiv="cache-control" content="no-cache">  
+  <meta http-equiv="pragma" content="no-cache">
+  <meta http-equiv="expires" content="0">
+  <meta name="format-detection" content="telephone=no">
+
+
+</head>
+
+<body>
+
+       <!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="/__/firebase/7.14.3/firebase-app.js"></script>
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+
+<!-- Initialize Firebase -->
+<script src="/__/firebase/init.js"></script>
+   
+   <script src="https://www.gstatic.com/firebasejs/4.12.1/firebase.js"></script>
+
+<script src="https://www.gstatic.com/firebasejs/4.12.1/firebase-firestore.js"></script>
+
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel='stylesheet' href='table.css' type='text/css'>
+
+
+
+
+<div class="title"  >大豐旅行社帳務系統__搜尋廠商__團體</div> 
+
+<table width="100%" style="background-color:	#AAFFEE"  >
+  <tr>
+    <td><a href="home.html">回到首頁</a></td>
+    <td><a href="new.html">新增報帳</a></td>
+    <td><a href="modify.html">修改報帳</a></td>
+    <td><a href="table.html">表單全覽</a></td>
+    <td><a href="company_search.html">搜尋廠商</a></td>
+    <td><a href="income.html">當日收入</a></td>
+    <td><a href="today.html">當日業績</a></td>
+  </tr>
+</table>
+
+<span class="status" >
+  <input type="text" id="mail" disabled="disabled" class="lable" style=" background-color: transparent; border:none; text-align: center; font-family:Microsoft JhengHei;font-weight:bold;">
+</span>
+
+
+<div class="w3-row">
+  <div class="w3-col s12 m6 l4 ">
+    <span class="lable" ><label>搜尋月份：</label></span>  <input type="date" id="depdate" class="lable">
+  </div>
+  <div class="w3-col s12 m12 l8 ">
+    <span class="lable" ><label>搜尋廠商：</label></span>  <input type="text" id="name" class="lable">
+    <span class="lable" ><label>排序：</label></span>  
+    <select id="orderby" class="lable">
+      <option value="團號">團號</option><option value="出發日期">出發日期</option>
+    </select>
+  &emsp;<button onclick="search()" type="button" class="lable">查詢</button>
+  </div>
+</div>
+
+
+<div class="w3-responsive">
+  <table id="myTable" class="w3-table-all" >
+    <tr>
+      <th nowrap>筆數</th><th nowrap>團號</th><th nowrap>客服</th>
+      <th nowrap>出發日期&emsp;&emsp;</th><th nowrap>結束日期&emsp;&emsp;</th><th nowrap>團名&emsp;&emsp;</th><th nowrap>公司名稱&emsp;&emsp;</th>
+      <th nowrap>代表人&emsp;&emsp;</th><th nowrap>廠商&emsp;&emsp;</th><th nowrap>品項&emsp;&emsp;</th><th nowrap>支出</th>
+      <th nowrap>付款日期&emsp;&emsp;</th><th nowrap>OP支付</th><th nowrap>財務核實</th>
+    </tr>
+  </table>
+</div> 
+
+<script src="secure.js" async></script>
+
+<script>
+
+let number;
+let del;
+
+function info(){
+    
+}
+
+function clear1(){
+  window.location.reload("");
+}
+
+ 
+
+async function search(){
+  var orderby = document.getElementById("orderby").value;
+  var depdate = document.getElementById("depdate").value;  
+  var name = document.getElementById("name").value;  
+  if(depdate == ""){
+    alert('請選取月份');
+    return;
+  }else{
+  }
+
+  if(name == ""){
+    alert('請輸入廠商');
+    return;
+  }else{
+  }
+
+    
+  var db = firebase.firestore();
+
+  var ref = db.collection(depdate.substring(0,4)+'-'+depdate.substring(5,7)+'G');
+  var cell = [];  
+  var table = document.getElementById("myTable");
+  var row;
+  var j=1;
+  var data1 =[];
+  var k=0;
+  let payment=0;
+  let a=1;
+  let opcheck;
+  let moneycheck;
+
+//判斷是否為0即刪除
+  if(del==0){
+    number=1;
+  }
+  del = 0;
+
+  for(q=1;q<number;q++){
+    table.deleteRow(1);
+
+  }
+//------------
+
+
+   for(i=1;i<16;i++){
+    await ref.where('第'+i+'筆支出廠商','==',name).get().then(querySnapshot => {
+    querySnapshot.forEach(doc => {      
+
+          data1[k] = doc.data();
+          data1[k]={...data1[k],項目:i};
+          k=k+1;
+          a=a+1;
+          number=a;
+          del=1;
+    });
+  });
+  
+  }
+
+  console.log(data1[0].出發日期);
+
+  if(orderby == '團號'){
+    data1.sort((a, b) => (a.團號).localeCompare(b.團號));
+  }else if(orderby == '出發日期'){
+    data1.sort((a, b) => (a.出發日期).localeCompare(b.出發日期));
+  }
+
+
+/*
+  for(i=0;i<data1.length-1;i++){
+    for (j=0; j<data1.length-1;j++){
+      if(data1[j].出發日期 > data1[j+1].出發日期) {
+        let temp = data1[j];
+        data1[j] = data1[j+1];
+        data1[j+1] = temp;
+      }
+      console.log(j);
+    }
+  }
+*/
+
+
+
+  for(i=0;i<data1.length;i++){
+
+    k = data1[i].項目;
+
+    payment = data1[i]['第'+k+'筆支出'];
+    payment = parseFloat(payment);
+
+    if (data1[i]['第'+k+'筆op支付'] == 'True'){
+      opcheck = '●';
+    }else{
+      opcheck = '';
+    }
+
+    if (data1[i]['第'+k+'筆支出財務核實'] == 'True'){
+      moneycheck = '●';
+    }else{
+      moneycheck = '';
+    }
+
+     
+    row = table.insertRow(j);
+    cell[0] = row.insertCell(0);
+    cell[0].innerHTML=j;
+    cell[1] = row.insertCell(1);
+    cell[1].innerHTML=data1[i].團號;
+    cell[2] = row.insertCell(2);
+    cell[2].innerHTML=data1[i].客服;
+    cell[3] = row.insertCell(3);
+    cell[3].innerHTML=data1[i].出發日期;
+    cell[4] = row.insertCell(4);
+    cell[4].innerHTML=data1[i].結束日期;
+    cell[5] = row.insertCell(5);
+    cell[5].innerHTML=data1[i].團名;
+    cell[6] = row.insertCell(6);
+    cell[6].innerHTML=data1[i].公司名稱;
+    cell[7] = row.insertCell(7);
+    cell[7].innerHTML=data1[i].代表人;
+    cell[8] = row.insertCell(8);
+    cell[8].innerHTML=data1[i]['第'+k+'筆支出廠商'];
+    cell[9] = row.insertCell(9);
+    cell[9].innerHTML=data1[i]['第'+k+'筆支出品項'];
+    cell[10] = row.insertCell(10);
+    cell[10].innerHTML=data1[i]['第'+k+'筆支出'];
+    cell[11] = row.insertCell(11);
+    cell[11].innerHTML=data1[i]['第'+k+'筆付款日期'];
+    cell[12] = row.insertCell(12);
+    cell[12].innerHTML=opcheck;
+    cell[13] = row.insertCell(13);
+    cell[13].innerHTML=moneycheck;
+
+    j=j+1;    
+
+    cell[1].addEventListener("click", function(e){
+      console.log(e.target.innerText);
+      
+      let modify = window.open('modify.html');
+
+      localStorage.setItem("oldnumber", e.target.innerText);
+      localStorage.setItem("depdate", depdate);
+      
+    });
+  }
+
+
+}
+
+
+</script>
+
+</body>
+</html>
