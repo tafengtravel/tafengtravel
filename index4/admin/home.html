@@ -106,9 +106,9 @@ async function login(){
   await firebase.auth().signInWithEmailAndPassword(email, password).then(() => {
     document.getElementById("email").value='';
     document.getElementById("password").value='';
-    alert('登入成功')
+    alert('登入成功');
   }).catch((error) => {
-    alert('帳密錯誤')
+    alert('帳密錯誤');
     console.log('error.message');
 
   });
