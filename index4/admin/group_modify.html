@@ -924,27 +924,17 @@ function show(data){
 
   document.getElementById('send').disabled=false;
 
-  document.getElementById('number').disabled=true;
+
   document.getElementById('name').value=data.團名;
-  document.getElementById('name').disabled=true;
   document.getElementById('companyname').value=data.公司名稱;
-  document.getElementById('companyname').disabled=true;
   document.getElementById('people').value=data.代表人;
-  document.getElementById('people').disabled=true;
   document.getElementById('howmanypeople').value=data.人數;
-  document.getElementById('howmanypeople').disabled=true;
   document.getElementById('phone').value=data.聯絡電話;
-  document.getElementById('phone').disabled=true;
   document.getElementById('depdate').value=data.出發日期;
-  document.getElementById('depdate').disabled=true;
   document.getElementById('enddate').value=data.結束日期;
-  document.getElementById('enddate').disabled=true;
   document.getElementById("date").value=data.報帳日期;
-  document.getElementById('date').disabled=true;
   document.getElementById('price').value=data.團費;
-  document.getElementById('price').disabled=true;
   document.getElementById('cs').value=data.客服;
-  document.getElementById('cs').disabled=true;
   document.getElementById('other').value=data.其他項備註;
   document.getElementById('moneytotal').value=data.總收入;
 
@@ -1011,35 +1001,7 @@ function show(data){
     document.getElementById('opmoneycheck'+i).value=data['第'+i+'筆收入op核實'];
   }
 
-  
-
-  for(i=1;i<6;i++){
-      if (document.getElementById('moneycheck'+i).value == "False"){
-      document.getElementById('moneydate'+i).disabled=false;
-      document.getElementById('moneyname'+i).disabled=false;
-      document.getElementById('money'+i).disabled=false;
-      document.getElementById('moneytype'+i).disabled=false;
-      document.getElementById('card'+i).disabled=false;
-      document.getElementById('rmoneydate'+i).disabled=false;
-      document.getElementById('moneyprove'+i).disabled=false;
-      document.getElementById('moneyother'+i).disabled=false;
-      }else{
-      document.getElementById('moneydate'+i).disabled=true;
-      document.getElementById('moneyname'+i).disabled=true;
-      document.getElementById('money'+i).disabled=true;
-      document.getElementById('moneytype'+i).disabled=true;
-      document.getElementById('card'+i).disabled=true;
-      document.getElementById('rmoneydate'+i).disabled=true;
-      document.getElementById('moneyprove'+i).disabled=true;
-      document.getElementById('moneyother'+i).disabled=true;
-      document.getElementById('opmoneycheck'+i).disabled=true;
-      }
-  }  
-
-
-  
-
-
+ 
 //------------------支出讀取-----------------
 
   for(i=1;i<11;i++){
@@ -1054,30 +1016,6 @@ function show(data){
     document.getElementById('paydetail'+i).value=data['第'+i+'筆支出明細'];
 
   }  
-
-
-
-  for(i=1;i<11;i++){
-    if (document.getElementById('paycheck'+i).value == "False"){
-    document.getElementById('paydate'+i).disabled=false;
-    document.getElementById('paycompany'+i).disabled=false;
-    document.getElementById('payname'+i).disabled=false;
-    document.getElementById('pay'+i).disabled=false;
-    document.getElementById('paymoneydate'+i).disabled=false;
-    document.getElementById('paytype'+i).disabled=false;
-    document.getElementById('op'+i).disabled=false;
-    document.getElementById('paydetail'+i).disabled=false;
-    }else{
-    document.getElementById('paydate'+i).disabled=true;
-    document.getElementById('paycompany'+i).disabled=true;
-    document.getElementById('payname'+i).disabled=true;
-    document.getElementById('pay'+i).disabled=true;
-    document.getElementById('paymoneydate'+i).disabled=true;
-    document.getElementById('paytype'+i).disabled=true;
-    document.getElementById('op'+i).disabled=false;
-    document.getElementById('paydetail'+i).disabled=true;
-    }
-  }
 
 
   //--------------保險---------------------
