@@ -11,17 +11,25 @@ var mail;
 
 firebase.auth().onAuthStateChanged(function(user) {
   if (user) {
-    console.log("成功");
-    document.getElementById("mail").value = "登入狀態：已登入";
-
-    info(user.email);
-    oldnumber();
-
-  } else {
+    if (user.uid == 'bnICmkLxO0OTHTbOopiNtWwTKY83' || user.uid == 'mPaUjWY6SjfX52nEXjGKQy1XXav2' || user.uid == '9my42qdbUFUYqQO4WNykOTgzekY2'){
+      console.log("成功");
+      document.getElementById("mail").value = "登入狀態：已登入";
+  
+      info(user.email);
+      oldnumber();  
+    }else{
+      console.log("x");
+      document.getElementById("mail").value = "登入狀態：未登入";
+      firebase.auth().signOut();
+      alert('並非管理員帳號');
+    }
+  }else{
     console.log("x");
     document.getElementById("mail").value = "登入狀態：未登入";
   }
+
 });
+
 
 function oldnumber(){
 
