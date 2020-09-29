@@ -3,6 +3,7 @@ firebase.initializeApp({
   projectId: 'tafengtravel-7cf35',
   authDomain: "tafengtravel-7cf35.firebaseapp.com",
   databaseURL: "https://tafengtravel-7cf35.firebaseio.com/",
+  storageBucket: "tafengtravel-7cf35.appspot.com",
 }); 
 firebase.auth().setPersistence(firebase.auth.Auth.Persistence.LOCAL)
 var mail;
