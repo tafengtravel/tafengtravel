@@ -130,7 +130,7 @@
     <th class="text-nowrap">團名</th><th class="text-nowrap">公司名稱</th><th class="text-nowrap">代表人</th><th class="text-nowrap">人數</th><th class="text-nowrap">聯絡電話</th><th class="text-nowrap">利潤</th><th class="text-nowrap">備註</th>
   </tr>
  </table>
- </div>>
+ </div>
 
 
  <script src="secure.js" async></script>
@@ -205,6 +205,11 @@ async function search(){
       tax = parseInt(doc.data().稅金);
 
       price = parseInt(doc.data().團費);
+
+      if (isNaN(price)){
+        price=0;
+      }
+
       revenue = price+revenue;
 
       if (isNaN(tax)){
