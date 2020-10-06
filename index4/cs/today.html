@@ -130,7 +130,14 @@ async function search(){
 
   }
 //------------
-  
+
+  month = month-6;
+
+  if(month<1){
+    month = month+12;
+    year = year-1;
+  }
+
   if(month > 9){
     let ref = db.collection(year.toString()+'-'+month.toString());
   }else if(month<10){
