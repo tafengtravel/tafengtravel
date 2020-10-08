@@ -2138,21 +2138,51 @@ limitdate();
 function limitdate(){
 
   if (Today.getMonth()+1 > 9){
-    todaydate = Today.getFullYear()+"-"+(Today.getMonth()+1)+"-"+Today.getDate();
+
+    if(Today.getDate() > 9){
+      todaydate = Today.getFullYear()+"-"+(Today.getMonth()+1)+"-"+Today.getDate();
+    }else if(Today.getDate()< 10){
+      todaydate = Today.getFullYear()+"-"+(Today.getMonth()+1)+"-0"+Today.getDate();
+    }
     document.getElementById('date').setAttribute('min', todaydate); 
 
     for(i=1;i<9;i++){
       document.getElementById("moneydate"+i).setAttribute('min', todaydate);
+    }
+
+    for(i=1;i<16;i++){
+      document.getElementById("paydate"+i).setAttribute('min', todaydate);
+      document.getElementById("lastpaydatedl"+i).setAttribute('min', todaydate);
+      document.getElementById("downpaydatedl"+i).setAttribute('min', todaydate);
+      
+    }
+
+    for(i=1;i<6;i++){
+      document.getElementById("refund_date"+i).setAttribute('min', todaydate);
     }
 
   }else if (Today.getMonth()+1 < 10){
-    todaydate = Today.getFullYear()+"-0"+(Today.getMonth()+1)+"-"+Today.getDate();
+
+    if(Today.getDate() > 9){
+      todaydate = Today.getFullYear()+"-0"+(Today.getMonth()+1)+"-"+Today.getDate();
+    }else if(Today.getDate()< 10){
+      todaydate = Today.getFullYear()+"-0"+(Today.getMonth()+1)+"-0"+Today.getDate();
+    }
     document.getElementById('date').setAttribute('min', todaydate); 
 
     for(i=1;i<9;i++){
       document.getElementById("moneydate"+i).setAttribute('min', todaydate);
     }
 
+    for(i=1;i<16;i++){
+      document.getElementById("paydate"+i).setAttribute('min', todaydate);
+      document.getElementById("lastpaydatedl"+i).setAttribute('min', todaydate);
+      document.getElementById("downpaydatedl"+i).setAttribute('min', todaydate);
+    } 
+
+    for(i=1;i<6;i++){
+      document.getElementById("refund_date"+i).setAttribute('min', todaydate);
+    }
   }
 }
 
