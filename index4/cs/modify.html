@@ -2806,6 +2806,11 @@ let canceldate = document.getElementById("canceldate").value;
 
 let location = document.getElementById("location").value;
 
+//--------------合約----------------
+let contractother = document.getElementById("contractother").value;
+let contractdownpay = document.getElementById("contractdownpay").value;
+let contracttype = document.getElementById("contracttype").value;
+
 //-------收入-------//
 var moneydate = [];
 var moneyname = [];
@@ -2881,8 +2886,6 @@ let refund_prove = [];
 let refund_other = [];
 let op_refund_check = [];
 let money_refund_check = [];
-
-
 
 
 if (number == ''){
@@ -3051,6 +3054,10 @@ var obj = {
         稅金: tax,
 
         地點: location,
+
+        合約備註: contractother,
+        定金: contractdownpay,
+        合約類型: contracttype,
 
         修改紀錄 :{
           0:usermail +" "+time,
