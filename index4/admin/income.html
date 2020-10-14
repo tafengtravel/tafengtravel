@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>報帳系統__管理員</title>   	
+ 
+  <meta http-equiv="cache-control" content="no-cache">  
+  <meta http-equiv="pragma" content="no-cache">
+  <meta http-equiv="expires" content="0">
+  <meta name="format-detection" content="telephone=no">
+
+<!-- SmartMenus core CSS (required) -->
+<link href='https://tafengtravel.github.io/tafengtravel/index/sm-css/sm-core-css.css' rel='stylesheet' type='text/css' />
+<!-- "sm-blue" menu theme (optional, you can use your own CSS, too) -->
+<link href='https://tafengtravel.github.io/tafengtravel/index/sm-css/sm-mint/sm-mint.css' rel='stylesheet' type='text/css' />
+
+<link rel="icon" href="https://tafengtravel.github.io/tafengtravel/index1/tafenglogo6.ico" type="image/x-icon" />
+<link rel="shortcut icon" href="https://tafengtravel.github.io/tafengtravel/index1/tafenglogo6.ico" type="image/x-icon" />
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+
+<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.0.0-beta.3/assets/owl.carousel.min.css'>
+<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.0.0-beta.3/assets/owl.theme.default.min.css'><link rel="stylesheet" href="./style.css">
+<link rel='stylesheet' href='smart.css' type='text/css'>
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel='stylesheet' href='table.css' type='text/css'>
+
+<style type="text/css" media="print">
+  @page { 
+      size: landscape;
+  }
+
+</style>
+
+</head>
+<body>
+
+       <!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="/__/firebase/7.14.3/firebase-app.js"></script>
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+
+<!-- Initialize Firebase -->
+<script src="/__/firebase/init.js"></script>
+   
+   <script src="https://www.gstatic.com/firebasejs/4.12.1/firebase.js"></script>
+
+<script src="https://www.gstatic.com/firebasejs/4.12.1/firebase-firestore.js"></script>
+
+
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+
+
+<nav class="main-nav" role="navigation">
+
+  <!-- Mobile menu toggle button (hamburger/x icon) -->
+  <input id="main-menu-state" type="checkbox" />
+  <label class="main-menu-btn" for="main-menu-state">
+    <span class="main-menu-btn-icon"></span> 
+  </label>
+
+  <h2 class="nav-brand"><span class="title" >報帳系統__管理員</span></h2>
+
+  <!-- Sample menu definition -->
+  <ul id="main-menu" class="sm sm-mint">
+    <li><a href="home.html">首頁</a></li>
+    <li><a href="fit_modify.html">修改報帳_散</a>
+    <li><a href="group_modify.html">修改報帳_團</a></li>
+    <li><a href="fit_table.html">表單_散</a>
+    <li><a href="group_table.html">表單_團</a></li>
+    <li><a href="fit_company_search.html">廠商搜尋_散</a></li>
+    <li><a href="income.html">當日收入</a></li>
+    <li><a href="today_table.html">當日業績</a></li>
+    <li><a href="year_table.html">年度報表</a></li>   
+  </ul>
+</nav>
+
+<span class="status" >
+  <input type="text" id="mail" disabled="disabled" class="lable" style="background-color: transparent; border:none; text-align: center; font-family:Microsoft JhengHei;font-weight:bold; ">
+</span>
+
+<div class="w3-row">
+  <div class="w3-col s12 m6 l6 ">
+    <span class="lable2" ><label>搜尋日期：</label></span>  <input type="date" class="lable2" id="moneydate">
+    &emsp;<button onclick="search()" class="lable" type="button" >查詢</button>
+  </div>
+</div>
+
+<div class="w3-responsive">
+  <table id="myTable" class="w3-table-all" >
+    <tr>
+      <th nowrap>筆數</th><th nowrap>團號</th><th nowrap>客服</th>
+      <th nowrap>出發日期&emsp;&emsp;</th><th nowrap>結束日期&emsp;&emsp;</th><th nowrap>團名&emsp;&emsp;</th>
+      <th nowrap>代表人&emsp;&emsp;</th><th nowrap>品項&emsp;&emsp;&emsp;&emsp;</th><th nowrap>收入</th>
+      <th nowrap>收款方式</th><th nowrap>OP核實</th><th nowrap>財務核實</th><th nowrap>客服簽名</th>
+    </tr>
+  </table>
+</div> 
+
+<span class="lable2" ><label>匯款：</label></span>
+<input type="text" class="lable" id="transfer" disabled="disabled" style=" background-color: transparent; border:none; text-align: center; font-family:Microsoft JhengHei;font-weight:bold;width:100px">
+<span class="lable2" ><label>現金：</label></span>
+<input type="text" class="lable" id="cash" disabled="disabled" style=" background-color: transparent; border:none; text-align: center; font-family:Microsoft JhengHei;font-weight:bold;width:100px">
+<span class="lable2" ><label>刷卡：</label></span>
+<input type="text" class="lable" id="card" disabled="disabled" style=" background-color: transparent; border:none; text-align: center; font-family:Microsoft JhengHei;font-weight:bold;width:100px">
+<span class="lable2" ><label>支票：</label></span>
+<input type="text" class="lable" id="check" disabled="disabled" style=" background-color: transparent; border:none; text-align: center; font-family:Microsoft JhengHei;font-weight:bold;width:100px">
+<span class="lable2" ><label>其他：</label></span>
+<input type="text" class="lable" id="other" disabled="disabled" style=" background-color: transparent; border:none; text-align: center; font-family:Microsoft JhengHei;font-weight:bold;width:100px">
+<span class="lable2" ><label>三倍券：</label></span>
+<input type="text" class="lable" id="coupon" disabled="disabled" style=" background-color: transparent; border:none; text-align: center; font-family:Microsoft JhengHei;font-weight:bold;width:100px">
+<span class="lable2" ><label>OP核實：&emsp;&emsp;&emsp;&emsp;</label></span>
+<span class="lable2" ><label>主管核實：</label></span>
+
+
+
+ <script src="secure.js" async></script>
+
+<script>
+let number;
+let del;
+
+function info(){
+    
+}
+
+
+function clear1(){
+  
+  window.location.reload("");
+}
+
+//let ref = db.collection(moneydate.substring(0,4)+'-'+moneydate.substring(5,7));
+
+async function search(){
+  let q=1;
+  let moneydate = document.getElementById("moneydate").value;  
+  let data1 =[];
+  let k=0;
+  let table = document.getElementById("myTable");
+  let cell = [];  
+  let row; 
+
+  let transfer=0 ; let cash=0;let card=0;let check=0;let other=0;let coupon=0;
+  let parse;
+  let a=1;
+  let opcheck=0;let moneycheck=0;
+
+
+  //判斷是否為0即刪除
+  if(del==0){
+    number=1;
+  }
+  del = 0;
+  console.log(number);
+
+  for(j=1;j<number;j++){
+    table.deleteRow(1);
+
+  }
+  //------------
+
+
+  if(moneydate == ""){
+    alert('請選取月份');
+    window.location.reload("");
+  }else{
+  }
+
+  let db = firebase.firestore();
+  let year = moneydate.substring(0,4);
+  let month = moneydate.substring(5,7);
+  year = parseInt(year);
+  month = parseInt(month);
+  month = month-2;
+  
+  if(month > 9){
+    let ref = db.collection(year.toString()+'-'+month.toString());
+  }else if(month<10){
+    let ref = db.collection(year.toString()+'-0'+month.toString());   
+  }else if(month<1){
+    month = month+12;
+    year = year-1;
+    let ref = db.collection(year.toString()+'-'+month.toString()); 
+  }
+
+  for(j=0;j<12;j++){
+    if(month > 9){
+      ref = db.collection(year.toString()+'-'+month.toString());
+    }else if(month<10){
+      ref = db.collection(year.toString()+'-0'+month.toString());   
+    }
+    
+    for(i=1;i<9;i++){
+      await ref.where('第'+i+'筆收入報帳日期','==',moneydate).get().then(querySnapshot => {
+      querySnapshot.forEach(doc => {      
+
+          data1[k] = doc.data();
+          data1[k]={...data1[k],項目:i};
+          k=k+1;
+
+          a=a+1;
+          number=a;
+          del=1;
+            
+        });
+      });
+    }
+    month = month + 1;
+    if(month > 12){
+      year = year + 1;
+      month = 1;
+    }
+  }
+  
+
+  data1.sort((a, b) => (a.出發日期).localeCompare(b.出發日期));
+
+  for(i=0;i<data1.length;i++){
+    k = data1[i].項目;
+
+    if(data1[i]['第'+k+'筆收入op核實'] =='True'){
+      opcheck = '●'
+    }else if(data1[i]['第'+k+'筆收入op核實'] =='False'){
+      opcheck = ''
+    }
+
+    if(data1[i]['第'+k+'筆收入財務核實'] =='True'){
+      moneycheck = '●'
+    }else if(data1[i]['第'+k+'筆收入財務核實'] =='False'){
+      moneycheck = ''
+    }
+
+
+    row = table.insertRow(q);
+    cell[0] = row.insertCell(0);
+    cell[0].innerHTML=q;
+    cell[1] = row.insertCell(1);
+    cell[1].innerHTML=data1[i].團號;
+    cell[2] = row.insertCell(2);
+    cell[2].innerHTML=data1[i].客服;
+    cell[3] = row.insertCell(3);
+    cell[3].innerHTML=data1[i].出發日期;
+    cell[4] = row.insertCell(4);
+    cell[4].innerHTML=data1[i].結束日期;
+    cell[5] = row.insertCell(5);
+    cell[5].innerHTML=data1[i].團名;
+    cell[6] = row.insertCell(6);
+    cell[6].innerHTML=data1[i].代表人;
+    cell[7] = row.insertCell(7);
+    cell[7].innerHTML=data1[i]['第'+k+'筆收入品項'];
+    cell[8] = row.insertCell(8);
+    cell[8].innerHTML=data1[i]['第'+k+'筆收入'];
+    cell[9] = row.insertCell(9);
+    cell[9].innerHTML=data1[i]['第'+k+'筆收入收款方式'];
+    cell[10] = row.insertCell(10);
+    cell[10].innerHTML=opcheck;
+    cell[11] = row.insertCell(11);
+    cell[11].innerHTML=moneycheck;
+    cell[12] = row.insertCell(12);
+    cell[12].innerHTML="";
+
+    q=q+1;
+
+    cell[1].addEventListener("click", function(e){
+      console.log(e.target.innerText);
+
+      console.log();
+      console.log();
+
+      let modify = window.open('fit_modify.html');
+
+      localStorage.setItem("oldnumber", e.target.innerText);
+      localStorage.setItem("depdate", (parseInt(e.target.innerText.substring(3,6))+1911).toString()+'-'+e.target.innerText.substring(6,8)+'-01');
+    
+    });
+
+    parse = parseInt(data1[i]['第'+k+'筆收入'])
+    if (isNaN(parse)){
+      parse=0;
+    }
+
+    if(data1[i]['第'+k+'筆收入收款方式']=='匯款'){
+      transfer = transfer + parse ;
+    }else if (data1[i]['第'+k+'筆收入收款方式']=='現金'){
+      cash = cash + parse ;
+    }else if (data1[i]['第'+k+'筆收入收款方式']=='刷卡'){
+      card = card + parse ;
+    }else if (data1[i]['第'+k+'筆收入收款方式']=='支票'){
+      check = check + parse ;
+    }else if (data1[i]['第'+k+'筆收入收款方式']=='其他'){
+      other = other + parse ;
+    }else if (data1[i]['第'+k+'筆收入收款方式']=='三倍券'){
+      coupon = coupon + parse ;
+    }
+
+    document.getElementById("transfer").value= transfer;
+    document.getElementById("cash").value= cash;
+    document.getElementById("card").value= card;
+    document.getElementById("check").value= check;
+    document.getElementById("other").value= other;
+    document.getElementById("coupon").value= coupon;
+
+   }
+
+   
+
+}
+
+
+</script>
+
+</body>
+</html>
