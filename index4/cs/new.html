@@ -2081,6 +2081,7 @@ var i = 1;
 var number1 = 0;
 var number0 = 0;
 var a = 0;
+let numberID = 0;
 
 await ref.orderBy('團號', 'asc').where('客服','==',cs).get().then(querySnapshot => {
     querySnapshot.forEach(doc => {    
@@ -2126,6 +2127,19 @@ console.log(number0.substring(2,3));
 
 }
 
+numberID = document.getElementById('number').value
+ref = db.collection(depdate.substring(0,4)+'-'+depdate.substring(5,7)).doc(numberID);
+
+await ref.get().then(function(doc){ 
+
+  if(typeof(doc.data()) != 'undefined'){
+    if (doc.exists) {
+      alert('錯誤 此團號已存在 請聯繫管理員');
+      window.location.reload("");
+    }   
+  }
+
+});
 }
 
 
@@ -2321,374 +2335,374 @@ document.getElementById("tax").value=tax;
 
 function send(){
 
-var number = document.getElementById("number").value;
-var name = document.getElementById("name").value;
-var people = document.getElementById("people").value;
-var phone = document.getElementById("phone").value;
-var depdate = document.getElementById("depdate").value;
-var enddate = document.getElementById("enddate").value;
-var date = document.getElementById("date").value;
-var price = document.getElementById("price").value;
-var cs = document.getElementById("cs").value;
-var other = document.getElementById("other").value;
-var howmanypeople = document.getElementById("howmanypeople").value;
-var moneytotal = document.getElementById("moneytotal").value;
+  var number = document.getElementById("number").value;
+  var name = document.getElementById("name").value;
+  var people = document.getElementById("people").value;
+  var phone = document.getElementById("phone").value;
+  var depdate = document.getElementById("depdate").value;
+  var enddate = document.getElementById("enddate").value;
+  var date = document.getElementById("date").value;
+  var price = document.getElementById("price").value;
+  var cs = document.getElementById("cs").value;
+  var other = document.getElementById("other").value;
+  var howmanypeople = document.getElementById("howmanypeople").value;
+  var moneytotal = document.getElementById("moneytotal").value;
 
 
-let martina = document.getElementById("martina").value;
-let change = document.getElementById("change").value;
-let incollectpay = document.getElementById("incollectpay").value;
-let outcollectpay = document.getElementById("outcollectpay").value;
+  let martina = document.getElementById("martina").value;
+  let change = document.getElementById("change").value;
+  let incollectpay = document.getElementById("incollectpay").value;
+  let outcollectpay = document.getElementById("outcollectpay").value;
 
-let cancel = document.getElementById("cancel").value;
-let canceldate = document.getElementById("canceldate").value;
+  let cancel = document.getElementById("cancel").value;
+  let canceldate = document.getElementById("canceldate").value;
 
-let location = document.getElementById("location").value;
+  let location = document.getElementById("location").value;
 
-//-------收入-------//
-var moneydate = [];
-var moneyname = [];
-var money = [];
-var moneytype = [];
-var card = [];
-var rmoneydate =[];
-var moneyprove = [];
-var moneyother = [];
-var moneycheck = [];
-var opmoneycheck = [];
+  //-------收入-------//
+  var moneydate = [];
+  var moneyname = [];
+  var money = [];
+  var moneytype = [];
+  var card = [];
+  var rmoneydate =[];
+  var moneyprove = [];
+  var moneyother = [];
+  var moneycheck = [];
+  var opmoneycheck = [];
 
-//-------支出-------//
-var paydate = [];
-var paycompany = [];
-var payname = [];
-var paydetail =[];
-var pay = [];
-var paymoneydate = [];
-var payprove = [];
-var paytype = [];
-var opcheck = [];
-var paycheck = [];
-var op = [];
-var downpaydatedl = [];
-var lastpaydatedl = [];
+  //-------支出-------//
+  var paydate = [];
+  var paycompany = [];
+  var payname = [];
+  var paydetail =[];
+  var pay = [];
+  var paymoneydate = [];
+  var payprove = [];
+  var paytype = [];
+  var opcheck = [];
+  var paycheck = [];
+  var op = [];
+  var downpaydatedl = [];
+  var lastpaydatedl = [];
 
-var opdownpay = [];
-var opdownpaydate = [];
-var opdownpaytype = [];
-var downpayprove = [];
-var opdowncheck = [];
-var downcheck = [];
+  var opdownpay = [];
+  var opdownpaydate = [];
+  var opdownpaytype = [];
+  var downpayprove = [];
+  var opdowncheck = [];
+  var downcheck = [];
 
-var oplastpay = [];
-var oplastpaydate = [];
-var oplastpaytype = [];
-var lastpayprove = [];
-var oplastcheck = [];
-var lastcheck = [];
+  var oplastpay = [];
+  var oplastpaydate = [];
+  var oplastpaytype = [];
+  var lastpayprove = [];
+  var oplastcheck = [];
+  var lastcheck = [];
 
-//-------保險--------//
-var insurance=[];
-var inmoney=[]; 
-var indays=[];
-var inpeople=[];
-var intotal=[];
-//------------------//
-var qtname = [];
-var qtmoney = [];
-var qtnumber = [];
-var qttotalmoney = [];
-var qtextraname = [];
-var qtextramoney = [];
-var qtextranumber = [];
-var qtextratotalmoney = [];
+  //-------保險--------//
+  var insurance=[];
+  var inmoney=[]; 
+  var indays=[];
+  var inpeople=[];
+  var intotal=[];
+  //------------------//
+  var qtname = [];
+  var qtmoney = [];
+  var qtnumber = [];
+  var qttotalmoney = [];
+  var qtextraname = [];
+  var qtextramoney = [];
+  var qtextranumber = [];
+  var qtextratotalmoney = [];
 
-var price = 0;
+  var price = 0;
 
-var pay = [];
+  var pay = [];
 
-var net=0;
-var profit = 0;
-let tax = 0;
+  var net=0;
+  var profit = 0;
+  let tax = 0;
 
-//------退款----------//
-let refund = [];
-let refund_date= [];
-let refund_name= [];
-let refundtype = [];
-let refund_money_date = [];
-let refund_prove = [];
-let refund_other = [];
-let op_refund_check = [];
-let money_refund_check = [];
-
-
-
-
-
-if (number == ''){
-  alert('請輸入團號');
-  return;
-}else if(name == ''){
-  alert('請輸入團名');
-  return;
-}else if(people == ''){
-  alert('請輸入代表人');
-  return;
-}else if(depdate == ''){
-  alert('請選取出發日期');
-  return;
-}else if(enddate == ''){
-  alert('請選取結束日期');
-  return;
-}else if(date == ''){
-  alert('請選取輸入日期');
-  return;
-}else if(howmanypeople == ''){
-  alert('請輸入人數');
-  return;
-}else if(location == ''){
-  alert('請輸入旅遊地點');
-  return;
-}
-
-
-//---------收入-----------------
-for(i=1;i<9;i++){
-  moneydate[i]= document.getElementById("moneydate"+i).value;
-  moneyname[i]= document.getElementById("moneyname"+i).value;
-  money[i]= document.getElementById("money"+i).value;
-  moneytype[i]= document.getElementById("moneytype"+i).value;
-  card[i]= document.getElementById("card"+i).value;
-  rmoneydate[i]= document.getElementById("rmoneydate"+i).value;
-  moneyprove[i]= document.getElementById("moneyprove"+i).value;
-  moneyother[i]= document.getElementById("moneyother"+i).value;
-  moneycheck[i]= document.getElementById("moneycheck"+i).value;
-  opmoneycheck[i]= document.getElementById("opmoneycheck"+i).value;
-}
-
-//---------支出-----------------
-
-for(i=1;i<16;i++){
-  paydate[i]= document.getElementById("paydate"+i).value;
-  paycompany[i]= document.getElementById("paycompany"+i).value;
-  payname[i]= document.getElementById("payname"+i).value;
-  paydetail[i]= document.getElementById("paydetail"+i).value;
-  pay[i]= document.getElementById("pay"+i).value;
-  paymoneydate[i]= document.getElementById("paymoneydate"+i).value;
-  payprove[i]= document.getElementById("payprove"+i).value;
-  paytype[i]= document.getElementById("paytype"+i).value;
-  opcheck[i]= document.getElementById("opcheck"+i).value;
-  paycheck[i]= document.getElementById("paycheck"+i).value;
-  downpaydatedl[i]= document.getElementById("downpaydatedl"+i).value;
-  lastpaydatedl[i]= document.getElementById("lastpaydatedl"+i).value;
-  opdownpay[i]= document.getElementById("opdownpay"+i).value;
-  opdownpaydate[i]= document.getElementById("opdownpaydate"+i).value;
-  opdownpaytype[i]= document.getElementById("opdownpaytype"+i).value;
-  downpayprove[i]= document.getElementById("downpayprove"+i).value;
-  opdowncheck[i]= document.getElementById("opdowncheck"+i).value;
-  downcheck[i]= document.getElementById("downcheck"+i).value;
-  oplastpay[i]= document.getElementById("oplastpay"+i).value;
-  oplastpaydate[i]= document.getElementById("oplastpaydate"+i).value;
-  oplastpaytype[i]= document.getElementById("oplastpaytype"+i).value;
-  lastpayprove[i]= document.getElementById("lastpayprove"+i).value;
-  oplastcheck[i]= document.getElementById("oplastcheck"+i).value;
-  lastcheck[i]= document.getElementById("lastcheck"+i).value;
-}
-//--------保險--------------------
-for(i=1;i<3;i++){ 
-  insurance[i]= document.getElementById("insurance"+i).value;
-  inmoney[i]= document.getElementById("inmoney"+i).value;
-  indays[i]= document.getElementById("indays"+i).value;
-  inpeople[i]= document.getElementById("inpeople"+i).value;
-  intotal[i]= document.getElementById("intotal"+i).value;
-}
-//----------團費估價--------
-for(i=1;i<6;i++){
-  qtname[i]= document.getElementById("qtname"+i).value;
-  qtmoney[i]= document.getElementById("qtmoney"+i).value;
-  qtnumber[i]= document.getElementById("qtnumber"+i).value;
-  qttotalmoney[i]= document.getElementById("qttotalmoney"+i).value;
-
-}
-//----------加購項目--------
-for(i=1;i<11;i++){
-  qtextraname[i]= document.getElementById("qtextraname"+i).value;
-  qtextramoney[i]= document.getElementById("qtextramoney"+i).value;
-  qtextranumber[i]= document.getElementById("qtextranumber"+i).value;
-  qtextratotalmoney[i]= document.getElementById("qtextratotalmoney"+i).value;
-}
-
-price = document.getElementById("price").value;
-net = document.getElementById("net").value;
-profit = document.getElementById("profit").value;
-tax = document.getElementById("tax").value;
-//-----------退款------------
-for(i=1;i<6;i++){
-  refund[i]= document.getElementById("refund"+i).value;
-  refund_date[i]= document.getElementById("refund_date"+i).value;
-  refund_name[i]= document.getElementById("refund_name"+i).value;
-  refundtype[i]= document.getElementById("refundtype"+i).value;
-  refund_money_date[i]= document.getElementById("refund_money_date"+i).value;
-  refund_prove[i]= document.getElementById("refund_prove"+i).value;
-  refund_other[i]= document.getElementById("refund_other"+i).value;
-  op_refund_check[i]= document.getElementById("op_refund_check"+i).value;
-  money_refund_check[i]= document.getElementById("money_refund_check"+i).value;
-}
+  //------退款----------//
+  let refund = [];
+  let refund_date= [];
+  let refund_name= [];
+  let refundtype = [];
+  let refund_money_date = [];
+  let refund_prove = [];
+  let refund_other = [];
+  let op_refund_check = [];
+  let money_refund_check = [];
 
 
 
 
-var year;var month;var day;
 
-console.log(depdate.substring(0,4));
-console.log(depdate.substring(5,7));
-console.log(depdate.substr(8,10));
+  if (number == ''){
+    alert('請輸入團號');
+    return;
+  }else if(name == ''){
+    alert('請輸入團名');
+    return;
+  }else if(people == ''){
+    alert('請輸入代表人');
+    return;
+  }else if(depdate == ''){
+    alert('請選取出發日期');
+    return;
+  }else if(enddate == ''){
+    alert('請選取結束日期');
+    return;
+  }else if(date == ''){
+    alert('請選取輸入日期');
+    return;
+  }else if(howmanypeople == ''){
+    alert('請輸入人數');
+    return;
+  }else if(location == ''){
+    alert('請輸入旅遊地點');
+    return;
+  }
 
 
-//var lastpayment = price - money;
-//price = parseInt(price);
-//money = parseInt(money);
+  //---------收入-----------------
+  for(i=1;i<9;i++){
+    moneydate[i]= document.getElementById("moneydate"+i).value;
+    moneyname[i]= document.getElementById("moneyname"+i).value;
+    money[i]= document.getElementById("money"+i).value;
+    moneytype[i]= document.getElementById("moneytype"+i).value;
+    card[i]= document.getElementById("card"+i).value;
+    rmoneydate[i]= document.getElementById("rmoneydate"+i).value;
+    moneyprove[i]= document.getElementById("moneyprove"+i).value;
+    moneyother[i]= document.getElementById("moneyother"+i).value;
+    moneycheck[i]= document.getElementById("moneycheck"+i).value;
+    opmoneycheck[i]= document.getElementById("opmoneycheck"+i).value;
+  }
+
+  //---------支出-----------------
+
+  for(i=1;i<16;i++){
+    paydate[i]= document.getElementById("paydate"+i).value;
+    paycompany[i]= document.getElementById("paycompany"+i).value;
+    payname[i]= document.getElementById("payname"+i).value;
+    paydetail[i]= document.getElementById("paydetail"+i).value;
+    pay[i]= document.getElementById("pay"+i).value;
+    paymoneydate[i]= document.getElementById("paymoneydate"+i).value;
+    payprove[i]= document.getElementById("payprove"+i).value;
+    paytype[i]= document.getElementById("paytype"+i).value;
+    opcheck[i]= document.getElementById("opcheck"+i).value;
+    paycheck[i]= document.getElementById("paycheck"+i).value;
+    downpaydatedl[i]= document.getElementById("downpaydatedl"+i).value;
+    lastpaydatedl[i]= document.getElementById("lastpaydatedl"+i).value;
+    opdownpay[i]= document.getElementById("opdownpay"+i).value;
+    opdownpaydate[i]= document.getElementById("opdownpaydate"+i).value;
+    opdownpaytype[i]= document.getElementById("opdownpaytype"+i).value;
+    downpayprove[i]= document.getElementById("downpayprove"+i).value;
+    opdowncheck[i]= document.getElementById("opdowncheck"+i).value;
+    downcheck[i]= document.getElementById("downcheck"+i).value;
+    oplastpay[i]= document.getElementById("oplastpay"+i).value;
+    oplastpaydate[i]= document.getElementById("oplastpaydate"+i).value;
+    oplastpaytype[i]= document.getElementById("oplastpaytype"+i).value;
+    lastpayprove[i]= document.getElementById("lastpayprove"+i).value;
+    oplastcheck[i]= document.getElementById("oplastcheck"+i).value;
+    lastcheck[i]= document.getElementById("lastcheck"+i).value;
+  }
+  //--------保險--------------------
+  for(i=1;i<3;i++){ 
+    insurance[i]= document.getElementById("insurance"+i).value;
+    inmoney[i]= document.getElementById("inmoney"+i).value;
+    indays[i]= document.getElementById("indays"+i).value;
+    inpeople[i]= document.getElementById("inpeople"+i).value;
+    intotal[i]= document.getElementById("intotal"+i).value;
+  }
+  //----------團費估價--------
+  for(i=1;i<6;i++){
+    qtname[i]= document.getElementById("qtname"+i).value;
+    qtmoney[i]= document.getElementById("qtmoney"+i).value;
+    qtnumber[i]= document.getElementById("qtnumber"+i).value;
+    qttotalmoney[i]= document.getElementById("qttotalmoney"+i).value;
+
+  }
+  //----------加購項目--------
+  for(i=1;i<11;i++){
+    qtextraname[i]= document.getElementById("qtextraname"+i).value;
+    qtextramoney[i]= document.getElementById("qtextramoney"+i).value;
+    qtextranumber[i]= document.getElementById("qtextranumber"+i).value;
+    qtextratotalmoney[i]= document.getElementById("qtextratotalmoney"+i).value;
+  }
+
+  price = document.getElementById("price").value;
+  net = document.getElementById("net").value;
+  profit = document.getElementById("profit").value;
+  tax = document.getElementById("tax").value;
+  //-----------退款------------
+  for(i=1;i<6;i++){
+    refund[i]= document.getElementById("refund"+i).value;
+    refund_date[i]= document.getElementById("refund_date"+i).value;
+    refund_name[i]= document.getElementById("refund_name"+i).value;
+    refundtype[i]= document.getElementById("refundtype"+i).value;
+    refund_money_date[i]= document.getElementById("refund_money_date"+i).value;
+    refund_prove[i]= document.getElementById("refund_prove"+i).value;
+    refund_other[i]= document.getElementById("refund_other"+i).value;
+    op_refund_check[i]= document.getElementById("op_refund_check"+i).value;
+    money_refund_check[i]= document.getElementById("money_refund_check"+i).value;
+  }
 
 
-var db = firebase.firestore();
 
 
-var ref = db.collection(depdate.substring(0,4)+'-'+depdate.substring(5,7)).doc(number);
+  var year;var month;var day;
 
-var obj = {
-        團號: number,
-        團名: name,
-        代表人: people,
-        聯絡電話: phone,
-        出發日期: depdate,
-        結束日期: enddate,
-        報帳日期: date,
-        團費: price,
-        客服: cs,
-        人數: howmanypeople,
-        其他項備註: other || '',
-        是否保旅責險: insurance[1],
-        旅責險金額: inmoney[1],
-        旅責險天數: indays[1],
-        旅責險人數: inpeople[1],
-        旅責險總共: intotal[1],
-        是否保旅平險: insurance[2],
-        旅平險金額: inmoney[2],
-        旅平險天數: indays[2],
-        旅平險人數: inpeople[2],
-        旅平險總共: intotal[2],
+  console.log(depdate.substring(0,4));
+  console.log(depdate.substring(5,7));
+  console.log(depdate.substr(8,10));
 
-        總net: net,
-        利潤: profit,
-        總收入: moneytotal,
-        
-        martina核實: martina,
-        已更改: change,
-        進項代收轉付: incollectpay || '',
-        銷項代收轉付: outcollectpay || '',
-        
-        退業績: cancel,
-        退業績日期: canceldate,
-        稅金: tax,
 
-        地點: location,
+  //var lastpayment = price - money;
+  //price = parseInt(price);
+  //money = parseInt(money);
 
-        修改紀錄 :{
-          0:usermail +" "+time,
-        }       
-      }
 
-      for (i = 1; i < 9; i++) {
-        obj = {
-          ...obj,
-          ['第' + i + '筆收入報帳日期']: document.getElementById("moneydate" + i).value || '',
-          ['第' + i + '筆收入品項']:  document.getElementById("moneyname" + i).value || '',
-          ['第' + i + '筆收入']: document.getElementById("money" + i).value || '',
-          ['第' + i + '筆收入收款方式']: document.getElementById("moneytype" + i).value || '',
-          ['第' + i + '筆國旅卡']: document.getElementById("card" + i).value || '',
-          ['第' + i + '筆收款日期']: document.getElementById("rmoneydate" + i).value || '',
-          ['第' + i + '筆收入證明']: document.getElementById("moneyprove" + i).value || '',
-          ['第' + i + '筆收入備註']: document.getElementById("moneyother" + i).value || '',
-          ['第' + i + '筆收入財務核實']: document.getElementById("moneycheck" + i).value || '',
-          ['第' + i + '筆收入op核實']: document.getElementById("opmoneycheck" + i).value || '',
-        }
-      }
-      for (i = 1; i < 16; i++) {
-        obj = {
-          ...obj,
-          ['第' + i + '筆支出報帳日期']: document.getElementById("paydate" + i).value || '',
-          ['第' + i + '筆支出廠商']:document.getElementById("paycompany" + i).value|| '',
-          ['第' + i + '筆支出品項']: document.getElementById("payname" + i).value || '',
-          ['第' + i + '筆支出明細']: document.getElementById("paydetail" + i).value || '',
-          ['第' + i + '筆支出']: document.getElementById("pay" + i).value || '',
-          ['第' + i + '筆付款日期']: document.getElementById("paymoneydate" + i).value || '',
-          ['第' + i + '筆付款方式']: document.getElementById("paytype" + i).value || '',
-          ['第' + i + '筆付款證明']: document.getElementById("payprove" + i).value || '',
-          ['第' + i + '筆支出op核實']: document.getElementById("opcheck" + i).value || '',
-          ['第' + i + '筆支出財務核實']: document.getElementById("paycheck" + i).value || '',
+  var db = firebase.firestore();
+
+
+  var ref = db.collection(depdate.substring(0,4)+'-'+depdate.substring(5,7)).doc(number);
+
+  var obj = {
+          團號: number,
+          團名: name,
+          代表人: people,
+          聯絡電話: phone,
+          出發日期: depdate,
+          結束日期: enddate,
+          報帳日期: date,
+          團費: price,
+          客服: cs,
+          人數: howmanypeople,
+          其他項備註: other || '',
+          是否保旅責險: insurance[1],
+          旅責險金額: inmoney[1],
+          旅責險天數: indays[1],
+          旅責險人數: inpeople[1],
+          旅責險總共: intotal[1],
+          是否保旅平險: insurance[2],
+          旅平險金額: inmoney[2],
+          旅平險天數: indays[2],
+          旅平險人數: inpeople[2],
+          旅平險總共: intotal[2],
+
+          總net: net,
+          利潤: profit,
+          總收入: moneytotal,
           
-          ['第' + i + '筆op支付']: document.getElementById("op" + i).value || '',
-          ['第' + i + '筆定金DL']: document.getElementById("downpaydatedl" + i).value || '',
-          ['第' + i + '筆尾款DL']: document.getElementById("lastpaydatedl" + i).value || '',
-          ['第' + i + '筆op定金']: document.getElementById("opdownpay" + i).value || '',
-          ['第' + i + '筆op定金付款日期']: document.getElementById("opdownpaydate" + i).value || '',
-          ['第' + i + '筆op定金付款方式']: document.getElementById("opdownpaytype" + i).value || '',
-          ['第' + i + '筆op定金付款證明']: document.getElementById("downpayprove" + i).value || '',
-          ['第' + i + '筆op定金op核實']: document.getElementById("opdowncheck" + i).value || '',
-          ['第' + i + '筆op定金財務核實']: document.getElementById("downcheck" + i).value || '',
+          martina核實: martina,
+          已更改: change,
+          進項代收轉付: incollectpay || '',
+          銷項代收轉付: outcollectpay || '',
+          
+          退業績: cancel,
+          退業績日期: canceldate,
+          稅金: tax,
 
-          ['第' + i + '筆op尾款']: document.getElementById("oplastpay" + i).value || '',
-          ['第' + i + '筆op尾款付款日期']: document.getElementById("oplastpaydate" + i).value || '',
-          ['第' + i + '筆op尾款付款方式']: document.getElementById("oplastpaytype" + i).value || '',
-          ['第' + i + '筆op尾款付款證明']: document.getElementById("lastpayprove" + i).value || '',
-          ['第' + i + '筆op尾款op核實']: document.getElementById("oplastcheck" + i).value || '',
-          ['第' + i + '筆op尾款財務核實']: document.getElementById("lastcheck" + i).value || '',
+          地點: location,
 
+          修改紀錄 :{
+            0:usermail +" "+time,
+          }       
         }
-      }
-      for (i = 1; i < 6; i++){
-        obj = {
-          ...obj,
-          ['第' + i + '筆估價團費品項']: document.getElementById("qtname" + i).value || '',
-          ['第' + i + '筆估價團費單價']: document.getElementById("qtmoney" + i).value || '',
-          ['第' + i + '筆估價團費人數']: document.getElementById("qtnumber" + i).value || '',
-          ['第' + i + '筆估價團費總金額']: document.getElementById("qttotalmoney" + i).value || '',
+
+        for (i = 1; i < 9; i++) {
+          obj = {
+            ...obj,
+            ['第' + i + '筆收入報帳日期']: document.getElementById("moneydate" + i).value || '',
+            ['第' + i + '筆收入品項']:  document.getElementById("moneyname" + i).value || '',
+            ['第' + i + '筆收入']: document.getElementById("money" + i).value || '',
+            ['第' + i + '筆收入收款方式']: document.getElementById("moneytype" + i).value || '',
+            ['第' + i + '筆國旅卡']: document.getElementById("card" + i).value || '',
+            ['第' + i + '筆收款日期']: document.getElementById("rmoneydate" + i).value || '',
+            ['第' + i + '筆收入證明']: document.getElementById("moneyprove" + i).value || '',
+            ['第' + i + '筆收入備註']: document.getElementById("moneyother" + i).value || '',
+            ['第' + i + '筆收入財務核實']: document.getElementById("moneycheck" + i).value || '',
+            ['第' + i + '筆收入op核實']: document.getElementById("opmoneycheck" + i).value || '',
+          }
         }
-      }
-      for (i = 1; i < 11; i++){
-        obj = {
-          ...obj,
-          ['第' + i + '筆估價加購品項']: document.getElementById("qtextraname" + i).value || '',
-          ['第' + i + '筆估價加購單價']: document.getElementById("qtextramoney" + i).value || '',
-          ['第' + i + '筆估價加購數量']: document.getElementById("qtextranumber" + i).value || '',
-          ['第' + i + '筆估價加購天數']: document.getElementById("qtextradays" + i).value || '',
-          ['第' + i + '筆估價加購金額']: document.getElementById("qtextratotalmoney" + i).value || '',
- 
+        for (i = 1; i < 16; i++) {
+          obj = {
+            ...obj,
+            ['第' + i + '筆支出報帳日期']: document.getElementById("paydate" + i).value || '',
+            ['第' + i + '筆支出廠商']:document.getElementById("paycompany" + i).value|| '',
+            ['第' + i + '筆支出品項']: document.getElementById("payname" + i).value || '',
+            ['第' + i + '筆支出明細']: document.getElementById("paydetail" + i).value || '',
+            ['第' + i + '筆支出']: document.getElementById("pay" + i).value || '',
+            ['第' + i + '筆付款日期']: document.getElementById("paymoneydate" + i).value || '',
+            ['第' + i + '筆付款方式']: document.getElementById("paytype" + i).value || '',
+            ['第' + i + '筆付款證明']: document.getElementById("payprove" + i).value || '',
+            ['第' + i + '筆支出op核實']: document.getElementById("opcheck" + i).value || '',
+            ['第' + i + '筆支出財務核實']: document.getElementById("paycheck" + i).value || '',
+            
+            ['第' + i + '筆op支付']: document.getElementById("op" + i).value || '',
+            ['第' + i + '筆定金DL']: document.getElementById("downpaydatedl" + i).value || '',
+            ['第' + i + '筆尾款DL']: document.getElementById("lastpaydatedl" + i).value || '',
+            ['第' + i + '筆op定金']: document.getElementById("opdownpay" + i).value || '',
+            ['第' + i + '筆op定金付款日期']: document.getElementById("opdownpaydate" + i).value || '',
+            ['第' + i + '筆op定金付款方式']: document.getElementById("opdownpaytype" + i).value || '',
+            ['第' + i + '筆op定金付款證明']: document.getElementById("downpayprove" + i).value || '',
+            ['第' + i + '筆op定金op核實']: document.getElementById("opdowncheck" + i).value || '',
+            ['第' + i + '筆op定金財務核實']: document.getElementById("downcheck" + i).value || '',
+
+            ['第' + i + '筆op尾款']: document.getElementById("oplastpay" + i).value || '',
+            ['第' + i + '筆op尾款付款日期']: document.getElementById("oplastpaydate" + i).value || '',
+            ['第' + i + '筆op尾款付款方式']: document.getElementById("oplastpaytype" + i).value || '',
+            ['第' + i + '筆op尾款付款證明']: document.getElementById("lastpayprove" + i).value || '',
+            ['第' + i + '筆op尾款op核實']: document.getElementById("oplastcheck" + i).value || '',
+            ['第' + i + '筆op尾款財務核實']: document.getElementById("lastcheck" + i).value || '',
+
+          }
         }
-      }
-      for (i = 1; i < 6; i++){
-        obj = {
-          ...obj,
-          ['第' + i + '筆退款金額']: document.getElementById("refund" + i).value || '',
-          ['第' + i + '筆退款報帳日期']: document.getElementById("refund_date" + i).value || '',
-          ['第' + i + '筆退款品項']: document.getElementById("refund_name" + i).value || '',
-          ['第' + i + '筆退款方式']: document.getElementById("refundtype" + i).value || '',
-          ['第' + i + '筆退款日期']: document.getElementById("refund_money_date" + i).value || '',
-          ['第' + i + '筆退款證明']: document.getElementById("refund_prove" + i).value || '',
-          ['第' + i + '筆退款備註']: document.getElementById("refund_other" + i).value || '',
-          ['第' + i + '筆退款op核實']: document.getElementById("op_refund_check" + i).value || '',
-          ['第' + i + '筆退款財務核實']: document.getElementById("money_refund_check" + i).value || '',
-           
+        for (i = 1; i < 6; i++){
+          obj = {
+            ...obj,
+            ['第' + i + '筆估價團費品項']: document.getElementById("qtname" + i).value || '',
+            ['第' + i + '筆估價團費單價']: document.getElementById("qtmoney" + i).value || '',
+            ['第' + i + '筆估價團費人數']: document.getElementById("qtnumber" + i).value || '',
+            ['第' + i + '筆估價團費總金額']: document.getElementById("qttotalmoney" + i).value || '',
+          }
         }
-      }
+        for (i = 1; i < 11; i++){
+          obj = {
+            ...obj,
+            ['第' + i + '筆估價加購品項']: document.getElementById("qtextraname" + i).value || '',
+            ['第' + i + '筆估價加購單價']: document.getElementById("qtextramoney" + i).value || '',
+            ['第' + i + '筆估價加購數量']: document.getElementById("qtextranumber" + i).value || '',
+            ['第' + i + '筆估價加購天數']: document.getElementById("qtextradays" + i).value || '',
+            ['第' + i + '筆估價加購金額']: document.getElementById("qtextratotalmoney" + i).value || '',
+  
+          }
+        }
+        for (i = 1; i < 6; i++){
+          obj = {
+            ...obj,
+            ['第' + i + '筆退款金額']: document.getElementById("refund" + i).value || '',
+            ['第' + i + '筆退款報帳日期']: document.getElementById("refund_date" + i).value || '',
+            ['第' + i + '筆退款品項']: document.getElementById("refund_name" + i).value || '',
+            ['第' + i + '筆退款方式']: document.getElementById("refundtype" + i).value || '',
+            ['第' + i + '筆退款日期']: document.getElementById("refund_money_date" + i).value || '',
+            ['第' + i + '筆退款證明']: document.getElementById("refund_prove" + i).value || '',
+            ['第' + i + '筆退款備註']: document.getElementById("refund_other" + i).value || '',
+            ['第' + i + '筆退款op核實']: document.getElementById("op_refund_check" + i).value || '',
+            ['第' + i + '筆退款財務核實']: document.getElementById("money_refund_check" + i).value || '',
+            
+          }
+        }
 
 
-      
-      ref.set(obj).then(() => {
-        console.log('set data successful');
-        alert('新增成功');
-        window.location.reload("");
-      });
+        
+        ref.set(obj).then(() => {
+          console.log('set data successful');
+          alert('新增成功');
+          window.location.reload("");
+        });
 
 }
 
