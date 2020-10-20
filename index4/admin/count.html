@@ -83,19 +83,10 @@ a{
   <input type="text" id="mail" disabled="disabled" style="font-size:20px ; background-color: transparent; border:none; text-align: center; font-family:Microsoft JhengHei;font-weight:bold;">
 </span>
 
-<span class="lable" ><label>搜尋月份：</label></span>  <input type="date" id="depdate" style="font-size:30px">
-<span class="lable" ><label>客服：</label></span>  
-  <select id="cs" style="font-size:30px">
-    <option value="all">全部</option><option value="A1">A1</option><option value="A2">A2</option><option value="A3">A3</option><option value="A4">A4</option>
-    <option value="B1">B1</option><option value="B2">B2</option><option value="B3">B3</option><option value="B4">B4</option>
-    <option value="B5">B5</option><option value="B6">B6</option><option value="B7">B7</option><option value="B8">B8</option>
-    <option value="B9">B9</option><option value="B10">B10</option><option value="B11">B11</option><option value="B12">B12</option>
-  </select>
-<span class="lable" ><label>排序：</label></span>  
-  <select id="orderby" style="font-size:30px">
-    <option value="團號">團號</option><option value="出發日期">出發日期</option>
-  </select>
-&emsp;<button onclick="search()" id ="search"  type="button" style="font-size:30px"  >查詢</button>
+<span class="lable" ><label>搜尋月份：</label></span>  
+<input class="lable" type="date" id="depdate">&emsp;～&emsp;<input class="lable" type="date" id="enddate">
+
+&emsp;<button class="lable" onclick="search()" id ="search"  type="button" >查詢</button>
 
 
  <script src="secure.js" async></script>
