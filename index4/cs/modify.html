@@ -2362,16 +2362,7 @@ function show(data){
   
 
   for(i=1;i<9;i++){
-      if (document.getElementById('opmoneycheck'+i).value == "False"){
-      document.getElementById('moneydate'+i).disabled=false;
-      document.getElementById('moneyname'+i).disabled=false;
-      document.getElementById('money'+i).disabled=false;
-      document.getElementById('moneytype'+i).disabled=false;
-      document.getElementById('card'+i).disabled=false;
-      document.getElementById('rmoneydate'+i).disabled=false;
-      document.getElementById('moneyprove'+i).disabled=false;
-      document.getElementById('moneyother'+i).disabled=false;
-      }else{
+      if(document.getElementById('opmoneycheck'+i).value == "True" || document.getElementById('moneycheck'+i).value == "True"){
       document.getElementById('moneydate'+i).disabled=true;
       document.getElementById('moneyname'+i).disabled=true;
       document.getElementById('money'+i).disabled=true;
@@ -2380,6 +2371,15 @@ function show(data){
       document.getElementById('rmoneydate'+i).disabled=true;
       document.getElementById('moneyprove'+i).disabled=true;
       document.getElementById('moneyother'+i).disabled=true;
+      }else{
+      document.getElementById('moneydate'+i).disabled=false;
+      document.getElementById('moneyname'+i).disabled=false;
+      document.getElementById('money'+i).disabled=false;
+      document.getElementById('moneytype'+i).disabled=false;
+      document.getElementById('card'+i).disabled=false;
+      document.getElementById('rmoneydate'+i).disabled=false;
+      document.getElementById('moneyprove'+i).disabled=false;
+      document.getElementById('moneyother'+i).disabled=false;
       }
   }  
 
@@ -2428,16 +2428,7 @@ function show(data){
 
 
   for(i=1;i<16;i++){
-    if (document.getElementById('opcheck'+i).value == "False"){
-    document.getElementById('paydate'+i).disabled=false;
-    document.getElementById('paycompany'+i).disabled=false;
-    document.getElementById('payname'+i).disabled=false;
-    document.getElementById('paydetail'+i).disabled=false;
-    document.getElementById('pay'+i).disabled=false;
-    document.getElementById('paymoneydate'+i).disabled=false;
-    document.getElementById('paytype'+i).disabled=false;
-    document.getElementById('payprove'+i).disabled=false;
-    }else{
+    if (document.getElementById('opcheck'+i).value == "True" || document.getElementById('paycheck'+i).value == "True"){
     document.getElementById('paydate'+i).disabled=true;
     document.getElementById('paycompany'+i).disabled=true;
     document.getElementById('payname'+i).disabled=true;
@@ -2446,40 +2437,49 @@ function show(data){
     document.getElementById('paymoneydate'+i).disabled=true;
     document.getElementById('paytype'+i).disabled=true;
     document.getElementById('payprove'+i).disabled=true;
+    }else{
+    document.getElementById('paydate'+i).disabled=false;
+    document.getElementById('paycompany'+i).disabled=false;
+    document.getElementById('payname'+i).disabled=false;
+    document.getElementById('paydetail'+i).disabled=false;
+    document.getElementById('pay'+i).disabled=false;
+    document.getElementById('paymoneydate'+i).disabled=false;
+    document.getElementById('paytype'+i).disabled=false;
+    document.getElementById('payprove'+i).disabled=false;
     }
   }
 
   for(i=1;i<16;i++){
-    if (document.getElementById('opdowncheck'+i).value == "False"){
-      document.getElementById('downpaydatedl'+i).disabled=false;
-      document.getElementById('opdownpay'+i).disabled=false;
-      document.getElementById('opdownpaydate'+i).disabled=false;
-      document.getElementById('opdownpaytype'+i).disabled=false;
-      document.getElementById('downpayprove'+i).disabled=false;
-      document.getElementById('op'+i).disabled=false;
-    }else{
+    if (document.getElementById('opdowncheck'+i).value == "True" || document.getElementById('downcheck'+i).value == "True"){
       document.getElementById('downpaydatedl'+i).disabled=true;
       document.getElementById('opdownpay'+i).disabled=true;
       document.getElementById('opdownpaydate'+i).disabled=true;
       document.getElementById('opdownpaytype'+i).disabled=true;
       document.getElementById('downpayprove'+i).disabled=true;
       document.getElementById('op'+i).disabled=true;
+    }else{
+      document.getElementById('downpaydatedl'+i).disabled=false;
+      document.getElementById('opdownpay'+i).disabled=false;
+      document.getElementById('opdownpaydate'+i).disabled=false;
+      document.getElementById('opdownpaytype'+i).disabled=false;
+      document.getElementById('downpayprove'+i).disabled=false;
+      document.getElementById('op'+i).disabled=false;
     }
   }
 
   for(i=1;i<16;i++){
-    if (document.getElementById('oplastcheck'+i).value == "False"){
-      document.getElementById('lastpaydatedl'+i).disabled=false;
-      document.getElementById('oplastpay'+i).disabled=false;
-      document.getElementById('oplastpaydate'+i).disabled=false;
-      document.getElementById('oplastpaytype'+i).disabled=false;
-      document.getElementById('lastpayprove'+i).disabled=false;
-    }else{
+    if (document.getElementById('oplastcheck'+i).value == "True" || document.getElementById('lastcheck'+i).value == "True"){
       document.getElementById('lastpaydatedl'+i).disabled=true;
       document.getElementById('oplastpay'+i).disabled=true;
       document.getElementById('oplastpaydate'+i).disabled=true;
       document.getElementById('oplastpaytype'+i).disabled=true;
       document.getElementById('lastpayprove'+i).disabled=true;
+    }else{
+      document.getElementById('lastpaydatedl'+i).disabled=false;
+      document.getElementById('oplastpay'+i).disabled=false;
+      document.getElementById('oplastpaydate'+i).disabled=false;
+      document.getElementById('oplastpaytype'+i).disabled=false;
+      document.getElementById('lastpayprove'+i).disabled=false;
     }
   }
 
