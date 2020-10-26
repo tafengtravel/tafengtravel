@@ -113,8 +113,20 @@
 </div> 
 
 
-<span class="lable1" ><label>總支出：</label></span>
-<input type="text" id="totalpay" disabled="disabled" class="lable1" style="background-color: transparent; border:none; text-align: center; font-family:Microsoft JhengHei;font-weight:bold;width:200px">
+<div class="w3-row">
+  <div class="w3-col s12 m12 l3 ">
+    <span class="lable1" ><label>總支出：</label></span>
+    <input type="text" id="total_pay" disabled="disabled" class="lable1" style="background-color: transparent; border:none; text-align: center; font-family:Microsoft JhengHei;font-weight:bold;width:200px">
+  </div>
+  <div class="w3-col s12 m12 l3 ">
+    <span class="lable1" ><label>總定金：</label></span>
+    <input type="text" id="total_downpay" disabled="disabled" class="lable1" style="background-color: transparent; border:none; text-align: center; font-family:Microsoft JhengHei;font-weight:bold;width:200px">
+  </div>
+  <div class="w3-col s12 m12 l3 ">
+    <span class="lable1" ><label>總尾款：</label></span>
+    <input type="text" id="total_lastpay" disabled="disabled" class="lable1" style="background-color: transparent; border:none; text-align: center; font-family:Microsoft JhengHei;font-weight:bold;width:200px">
+  </div>
+</div>
 
 
  <script src="secure.js" async></script>
@@ -150,9 +162,6 @@ async function search(){
   }else{
   }
 
-
-
-
     
   var db = firebase.firestore();
 
@@ -167,7 +176,10 @@ async function search(){
   let downpayment=0;
   let lastpayment=0;
   let a=1;
-  let totalpay=0;
+
+  let total_pay=0;
+  let total_downpay=0;
+  let total_lastpay=0;
 
 //判斷是否為0即刪除
   if(del==0){
@@ -207,41 +219,32 @@ async function search(){
   }
 
 
-
-/*
-  for(i=0;i<data1.length-1;i++){
-    for (j=0; j<data1.length-1;j++){
-      if(data1[j].出發日期 > data1[j+1].出發日期) {
-        let temp = data1[j];
-        data1[j] = data1[j+1];
-        data1[j+1] = temp;
-      }
-      console.log(j);
-    }
-  }
-*/
-
-
-
   for(i=0;i<data1.length;i++){
 
     k = data1[i].項目;
 
     payment = data1[i]['第'+k+'筆支出'];
     downpayment= data1[i]['第'+k+'筆op定金'];
+    lastpayment= data1[i]['第'+k+'筆op尾款'];
 
     payment = parseFloat(payment);
     downpayment = parseFloat(downpayment);
+    lastpayment = parseFloat(lastpayment);
+
     if (isNaN(downpayment)) {
       downpayment=0;
     }
     if (isNaN(payment)) {
       payment=0;
     }
+    if (isNaN(lastpayment)) {
+      lastpayment=0;
+    }
 
-    totalpay = totalpay + payment;
-    lastpayment = payment - downpayment;
-    
+    total_pay = total_pay + payment;
+    total_downpay = total_downpay + downpayment;
+    total_lastpay = total_lastpay + lastpayment; 
+
     row = table.insertRow(j);
     cell[0] = row.insertCell(0);
     cell[0].innerHTML=j;
@@ -286,7 +289,9 @@ async function search(){
     
   }
 
-document.getElementById("totalpay").value = totalpay;
+document.getElementById("total_pay").value = total_pay;
+document.getElementById("total_downpay").value = total_downpay;
+document.getElementById("total_lastpay").value = total_lastpay;
 
 
 }
