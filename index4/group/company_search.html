@@ -75,7 +75,7 @@
       <th nowrap>筆數</th><th nowrap>團號</th><th nowrap>客服</th>
       <th nowrap>出發日期&emsp;&emsp;</th><th nowrap>結束日期&emsp;&emsp;</th><th nowrap>團名&emsp;&emsp;</th><th nowrap>公司名稱&emsp;&emsp;</th>
       <th nowrap>代表人&emsp;&emsp;</th><th nowrap>廠商&emsp;&emsp;</th><th nowrap>品項&emsp;&emsp;</th><th nowrap>支出</th>
-      <th nowrap>付款日期&emsp;&emsp;</th><th nowrap>OP支付</th><th nowrap>財務核實</th>
+      <th nowrap>定金D/L&emsp;&emsp;</th><th nowrap>定金</th><th nowrap>尾款D/L&emsp;&emsp;</th><th nowrap>尾款</th>
     </tr>
   </table>
 </div> 
@@ -224,11 +224,13 @@ async function search(){
     cell[10] = row.insertCell(10);
     cell[10].innerHTML=data1[i]['第'+k+'筆支出'];
     cell[11] = row.insertCell(11);
-    cell[11].innerHTML=data1[i]['第'+k+'筆付款日期'];
+    cell[11].innerHTML=data1[i]['第'+k+'筆定金DL'];
     cell[12] = row.insertCell(12);
-    cell[12].innerHTML=opcheck;
+    cell[12].innerHTML=data1[i]['第'+k+'筆op定金'];
     cell[13] = row.insertCell(13);
-    cell[13].innerHTML=moneycheck;
+    cell[13].innerHTML=data1[i]['第'+k+'筆尾款DL'];
+    cell[14] = row.insertCell(14);
+    cell[14].innerHTML=data1[i]['第'+k+'筆op尾款'];
 
     j=j+1;    
 
