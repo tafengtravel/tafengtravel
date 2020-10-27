@@ -219,7 +219,7 @@ a{
 <br><br>
 <input type="file" value="upload" id="uploadBtn4" disabled="disabled" style="font-size:20px; font-family:Microsoft JhengHei; "></br>
 <div id="msg4" style="font-size:20px ;font-family:Microsoft JhengHei; "></div>
-<span class="lable" ><label>行程：</label></span> 
+<span class="lable" ><label>尾款：</label></span> 
 <input type="text" id="photoname4" disabled="disabled" style="font-size:20px; width:400; background-color: transparent; border:none; text-align: center; font-family:Microsoft JhengHei;font-weight:bold;">
 <br><br>
 <button onclick="photo4()" id="photo4" type="button" style="font-size:20px" disabled="disabled"  >顯示圖片</button> 
@@ -1893,10 +1893,12 @@ let oldfile1 ;
 let oldfile2 ; 
 let oldfile3 ; 
 let oldfile4 ; 
+let oldfile5 ; 
 let photourl1;
 let photourl2;
 let photourl3;
 let photourl4;
+let photourl5;
 
 let photonum;
 
@@ -2813,11 +2815,11 @@ var obj = {
         退業績日期: canceldate,
         稅金: tax,
 
-        圖片網址1: photourl1 || '',
-        圖片網址2: photourl2 || '',
-        圖片網址3: photourl3 || '',
-        圖片網址4: photourl4 || '',
-        圖片網址5: photourl5 || '',
+        圖片網址1: photourl1 || {0:''},
+        圖片網址2: photourl2 || {0:''},
+        圖片網址3: photourl3 || {0:''},
+        圖片網址4: photourl4 || {0:''},
+        圖片網址5: photourl5 || {0:''},
 
         修改紀錄 :record
 
