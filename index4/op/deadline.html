@@ -121,7 +121,7 @@ async function search(){
   let month = moneydate.substring(5,7);
   year = parseInt(year);
   month = parseInt(month);
-  month = month-6;
+  month = month-12;
   
   if(month > 9){
     let ref = db.collection(year.toString()+'-'+month.toString());
@@ -135,7 +135,7 @@ async function search(){
 
 
 
-  for(j=0;j<16;j++){
+  for(j=0;j<24;j++){
     if(month > 9){
       ref = db.collection(year.toString()+'-'+month.toString());
     }else if(month<10){
