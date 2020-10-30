@@ -33,6 +33,9 @@
 
 </style>
 
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script type="text/javascript" src="jquery.smartmenus.js"></script>
+
 </head>
 <body>
 
@@ -49,9 +52,6 @@
 
 <script src="https://www.gstatic.com/firebasejs/4.12.1/firebase-firestore.js"></script>
 
-
-
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
 
 
@@ -68,14 +68,27 @@
   <!-- Sample menu definition -->
   <ul id="main-menu" class="sm sm-mint">
     <li><a href="home.html">首頁</a></li>
-    <li><a href="fit_modify.html">修改報帳_散</a>
-    <li><a href="group_modify.html">修改報帳_團</a></li>
-    <li><a href="fit_table.html">表單_散</a>
-    <li><a href="group_table.html">表單_團</a></li>
-    <li><a href="fit_company_search.html">廠商搜尋_散</a></li>
+    <li><a href="#">修改報帳</a>
+      <ul>
+        <li><a href="fit_modify.html">散客</a></li>
+        <li><a href="group_modify.html">團體</a></li>
+      </ul>
+    </li>
+    <li><a href="#">表單</a>
+      <ul>
+        <li><a href="fit_table.html">散客</a></li>
+        <li><a href="group_table.html">團體</a></li>
+      </ul>
+    </li>
+    <li><a href="#">廠商搜尋</a>
+      <ul>
+        <li><a href="fit_company_search.html">散客</a></li>
+        <li><a href="group_company_search.html">團體</a></li>
+      </ul>
+    </li>
     <li><a href="income.html">當日收入</a></li>
     <li><a href="today_table.html">當日業績</a></li>
-    <li><a href="year_table.html">年度報表</a></li>   
+    <li><a href="year_table.html">年度報表</a></li>     
   </ul>
 </nav>
 
