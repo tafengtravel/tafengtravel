@@ -227,6 +227,7 @@ let people=[]; revenue=[]; profit=[]; totalprofit=0;
 let i=1; year=0;
 
 async function search(){  
+  totalprofit=0;
 
   let db = firebase.firestore();
   let depdate = document.getElementById("depdate").value; 
