@@ -222,7 +222,7 @@ function info(){
     
 }
 
-let penghu=[]; green=[]; lanyu=[]; kinmen=[]; matsu=[]; car=[]; cruise=[]; season =[]; unknown=[]; subsidy=[];
+let penghu=[]; green=[]; lanyu=[]; kinmen=[]; matsu=[]; car=[]; unknown=[]; subsidy=[]; other=[]; group=[]; crusie=[]; season=[]; 
 let people=[]; revenue=[]; profit=[]; totalprofit=0;
 let i=1; year=0;
 
@@ -248,20 +248,55 @@ async function search(){
 
 
       penghu[i]=parseInt(doc.data().澎湖);
+      if (isNaN(penghu[i])){
+        penghu[i]=0;
+      }
       green[i]=parseInt(doc.data().綠島);
+      if (isNaN(green[i])){
+        green[i]=0;
+      }
       lanyu[i]=parseInt(doc.data().蘭嶼);
+      if (isNaN(lanyu[i])){
+        lanyu[i]=0;
+      }
       kinmen[i]=parseInt(doc.data().金門);
+      if (isNaN(kinmen[i])){
+        kinmen[i]=0;
+      }
       matsu[i]=parseInt(doc.data().馬祖);
+      if (isNaN(matsu[i])){
+        matsu[i]=0;
+      }
       car[i]=parseInt(doc.data().代訂車);
-      cruise[i]=parseInt(doc.data().郵輪);
+      if (isNaN(car[i])){
+        car[i]=0;
+      }
       season[i]=parseInt(doc.data().季節旅遊);
-
+      if (isNaN(season[i])){
+        season[i]=0;
+      }
+      crusie[i]=parseInt(doc.data().郵輪);
+      if (isNaN(crusie[i])){
+        crusie[i]=0;
+      }
+      other[i]=parseInt(doc.data().其他);
+      if (isNaN(other[i])){
+        other[i]=0;
+      }
+      group[i]=parseInt(doc.data().團體);
+      if (isNaN(group[i])){
+        group[i]=0;
+      }   
       unknown[i]=parseInt(doc.data().未知);
-
+      if (isNaN(unknown[i])){
+        unknown[i]=0;
+      }
       subsidy[i]=parseInt(doc.data().補助);
       if (isNaN(subsidy[i])){
         subsidy[i]=0;
       }
+
+      other[i]=other[i]+season[i]+crusie[i];
 
       people[i]=parseInt(doc.data().總人數);
       revenue[i]=parseInt(doc.data().營業額);
@@ -289,29 +324,29 @@ async function search(){
  
   document.getElementById('totalprofit').value=totalprofit;
 
-  window.myDoughnut1.data.datasets[0].data = [penghu[1],green[1],lanyu[1],kinmen[1],matsu[1],car[1],cruise[1],season[1]];
+  window.myDoughnut1.data.datasets[0].data = [penghu[1],green[1],lanyu[1],kinmen[1],matsu[1],car[1],other[1],group[1]];
   window.myDoughnut1.update();
-  window.myDoughnut2.data.datasets[0].data = [penghu[2],green[2],lanyu[2],kinmen[2],matsu[2],car[2],cruise[2],season[2],];
+  window.myDoughnut2.data.datasets[0].data = [penghu[2],green[2],lanyu[2],kinmen[2],matsu[2],car[2],other[2],group[2]];
   window.myDoughnut2.update();
-  window.myDoughnut3.data.datasets[0].data = [penghu[3],green[3],lanyu[3],kinmen[3],matsu[3],car[3],cruise[3],season[3]];
+  window.myDoughnut3.data.datasets[0].data = [penghu[3],green[3],lanyu[3],kinmen[3],matsu[3],car[3],other[3],group[3]];
   window.myDoughnut3.update();
-  window.myDoughnut4.data.datasets[0].data = [penghu[4],green[4],lanyu[4],kinmen[4],matsu[4],car[4],cruise[4],season[4]];
+  window.myDoughnut4.data.datasets[0].data = [penghu[4],green[4],lanyu[4],kinmen[4],matsu[4],car[4],other[4],group[4]];
   window.myDoughnut4.update();
-  window.myDoughnut5.data.datasets[0].data = [penghu[5],green[5],lanyu[5],kinmen[5],matsu[5],car[5],cruise[5],season[5]];
+  window.myDoughnut5.data.datasets[0].data = [penghu[5],green[5],lanyu[5],kinmen[5],matsu[5],car[5],other[5],group[5]];
   window.myDoughnut5.update();
-  window.myDoughnut6.data.datasets[0].data = [penghu[6],green[6],lanyu[6],kinmen[6],matsu[6],car[6],cruise[6],season[6]];
+  window.myDoughnut6.data.datasets[0].data = [penghu[6],green[6],lanyu[6],kinmen[6],matsu[6],car[6],other[6],group[6]];
   window.myDoughnut6.update();
-  window.myDoughnut7.data.datasets[0].data = [penghu[7],green[7],lanyu[7],kinmen[7],matsu[7],car[7],cruise[7],season[7]];
+  window.myDoughnut7.data.datasets[0].data = [penghu[7],green[7],lanyu[7],kinmen[7],matsu[7],car[7],other[7],group[7]];
   window.myDoughnut7.update();
-  window.myDoughnut8.data.datasets[0].data = [penghu[8],green[8],lanyu[8],kinmen[8],matsu[8],car[8],cruise[8],season[8]];
+  window.myDoughnut8.data.datasets[0].data = [penghu[8],green[8],lanyu[8],kinmen[8],matsu[8],car[8],other[8],group[8]];
   window.myDoughnut8.update();
-  window.myDoughnut9.data.datasets[0].data = [penghu[9],green[9],lanyu[9],kinmen[9],matsu[9],car[9],cruise[9],season[9]];
+  window.myDoughnut9.data.datasets[0].data = [penghu[9],green[9],lanyu[9],kinmen[9],matsu[9],car[9],other[9],group[9]];
   window.myDoughnut9.update();
-  window.myDoughnut10.data.datasets[0].data = [penghu[10],green[10],lanyu[10],kinmen[10],matsu[10],car[10],cruise[10],season[10]];
+  window.myDoughnut10.data.datasets[0].data = [penghu[10],green[10],lanyu[10],kinmen[10],matsu[10],car[10],other[10],group[10]];
   window.myDoughnut10.update();
-  window.myDoughnut11.data.datasets[0].data = [penghu[11],green[11],lanyu[11],kinmen[11],matsu[11],car[11],cruise[11],season[11]];
+  window.myDoughnut11.data.datasets[0].data = [penghu[11],green[11],lanyu[11],kinmen[11],matsu[11],car[11],other[11],group[11]];
   window.myDoughnut11.update();
-  window.myDoughnut12.data.datasets[0].data = [penghu[12],green[12],lanyu[12],kinmen[12],matsu[12],car[12],cruise[12],season[12]];
+  window.myDoughnut12.data.datasets[0].data = [penghu[12],green[12],lanyu[12],kinmen[12],matsu[12],car[12],other[12],group[12]];
   window.myDoughnut12.update();
 
   window.myBar.data.datasets[0].data = [penghu[1],penghu[2],penghu[3],penghu[4],penghu[5],penghu[6],penghu[7],penghu[8],penghu[9],penghu[10],penghu[11],penghu[12]];
@@ -320,8 +355,8 @@ async function search(){
   window.myBar.data.datasets[3].data = [kinmen[1],kinmen[2],kinmen[3],kinmen[4],kinmen[5],kinmen[6],kinmen[7],kinmen[8],kinmen[9],kinmen[10],kinmen[11],kinmen[12]];
   window.myBar.data.datasets[4].data = [matsu[1],matsu[2],matsu[3],matsu[4],matsu[5],matsu[6],matsu[7],matsu[8],matsu[9],matsu[10],matsu[11],matsu[12]];
   window.myBar.data.datasets[5].data = [car[1],car[2],car[3],car[4],car[5],car[6],car[7],car[8],car[9],car[10],car[11],car[12]];
-  window.myBar.data.datasets[6].data = [cruise[1],cruise[2],cruise[3],cruise[4],cruise[5],cruise[6],cruise[7],cruise[8],cruise[9],cruise[10],cruise[11],cruise[12]];
-  window.myBar.data.datasets[7].data = [season[1],season[2],season[3],season[4],season[5],season[6],season[7],season[8],season[9],season[10],season[11],season[12]];
+  window.myBar.data.datasets[6].data = [other[1],other[2],other[3],other[4],other[5],other[6],other[7],other[8],other[9],other[10],other[11],other[12]];
+  window.myBar.data.datasets[7].data = [group[1],group[2],group[3],group[4],group[5],group[6],group[7],group[8],group[9],group[10],group[11],group[12]];
   window.myBar.data.datasets[8].data = [unknown[1],unknown[2],unknown[3],unknown[4],unknown[5],unknown[6],unknown[7],unknown[8],unknown[9],unknown[10],unknown[11],unknown[12]];
   window.myBar.data.datasets[9].data = [subsidy[1],subsidy[2],subsidy[3],subsidy[4],subsidy[5],subsidy[6],subsidy[7],subsidy[8],subsidy[9],subsidy[10],subsidy[11],subsidy[12]];
   window.myBar.update();
@@ -386,18 +421,18 @@ var barChartData = {
           car[7],car[8],car[9],car[10],car[11],car[12],
 				]
 			}, {
-				label: '郵輪',
+				label: '其他',
 				backgroundColor: '#9F35FF',
 				data: [
-          cruise[1],cruise[2],cruise[3],cruise[4],cruise[5],cruise[6],
-          cruise[7],cruise[8],cruise[9],cruise[10],cruise[11],cruise[12],
+          other[1],other[2],other[3],other[4],other[5],other[6],
+          other[7],other[8],other[9],other[10],other[11],other[12],
 				]
 			}, {
-				label: '季節旅遊',
+				label: '團體',
 				backgroundColor: '#C07AB8',
 				data: [
-          season[1],season[2],season[3],season[4],season[5],season[6],
-          season[7],season[8],season[9],season[10],season[11],season[12],
+          group[1],group[2],group[3],group[4],group[5],group[6],
+          group[7],group[8],group[9],group[10],group[11],group[12],
 				]
 			}, {
 				label: '未知',
@@ -432,7 +467,7 @@ var barChartData = {
     data: {
       datasets: [{
         data: [
-          penghu[1],green[1],lanyu[1],kinmen[1],matsu[1],car[1],cruise[1],season[1],
+          penghu[1],green[1],lanyu[1],kinmen[1],matsu[1],car[1],other[1],group[1],
         ],
         backgroundColor: [
           window.chartColors.red,window.chartColors.orange,window.chartColors.yellow,
@@ -441,7 +476,7 @@ var barChartData = {
         label: 'Dataset 1'
       }],
       labels: [
-        '澎湖','綠島','蘭嶼','金門','馬祖','代訂車','郵輪','季節旅遊'
+        '澎湖','綠島','蘭嶼','金門','馬祖','代訂車','其他','團體'
       ]
     },
     options: {
@@ -465,7 +500,7 @@ var barChartData = {
     data: {
       datasets: [{
         data: [
-          penghu[2],green[2],lanyu[2],kinmen[2],matsu[2],car[2],cruise[2],season[2],
+          penghu[2],green[2],lanyu[2],kinmen[2],matsu[2],car[2],other[2],group[2],
         ],
         backgroundColor: [
           window.chartColors.red,window.chartColors.orange,window.chartColors.yellow,
@@ -474,7 +509,7 @@ var barChartData = {
         label: 'Dataset 1'
       }],
       labels: [
-        '澎湖','綠島','蘭嶼','金門','馬祖','代訂車','郵輪','季節旅遊'
+        '澎湖','綠島','蘭嶼','金門','馬祖','代訂車','其他','團體'
       ]
     },
     options: {
@@ -498,7 +533,7 @@ var barChartData = {
     data: {
       datasets: [{
         data: [
-          penghu[3],green[3],lanyu[3],kinmen[3],matsu[3],car[3],cruise[3],season[3],
+          penghu[3],green[3],lanyu[3],kinmen[3],matsu[3],car[3],other[3],group[3],
         ],
         backgroundColor: [
           window.chartColors.red,window.chartColors.orange,window.chartColors.yellow,
@@ -507,7 +542,7 @@ var barChartData = {
         label: 'Dataset 1'
       }],
       labels: [
-        '澎湖','綠島','蘭嶼','金門','馬祖','代訂車','郵輪','季節旅遊'
+        '澎湖','綠島','蘭嶼','金門','馬祖','代訂車','其他','團體'
       ]
     },
     options: {
@@ -531,7 +566,7 @@ var barChartData = {
     data: {
       datasets: [{
         data: [
-          penghu[4],green[4],lanyu[4],kinmen[4],matsu[4],car[4],cruise[4],season[4],
+          penghu[4],green[4],lanyu[4],kinmen[4],matsu[4],car[4],other[4],group[4],
         ],
         backgroundColor: [
           window.chartColors.red,window.chartColors.orange,window.chartColors.yellow,
@@ -540,7 +575,7 @@ var barChartData = {
         label: 'Dataset 1'
       }],
       labels: [
-        '澎湖','綠島','蘭嶼','金門','馬祖','代訂車','郵輪','季節旅遊'
+        '澎湖','綠島','蘭嶼','金門','馬祖','代訂車','其他','團體'
       ]
     },
     options: {
@@ -564,7 +599,7 @@ var barChartData = {
     data: {
       datasets: [{
         data: [
-          penghu[5],green[5],lanyu[5],kinmen[5],matsu[5],car[5],cruise[5],season[5],
+          penghu[5],green[5],lanyu[5],kinmen[5],matsu[5],car[5],other[5],group[5],
         ],
         backgroundColor: [
           window.chartColors.red,window.chartColors.orange,window.chartColors.yellow,
@@ -573,7 +608,7 @@ var barChartData = {
         label: 'Dataset 1'
       }],
       labels: [
-        '澎湖','綠島','蘭嶼','金門','馬祖','代訂車','郵輪','季節旅遊'
+        '澎湖','綠島','蘭嶼','金門','馬祖','代訂車','其他','團體'
       ]
     },
     options: {
@@ -597,7 +632,7 @@ var barChartData = {
     data: {
       datasets: [{
         data: [
-          penghu[6],green[6],lanyu[6],kinmen[6],matsu[6],car[6],cruise[6],season[6],
+          penghu[6],green[6],lanyu[6],kinmen[6],matsu[6],car[6],other[6],group[6],
         ],
         backgroundColor: [
           window.chartColors.red,window.chartColors.orange,window.chartColors.yellow,
@@ -606,7 +641,7 @@ var barChartData = {
         label: 'Dataset 1'
       }],
       labels: [
-        '澎湖','綠島','蘭嶼','金門','馬祖','代訂車','郵輪','季節旅遊'
+        '澎湖','綠島','蘭嶼','金門','馬祖','代訂車','其他','團體'
       ]
     },
     options: {
@@ -630,7 +665,7 @@ var barChartData = {
     data: {
       datasets: [{
         data: [
-          penghu[7],green[7],lanyu[7],kinmen[7],matsu[7],car[7],cruise[7],season[7],
+          penghu[7],green[7],lanyu[7],kinmen[7],matsu[7],car[7],other[7],group[7],
         ],
         backgroundColor: [
           window.chartColors.red,window.chartColors.orange,window.chartColors.yellow,
@@ -639,7 +674,7 @@ var barChartData = {
         label: 'Dataset 1'
       }],
       labels: [
-        '澎湖','綠島','蘭嶼','金門','馬祖','代訂車','郵輪','季節旅遊'
+        '澎湖','綠島','蘭嶼','金門','馬祖','代訂車','其他','團體'
       ]
     },
     options: {
@@ -663,7 +698,7 @@ var barChartData = {
     data: {
       datasets: [{
         data: [
-          penghu[8],green[8],lanyu[8],kinmen[8],matsu[8],car[8],cruise[8],season[8],
+          penghu[8],green[8],lanyu[8],kinmen[8],matsu[8],car[8],other[8],group[8],
         ],
         backgroundColor: [
           window.chartColors.red,window.chartColors.orange,window.chartColors.yellow,
@@ -672,7 +707,7 @@ var barChartData = {
         label: 'Dataset 1'
       }],
       labels: [
-        '澎湖','綠島','蘭嶼','金門','馬祖','代訂車','郵輪','季節旅遊'
+        '澎湖','綠島','蘭嶼','金門','馬祖','代訂車','其他','團體'
       ]
     },
     options: {
@@ -696,7 +731,7 @@ var barChartData = {
     data: {
       datasets: [{
         data: [
-          penghu[9],green[9],lanyu[9],kinmen[9],matsu[9],car[9],cruise[9],season[9],
+          penghu[9],green[9],lanyu[9],kinmen[9],matsu[9],car[9],other[9],group[9],
         ],
         backgroundColor: [
           window.chartColors.red,window.chartColors.orange,window.chartColors.yellow,
@@ -705,7 +740,7 @@ var barChartData = {
         label: 'Dataset 1'
       }],
       labels: [
-        '澎湖','綠島','蘭嶼','金門','馬祖','代訂車','郵輪','季節旅遊'
+        '澎湖','綠島','蘭嶼','金門','馬祖','代訂車','其他','團體'
       ]
     },
     options: {
@@ -729,7 +764,7 @@ var barChartData = {
     data: {
       datasets: [{
         data: [
-          penghu[10],green[10],lanyu[10],kinmen[10],matsu[10],car[10],cruise[10],season[10],
+          penghu[10],green[10],lanyu[10],kinmen[10],matsu[10],car[10],other[10],group[10],
         ],
         backgroundColor: [
           window.chartColors.red,window.chartColors.orange,window.chartColors.yellow,
@@ -738,7 +773,7 @@ var barChartData = {
         label: 'Dataset 1'
       }],
       labels: [
-        '澎湖','綠島','蘭嶼','金門','馬祖','代訂車','郵輪','季節旅遊'
+        '澎湖','綠島','蘭嶼','金門','馬祖','代訂車','其他','團體'
       ]
     },
     options: {
@@ -762,7 +797,7 @@ var barChartData = {
     data: {
       datasets: [{
         data: [
-          penghu[11],green[11],lanyu[11],kinmen[11],matsu[11],car[11],cruise[11],season[11],
+          penghu[11],green[11],lanyu[11],kinmen[11],matsu[11],car[11],other[11],group[11],
         ],
         backgroundColor: [
           window.chartColors.red,window.chartColors.orange,window.chartColors.yellow,
@@ -771,7 +806,7 @@ var barChartData = {
         label: 'Dataset 1'
       }],
       labels: [
-        '澎湖','綠島','蘭嶼','金門','馬祖','代訂車','郵輪','季節旅遊'
+        '澎湖','綠島','蘭嶼','金門','馬祖','代訂車','其他','團體'
       ]
     },
     options: {
@@ -795,7 +830,7 @@ var barChartData = {
     data: {
       datasets: [{
         data: [
-          penghu[12],green[12],lanyu[12],kinmen[12],matsu[12],car[12],cruise[12],season[12],
+          penghu[12],green[12],lanyu[12],kinmen[12],matsu[12],car[12],other[12],group[12],
         ],
         backgroundColor: [
           window.chartColors.red,window.chartColors.orange,window.chartColors.yellow,
@@ -804,7 +839,7 @@ var barChartData = {
         label: 'Dataset 1'
       }],
       labels: [
-        '澎湖','綠島','蘭嶼','金門','馬祖','代訂車','郵輪','季節旅遊'
+        '澎湖','綠島','蘭嶼','金門','馬祖','代訂車','其他','團體'
       ]
     },
     options: {
