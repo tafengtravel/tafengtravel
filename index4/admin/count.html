@@ -83,10 +83,19 @@ a{
   <input type="text" id="mail" disabled="disabled" style="font-size:20px ; background-color: transparent; border:none; text-align: center; font-family:Microsoft JhengHei;font-weight:bold;">
 </span>
 
-<span class="lable" ><label>搜尋月份：</label></span>  
-<input class="lable" type="date" id="depdate">&emsp;～&emsp;<input class="lable" type="date" id="enddate">
-
-&emsp;<button class="lable" onclick="search()" id ="search"  type="button" >查詢</button>
+<span class="lable" ><label>搜尋月份：</label></span>  <input type="date" id="depdate" style="font-size:30px">
+<span class="lable" ><label>客服：</label></span>  
+  <select id="cs" style="font-size:30px">
+    <option value="all">全部</option><option value="A1">A1</option><option value="A2">A2</option><option value="A3">A3</option><option value="A4">A4</option>
+    <option value="B1">B1</option><option value="B2">B2</option><option value="B3">B3</option><option value="B4">B4</option>
+    <option value="B5">B5</option><option value="B6">B6</option><option value="B7">B7</option><option value="B8">B8</option>
+    <option value="B9">B9</option><option value="B10">B10</option><option value="B11">B11</option><option value="B12">B12</option>
+  </select>
+<span class="lable" ><label>排序：</label></span>  
+  <select id="orderby" style="font-size:30px">
+    <option value="團號">團號</option><option value="出發日期">出發日期</option>
+  </select>
+&emsp;<button onclick="search()" id ="search"  type="button" style="font-size:30px"  >查詢</button>
 
 
  <script src="secure.js" async></script>
@@ -115,8 +124,8 @@ async function search(){
   var orderby = document.getElementById("orderby").value;
 
 
-  let green=0; penghu=0;lanyu=0;kinmen=0;matsu=0;cruise=0;car=0;season=0;
-  let green_people=0;penghu_people=0;lanyu_people=0;kinmen_people=0;matsu_people=0;cruise_people=0;car_people=0;season_people=0;
+  let green=0; penghu=0;lanyu=0;kinmen=0;matsu=0;cruise=0;car=0;season=0;other=0;group=0;
+  let green_people=0;penghu_people=0;lanyu_people=0;kinmen_people=0;matsu_people=0;cruise_people=0;car_people=0;season_people=0;other_people=0;group_people=0;
   
 
   if(depdate == ""){
@@ -141,8 +150,21 @@ async function search(){
     querySnapshot.forEach(doc => {   
 
       profit = parseInt(doc.data().利潤);
+      if (isNaN(profit)){
+        profit=0;
+      }
       people = parseInt(doc.data().人數);
+      if (isNaN(people)){
+        people=0;
+      }
       tax = parseInt(doc.data().稅金);
+      if (isNaN(tax)){
+        tax=0;
+      }
+      price = parseInt(doc.data().團費);
+      if (isNaN(price)){
+        price=0;
+      }
 
       if (doc.data().地點 == '澎湖'){
         penghu = penghu + profit;
@@ -168,15 +190,12 @@ async function search(){
       }else if(doc.data().地點 == '季節旅遊'){
         season = season + profit;
         season_people = season_people + people;
+      }else if(doc.data().地點 == '其他'){
+        other = other + profit;
+        other_people = other_people + people;
       }
 
-
-      price = parseInt(doc.data().團費);
       revenue = price+revenue;
-
-      if (isNaN(tax)){
-        tax=0;
-      }
       profit = profit+tax;
 
       totalprofit = parseInt(totalprofit);
@@ -191,6 +210,42 @@ async function search(){
     });
   });
 
+  ref = db.collection(depdate.substring(0,4)+'-'+depdate.substring(5,7)+'G');
+
+  await ref.orderBy(orderby, 'asc').get().then(querySnapshot => {
+    querySnapshot.forEach(doc => {   
+
+      profit = parseInt(doc.data().利潤);
+      if (isNaN(profit)){
+        profit=0;
+      }
+      people = parseInt(doc.data().人數);
+      if (isNaN(people)){
+        people=0;
+      }
+      tax = parseInt(doc.data().稅金);
+      if (isNaN(tax)){
+        tax=0;
+      }
+      price = parseInt(doc.data().團費);
+      if (isNaN(price)){
+        price=0;
+      }
+
+      group = group + profit;
+      group_people = group_people + people;
+
+      revenue = price+revenue;      
+      profit = profit+tax;
+        
+      totalprofit = totalprofit + profit ;
+      totalpeople = totalpeople+ people ;
+
+    });
+  });
+
+  
+
 
  ref = db.collection(depdate.substring(0,4)+'-total').doc(depdate.substring(5,7));
  ref.update({
@@ -202,6 +257,8 @@ async function search(){
    代訂車: car,
    郵輪: cruise,
    季節旅遊: season,   
+   其他: other,
+   團體: group,
 
    澎湖人數: penghu_people,
    綠島人數: green_people,
@@ -211,6 +268,8 @@ async function search(){
    代訂車人數: car_people,
    郵輪人數: cruise_people,
    季節旅遊人數: season_people,  
+   其他人數: other_people,
+   團體人數: group_people,
 
    總利潤:totalprofit,
    總人數:totalpeople,
