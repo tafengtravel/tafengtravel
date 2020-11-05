@@ -2551,7 +2551,8 @@ var indays = [];
 var inpeople = [];
 var intotal = [];
 
-
+let refund = [];
+let refund_total = 0;
 
 //----------團費-----------------//
 
@@ -2595,6 +2596,15 @@ for (i=1;i<3;i++){
   document.getElementById("intotal"+i).value=intotal[i]
   net = intotal[i]+net;
 }
+//------------退款----------------------//
+for(i=1;i<6;i++){
+  refund[i]= parseInt(document.getElementById("refund"+i).value);
+
+  if (isNaN(refund[i])) {
+    refund[i]=0;
+  }
+  refund_total = refund_total + refund[i];
+}
 //-------------抓出刷卡2%---------------//
 for(i=1;i<6;i++){
   money[i]= document.getElementById("money"+i).value;
@@ -2618,6 +2628,7 @@ net = cardtotal+net;
 net = net.toFixed(0);
 //-------------總計算---------------//
 profit = price-net;
+moneytotal = moneytotal-refund_total;
 //-------------稅金----------------//
 if(profit>9999){
   tax = profit*0.05;
