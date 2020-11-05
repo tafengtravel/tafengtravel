@@ -154,7 +154,8 @@
     <th class="text-nowrap">筆數</th><th class="text-nowrap">團號</th><th class="text-nowrap"><font color="red">團體</font>
     </th><th class="text-nowrap">客服</th><th class="text-nowrap">出發日期&emsp;&emsp;</th>
     <th class="text-nowrap">結束日期&emsp;&emsp;</th><th class="text-nowrap">團名&emsp;&emsp;</th><th class="text-nowrap">代表人&emsp;&emsp;</th>
-    <th class="text-nowrap">人數</th><th class="text-nowrap">聯絡電話</th><th class="text-nowrap">利潤</th><th class="text-nowrap">主管核實</th><th class="text-nowrap">備註&emsp;&emsp;&emsp;&emsp;</th><th class="text-nowrap">地點&emsp;</th>
+    <th class="text-nowrap">人數</th><th class="text-nowrap">聯絡電話</th><th class="text-nowrap">利潤</th><th class="text-nowrap">主管核實</th>
+    <th class="text-nowrap">未收尾款</th><th class="text-nowrap">備註&emsp;&emsp;&emsp;&emsp;</th><th class="text-nowrap">地點&emsp;</th>
   </tr>
  </table>
 </div>
@@ -228,15 +229,21 @@ async function search(){
   let revenue = 0;
   let price = 0;
 
+  let moneytotal;
+  let price_notyet = 0;
+
   await ref.orderBy(orderby, 'asc').get().then(querySnapshot => {
     querySnapshot.forEach(doc => {       
 
       profit = parseInt(doc.data().利潤);
       people = parseInt(doc.data().人數);
       tax = parseInt(doc.data().稅金);
+      moneytotal = parseFloat(doc.data().總收入);
 
       price = parseInt(doc.data().團費);
       revenue = price+revenue;
+
+      price_notyet = price - moneytotal;//未收尾款
 
       if (isNaN(tax)){
         tax=0;
@@ -284,9 +291,11 @@ async function search(){
       cell[11] = row.insertCell(11);
       cell[11].innerHTML=check1;
       cell[12] = row.insertCell(12);
-      cell[12].innerHTML=doc.data().其他項備註;
+      cell[12].innerHTML=price_notyet;
       cell[13] = row.insertCell(13);
-      cell[13].innerHTML=doc.data().地點;
+      cell[13].innerHTML=doc.data().其他項備註;
+      cell[14] = row.insertCell(14);
+      cell[14].innerHTML=doc.data().地點;
       i=i+1;
 
       if(doc.data().地點 != '跨年'){
@@ -331,15 +340,21 @@ async function search(){
   var profit = 0;
   let tax = 0;
   let revenue = 0;
+  
+  let moneytotal;
+  let price_notyet = 0;
 
   await ref.orderBy(orderby, 'asc').where('客服','==',cs).get().then(querySnapshot => {
     querySnapshot.forEach(doc => {    
       profit = parseInt(doc.data().利潤);
       people = parseInt(doc.data().人數);
       tax = parseInt(doc.data().稅金);
+      moneytotal = parseFloat(doc.data().總收入);
       
       price = parseInt(doc.data().團費);
       revenue = price+revenue;
+
+      price_notyet = price - moneytotal;//未收尾款
 
       if (isNaN(tax)){
         tax=0;
@@ -350,7 +365,7 @@ async function search(){
 
       
 
-      if(profit>10000){
+      if(profit+tax>10000){
         check = "●";
       }else{
         check = "";
@@ -388,9 +403,11 @@ async function search(){
       cell[11] = row.insertCell(11);
       cell[11].innerHTML=check1;
       cell[12] = row.insertCell(12);
-      cell[12].innerHTML=doc.data().其他項備註;
+      cell[12].innerHTML=price_notyet;
       cell[13] = row.insertCell(13);
-      cell[13].innerHTML=doc.data().地點;
+      cell[13].innerHTML=doc.data().其他項備註;
+      cell[14] = row.insertCell(14);
+      cell[14].innerHTML=doc.data().地點;
       i=i+1;
 
       if(doc.data().地點 != '跨年'){
