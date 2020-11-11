@@ -298,7 +298,7 @@ async function search(){
       cell[14].innerHTML=doc.data().地點;
       i=i+1;
 
-      if(doc.data().地點 != '跨年' || doc.data().地點 != '團體報帳' || doc.data().地點 != 'JOIN報帳'){
+      if(doc.data().地點 != '跨年' && doc.data().地點 != '團體報帳' && doc.data().地點 != 'JOIN報帳'){
         totalprofit = totalprofit + profit ;
       }
 
@@ -410,7 +410,7 @@ async function search(){
       cell[14].innerHTML=doc.data().地點;
       i=i+1;
 
-      if(doc.data().地點 != '跨年' || doc.data().地點 != '團體報帳' || doc.data().地點 != 'JOIN報帳'){
+      if(doc.data().地點 != '跨年' && doc.data().地點 != '團體報帳' && doc.data().地點 != 'JOIN報帳'){
         totalprofit = totalprofit + profit ;
       }
 
