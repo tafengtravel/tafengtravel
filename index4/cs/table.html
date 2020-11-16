@@ -146,7 +146,7 @@ async function search(){
 
   if(cs == 'all'){
 
-    await ref.orderBy(orderby, 'asc').get().then(querySnapshot => {
+    await ref.get().then(querySnapshot => {
       querySnapshot.forEach(doc => {  
 
         data1[k] = doc.data();
@@ -160,7 +160,7 @@ async function search(){
 
   }else{
 
-    await ref.orderBy(orderby, 'asc').where('客服','==',cs).get().then(querySnapshot => {
+    await ref.where('客服','==',cs).get().then(querySnapshot => {
       querySnapshot.forEach(doc => { 
         data1[k] = doc.data();
         k=k+1;
