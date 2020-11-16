@@ -110,17 +110,13 @@ function clear1(){
 
 async function search(){  
 
+  console.log(number)
+
   var db = firebase.firestore();
   var depdate = document.getElementById("depdate").value; 
   var cs = document.getElementById("cs").value;
   var orderby = document.getElementById("orderby").value;
-  if(depdate == ""){
-    alert('請選取月份');
-    window.location.reload("");
-  }else{
-  }
-
-  if(cs == 'all'){
+  
   var ref = db.collection(depdate.substring(0,4)+'-'+depdate.substring(5,7));
   var cell = [];
   var i=1;
@@ -130,100 +126,17 @@ async function search(){
   let price;
   let moneytotal;
   let tax = 0;
+  let k = 0;
+  let a = 1;
+  let data1 =[];
 
-//判斷是否為0即刪除
-  if(del==0){
-    number=1;
-  }
-  del = 0;
-
-  for(j=1;j<number;j++){
-    table.deleteRow(1);
-
-  }
-//------------
-
-
-  await ref.orderBy(orderby, 'asc').get().then(querySnapshot => {
-   querySnapshot.forEach(doc => {      
-
-      profit = parseInt(doc.data().利潤);
-      price = parseFloat(doc.data().團費);
-      moneytotal = parseFloat(doc.data().總收入);
-      tax = parseInt(doc.data().稅金);
-
-      price = price-moneytotal;
-
-      if (isNaN(tax)){
-        tax=0;
-      }
-      profit = profit+tax;
-
-      
-      if(profit>10000){
-        check = "●";
-      }else{
-        check = "";
-      }
-
-      row = table.insertRow(i);
-      cell[0] = row.insertCell(0);
-      cell[0].innerHTML=i;
-      cell[1] = row.insertCell(1);
-      cell[1].innerHTML=doc.id;
-      cell[2] = row.insertCell(2);
-      cell[2].innerHTML=check;
-      cell[3] = row.insertCell(3);
-      cell[3].innerHTML=doc.data().客服;
-      cell[4] = row.insertCell(4);
-      cell[4].innerHTML=doc.data().出發日期;
-      cell[5] = row.insertCell(5);
-      cell[5].innerHTML=doc.data().結束日期;
-      cell[6] = row.insertCell(6);
-      cell[6].innerHTML=doc.data().團名;
-      cell[7] = row.insertCell(7);
-      cell[7].innerHTML=doc.data().代表人;
-      cell[8] = row.insertCell(8);
-      cell[8].innerHTML=doc.data().人數;
-      cell[9] = row.insertCell(9);
-      cell[9].innerHTML=doc.data().聯絡電話;
-      cell[10] = row.insertCell(10);
-      cell[10].innerHTML=price;
-      cell[11] = row.insertCell(11);
-      cell[11].innerHTML=doc.data().其他項備註;
-      
-      i=i+1;
-      number=i;
-      del=1;
-
-      cell[1].addEventListener("click", function(e){
-        console.log(e.target.innerText);
-        
-        let modify = window.open('modify.html');
-
-        localStorage.setItem("oldnumber", e.target.innerText);
-        localStorage.setItem("depdate", depdate);
-      
-      });
-
-
-    });  
-  });
-
-  
-
-  console.log(number);
+  if(depdate == ""){
+    alert('請選取月份');
+    window.location.reload("");
   }else{
-  var ref = db.collection(depdate.substring(0,4)+'-'+depdate.substring(5,7));
-  var j =0;
-  var cell = [];
-  var i=1;
-  var table = document.getElementById("myTable");
-  var row;
-  var check;
-  let tax = 0;
+  }
 
-//判斷是否為0即刪除
+  //判斷是否為0即刪除
   if(del==0){
     number=1;
   }
@@ -232,80 +145,107 @@ async function search(){
   for(j=1;j<number;j++){
     table.deleteRow(1);
 
+    console.log('執行')
   }
-//------------
+  //------------
 
-  await ref.orderBy(orderby, 'asc').where('客服','==',cs).get().then(querySnapshot => {
-    querySnapshot.forEach(doc => {    
-      profit = parseInt(doc.data().利潤);
-      price = parseFloat(doc.data().團費);
-      moneytotal = parseFloat(doc.data().總收入);
-      tax = parseInt(doc.data().稅金);
+  if(cs == 'all'){
 
-      price = price-moneytotal;
+    await ref.orderBy(orderby, 'asc').get().then(querySnapshot => {
+      querySnapshot.forEach(doc => {  
 
-      if (isNaN(tax)){
-        tax=0;
-      }
-      profit = profit+tax;
-              
-      if(profit>10000){
-        check = "●";
-      }else{
-        check = "";
-      }
-  
-      row = table.insertRow(i);
-      cell[0] = row.insertCell(0);
-      cell[0].innerHTML=i;
-      cell[1] = row.insertCell(1);
-      cell[1].innerHTML=doc.id;
-      cell[2] = row.insertCell(2);
-      cell[2].innerHTML=check;
-      cell[3] = row.insertCell(3);
-      cell[3].innerHTML=doc.data().客服;
-      cell[4] = row.insertCell(4);
-      cell[4].innerHTML=doc.data().出發日期;
-      cell[5] = row.insertCell(5);
-      cell[5].innerHTML=doc.data().結束日期;
-      cell[6] = row.insertCell(6);
-      cell[6].innerHTML=doc.data().團名;
-      cell[7] = row.insertCell(7);
-      cell[7].innerHTML=doc.data().代表人;
-      cell[8] = row.insertCell(8);
-      cell[8].innerHTML=doc.data().人數;
-      cell[9] = row.insertCell(9);
-      cell[9].innerHTML=doc.data().聯絡電話;
-      cell[10] = row.insertCell(10);
-      cell[10].innerHTML=price;
-      cell[11] = row.insertCell(11);
-      cell[11].innerHTML=doc.data().其他項備註;
-      i=i+1;
-      number=i;
-      del=1;
+        data1[k] = doc.data();
+        k=k+1;
+        a=a+1;
+        number=a;
+        del=1;
 
-      cell[1].addEventListener("click", function(e){
-        console.log(e.target.innerText);
+      });  
+    });
 
-        let modify = window.open('modify.html');
+  }else{
 
-        localStorage.setItem("oldnumber", e.target.innerText);
-        localStorage.setItem("depdate", depdate);
+    await ref.orderBy(orderby, 'asc').where('客服','==',cs).get().then(querySnapshot => {
+      querySnapshot.forEach(doc => { 
+        data1[k] = doc.data();
+        k=k+1;
+        a=a+1;
+        number=a;
+        del=1;
+
+      });  
+    });
+
+  }
+
+  if(orderby == '團號'){
+    data1.sort((a, b) => (a.團號).localeCompare(b.團號));
+  }else if(orderby == '出發日期'){
+    data1.sort((a, b) => (a.出發日期).localeCompare(b.出發日期));
+  }
+
+  for(i=0;i<data1.length;i++){
+
+    profit = parseInt(data1[i].利潤);
+    price = parseFloat(data1[i].團費);
+    moneytotal = parseFloat(data1[i].總收入);
+    tax = parseInt(data1[i].稅金);
+
+    price = price-moneytotal;
+
+    if (isNaN(tax)){
+      tax=0;
+    }
+    profit = profit+tax;
+
+    
+    if(profit>10000){
+      check = "●";
+    }else{
+      check = "";
+    }
+
+    row = table.insertRow(i+1);
+    cell[0] = row.insertCell(0);
+    cell[0].innerHTML=i+1;
+    cell[1] = row.insertCell(1);
+    cell[1].innerHTML=data1[i].團號;
+    cell[2] = row.insertCell(2);
+    cell[2].innerHTML=check;
+    cell[3] = row.insertCell(3);
+    cell[3].innerHTML=data1[i].客服;
+    cell[4] = row.insertCell(4);
+    cell[4].innerHTML=data1[i].出發日期;
+    cell[5] = row.insertCell(5);
+    cell[5].innerHTML=data1[i].結束日期;
+    cell[6] = row.insertCell(6);
+    cell[6].innerHTML=data1[i].團名;
+    cell[7] = row.insertCell(7);
+    cell[7].innerHTML=data1[i].代表人;
+    cell[8] = row.insertCell(8);
+    cell[8].innerHTML=data1[i].人數;
+    cell[9] = row.insertCell(9);
+    cell[9].innerHTML=data1[i].聯絡電話;
+    cell[10] = row.insertCell(10);
+    cell[10].innerHTML=price;
+    cell[11] = row.insertCell(11);
+    cell[11].innerHTML=data1[i].其他項備註;
+
+    cell[1].addEventListener("click", function(e){
+      console.log(e.target.innerText);
       
-      });
+      let modify = window.open('modify.html');
 
+      localStorage.setItem("oldnumber", e.target.innerText);
+      localStorage.setItem("depdate", depdate);
+    
+    });
+      
 
-      });
-  });
-
-  } 
-
-  function tableText(){
-    console.log(e.target.innerText);
   }
+  console.log(number)
 
-
-
+      
 }
 
 
