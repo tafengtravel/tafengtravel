@@ -2146,6 +2146,12 @@
 <span class="lable" ><label>總收入：</label></span>  <input type="text" id="moneytotal"  disabled="disabled" style="font-size:30px">
 <span class="lable" ><label>5%稅金：</label></span>  <input type="text" id="tax"  disabled="disabled" style="font-size:30px ;width:370">
 
+<span class="lable" ><label>鎖定：</label></span> 
+<select id="lock" style="font-size:25px">
+  <option value="False">False</option>
+  <option value="True">True</option>
+</select>
+
 &emsp;<button onclick="count()" type="button" style="font-size:30px"  >試算</button> 
 &ensp;&ensp;<button onclick="send()" id="send" type="button" style="font-size:30px" disabled="disabled" >送出</button>
 </div>
@@ -2258,6 +2264,8 @@ function show(data){
   document.getElementById("contractother").value=data.合約備註;
   document.getElementById("contractdownpay").value=data.定金;
   document.getElementById("contracttype").value=data.合約類型;
+  //--------------鎖定-----------------
+  document.getElementById("lock").value=data.鎖定;
 
   //--------------修改紀錄-------------------
   let recordnum;
@@ -2606,6 +2614,7 @@ document.getElementById("tax").value=tax;
 //---------------------------
 
 function send(){
+count();
 
 var number = document.getElementById("number").value;
 var name = document.getElementById("name").value;
@@ -2635,7 +2644,8 @@ let location = document.getElementById("location").value;
 let contractother = document.getElementById("contractother").value;
 let contractdownpay = document.getElementById("contractdownpay").value;
 let contracttype = document.getElementById("contracttype").value;
-
+//--------------鎖定-----------------
+let lock = document.getElementById("lock").value;
 //-------收入-------//
 var moneydate = [];
 var moneyname = [];
@@ -2888,7 +2898,9 @@ var obj = {
 
         修改紀錄 :{
           0:usermail +" "+time,
-        }       
+        },
+        
+        鎖定 :lock,
       }
 
       for (i = 1; i < 9; i++) {
