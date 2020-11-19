@@ -190,12 +190,12 @@
 <br><br>
 <!----------------------------尚未新增--------------------------------->
 <span class="lablemanager" ><label>Martina 核實：</label></span> 
-<select id="martina" style="font-size:30px">
+<select id="martina" disabled="disabled" style="font-size:30px">
   <option value="False">False</option>
   <option value="True">True</option>
 </select>
 <span class="lable" ><label>&ensp;&ensp;已更改：</label></span> 
-<select id="change" style="font-size:30px">
+<select id="change" disabled="disabled" style="font-size:30px">
   <option value="False">False</option>
   <option value="True">True</option>
 </select>
@@ -1966,7 +1966,12 @@
 <span class="lable" ><label>利潤：</label></span>  <input type="text" id="profit"  disabled="disabled" style="font-size:30px">
 <br><br>
 <span class="lable" ><label>總收入：</label></span>  <input type="text" id="moneytotal"  disabled="disabled" style="font-size:30px">
-<span class="lable" ><label>5%稅金：</label></span>  <input type="text" id="tax"  disabled="disabled" style="font-size:30px ;width:370">
+<span class="lable" ><label>5%稅金：</label></span>  <input type="text" id="tax"  disabled="disabled" style="font-size:30px ;width:395">
+<span class="lable" ><label>鎖定：</label></span> 
+<select id="lock" style="font-size:25px">
+  <option value="False">False</option>
+</select>
+
 &emsp;<button onclick="count()" type="button" style="font-size:30px"  >試算</button> 
 &ensp;&ensp;<button onclick="send()" type="button" style="font-size:30px"  >送出</button>
 </div>
@@ -2324,6 +2329,7 @@ document.getElementById("tax").value=tax;
 
 
 function send(){
+  count();
 
   var number = document.getElementById("number").value;
   var name = document.getElementById("name").value;
@@ -2348,6 +2354,8 @@ function send(){
   let canceldate = document.getElementById("canceldate").value;
 
   let location = document.getElementById("location").value;
+
+  let lock = document.getElementById("lock").value;
 
   //-------收入-------//
   var moneydate = [];
@@ -2599,7 +2607,9 @@ function send(){
 
           修改紀錄 :{
             0:usermail +" "+time,
-          }       
+          },
+
+          鎖定: lock,
         }
 
         for (i = 1; i < 9; i++) {
