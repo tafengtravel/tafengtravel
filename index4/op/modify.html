@@ -183,12 +183,12 @@
 <span class="lable" ><label>&ensp;=&ensp;總金額：</label></span> <input type="text" id="qtextratotalmoney10" disabled="disabled" style="font-size:30px ;width:150">
 <br><br>
 <span class="lablemanager" ><label>Martina 核實：</label></span> 
-<select id="martina" style="font-size:30px">
+<select id="martina" disabled="disabled" style="font-size:30px">
   <option value="False">False</option>
   <option value="True">True</option>
 </select>
 <span class="lable" ><label>&ensp;&ensp;已更改：</label></span> 
-<select id="change" style="font-size:30px">
+<select id="change" disabled="disabled" style="font-size:30px">
   <option value="False">False</option>
   <option value="True">True</option>
 </select>
@@ -2053,7 +2053,7 @@
   <option value="國外團體">國外團體</option>
   <option value="代訂車">代訂車</option>
 </select>
-&emsp;<button onclick="contract()" type="button" style="font-size:30px"  >生成</button> 
+&emsp;<button onclick="contract()" id="contract_button" type="button" style="font-size:30px"  >生成</button> 
 </div>
 <!-------------------保險------------------->
 <div class="r5">
@@ -2096,6 +2096,11 @@
 <br><br>
 <span class="lable" ><label>總收入：</label></span>  <input type="text" id="moneytotal"  disabled="disabled" style="font-size:30px">
 <span class="lable" ><label>5%稅金：</label></span>  <input type="text" id="tax"  disabled="disabled" style="font-size:30px ;width:370">
+
+<select id="lock" disabled="disabled" style="font-size:25px">
+  <option value="False">False</option>
+  <option value="True">True</option>
+</select>
 
 &emsp;<button onclick="count()" type="button" style="font-size:30px"  >試算</button> 
 &ensp;&ensp;<button onclick="send()" id="send" type="button" style="font-size:30px"disabled="disabled"   >送出</button>
@@ -2223,6 +2228,8 @@ function show(data){
   document.getElementById("contractother").value=data.合約備註;
   document.getElementById("contractdownpay").value=data.定金;
   document.getElementById("contracttype").value=data.合約類型;
+  //--------------鎖定-----------------
+  document.getElementById("lock").value=data.鎖定;
 
   //--------------修改紀錄-------------------
   let recordnum;
@@ -2480,6 +2487,119 @@ function show(data){
     }  
   }
 
+  //---------------鎖定--------------------------
+
+  if(document.getElementById("lock").value == 'True'){
+
+    document.getElementById('contractother').disabled=true;
+    document.getElementById('outcollectpay').disabled=true;
+    document.getElementById('other').disabled=true;
+    document.getElementById('contractdownpay').disabled=true;
+    document.getElementById('contracttype').disabled=true;
+    document.getElementById('incollectpay').disabled=true;
+    document.getElementById('contract_button').disabled=true;
+
+    for(i=1;i<6;i++){
+      //-------團費估價---------
+      document.getElementById('qtname' + i).disabled=true;
+      document.getElementById('qtmoney' + i).disabled=true;
+      document.getElementById('qtnumber' + i).disabled=true;
+      //-------加購項目---------
+      document.getElementById('qtextraname' + i).disabled=true;
+      document.getElementById('qtextramoney' + i).disabled=true;
+      document.getElementById('qtextranumber' + i).disabled=true;
+      document.getElementById('qtextradays' + i).disabled=true;
+    }
+
+    for(i=1;i<9;i++){
+      //-----------收入---------
+      document.getElementById('moneydate'+i).disabled=true;
+      document.getElementById('moneyname'+i).disabled=true;
+      document.getElementById('money'+i).disabled=true;
+      document.getElementById('moneytype'+i).disabled=true;
+      document.getElementById('card'+i).disabled=true;
+      document.getElementById('rmoneydate'+i).disabled=true;
+      document.getElementById('moneyprove'+i).disabled=true;
+      document.getElementById('moneyother'+i).disabled=true;
+      document.getElementById('opmoneycheck'+i).disabled=true;
+      document.getElementById('moneycheck'+i).disabled=true;
+    }
+
+    for(i=1;i<16;i++){
+      //-----------支出---------
+      document.getElementById('paydate'+i).disabled=true;
+      document.getElementById('paycompany'+i).disabled=true;
+      document.getElementById('payname'+i).disabled=true;
+      document.getElementById('paydetail'+i).disabled=true;
+      document.getElementById('pay'+i).disabled=true;
+      document.getElementById('paymoneydate'+i).disabled=true;
+      document.getElementById('paytype'+i).disabled=true;
+      document.getElementById('payprove'+i).disabled=true;
+
+      document.getElementById('downpaydatedl'+i).disabled=true;
+      document.getElementById('opdownpay'+i).disabled=true;
+      document.getElementById('opdownpaydate'+i).disabled=true;
+      document.getElementById('opdownpaytype'+i).disabled=true;
+      document.getElementById('downpayprove'+i).disabled=true;
+      document.getElementById('op'+i).disabled=true;
+
+      document.getElementById('lastpaydatedl'+i).disabled=true;
+      document.getElementById('oplastpay'+i).disabled=true;
+      document.getElementById('oplastpaydate'+i).disabled=true;
+      document.getElementById('oplastpaytype'+i).disabled=true;
+      document.getElementById('lastpayprove'+i).disabled=true;
+
+      document.getElementById('paycheck'+i).disabled=true;
+      document.getElementById('opcheck'+i).disabled=true;
+      document.getElementById('opdowncheck'+i).disabled=true;
+      document.getElementById('downcheck'+i).disabled=true;
+      document.getElementById('oplastcheck'+i).disabled=true;
+      document.getElementById('lastcheck'+i).disabled=true;
+    }
+
+    for(i=1;i<6;i++){
+      //---------退款----------
+      document.getElementById("refund" + i).disabled=true;
+      document.getElementById("refund_date" + i).disabled=true;
+      document.getElementById("refund_name" + i).disabled=true;
+      document.getElementById("refundtype" + i).disabled=true;
+      document.getElementById("refund_money_date" + i).disabled=true;
+      document.getElementById("refund_prove" + i).disabled=true;
+      document.getElementById("refund_other" + i).disabled=true;
+      document.getElementById("op_refund_check" + i).disabled=true;
+      document.getElementById("money_refund_check" + i).disabled=true;
+      document.getElementById("op_refund_check" + i).disabled=true;
+    }
+
+    for(i=1;i<3;i++){
+      //-----------保險-----------
+      document.getElementById('insurance' + i).disabled=true;
+      document.getElementById('inmoney' + i).disabled=true;
+      document.getElementById('indays' + i).disabled=true;
+      document.getElementById('inpeople' + i).disabled=true;
+      document.getElementById('intotal' + i).disabled=true;
+    }
+
+    }else{
+
+    document.getElementById('contractother').disabled=false;
+    document.getElementById('outcollectpay').disabled=false;
+    document.getElementById('other').disabled=false;
+    document.getElementById('contractdownpay').disabled=false;
+    document.getElementById('contracttype').disabled=false;
+    document.getElementById('incollectpay').disabled=false;
+    document.getElementById('contract_button').disabled=false;
+
+    for(i=1;i<3;i++){
+      //-----------保險-----------
+      document.getElementById('insurance' + i).disabled=false;
+      document.getElementById('inmoney' + i).disabled=false;
+      document.getElementById('indays' + i).disabled=false;
+      document.getElementById('inpeople' + i).disabled=false;
+      document.getElementById('intotal' + i).disabled=false;
+    }
+  }
+
 
 }
  
@@ -2721,6 +2841,7 @@ document.getElementById("tax").value=tax;
 //-----------------------------------
 
 function send(){
+count();
 
 var number = document.getElementById("number").value;
 var name = document.getElementById("name").value;
@@ -2750,7 +2871,8 @@ let location = document.getElementById("location").value;
 let contractother = document.getElementById("contractother").value;
 let contractdownpay = document.getElementById("contractdownpay").value;
 let contracttype = document.getElementById("contracttype").value;
-
+//--------------鎖定-----------------
+let lock = document.getElementById("lock").value;
 //-------收入-------//
 var moneydate = [];
 var moneyname = [];
@@ -3003,7 +3125,9 @@ var obj = {
 
         修改紀錄 :{
           0:usermail +" "+time,
-        }       
+        },
+
+        鎖定: lock,
       }
 
       for (i = 1; i < 9; i++) {
