@@ -253,7 +253,6 @@ async function search(){
 
     total_pay = total_pay + payment;
     total_downpay = total_downpay + downpayment;
-    total_lastpay = total_lastpay + lastpayment; 
 
     row = table.insertRow(j);
     cell[0] = row.insertCell(0);
@@ -298,6 +297,8 @@ async function search(){
     });
     
   }
+  
+total_lastpay = total_pay - total_downpay; 
 
 document.getElementById("total_pay").value = total_pay;
 document.getElementById("total_downpay").value = total_downpay;
