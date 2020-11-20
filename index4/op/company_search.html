@@ -71,16 +71,16 @@
 
 <div class="w3-row">
   <div class="w3-col s12 m12 l3 ">
-    <span class="lable1" ><label>總支出：</label></span>
-    <input type="text" id="total_pay" disabled="disabled" class="lable1" style="background-color: transparent; border:none; text-align: center; font-family:Microsoft JhengHei;font-weight:bold;width:200px">
+    <span class="lable" ><label>總支出：</label></span>
+    <input type="text" id="total_pay" disabled="disabled" class="lable" style="background-color: transparent; border:none; text-align: center; font-family:Microsoft JhengHei;font-weight:bold;width:200px">
   </div>
   <div class="w3-col s12 m12 l3 ">
-    <span class="lable1" ><label>總定金：</label></span>
-    <input type="text" id="total_downpay" disabled="disabled" class="lable1" style="background-color: transparent; border:none; text-align: center; font-family:Microsoft JhengHei;font-weight:bold;width:200px">
+    <span class="lable" ><label>總定金：</label></span>
+    <input type="text" id="total_downpay" disabled="disabled" class="lable" style="background-color: transparent; border:none; text-align: center; font-family:Microsoft JhengHei;font-weight:bold;width:200px">
   </div>
   <div class="w3-col s12 m12 l3 ">
-    <span class="lable1" ><label>總尾款：</label></span>
-    <input type="text" id="total_lastpay" disabled="disabled" class="lable1" style="background-color: transparent; border:none; text-align: center; font-family:Microsoft JhengHei;font-weight:bold;width:200px">
+    <span class="lable" ><label>總尾款：</label></span>
+    <input type="text" id="total_lastpay" disabled="disabled" class="lable" style="background-color: transparent; border:none; text-align: center; font-family:Microsoft JhengHei;font-weight:bold;width:200px">
   </div>
 </div>
 
@@ -217,8 +217,7 @@ async function search(){
 
     total_pay = total_pay + payment;
     total_downpay = total_downpay + downpayment;
-    total_lastpay = total_lastpay + lastpayment;    
-    
+     
     row = table.insertRow(j);
     cell[0] = row.insertCell(0);
     cell[0].innerHTML=j;
@@ -262,6 +261,8 @@ async function search(){
     });
     
   }
+
+total_lastpay = total_pay - total_downpay; 
 
 document.getElementById("total_pay").value = total_pay;
 document.getElementById("total_downpay").value = total_downpay;
