@@ -80,6 +80,21 @@
   </table>
 </div> 
 
+<div class="w3-row">
+  <div class="w3-col s12 m12 l3 ">
+    <span class="lable" ><label>總支出：</label></span>
+    <input type="text" id="total_pay" disabled="disabled" class="lable" style="background-color: transparent; border:none; text-align: center; font-family:Microsoft JhengHei;font-weight:bold;width:200px">
+  </div>
+  <div class="w3-col s12 m12 l3 ">
+    <span class="lable" ><label>總定金：</label></span>
+    <input type="text" id="total_downpay" disabled="disabled" class="lable" style="background-color: transparent; border:none; text-align: center; font-family:Microsoft JhengHei;font-weight:bold;width:200px">
+  </div>
+  <div class="w3-col s12 m12 l3 ">
+    <span class="lable" ><label>總尾款：</label></span>
+    <input type="text" id="total_lastpay" disabled="disabled" class="lable" style="background-color: transparent; border:none; text-align: center; font-family:Microsoft JhengHei;font-weight:bold;width:200px">
+  </div>
+</div>
+
 <script src="secure.js" async></script>
 
 <script>
@@ -127,6 +142,10 @@ async function search(){
   let a=1;
   let opcheck;
   let moneycheck;
+
+  let total_pay=0;
+  let total_downpay=0;
+  let total_lastpay=0;
 
 //判斷是否為0即刪除
   if(del==0){
@@ -185,20 +204,25 @@ async function search(){
     k = data1[i].項目;
 
     payment = data1[i]['第'+k+'筆支出'];
+    downpayment= data1[i]['第'+k+'筆op定金'];
+    lastpayment= data1[i]['第'+k+'筆op尾款'];
+
     payment = parseFloat(payment);
+    downpayment = parseFloat(downpayment);
+    lastpayment = parseFloat(lastpayment);
 
-    if (data1[i]['第'+k+'筆op支付'] == 'True'){
-      opcheck = '●';
-    }else{
-      opcheck = '';
+    if (isNaN(downpayment)) {
+      downpayment=0;
+    }
+    if (isNaN(payment)) {
+      payment=0;
+    }
+    if (isNaN(lastpayment)) {
+      lastpayment=0;
     }
 
-    if (data1[i]['第'+k+'筆支出財務核實'] == 'True'){
-      moneycheck = '●';
-    }else{
-      moneycheck = '';
-    }
-
+    total_pay = total_pay + payment;
+    total_downpay = total_downpay + downpayment;
      
     row = table.insertRow(j);
     cell[0] = row.insertCell(0);
@@ -245,6 +269,11 @@ async function search(){
     });
   }
 
+total_lastpay = total_pay - total_downpay; 
+
+document.getElementById("total_pay").value = total_pay;
+document.getElementById("total_downpay").value = total_downpay;
+document.getElementById("total_lastpay").value = total_lastpay;
 
 }
 
