@@ -231,12 +231,12 @@ async function search(){
       if (isNaN(price)){
         price=0;
       }
-
+      profit = profit+tax;
       group = group + profit;
+
       group_people = group_people + people;
 
       revenue = price+revenue;      
-      profit = profit+tax;
         
       totalprofit = totalprofit + profit ;
       totalpeople = totalpeople+ people ;
