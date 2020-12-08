@@ -2686,6 +2686,7 @@ var intotal = [];
 
 let refund = [];
 let refund_total = 0;
+let refund_card_total = 0;
 
 /*
 let refund_date= [];
@@ -2792,8 +2793,18 @@ for(i=1;i<6;i++){
   if (isNaN(refund[i])) {
     refund[i]=0;
   }
+
+  if ( document.getElementById("refundtype"+i).value  == '刷卡'){
+    refund_card_total = refund_card_total + refund[i]
+  }
+
   refund_total = refund_total + refund[i];
 }
+
+console.log(refund_card_total)
+
+refund_card_total = refund_card_total*0.02;
+net = net - refund_card_total
 
 
 //-------------抓出刷卡2%---------------//
