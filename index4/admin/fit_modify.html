@@ -139,6 +139,7 @@
       <option value="False">False</option><option value="True">True</option>
     </select>
   &ensp;&ensp;<span class="lable" ><label>退業績日期：</label></span><input type="date" id="canceldate" style="font-size:30px">
+  &emsp;<button onclick="deleted_check()" id="deleted_check" disabled="disabled" type="button" style="font-size:30px ;background-color:rgb(255, 164, 180);"  >刪除</button>
 </div>
 
 
@@ -2192,34 +2193,34 @@ function info(mail){
 
 async function search(){
 
-    var  number = document.getElementById("number").value;  
-    var  depdate = document.getElementById("depdate").value;  
-    var db = firebase.firestore();
+  var  number = document.getElementById("number").value;  
+  var  depdate = document.getElementById("depdate").value;  
+  var db = firebase.firestore();
 
-    if(depdate == ''){
-      alert('請選取月份');
-      window.location.reload("");
-    }else if(number == ''){
-      alert('請輸入團號');
-      window.location.reload("");
+  if(depdate == ''){
+    alert('請選取月份');
+    window.location.reload("");
+  }else if(number == ''){
+    alert('請輸入團號');
+    window.location.reload("");
+  }
+
+  console.log(depdate.substring(0,4));
+  console.log(depdate.substring(5,7));
+  console.log(depdate.substr(8,10));
+
+  var ref = db.collection(depdate.substring(0,4)+'-'+depdate.substring(5,7)).doc(number);
+
+  await ref.onSnapshot(doc => { 
+
+    if(typeof(doc.data()) == 'undefined'){
+    alert('請輸入正確團號');
+    return 0;
     }
 
-    console.log(depdate.substring(0,4));
-    console.log(depdate.substring(5,7));
-    console.log(depdate.substr(8,10));
-
-    var ref = db.collection(depdate.substring(0,4)+'-'+depdate.substring(5,7)).doc(number);
-
-    await ref.onSnapshot(doc => { 
-
-      if(typeof(doc.data()) == 'undefined'){
-      alert('請輸入正確團號');
-      window.location.reload("");
-      }
-
-    show(doc.data());
-    
-    });
+  show(doc.data());
+  
+  });
     
 
 }
@@ -2375,7 +2376,39 @@ function show(data){
     document.getElementById("money_refund_check" + i).value=data['第' + i + '筆退款財務核實'];
 
   }
+
+  document.getElementById("deleted_check").disabled = false;
   
+}
+
+function deleted_check(){
+
+  let number = document.getElementById("number").value;  
+
+  let deleted_check_1 = confirm('確定要進行刪除');
+  if(deleted_check_1){
+    let deleted_check_2 = confirm('將刪除'+number+'\n一經刪除不可還原');
+    if(deleted_check_2){
+      deleted(number);//here
+    }
+  }
+
+}
+
+async function deleted(number){
+
+  let db = firebase.firestore();
+  let depdate = document.getElementById("depdate").value;  
+  let ref = db.collection(depdate.substring(0,4)+'-'+depdate.substring(5,7)).doc(number);
+  
+  await ref.delete().then(function() {
+    alert('成功刪除 '+number)
+    console.log("Document successfully deleted!");
+    window.location.reload("");
+  }).catch(function(error) {
+    console.error("Error removing document: ", error);
+  });
+
 }
  
 
