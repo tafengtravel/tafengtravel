@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+
+</style>
+</head>
+<body>
+
+       <!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="/__/firebase/7.14.3/firebase-app.js"></script>
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+
+<!-- Initialize Firebase -->
+<script src="/__/firebase/init.js"></script>
+   
+   <script src="https://www.gstatic.com/firebasejs/4.12.1/firebase.js"></script>
+
+<script src="https://www.gstatic.com/firebasejs/4.12.1/firebase-firestore.js"></script>
+
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel='stylesheet' href='table.css' type='text/css'>
+
+
+<div class="title"  >大豐旅行社帳務系統__搜尋廠商__OP</div> 
+
+<table width="100%" cellpadding=0px style="background-color:	#AAFFEE" >
+  <tr>
+    <td><a href="home.html">回到首頁</a></td>
+    <td><a href="modify.html">修改報帳</a></td>
+    <td><a href="table.html">表單全覽</a></td>
+    <td><a href="company_search.html">廠商搜尋</a></td>
+    <td><a href="name_search.html">團名搜尋</a></td>
+    <td><a href="income.html">當日收入</a></td>
+    <td><a href="today.html">當日業績</a></td>
+    <td><a href="deadline.html">當日DL</a></td>
+  </tr>
+</table>
+
+<span class="status" >
+  <input type="text" id="mail" disabled="disabled" class="lable" style="background-color: transparent; border:none; text-align: center; font-family:Microsoft JhengHei;font-weight:bold; ">
+</span>
+
+<div class="w3-row">
+  <div class="w3-col s12 m12 l4 ">
+  <span class="lable" ><label>搜尋日期：</label></span><input class="lable" type="date" id="depdate" >
+  </div>
+  <div class="w3-col s12 m12 l8 ">
+  <span class="lable" ><label>搜尋團名：</label></span>  
+  <input class="lable" type="text" id="name">
+  
+  <span class="lable" ><label>排序：</label></span>  
+    <select class="lable" id="orderby" >
+      <option value="團號">團號</option><option value="出發日期">出發日期</option>
+    </select>
+  &emsp;<button onclick="search()" class="lable" type="button"  >查詢</button>
+  </div>
+</div>
+
+<div class="w3-responsive">
+  <table id="myTable" class="w3-table-all" >
+    <tr>
+      <th nowrap>筆數</th><th nowrap>團號</th><th nowrap>客服</th>
+      <th nowrap>出發日期&emsp;&emsp;</th><th nowrap>結束日期&emsp;&emsp;</th><th nowrap>團名&emsp;&emsp;</th>
+      <th nowrap>代表人&emsp;&emsp;</th><th nowrap>人數</th><th nowrap>聯絡電話</th><th nowrap>收入</th>
+      <th nowrap>未收尾款&emsp;&emsp;</th><th nowrap>備註&emsp;&emsp;</th>
+    </tr>
+  </table>
+</div> 
+
+
+<div class="w3-row">
+  <div class="w3-col s12 m12 l3 ">
+    <span class="lable" ><label>總收入：</label></span>
+    <input type="text" id="total_money" disabled="disabled" class="lable" style="background-color: transparent; border:none; text-align: center; font-family:Microsoft JhengHei;font-weight:bold;width:200px">
+  </div>
+  <div class="w3-col s12 m12 l3 ">
+    <span class="lable" ><label>總人數：</label></span>
+    <input type="text" id="total_people" disabled="disabled" class="lable" style="background-color: transparent; border:none; text-align: center; font-family:Microsoft JhengHei;font-weight:bold;width:200px">
+  </div>
+  <!--
+  <div class="w3-col s12 m12 l3 ">
+    <span class="lable2" ><label>總尾款：</label></span>
+    <input type="text" id="total_lastpay" disabled="disabled" class="lable2" style="background-color: transparent; border:none; text-align: center; font-family:Microsoft JhengHei;font-weight:bold;width:200px">
+  </div>
+  -->
+</div>
+
+ <script src="secure.js" async></script>
+
+<script>
+
+let number;
+let del;
+
+function info(){
+    
+}
+
+function clear1(){
+  window.location.reload("");
+}
+
+ 
+
+async function search(){
+  let orderby = document.getElementById("orderby").value;
+  let depdate = document.getElementById("depdate").value;  
+  let name = document.getElementById("name").value;  
+  if(depdate == ""){
+    alert('請選取月份');
+    window.location.reload("");
+  }else{
+  }
+
+  if(name == ""){
+    alert('請輸入廠商');
+    window.location.reload("");
+  }else{
+  }
+
+    
+  let db = firebase.firestore();
+
+  let ref = db.collection(depdate.substring(0,4)+'-'+depdate.substring(5,7));
+  let cell = [];  
+  let table = document.getElementById("myTable");
+  let row;
+  let j=1;
+  let data1 =[];
+  let k=0;
+  let payment=0;
+  let downpayment=0;
+  let lastpayment=0;
+  let a=1;
+
+  let total_pay=0;
+  let total_downpay=0;
+  let total_lastpay=0;
+  let price_notyet=0;
+  let total_money=0;
+  let total_people=0;
+  let people=0;
+
+//判斷是否為0即刪除
+  if(del==0){
+    number=1;
+  }
+  del = 0;
+
+  for(q=1;q<number;q++){
+    table.deleteRow(1);
+
+  }
+//------------
+
+
+
+  await ref.where('出發日期','==',depdate).get().then(querySnapshot => {
+  querySnapshot.forEach(doc => {      
+
+        data1[k] = doc.data();
+        k=k+1;
+        console.log(doc.data());
+    });
+  });
+
+  console.log(data1[0].出發日期);
+
+  if(orderby == '團號'){
+    data1.sort((a, b) => (a.團號).localeCompare(b.團號));
+  }else if(orderby == '出發日期'){
+    data1.sort((a, b) => (a.出發日期).localeCompare(b.出發日期));
+  }
+
+
+  for(i=0;i<data1.length;i++){
+
+    if (data1[i].團名 == name){
+
+      moneytotal = parseInt(data1[i].總收入);
+      price = parseInt(data1[i].團費);
+      people = parseInt(data1[i].人數);
+
+      if (isNaN(moneytotal)){
+        moneytotal=0;
+      }
+
+      if (isNaN(price)){
+        price=0;
+      }
+
+      if (isNaN(people)){
+        people=0;
+      }
+
+      price_notyet = price - moneytotal;//未收尾款
+
+      row = table.insertRow(j);
+      cell[0] = row.insertCell(0);
+      cell[0].innerHTML=j;
+      cell[1] = row.insertCell(1);
+      cell[1].innerHTML=data1[i].團號;
+      cell[2] = row.insertCell(2);
+      cell[2].innerHTML=data1[i].客服;
+      cell[3] = row.insertCell(3);
+      cell[3].innerHTML=data1[i].出發日期;
+      cell[4] = row.insertCell(4);
+      cell[4].innerHTML=data1[i].結束日期;
+      cell[5] = row.insertCell(5);
+      cell[5].innerHTML=data1[i].團名;
+      cell[6] = row.insertCell(6);
+      cell[6].innerHTML=data1[i].代表人;
+      cell[7] = row.insertCell(7);
+      cell[7].innerHTML=data1[i].人數;
+      cell[8] = row.insertCell(8);
+      cell[8].innerHTML=data1[i].聯絡電話;
+      cell[9] = row.insertCell(9);
+      cell[9].innerHTML=moneytotal;
+      cell[10] = row.insertCell(10);
+      cell[10].innerHTML=price_notyet;
+      cell[11] = row.insertCell(11);
+      cell[11].innerHTML=data1[i].其他項備註;
+
+      j=j+1;
+      a=a+1;
+      number=a;
+      del=1;
+
+      cell[1].addEventListener("click", function(e){
+        console.log(e.target.innerText);
+
+        let modify = window.open('modify.html');
+
+        localStorage.setItem("oldnumber", e.target.innerText);
+        localStorage.setItem("depdate", depdate);
+      
+      });
+
+      total_money = moneytotal+total_money
+      total_people = people+total_people
+
+    }
+
+    /*
+    payment = data1[i]['第'+k+'筆支出'];
+    downpayment= data1[i]['第'+k+'筆op定金'];
+    lastpayment= data1[i]['第'+k+'筆op尾款'];
+
+    payment = parseFloat(payment);
+    downpayment = parseFloat(downpayment);
+    lastpayment = parseFloat(lastpayment);
+
+    
+
+    if (isNaN(downpayment)) {
+      downpayment=0;
+    }
+    if (isNaN(payment)) {
+      payment=0;
+    }
+    if (isNaN(lastpayment)) {
+      lastpayment=0;
+    }
+
+    total_pay = total_pay + payment;
+    total_downpay = total_downpay + downpayment;
+
+    */
+
+    
+    
+  }
+  document.getElementById("total_money").value =total_money;
+  document.getElementById("total_people").value =total_people;
+
+}
+
+
+</script>
+
+</body>
+</html>
