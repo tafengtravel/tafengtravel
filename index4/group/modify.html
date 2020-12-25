@@ -12,8 +12,10 @@
 
 
     <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.1/default-skin/default-skin.min.css'>
+    <link rel='stylesheet' href='photoswipe.deleted.css'>
     <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.1/photoswipe.min.css'>
     
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.1/photoswipe-ui-default.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.1/photoswipe.min.js"></script>
     
@@ -81,7 +83,7 @@
 <br><br>
 <span class="lable2" >估價單</span>
 <br><br>
-<input type="file" value="upload" id="uploadBtn1" disabled="disabled" style="font-size:20px; font-family:Microsoft JhengHei; "></br>
+<input type="file" accept=".jpg"  value="upload" id="uploadBtn1" disabled="disabled" style="font-size:20px; font-family:Microsoft JhengHei; "></br>
 <div id="msg1" style="font-size:20px ;font-family:Microsoft JhengHei; "></div>
 <span class="lable" ><label>客報：</label></span> 
 <input type="text" id="photoname1" disabled="disabled" style="font-size:20px; width:400; background-color: transparent; border:none; text-align: center; font-family:Microsoft JhengHei;font-weight:bold;">
@@ -89,7 +91,7 @@
 <button onclick="photo1()" id="photo1" type="button" style="font-size:20px" disabled="disabled"  >顯示圖片</button> 
 <br><br>
 <br><br>
-<input type="file" value="upload" id="uploadBtn2" disabled="disabled" style="font-size:20px; font-family:Microsoft JhengHei; "></br>
+<input type="file" accept=".jpg"  value="upload" id="uploadBtn2" disabled="disabled" style="font-size:20px; font-family:Microsoft JhengHei; "></br>
 <div id="msg2" style="font-size:20px ;font-family:Microsoft JhengHei; "></div>
 <span class="lable" ><label>NET：</label></span>
 <input type="text" id="photoname2" disabled="disabled" style="font-size:20px; width:400;background-color: transparent; border:none; text-align: center; font-family:Microsoft JhengHei;font-weight:bold;"> 
@@ -97,7 +99,7 @@
 <button onclick="photo2()" id="photo2" type="button" style="font-size:20px" disabled="disabled"  >顯示圖片</button> 
 <br><br>
 <br><br>
-<input type="file" value="upload" id="uploadBtn3" disabled="disabled" style="font-size:20px; font-family:Microsoft JhengHei; "></br>
+<input type="file" accept=".jpg"  value="upload" id="uploadBtn3" disabled="disabled" style="font-size:20px; font-family:Microsoft JhengHei; "></br>
 <div id="msg3" style="font-size:20px ;font-family:Microsoft JhengHei; "></div>
 <span class="lable" ><label>行程：</label></span> 
 <input type="text" id="photoname3" disabled="disabled" style="font-size:20px; width:400; background-color: transparent; border:none; text-align: center; font-family:Microsoft JhengHei;font-weight:bold;">
@@ -105,7 +107,7 @@
 <button onclick="photo3()" id="photo3" type="button" style="font-size:20px" disabled="disabled"  >顯示圖片</button> 
 <br><br>
 <br><br>
-<input type="file" value="upload" id="uploadBtn4" disabled="disabled" style="font-size:20px; font-family:Microsoft JhengHei; "></br>
+<input type="file" accept=".jpg"  value="upload" id="uploadBtn4" disabled="disabled" style="font-size:20px; font-family:Microsoft JhengHei; "></br>
 <div id="msg4" style="font-size:20px ;font-family:Microsoft JhengHei; "></div>
 <span class="lable" ><label>尾款：</label></span> 
 <input type="text" id="photoname4" disabled="disabled" style="font-size:20px; width:400; background-color: transparent; border:none; text-align: center; font-family:Microsoft JhengHei;font-weight:bold;">
@@ -113,7 +115,7 @@
 <button onclick="photo4()" id="photo4" type="button" style="font-size:20px" disabled="disabled"  >顯示圖片</button> 
 <br><br>
 <br><br>
-<input type="file" value="upload" id="uploadBtn5" disabled="disabled" style="font-size:20px; font-family:Microsoft JhengHei; "></br>
+<input type="file" accept=".jpg"  value="upload" id="uploadBtn5" disabled="disabled" style="font-size:20px; font-family:Microsoft JhengHei; "></br>
 <div id="msg5" style="font-size:20px ;font-family:Microsoft JhengHei; "></div>
 <span class="lable" ><label>團費攜出表：</label></span> 
 <input type="text" id="photoname5" disabled="disabled" style="font-size:20px; width:400; background-color: transparent; border:none; text-align: center; font-family:Microsoft JhengHei;font-weight:bold;">
@@ -2634,6 +2636,8 @@
 
               <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
 
+              <button class="pswp__button pswp__button--deleted" title="刪除圖片" onclick="photo_deleted_choose()" ></button>
+
               <!-- Preloader demo https://codepen.io/dimsemenov/pen/yyBWoR -->
               <!-- element will get class pswp__preloader--active when preloader is running -->
               <div class="pswp__preloader">
@@ -3003,7 +3007,7 @@ function show(data){
 </script>
 
 <script>
-//寫到這 photo5尚未寫
+
 let name;
 let oldfile1 ; 
 let oldfile2 ; 
@@ -3069,6 +3073,7 @@ task.on(
         photonum=(Object.keys(photourl1)).length;
         photourl1[photonum] =  url;
         photo1();
+        photo_send();
       }
       /*
       document.getElementById("photo1").src=url;
@@ -3123,6 +3128,7 @@ function complete() {
       photonum=(Object.keys(photourl2)).length;
       photourl2[photonum] =  url;
       photo2();
+      photo_send();
     }
     /*
     document.getElementById("photo2").src=url;
@@ -3176,6 +3182,7 @@ function complete() {
       photonum=(Object.keys(photourl3)).length;
       photourl3[photonum] =  url;
       photo3();
+      photo_send();
     }
     /*
     document.getElementById("photo3").src=url;
@@ -3229,6 +3236,7 @@ function complete() {
       photonum=(Object.keys(photourl4)).length;
       photourl4[photonum] =  url;
       photo4();
+      photo_send();
     }
     /*
     document.getElementById("photo3").src=url;
@@ -3282,6 +3290,7 @@ function complete() {
       photonum=(Object.keys(photourl5)).length;
       photourl5[photonum] =  url;
       photo5();
+      photo_send();
     }
     /*
     document.getElementById("photo3").src=url;
@@ -3297,72 +3306,84 @@ function complete() {
 </script>
 
 <script>
+
+  let photo_choose = 0;
+
 //--------------相簿1---------------------
-  function photo1() {
-    console.log(photourl1);
-    let photonum = (Object.keys(photourl1)).length;
-    
-    var pswpElement = document.querySelectorAll('.pswp')[0];   
+  function photo1(){
 
-    var items = [
-    {
-      src: photourl1[0],
-      w:0,
-      h:0 
-    }
-    ];
-    
-    // define options (if needed)
-    var options = {
-             // history & focus options are disabled on CodePen        
-        history: false,
-        focus: false,
+      photo_choose = 1;
+      console.log(photourl1);
+      let photonum = (Object.keys(photourl1)).length;
+      
+      let pswpElement = document.querySelectorAll('.pswp')[0];   
 
-        showAnimationDuration: 0,
-        hideAnimationDuration: 0
-        
-    };
-    
-    var gallery = new PhotoSwipe( pswpElement, PhotoSwipeUI_Default, items, options);
-
-    gallery.listen('imageLoadComplete', function (index, item) {
-      if (item.h < 1 || item.w < 1) {
-        let img = new Image()
-        img.onload = () => {
-          item.w = img.width
-          item.h = img.height
-          gallery.invalidateCurrItems()
-          gallery.updateSize(true)
-        }
-        img.src = item.src
+      let items = [
+      {
+        src: photourl1[0],
+        w:0,
+        h:0 
       }
-    })
-    gallery.init()
+      ];
+      
+      // define options (if needed)
+      let options = {
+              // history & focus options are disabled on CodePen        
+          history: false,
+          focus: false,
 
-    for(i=1;i<photonum;i++){
-      gallery.items.push({
-      src: photourl1[i], 
-      w:0,
-      h:0      
-    });
+          showAnimationDuration: 0,
+          hideAnimationDuration: 0
+          
+      };
+      
+      let gallery = new PhotoSwipe( pswpElement, PhotoSwipeUI_Default, items, options);
 
-    gallery.listen('gettingData', function (index, item) {
-      if (item.h < 1 || item.w < 1) {
-        let img = new Image()
-        img.onload = () => {
-          item.w = img.width
-          item.h = img.height
-          gallery.invalidateCurrItems()
-          gallery.updateSize(true)
+      gallery.listen('imageLoadComplete', function (index, item) {
+        if (item.h < 1 || item.w < 1) {
+          let img = new Image()
+          img.onload = () => {
+            item.w = img.width
+            item.h = img.height
+            gallery.invalidateCurrItems()
+            gallery.updateSize(true)
+          }
+          img.src = item.src
         }
-        img.src = item.src
-      }
-    })
+      })
+      gallery.init()
+
+      for(i=1;i<photonum;i++){
+        gallery.items.push({
+        src: photourl1[i], 
+        w:0,
+        h:0      
+      });
+
+      gallery.listen('gettingData', function (index, item) {
+        if (item.h < 1 || item.w < 1) {
+          let img = new Image()
+          img.onload = () => {
+            item.w = img.width
+            item.h = img.height
+            gallery.invalidateCurrItems()
+            gallery.updateSize(true)
+          }
+          img.src = item.src
+        }
+      })
+      }      
+
+      
     }
-  };
+
+
+  
 
 //--------------相簿2---------------------
   function photo2() {
+
+    photo_choose = 2;
     console.log(photourl2);
     let photonum = (Object.keys(photourl2)).length;
 
@@ -3426,6 +3447,8 @@ function complete() {
   };
 //--------------相簿3---------------------
   function photo3() {
+
+    photo_choose = 3;
     console.log(photourl3);
     let photonum = (Object.keys(photourl3)).length;
 
@@ -3489,6 +3512,8 @@ function complete() {
   };
 //--------------相簿4---------------------
 function photo4() {
+
+  photo_choose = 4;
   console.log(photourl4);
   let photonum = (Object.keys(photourl4)).length;
 
@@ -3554,6 +3579,8 @@ function photo4() {
 
 //--------------相簿5---------------------
 function photo5() {
+
+  photo_choose = 5;
   console.log(photourl5);
   let photonum = (Object.keys(photourl5)).length;
 
@@ -3617,6 +3644,111 @@ function photo5() {
 
 };
 
+//----------刪除相簿-------------
+async function photo_deleted_choose(){
+  console.log(photo_choose)
+  let deleted_photo_check = prompt('請輸入要刪除的相片號碼');
+
+  if (photo_choose == 1){
+    if((Object.keys(photourl1)).length < deleted_photo_check || photourl1[0] == '' || deleted_photo_check <= 0){
+      alert('該相片不存在');
+      return 0;
+    }
+    console.log(photourl1[parseInt(deleted_photo_check)-1])
+    photourl1 = await photo_deleted(photourl1,parseInt(deleted_photo_check)-1);
+    photo_send();
+  }else if(photo_choose == 2){
+    if((Object.keys(photourl2)).length < deleted_photo_check || photourl2[0] == '' || deleted_photo_check <= 0){
+    alert('該相片不存在');
+    return 0;
+    }
+    console.log(photourl2[parseInt(deleted_photo_check)-1])
+    photourl2 = await photo_deleted(photourl2,parseInt(deleted_photo_check)-1);
+    photo_send();
+  }else if(photo_choose == 3){
+    if((Object.keys(photourl3)).length < deleted_photo_check || photourl3[0] == '' || deleted_photo_check <= 0){
+    alert('該相片不存在');
+    return 0;
+    }
+    console.log(photourl3[parseInt(deleted_photo_check)-1])
+    photourl3 = await photo_deleted(photourl3,parseInt(deleted_photo_check)-1);
+    photo_send();
+  }else if(photo_choose == 4){
+    if((Object.keys(photourl4)).length < deleted_photo_check || photourl4[0] == '' || deleted_photo_check <= 0){
+    alert('該相片不存在');
+    return 0;
+    }
+    console.log(photourl4[parseInt(deleted_photo_check)-1])
+    photourl4 = await photo_deleted(photourl4,parseInt(deleted_photo_check)-1);
+    photo_send();
+  }else if(photo_choose == 5){
+    if((Object.keys(photourl5)).length < deleted_photo_check || photourl5[0] == '' || deleted_photo_check <= 0){
+    alert('該相片不存在');
+    return 0;
+    }
+    console.log(photourl5[parseInt(deleted_photo_check)-1])
+    photourl5 = await photo_deleted(photourl5,parseInt(deleted_photo_check)-1);
+    photo_send();
+  }
+
+}
+
+async function photo_deleted(photourl,deleted_photo_check){
+  let temp = 0;
+  let delete_num = 0;
+
+  let deleted_photo_name = photourl[deleted_photo_check].replace('https://firebasestorage.googleapis.com/v0/b/tafengtravel-7cf35.appspot.com/o/','');
+  deleted_photo_name=deleted_photo_name.substring(0,deleted_photo_name.search('.jpg')+4);
+  deleted_photo_name=decodeURIComponent(deleted_photo_name);
+
+  const storageRef = firebase.storage().ref(deleted_photo_name);
+  // Delete the file
+  await storageRef.delete().then(function() {
+    photourl[deleted_photo_check] = '';
+
+    for(j=0;j<(Object.keys(photourl)).length-1;j++){
+      for(i=0;i<(Object.keys(photourl)).length-1;i++){
+          if(photourl[i] == ''){
+          temp = photourl[i];
+          photourl[i] = photourl[i+1];
+          photourl[i+1] = temp;          
+        }
+      }
+    }
+    for(i=0;i<(Object.keys(photourl)).length;i++){
+      if(photourl[i] == ''){
+        delete_num = delete_num+1;   
+      }
+    }
+    for(i=0;i<delete_num;i++){
+      delete photourl[(Object.keys(photourl)).length-1];
+    }
+    alert('刪除成功');
+
+  }).catch(function(error) {
+    alert('刪除失敗，請聯絡管理員');  
+  });
+  return photourl; 
+
+}
+
+function photo_send(){
+  let db = firebase.firestore();
+  let depdate = document.getElementById("depdate").value;
+  let number = document.getElementById("number").value;
+  let ref = db.collection(depdate.substring(0,4)+'-'+depdate.substring(5,7)+'G').doc(number);
+  let obj = {
+    圖片網址1: photourl1 || {0:''},
+    圖片網址2: photourl2 || {0:''},
+    圖片網址3: photourl3 || {0:''},
+    圖片網址4: photourl4 || {0:''},
+    圖片網址5: photourl5 || {0:''},
+  }
+  console.log(photourl1)
+  ref.update(obj).then(() => {
+    console.log('update data successful');
+  });
+}
 
 
 
@@ -3791,7 +3923,7 @@ var other = document.getElementById("other").value;
 let cancel = document.getElementById("cancel").value;
 let canceldate = document.getElementById("canceldate").value;
 
-//-------收入-------// 寫到這裡
+//-------收入-------// 
 var moneydate = [];
 var moneyname = [];
 var money = [];
