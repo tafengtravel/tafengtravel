@@ -34,7 +34,7 @@
       
     }
     table  {
-        font-size: 30px;
+        font-size: 25px;
         border: none ;
         text-align:center;
         font-family:Microsoft JhengHei;
@@ -42,11 +42,6 @@
     }
     #myTable{
         font-size: 20px;
-    }
-    html,body{
-      font-family:Verdana,sans-serif;
-      font-size:15px;
-      line-height:1.2
     }
     @media(max-width:768px) {
     
