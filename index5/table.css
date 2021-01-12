@@ -1,0 +1,73 @@
+.table1 {
+    font-size: 30px;
+}
+.lable {
+    font-size: 20px;
+    font-family:Microsoft JhengHei;
+    
+}
+.lable2 {
+    font-size: 18px;
+    font-family:Microsoft JhengHei;
+    font-weight:bold;
+}
+
+table  {
+    border: none ;
+    text-align:center;
+    font-family:Microsoft JhengHei;
+    font-weight:bold;
+ 
+  
+}
+
+
+.lable1 {
+    font-size: 30px;
+    font-weight:bold;
+    font-family:Microsoft JhengHei;
+
+}
+
+.title
+{
+    font-size: 30px;
+    text-align: center;
+    font-family:Microsoft JhengHei;
+    font-weight:bold;
+    width:"100%";    
+
+} 
+
+@media(max-width:768px) {
+.title{
+    font-size: 20px;
+    text-align: center;
+    font-family:Microsoft JhengHei;
+    font-weight:bold;
+    width:"100%";    
+    }   
+.lable2 {
+    font-size: 12px;
+    font-family:Microsoft JhengHei;
+    font-weight:bold;
+    }
+}
+@media (min-width: 768px) and (max-width: 1199.98px) { 
+.lable2 {
+    font-size: 16px;
+    font-family:Microsoft JhengHei;
+    font-weight:bold;
+    }
+
+}
+
+  
+a{
+  color:black; 
+  text-decoration:none;
+} 
+.status{
+  float:right;
+  
+}
