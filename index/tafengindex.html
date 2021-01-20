@@ -21,6 +21,8 @@
 <script src="js/functions.js"></script>
 <script src="js/controller.js"></script>
 <script src="js/swiper.jquery.min.js"></script>
+
+<script src="js/jquery.smartmenus.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
 
 
@@ -84,15 +86,17 @@ document.querySelectorAll("[href^='https://line.me']").forEach(function(item){
 </script>
 
 <style>
-@media (min-width: 768px) {
+@media (min-width: 768px){
     .sm-mint a, .sm-mint a:hover, .sm-mint a:focus, .sm-mint a:active, .sm-mint a.highlighted {
     padding: 19px 20px;
-  } 
+    padding-right:34px;
+    border-radius: 4px 4px 0 0;
+    }
 }
 @media (max-width: 768px) {
     .table-sm td, .table-sm th{
     padding: 1px;
-  } 
+    } 
 }
 
 </style>
@@ -150,18 +154,25 @@ document.querySelectorAll("[href^='https://line.me']").forEach(function(item){
 
 <!-- Sample menu definition -->
 <ul id="main-menu" class="sm sm-mint">
-  <li><a href="https://tafengtravel.github.io/tafengtravel/index/tafengindex.html">回首頁</a></li>
-  <li><a href="https://tafengtravel.github.io/tafengtravel/index/domestic/tafeng_domestic.html">國內本島</a>
-  <li><a href="https://tafengtravel.github.io/tafengtravel/index/domestic_island/tafeng_domestic_island.html">國內離島</a></li>
-  <li><a href="https://tafengtravel.github.io/tafengtravel/index/foreign/tafeng_foreign.html">國外團體</a>
-  <li><a href="https://tafengtravel.github.io/tafengtravel/index/foreign_self/tafeng_foreign_self.html">國外自由行</a></li>
-  <li><a href="https://tafengtravel.github.io/tafengtravel/index/cruise/tafeng_cruise.html">世界郵輪</a></li>   
-  <li><a href="https://tafengtravel.github.io/tafengtravel/index/domestic/tafeng_domestic.html">來台專區</a></li>
-  <li><a href="https://tafengtravel.github.io/tafengtravel/index/bus/tafeng_bus.html">遊覽車出租</a></li>
-  <li><a href="https://tafengtravel.github.io/tafengtravel/index/contract/contract.html">線上合約</a></li>
+    <li><a href="https://tafengtravel.github.io/tafengtravel/index/tafengindex.html">首頁</a></li>    
+    <li><a href="#">國內旅遊</a>
+        <ul>
+            <li><a href="https://tafengtravel.github.io/tafengtravel/index/domestic/tafeng_domestic.html">本島</a></li>
+            <li><a href="https://tafengtravel.github.io/tafengtravel/index/domestic_island/tafeng_domestic_island.html">離島</a></li>
+        </ul>
+    </li>
+    <li><a href="#">國外旅遊</a>
+        <ul>
+            <li><a href="https://tafengtravel.github.io/tafengtravel/index/foreign/tafeng_foreign.html">團體</a></li>
+            <li><a href="https://tafengtravel.github.io/tafengtravel/index/foreign_self/tafeng_foreign_self.html">自由行</a></li>
+        </ul>
+    </li>
+    <li><a href="https://tafengtravel.github.io/tafengtravel/index/cruise/tafeng_cruise.html">世界郵輪</a></li>   
+    <li><a href="https://tafengtravel.github.io/tafengtravel/index/domestic/tafeng_domestic.html">來台專區</a></li>
+    <li><a href="https://tafengtravel.github.io/tafengtravel/index/bus/tafeng_bus.html">遊覽車出租</a></li>
+    <li><a href="https://tafengtravel.github.io/tafengtravel/index/contract/contract.html">線上合約</a></li>
 </ul>
 </nav>
-
     
 <div id="pnl_wrapper" class="wrapper homepage green-page">
  
