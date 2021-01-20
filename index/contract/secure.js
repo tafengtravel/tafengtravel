@@ -12,13 +12,13 @@ var mail;
 firebase.auth().onAuthStateChanged(function(user) {
   if (user) {
     console.log("成功");
-    document.getElementById("mail").value = "登入狀態：已登入";
+   // document.getElementById("mail").value = "登入狀態：已登入";
 
     info(user.email);
 
   } else {
     console.log("x");
-    document.getElementById("mail").value = "登入狀態：未登入";
+    //document.getElementById("mail").value = "登入狀態：未登入";
   }
 });
 
