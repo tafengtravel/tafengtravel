@@ -2589,7 +2589,12 @@
 <span class="lable" ><label>利潤：</label></span>  <input type="text" id="profit"  disabled="disabled" style="font-size:30px">
 <br><br>
 <span class="lable" ><label>總收入：</label></span>  <input type="text" id="moneytotal"  disabled="disabled" style="font-size:30px">
-<span class="lable" ><label>5%稅金：</label></span>  <input type="text" id="tax"  disabled="disabled" style="font-size:30px ;width:370">
+<span class="lable" ><label>5%稅金：</label></span>  <input type="text" id="tax"  disabled="disabled" style="font-size:30px ;width:395">
+<select id="lock" style="font-size:25px">
+  <option value="False">False</option>
+  <option value="True">True</option>
+</select>
+
 &emsp;<button onclick="count()" type="button" style="font-size:30px"  >試算</button> 
 &ensp;&ensp;<button onclick="send()" id=send disabled="disabled" type="button" style="font-size:30px"  >送出</button>
 </div>
@@ -2793,6 +2798,9 @@ function show(data){
   document.getElementById('photo4').disabled=false;
   document.getElementById('photo5').disabled=false;
 
+  //--------------鎖定-----------------
+  document.getElementById("lock").value=data.鎖定;
+
   photourl1 = data.圖片網址1;
   photourl2 = data.圖片網址2;
   photourl3 = data.圖片網址3;
@@ -2890,6 +2898,7 @@ function show(data){
     document.getElementById('moneyprove'+i).disabled=false;
     document.getElementById('moneyother'+i).disabled=false;
     document.getElementById('paynumber'+i).disabled=false;
+    document.getElementById('opmoneycheck'+i).disabled=false;
     }    
   }  
 
@@ -3001,6 +3010,119 @@ function show(data){
   document.getElementById('indays2').value=data.旅平險天數;
   document.getElementById('inpeople2').value=data.旅平險人數;
   document.getElementById('intotal2').value=data.旅平險總共;
+
+  //---------------鎖定--------------------------
+
+  if(document.getElementById("lock").value == 'True'){
+
+    document.getElementById('incollectpay').disabled=true;
+    document.getElementById('outcollectpay').disabled=true;
+    document.getElementById('other').disabled=true;
+    document.getElementById('lock').disabled=true;
+    document.getElementById('cancel').disabled=true;
+    document.getElementById('canceldate').disabled=true;
+    document.getElementById('send').disabled=true;   
+    document.getElementById('price1').disabled=true;   
+    
+
+    for(i=1;i<6;i++){
+      //-------圖片---------
+      document.getElementById('uploadBtn1').disabled=true;
+      document.getElementById('uploadBtn2').disabled=true;
+      document.getElementById('uploadBtn3').disabled=true;
+      document.getElementById('uploadBtn4').disabled=true;
+      document.getElementById('uploadBtn5').disabled=true;
+      
+    }
+
+    for(i=1;i<9;i++){
+      //-----------收入---------
+      document.getElementById('moneydate'+i).disabled=true;
+      document.getElementById('moneyname'+i).disabled=true;
+      document.getElementById('money'+i).disabled=true;
+      document.getElementById('moneytype'+i).disabled=true;
+      document.getElementById('card'+i).disabled=true;
+      document.getElementById('rmoneydate'+i).disabled=true;
+      document.getElementById('moneyprove'+i).disabled=true;
+      document.getElementById('moneyother'+i).disabled=true;
+      document.getElementById('opmoneycheck'+i).disabled=true;
+      document.getElementById('moneycheck'+i).disabled=true;
+      document.getElementById('paynumber'+i).disabled=true;
+    }
+
+    for(i=1;i<21;i++){
+      //-----------支出---------
+      document.getElementById('paydate'+i).disabled=true;
+      document.getElementById('paycompany'+i).disabled=true;
+      document.getElementById('payname'+i).disabled=true;
+      document.getElementById('paydetail'+i).disabled=true;
+      document.getElementById('pay'+i).disabled=true;
+      document.getElementById('paynumber'+i).disabled=true;
+      document.getElementById('paymoneydate'+i).disabled=true;
+      document.getElementById('paytype'+i).disabled=true;
+      document.getElementById('payprove'+i).disabled=true;
+
+      document.getElementById('downpaydatedl'+i).disabled=true;
+      document.getElementById('opdownpay'+i).disabled=true;
+      document.getElementById('opdownpaydate'+i).disabled=true;
+      document.getElementById('opdownpaytype'+i).disabled=true;
+      document.getElementById('downpayprove'+i).disabled=true;
+      document.getElementById('op'+i).disabled=true;
+
+      document.getElementById('lastpaydatedl'+i).disabled=true;
+      document.getElementById('oplastpay'+i).disabled=true;
+      document.getElementById('oplastpaydate'+i).disabled=true;
+      document.getElementById('oplastpaytype'+i).disabled=true;
+      document.getElementById('lastpayprove'+i).disabled=true;
+
+      document.getElementById('paycheck'+i).disabled=true;
+      document.getElementById('opcheck'+i).disabled=true;
+      document.getElementById('opdowncheck'+i).disabled=true;
+      document.getElementById('downcheck'+i).disabled=true;
+      document.getElementById('oplastcheck'+i).disabled=true;
+      document.getElementById('lastcheck'+i).disabled=true;
+    }
+
+    for(i=1;i<6;i++){
+      //---------退款----------
+      document.getElementById("refund" + i).disabled=true;
+      document.getElementById("refund_date" + i).disabled=true;
+      document.getElementById("refund_name" + i).disabled=true;
+      document.getElementById("refundtype" + i).disabled=true;
+      document.getElementById("refund_money_date" + i).disabled=true;
+      document.getElementById("refund_prove" + i).disabled=true;
+      document.getElementById("refund_other" + i).disabled=true;
+      document.getElementById("op_refund_check" + i).disabled=true;
+      document.getElementById("money_refund_check" + i).disabled=true;
+    }
+
+    for(i=1;i<3;i++){
+      //-----------保險-----------
+      document.getElementById('insurance' + i).disabled=true;
+      document.getElementById('inmoney' + i).disabled=true;
+      document.getElementById('indays' + i).disabled=true;
+      document.getElementById('inpeople' + i).disabled=true;
+      document.getElementById('intotal' + i).disabled=true;
+    }
+
+    }else{
+
+    document.getElementById('outcollectpay').disabled=false;
+    document.getElementById('other').disabled=false;
+    document.getElementById('incollectpay').disabled=false;
+    document.getElementById('cancel').disabled=false;
+    document.getElementById('canceldate').disabled=false;    
+    document.getElementById('price1').disabled=false; 
+
+    for(i=1;i<3;i++){
+      //-----------保險-----------
+      document.getElementById('insurance' + i).disabled=false;
+      document.getElementById('inmoney' + i).disabled=false;
+      document.getElementById('indays' + i).disabled=false;
+      document.getElementById('inpeople' + i).disabled=false;
+      document.getElementById('intotal' + i).disabled=false;
+    }
+}
 
 
 
@@ -4098,8 +4220,8 @@ var obj = {
         圖片網址4: photourl4 || {0:''},
         圖片網址5: photourl5 || {0:''},
 
-        修改紀錄 :record
-
+        修改紀錄 :record,
+        鎖定: lock,
      
 
       }
