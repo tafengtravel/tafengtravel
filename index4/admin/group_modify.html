@@ -2637,7 +2637,12 @@
 <span class="lable" ><label>利潤：</label></span>  <input type="text" id="profit"  disabled="disabled" style="font-size:30px">
 <br><br>
 <span class="lable" ><label>總收入：</label></span>  <input type="text" id="moneytotal"  disabled="disabled" style="font-size:30px">
-<span class="lable" ><label>5%稅金：</label></span>  <input type="text" id="tax"  disabled="disabled" style="font-size:30px ;width:370">
+<span class="lable" ><label>5%稅金：</label></span>  <input type="text" id="tax"  disabled="disabled" style="font-size:30px ;width:395">
+<select id="lock" style="font-size:25px">
+  <option value="False">False</option>
+  <option value="True">True</option>
+</select>
+
 &emsp;<button onclick="count()" type="button" style="font-size:30px"  >試算</button> 
 &ensp;&ensp;<button onclick="send()" id=send disabled="disabled" type="button" style="font-size:30px"  >送出</button>
 </div>
@@ -2823,6 +2828,9 @@ function show(data){
   document.getElementById('photo3').disabled=false;
   document.getElementById('photo4').disabled=false;
   document.getElementById('photo5').disabled=false;
+
+  //--------------鎖定-----------------
+  document.getElementById("lock").value=data.鎖定;
 
   photourl1 = data.圖片網址1;
   photourl2 = data.圖片網址2;
@@ -4073,8 +4081,8 @@ var obj = {
         圖片網址4: photourl4 || {0:''},
         圖片網址5: photourl5 || {0:''},
 
-        修改紀錄 :record
-
+        修改紀錄 :record,
+        鎖定: lock,
      
 
       }
