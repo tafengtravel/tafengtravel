@@ -2571,7 +2571,12 @@
 <span class="lable" ><label>利潤：</label></span>  <input type="text" id="profit"  disabled="disabled" style="font-size:30px">
 <br><br>
 <span class="lable" ><label>總收入：</label></span>  <input type="text" id="moneytotal"  disabled="disabled" style="font-size:30px">
-<span class="lable" ><label>5%稅金：</label></span>  <input type="text" id="tax"  disabled="disabled" style="font-size:30px ;width:370">
+<span class="lable" ><label>5%稅金：</label></span>  <input type="text" id="tax"  disabled="disabled" style="font-size:30px ;width:395">
+<span class="lable" ><label>鎖定：</label></span> 
+<select id="lock" style="font-size:25px">
+  <option value="False">False</option>
+</select>
+
 &emsp;<button onclick="count()" type="button" style="font-size:30px"  >試算</button> 
 &ensp;&ensp;<button onclick="send()" type="button" style="font-size:30px"  >送出</button>
 </div>
@@ -3139,6 +3144,8 @@ var other = document.getElementById("other").value;
 let cancel = document.getElementById("cancel").value;
 let canceldate = document.getElementById("canceldate").value;
 
+let lock = document.getElementById("lock").value;
+
 //-------收入-------// 寫到這裡
 var moneydate = [];
 var moneyname = [];
@@ -3327,7 +3334,7 @@ var obj = {
           0:photourl5 || '',
         },
 
-     
+        鎖定: lock,
 
       }
 
