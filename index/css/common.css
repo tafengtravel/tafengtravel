@@ -4464,7 +4464,7 @@ footer .container .col-xs-6.col-md-4.last { margin: 0;}
 .swiper-container.travel{ padding-bottom: 80px!important;}
 .travel .item { width: 100%; height: auto; margin:0; padding:0; overflow: hidden; position: relative;  /*display: flex;  justify-content: center; align-items: center; */ border-radius:10px; background-color: #000; }
 .travel .item img { opacity:1;   width: 100%; height: auto;  border-radius:10px; position: relative;  -webkit-transition: all 0.35s ease;  transition: all 0.35s ease;}
-.travel .item .ad-img-box {  position: absolute; top:5%; left:5%;/* display: flex; justify-content: center; align-items: center; flex-direction: column; */ width: 90%; height: 90%;text-align: center; border: solid 1px #fff; border-radius:10px;   background-color: rgba(255,255,255,0); transition: all 0.35s ease;}
+.travel .item .ad-img-box {  position: absolute;/* display: flex; justify-content: center; align-items: center; flex-direction: column; */ width: 90%; height: 90%;text-align: center; border: solid 1px #fff; border-radius:10px;   background-color: rgba(255,255,255,0); transition: all 0.35s ease;}
 .travel .item:hover img { opacity:1; transform: scale(1.15);  }
 .travel .item:hover .ad-img-box {  transform: scale(0.96); background-color: rgba(255,255,255,0);}
 .travel .item .ad-img-box h4{ margin-top: 35%; font-size: 30px; line-height:24px; font-weight: 700;  text-transform: uppercase; color: #fff; text-shadow: 0 1px 4px #34425F;}
