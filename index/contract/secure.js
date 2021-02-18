@@ -14,7 +14,7 @@ firebase.auth().onAuthStateChanged(function(user) {
     console.log("成功");
    // document.getElementById("mail").value = "登入狀態：已登入";
 
-    info(user.email);
+   // info(user.email);
 
   } else {
     console.log("x");
