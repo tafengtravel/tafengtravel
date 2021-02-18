@@ -1,106 +1,246 @@
+
+
 <!DOCTYPE html>
-<html>
 <head>
-  <meta charset="UTF-8">
-  <!-- import CSS -->
-  <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+  
+<link rel='stylesheet' href='css/smart.css' type='text/css'>
+<link href="https://tafengtravel.github.io/tafengtravel/index/index.css" rel="stylesheet" >
+
+<link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+
+
+<link href='https://tafengtravel.github.io/tafengtravel/index/sm-css/sm-core-css.css' rel='stylesheet' type='text/css' />
+<!-- "sm-blue" menu theme (optional, you can use your own CSS, too) -->
+<link href='https://tafengtravel.github.io/tafengtravel/index/sm-css/sm-mint/sm-mint.css' rel='stylesheet' type='text/css' />
+<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.css">
+
+<script src="https://tafengtravel.github.io/tafengtravel/index/js/jquery.min.js.js"></script>     
+<script src="https://tafengtravel.github.io/tafengtravel/index/js/slick.js"></script>
+<script src="https://tafengtravel.github.io/tafengtravel/index/js/aos.js"></script>
+<script src="https://tafengtravel.github.io/tafengtravel/index/js/smart-app-banner.js"></script>    
+<script src="https://tafengtravel.github.io/tafengtravel/index/js/mobile-detect.js"></script>
+
+<script src="https://tafengtravel.github.io/tafengtravel/index/js/functions.js"></script>
+<script src="https://tafengtravel.github.io/tafengtravel/index/js/controller.js"></script>
+<script src="https://tafengtravel.github.io/tafengtravel/index/js/swiper.jquery.min.js"></script>
+
+<script src="https://tafengtravel.github.io/tafengtravel/index/js/jquery.smartmenus.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+
+
+<link href="css/common.css" rel="stylesheet" />
+<link href="css/swiper.min.css" rel="stylesheet" />  
+<!--自家檔案-->
+
+<link rel="icon" href="https://tafengtravel.github.io/tafengtravel/index1/tafenglogo6.ico" type="image/x-icon" />
+<link rel="shortcut icon" href="https://tafengtravel.github.io/tafengtravel/index1/tafenglogo6.ico" type="image/x-icon" />
+
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-143702269-1"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+
+gtag('config', 'UA-143702269-1', {
+'linker': {
+    'domains': ['tafengtravel.github.io', 'tafeng66.com.tw']
+}
+});
+</script>
+
+<!-- Facebook Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '708390289347362');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=708390289347362&ev=PageView&noscript=1"
+/></noscript>
+<!-- End Facebook Pixel Code -->
+
+<!-- Facebook Event -->
+
+
+<!-- GA Event -->
+<script>
+window.addEventListener('load', function(event) {
+document.querySelectorAll("[href^='http://line.me']").forEach(function(item){
+    item.addEventListener('click', function(event){
+        gtag("event", "點擊", {event_category: "line客戶轉換"});
+    })
+})
+document.querySelectorAll("[href^='https://line.me']").forEach(function(item){
+    item.addEventListener('click', function(event){
+        gtag("event", "點擊", {event_category: "line客戶轉換"});
+    })
+})
+})  
+</script>
+
+<style>
+@media (min-width: 768px){
+    .sm-mint a, .sm-mint a:hover, .sm-mint a:focus, .sm-mint a:active, .sm-mint a.highlighted {
+    padding: 19px 20px;
+    border-radius: 4px 4px 0 0;
+    }
+    .sm-mint a.has-submenu {
+    padding-right: 34px;
+    }
+
+}
+@media (max-width: 768px) {
+    .table-sm td, .table-sm th{
+    padding: 1px;
+    } 
+}
+
+</style>
+
+   
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>大豐旅行社｜國內外旅遊專家</title>   	
+
+<meta name="description" content="大豐旅行社,國內旅遊,國外自由行,世界郵輪,遊覽車出租,來台旅遊">
+<meta name="keywords" content="大豐旅行社,國內旅遊,國外自由行" /> 
+<meta http-equiv="expires" content="0">
+<meta http-equiv="cache-control" content="no-cache">  
+<meta http-equiv="pragma" content="no-cache">
+<meta name="format-detection" content="telephone=no">
+
+<title>
+
+</title>
+
+
 </head>
-<body>
+<body id="page_body" class="green-page">
+<nav class="main-nav" role="navigation">
 
-    <div id="app" class ="el-col el-col-24 el-col-xs-24 el-col-xs-offset-0 el-col-sm-24 el-col-sm-offset-0 el-col-lg-20 el-col-lg-offset-2"> 
-        
-            <template>
+<!-- Mobile menu toggle button (hamburger/x icon) -->
+<input id="main-menu-state" type="checkbox" />
+<label class="main-menu-btn" for="main-menu-state">
+  <span class="main-menu-btn-icon"></span> 
+</label>
+
+<h2 class="nav-brand"><img src="https://tafengtravel.github.io/tafengtravel/index3/tafenglogo2.png"  width="180" height="56"  ></h2>
+
+<!-- Sample menu definition -->
+<ul id="main-menu" class="sm sm-mint">
+    <li><a href="https://tafengtravel.github.io/tafengtravel/index/tafengindex.html">首頁</a></li>    
+    <li><a href="#">國內旅遊</a>
+        <ul>
+            <li><a href="https://tafengtravel.github.io/tafengtravel/index/domestic/tafeng_domestic.html">本島</a></li>
+            <li><a href="https://tafengtravel.github.io/tafengtravel/index/domestic_island/tafeng_domestic_island.html">離島</a></li>
+        </ul>
+    </li>
+    <li><a href="#">國外旅遊</a>
+        <ul>
+            <li><a href="https://tafengtravel.github.io/tafengtravel/index/foreign/tafeng_foreign.html">團體</a></li>
+            <li><a href="https://tafengtravel.github.io/tafengtravel/index/foreign_self/tafeng_foreign_self.html">自由行</a></li>
+        </ul>
+    </li>
+    <li><a href="https://tafengtravel.github.io/tafengtravel/index/cruise/tafeng_cruise.html">世界郵輪</a></li>   
+    <li><a href="https://tafengtravel.github.io/tafengtravel/index/domestic/tafeng_domestic.html">來台專區</a></li>
+    <li><a href="https://tafengtravel.github.io/tafengtravel/index/bus/tafeng_bus.html">遊覽車出租</a></li>
+    <li><a href="https://tafengtravel.github.io/tafengtravel/index/contract/contract.html">線上合約</a></li>
+</ul>
+</nav>
+    
+<div id="pnl_wrapper" class="wrapper homepage green-page">
+ 
+
+
+
+<div id="app" class ="el-col el-col-24 el-col-xs-24 el-col-xs-offset-0 el-col-sm-24 el-col-sm-offset-0 el-col-lg-20 el-col-lg-offset-2"> 
             
-            <el-carousel indicator-position="outside">
-                <el-carousel-item v-for="item in 4" :key="item">
-                <h3><img src="https://tafengtravel.github.io/tafengtravel/index3/tafenglogo2.png"  width="100%"></h3>
-                </el-carousel-item>
-            </el-carousel>
-            </template>
-
+    <div class="home-banner">
+    
+        <a href="https://tafengtravel.github.io/tafengtravel/index/sale/sale_TP.html" target="_blank"><img class="d-none d-md-block" src="image/slogan31_1.webp" alt="#" ><img class="d-block d-md-none" src="image/slogan31.webp" alt="#" ></a>
+        <a href="https://line.me/ti/g2/bKiBcf3515W4US8Y1MMVPg?utm_source=invitation&utm_medium=link_copy&utm_campaign=default" target="_blank"><img class="d-none d-md-block" src="image/slogan32_1.webp" alt="#" ><img class="d-block d-md-none" src="image/slogan32.webp" alt="#" ></a>
+        <a href="http://www.tafeng66.com.tw/webobj/travelteam/showgroup.asp?keyword=&trArea=8K&trDest=6739&startDay=2020/12/22&overDay=2021/05/20&depID=215&trDay=1,40&budget=&product_type=&orderbyc=2&Airline=&strasc=&departure=&page=1" target="_blank"><img class="d-none d-md-block" src="image/slogan25_1.webp" alt="#" ><img class="d-block d-md-none" src="image/slogan25.webp" alt="#" ></a>
+        <a href="https://tafengtravel.github.io/tafengtravel/index/domestic_island/tafeng_domestic_island.html" target="_blank"><img class="d-none d-md-block" src="image/slogan27_1.webp" alt="#" ><img class="d-block d-md-none" src="image/slogan27.webp" alt="#" ></a>
+        <a href="http://www.tafeng66.com.tw/webobj/travelteam/showgroup.asp?keyword=&trArea=8K&trDest=5190&startDay=2021/01/08&overDay=2021/06/06&depID=215&trDay=1,40&budget=&product_type=2&orderbyc=2&Airline=&strasc=&departure=&page=1" target="_blank"><img class="d-none d-md-block" src="image/slogan28_1.webp" alt="#" ><img class="d-block d-md-none" src="image/slogan28.webp" alt="#" ></a>
+        <a href="https://tafengtravel.github.io/tafengtravel/index/cruise/tafeng_cruise.html" target="_blank"><img class="d-none d-md-block" src="image/slogan30_1.webp" alt="#" ><img class="d-block d-md-none" src="image/slogan30.webp" alt="#" ></a>
         
-        <div class="el-col el-col-24 el-col-xs-24 el-col-xs-offset-0 el-col-sm-24 el-col-sm-offset-0 el-col-lg-16 el-col-lg-offset-0" style="padding-left:12px;padding-right:12px;">
-            <el-row>
-                <h1 class ="title">【屏東哈尤溪野溪溫泉】霧台哈尤溪秘境一日遊 絕美七彩岩壁</h1>
-            </el-row>
-            
-        </div>
-
-        <div class ="hidden-md-and-down border-l border-grey-light el-col el-col-24 el-col-xs-24 el-col-xs-offset-0 el-col-sm-24 el-col-sm-offset-0 el-col-lg-8 el-col-lg-offset-0" style="padding-left:12px;padding-right:12px;">
-            <el-row>
-                <h3 class ="sub_title">可預訂日期：星期一 / 星期二 / 星期三 / 星期四 / 星期五</h3>
-                <h3 class ="sub_title">出發時間：07:50 / 08:40</h3>
-                <h3 class ="sub_title">最少起訂數：1 人</h3>
-                <h3 class ="sub_title">導覽語言：中文</h3>
-                <h3 class ="sub_title"></h3>
-            </el-row>
-        </div>
-
     </div>
 
-      <style>
-        .el-row {
-          margin-bottom: 20px;
-          &:last-child {
-            margin-bottom: 0;
-          }
-        }
-        .el-col {
-          border-radius: 4px;
-        }
-        .bg-purple-dark {
-          background: #99a9bf;
-        }
-        .bg-purple {
-          background: #d3dce6;
-        }
-        .bg-purple-light {
-          background: #e5e9f2;
-        }
-        .grid-content {
-          border-radius: 4px;
-          min-height: 36px;
-        }
-        .row-bg {
-          padding: 10px 0;
-          background-color: #f9fafc;
-        }
 
-        .el-carousel__item h3 {
-            color: #475669;
-            font-size: 18px;
-            opacity: 0.75;
-            line-height: 300px;
-            margin: 0;
-        }
+    <div class="el-col el-col-24 el-col-xs-24 el-col-xs-offset-0 el-col-sm-24 el-col-sm-offset-0 el-col-lg-16 el-col-lg-offset-0" style="padding-left:12px;padding-right:12px;">
+        <el-row>
+            <h1 class ="title">【屏東哈尤溪野溪溫泉】霧台哈尤溪秘境一日遊 絕美七彩岩壁</h1>
+        </el-row>
+        
+    </div>
 
-        @media (min-width: 768px){
-            .title{
-                font-family: Microsoft JhengHei;
-                color:#404040;
-            }
-            .sub_title{
-                font-family: Microsoft JhengHei;
-                color:#404040;
-                font-size: 20px;
-            }
+    <div class ="hidden-md-and-down border-l border-grey-light el-col el-col-24 el-col-xs-24 el-col-xs-offset-0 el-col-sm-24 el-col-sm-offset-0 el-col-lg-8 el-col-lg-offset-0" style="padding-left:12px;padding-right:12px;">
+        <el-row>
+            <h3 class ="sub_title">可預訂日期：星期一 / 星期二 / 星期三 / 星期四 / 星期五</h3>
+            <h3 class ="sub_title">出發時間：07:50 / 08:40</h3>
+            <h3 class ="sub_title">最少起訂數：1 人</h3>
+            <h3 class ="sub_title">導覽語言：中文</h3>
+            <h3 class ="sub_title"></h3>
+        </el-row>
+    </div>
+
+</div>
+
+    <style>
+  
+    @media (min-width: 768px){
+        .title{
+            font-family: Microsoft JhengHei;
+            color:#404040;
+            font-size: 35px;
         }
-        @media (max-width: 768px) {
-            .sub_title{
-                font-family: Microsoft JhengHei;
-                color:#404040;
-                font-size: 15px;
-            }
+        .sub_title{
+            font-family: Microsoft JhengHei;
+            color:#404040;
+            font-size: 20px;
         }
+    }
+    @media (max-width: 768px) {
+        .title{
+            font-family: Microsoft JhengHei;
+            color:#404040;
+            font-size: 30px;
+        }
+        .sub_title{
+            font-family: Microsoft JhengHei;
+            color:#404040;
+            font-size: 15px;
+        }
+    }
+
+
+
+    </style>
+
+
+
+
         
-        
-      
-      </style>
+<a class="go-to-top" id="goTop" href="#"><i class="fa fa-caret-up"></i>top</a>
+
+<script src="js/4row.js"></script>   
+    
 </body>
-  <!-- import Vue before Element -->
-  <script src="https://unpkg.com/vue/dist/vue.js"></script>
-  <!-- import JavaScript -->
-  <script src="https://unpkg.com/element-ui/lib/index.js"></script>
-  <script>
+
+<script src="https://unpkg.com/vue/dist/vue.js"></script>
+<!-- import JavaScript -->
+<script src="https://unpkg.com/element-ui/lib/index.js"></script>
+<script>
     new Vue().$mount('#app')
-  </script>
+</script>
+
+</html>
