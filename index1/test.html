@@ -632,18 +632,18 @@ document.querySelectorAll("[href^='https://line.me']").forEach(function(item){
 		}
 	};
 
-    async function choose(type1){
+    function choose(type1){
 
         type = type1
 
         if(type == 1){
             document.getElementById("choice_click_1").style.display = "block";
             document.getElementById("choice_click_2").style.display = "none";
-            await per_price()
+            per_price()
         }else if(type == 2){
             document.getElementById("choice_click_1").style.display = "none";
             document.getElementById("choice_click_2").style.display = "block";
-            await per_price()
+            per_price()
         }
 
     }
@@ -663,7 +663,7 @@ document.querySelectorAll("[href^='https://line.me']").forEach(function(item){
 
     }
 
-    async function per_price(){
+    function per_price(){
 
 
         //type = 1 兩小時//type = 2 三小時
@@ -676,19 +676,19 @@ document.querySelectorAll("[href^='https://line.me']").forEach(function(item){
             number = radio1.__vue__.value
             if(number == 1){    
                 price1 = 1800*quantity1.__vue__.value
-                await price(price1)
+                price(price1)
             }else if(number == 2){
                 price1 = 1600*quantity1.__vue__.value
-                await price(price1)
+                price(price1)
             }
         }else if(type ==2){
             number = radio2.__vue__.value
             if(number == 1){
                 price1 = 2200*quantity2.__vue__.value
-                await price(price1)
+                price(price1)
             }else if(number == 2){
                 price1 = 1900*quantity2.__vue__.value
-                await price(price1)
+                price(price1)
             }
         }
 
