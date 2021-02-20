@@ -259,8 +259,8 @@ document.querySelectorAll("[href^='https://line.me']").forEach(function(item){
                         <el-row>
                             <template>
                                 <div >
-                                    <el-radio id='radio1' v-model="radio1" label="1" border>單人一板</el-radio>
-                                    <el-radio v-model="radio1" label="2" border>雙人一板</el-radio>
+                                    <el-radio id='radio1' v-model="radio1" label="1" border onclick='per_price(1,1)'>單人一板</el-radio>
+                                    <el-radio v-model="radio1" label="2" border onclick='per_price(1,2)'>雙人一板</el-radio>
                                 </div>
                             </template>
                         </el-row>
@@ -285,6 +285,7 @@ document.querySelectorAll("[href^='https://line.me']").forEach(function(item){
                             <template>
                                 <el-input-number id='quantity1' v-model="quantity1" :min="1" :max="10" label="描述文字"></el-input-number>
                             </template>
+                            <font class ="mini_font"><span>費用：<span id = per_price name = per_price></span>/人</span></font> 
                             
                         </el-row>
 
@@ -313,8 +314,8 @@ document.querySelectorAll("[href^='https://line.me']").forEach(function(item){
                         <el-row>
                             <template>
                                 <div >
-                                    <el-radio id='radio2' v-model="radio1" label="1" border>單人一板</el-radio>
-                                    <el-radio v-model="radio1" label="2" border>雙人一板</el-radio>
+                                    <el-radio id='radio2' v-model="radio1" label="1" border onclick='per_price(2,1)'>單人一板</el-radio>
+                                    <el-radio v-model="radio1" label="2" border onclick='per_price(2,2)'>雙人一板</el-radio>
                                 </div>
                             </template>
                         </el-row>
@@ -339,6 +340,7 @@ document.querySelectorAll("[href^='https://line.me']").forEach(function(item){
                             <template>
                                 <el-input-number id='quantity2' v-model="quantity1" :min="1" :max="10" label="描述文字" ></el-input-number>
                             </template>
+                            <font class ="mini_font"><span>費用：<span id = per_price name = per_price></span>/人</span></font> 
                             
                         </el-row>
 
@@ -628,14 +630,16 @@ document.querySelectorAll("[href^='https://line.me']").forEach(function(item){
 
     function choice(type){
 
-        
+        let number = radio2.__vue__.value
 
         if(type == 1){
             document.getElementById("choice_click_1").style.display = "block";
             document.getElementById("choice_click_2").style.display = "none";
+            per_price(1,number)
         }else if(type == 2){
             document.getElementById("choice_click_1").style.display = "none";
             document.getElementById("choice_click_2").style.display = "block";
+            per_price(2,number)
         }
 
     }
@@ -651,6 +655,35 @@ document.querySelectorAll("[href^='https://line.me']").forEach(function(item){
             console.log(radio2.__vue__.value)
             console.log(document.getElementById('choice_time2').value)
             console.log(quantity2.__vue__.value)
+        }
+
+    }
+
+    function per_price(type,number){
+
+        //type = 1 兩小時//type = 2 三小時
+        //number = 1 單人一板//number = 2 雙人一板
+
+        s = document.getElementsByName("per_price");
+
+        if(type == 1){
+            if(number == 1){    
+                price('1800')
+            }else if(number == 2){
+                price('1600')
+            }
+        }else if(type ==2){
+            if(number == 1){
+                price('2200')
+            }else if(number == 2){
+                price('1900')
+            }
+        }
+
+        function price(price){
+            for (i = 0;i < s.length; i++) {
+                s[i].innerHTML = price;
+            }
         }
 
     }
