@@ -177,7 +177,7 @@ document.querySelectorAll("[href^='https://line.me']").forEach(function(item){
     <div class="el-row">
         <div class="el-col el-col-24 el-col-xs-24 el-col-xs-offset-0 el-col-sm-24 el-col-sm-offset-0 el-col-lg-16 el-col-lg-offset-0" style="padding-left:12px;padding-right:12px;">
             <el-row>
-                <font class ="title"></font>
+                <font class ="title" id ="title_1"></font>
             </el-row>
             <el-row>
                 <font class ="sub_title">行程特色</font>
@@ -224,7 +224,7 @@ document.querySelectorAll("[href^='https://line.me']").forEach(function(item){
         <div class="el-col el-col-24 el-col-xs-24 el-col-xs-offset-0 el-col-sm-24 el-col-sm-offset-0 el-col-lg-16 el-col-lg-offset-0" style="padding-left:12px;padding-right:12px;">
             <el-divider></el-divider>
             <el-row>
-                <font class ="sub_title" id ="title_1">方案選擇</font>
+                <font class ="sub_title" id ="choose_link">方案選擇</font>
             </el-row>
 
             <el-row>
@@ -452,7 +452,7 @@ document.querySelectorAll("[href^='https://line.me']").forEach(function(item){
 
                         <font class ="font"><span>最低售價</span></font>
                         <font class ="box_sub_title" style="margin-left: 150px;">$<span name='low_price'></span>起</font><br>
-                        <a href="#title_1"><el-button style="width:100% ;margin-top: 6px;" onclick="choose(1)" >選擇方案</el-button></a><br>
+                        <a href="#choose_link"><el-button style="width:100% ;margin-top: 6px;" onclick="choose(1)" >選擇方案</el-button></a><br>
 
                     </div>
                 </el-card>
@@ -467,7 +467,7 @@ document.querySelectorAll("[href^='https://line.me']").forEach(function(item){
                 <font class ="box_sub_title">$<span name='low_price'></span>起</font>
             </div>
             <div class="el-col el-col-xs-6 el-col-xs-offset-0 el-col-sm-6 el-col-sm-offset-0" >
-                <a href="#title_1"><el-button style="width: 100%;margin: 6px 0px 6px -10px;" onclick="choose(1)">選擇方案</el-button></a>
+                <a href="#choose_link"><el-button style="width: 100%;margin: 6px 0px 6px -10px;" onclick="choose(1)">選擇方案</el-button></a>
             </div>  
 
 
