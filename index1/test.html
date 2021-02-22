@@ -167,8 +167,8 @@ document.querySelectorAll("[href^='https://line.me']").forEach(function(item){
             
     <div class="home-banner">
     
-        <a href="https://tafengtravel.github.io/tafengtravel/index/sale/sale_TP.html" target="_blank"><img class="d-none d-md-block" src="https://tafengtravel.github.io/tafengtravel/index/image/slogan31_1.webp" alt="#" ><img class="d-block d-md-none" src="https://tafengtravel.github.io/tafengtravel/index/image/slogan31_1.webp" alt="#" ></a>
-        <a href="https://line.me/ti/g2/bKiBcf3515W4US8Y1MMVPg?utm_source=invitation&utm_medium=link_copy&utm_campaign=default" target="_blank"><img class="d-none d-md-block" src="https://tafengtravel.github.io/tafengtravel/index/image/slogan32_1.webp" alt="#" ><img class="d-block d-md-none" src="https://tafengtravel.github.io/tafengtravel/index/image/slogan32_1.webp" alt="#" ></a>
+        <a href="#" ><img class="d-none d-md-block" src="image/SupMatsu_1.jpg" alt="#" ><img class="d-block d-md-none" src="image/SupMatsu_1.jpg" alt="#" ></a>
+        <a href="#" ><img class="d-none d-md-block" src="image/SupMatsu_2.jpg" alt="#" ><img class="d-block d-md-none" src="image/SupMatsu_2.jpg" alt="#" ></a>
      
         
     </div>
@@ -177,7 +177,7 @@ document.querySelectorAll("[href^='https://line.me']").forEach(function(item){
     <div class="el-row">
         <div class="el-col el-col-24 el-col-xs-24 el-col-xs-offset-0 el-col-sm-24 el-col-sm-offset-0 el-col-lg-16 el-col-lg-offset-0" style="padding-left:12px;padding-right:12px;">
             <el-row>
-                <font class ="title" id ="title_1"></font>
+                <font class ="title"></font>
             </el-row>
             <el-row>
                 <font class ="sub_title">行程特色</font>
@@ -224,7 +224,7 @@ document.querySelectorAll("[href^='https://line.me']").forEach(function(item){
         <div class="el-col el-col-24 el-col-xs-24 el-col-xs-offset-0 el-col-sm-24 el-col-sm-offset-0 el-col-lg-16 el-col-lg-offset-0" style="padding-left:12px;padding-right:12px;">
             <el-divider></el-divider>
             <el-row>
-                <font class ="sub_title">方案選擇</font>
+                <font class ="sub_title" id ="title_1">方案選擇</font>
             </el-row>
 
             <el-row>
@@ -268,8 +268,8 @@ document.querySelectorAll("[href^='https://line.me']").forEach(function(item){
                         <el-row>
                             <font class ="font"><span>場次：</span></font>
                             <template>
-                                <el-select v-model="value" placeholder="請選擇場次" id='choice_time1' >
-                                <el-option
+                                <el-select v-model="value2" placeholder="請選擇場次" id='choice_time1'>
+                                <el-option onclick='per_price()' onchange="per_price()"
                                     v-for="item in options1"
                                     :key="item.value"
                                     :label="item.label"
@@ -324,8 +324,8 @@ document.querySelectorAll("[href^='https://line.me']").forEach(function(item){
                         <el-row>
                             <font class ="font"><span>場次：</span></font>
                             <template>
-                                <el-select v-model="value" placeholder="請選擇場次" id='choice_time2' >
-                                <el-option
+                                <el-select v-model="value3" placeholder="請選擇場次" id='choice_time2'>
+                                <el-option onclick='per_price()' onchange="per_price()"
                                     v-for="item in options2"
                                     :key="item.value"
                                     :label="item.label"
@@ -451,8 +451,8 @@ document.querySelectorAll("[href^='https://line.me']").forEach(function(item){
                 <el-card class="box-card" id="cart" style="width: 400px;">
 
                         <font class ="font"><span>最低售價</span></font>
-                        <font class ="box_sub_title" style="margin-left: 150px;"><span>$1600起</span></font><br>
-                        <a href="#title_1"><el-button style="width:100% ;margin-top: 6px;" >選擇方案</el-button></a><br>
+                        <font class ="box_sub_title" style="margin-left: 150px;">$<span name='low_price'></span>起</font><br>
+                        <a href="#title_1"><el-button style="width:100% ;margin-top: 6px;" onclick="choose(1)" >選擇方案</el-button></a><br>
 
                     </div>
                 </el-card>
@@ -460,6 +460,21 @@ document.querySelectorAll("[href^='https://line.me']").forEach(function(item){
 
 
         </div>
+
+        <div class='hidden-sm-up'>
+            <div class="el-col el-col-xs-18 el-col-xs-offset-0 el-col-sm-18 el-col-sm-offset-0" style="padding-left:8px;padding-right:8px;">
+                <font class ="font"><span>最低售價</span></font><br>
+                <font class ="box_sub_title">$<span name='low_price'></span>起</font>
+            </div>
+            <div class="el-col el-col-xs-6 el-col-xs-offset-0 el-col-sm-6 el-col-sm-offset-0" >
+                <a href="#title_1"><el-button style="width: 100%;margin: 6px 0px 6px -10px;" onclick="choose(1)">選擇方案</el-button></a>
+            </div>  
+
+
+
+        </div>
+
+
 
     </div>
 
@@ -499,7 +514,15 @@ document.querySelectorAll("[href^='https://line.me']").forEach(function(item){
         color:#F60;
         font-size: 28px;
         font-weight:bold;
-    }        
+    }.hidden-sm-up{
+        display:none;
+        height: 56px;
+        z-index: 998;
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+    }
 }
 @media (max-width: 768px) {
     .title{
@@ -536,6 +559,15 @@ document.querySelectorAll("[href^='https://line.me']").forEach(function(item){
         font-weight:bold;
     }
 }
+.hidden-sm-up{
+    background-color: #fff;
+    height: 56px;
+    z-index: 998;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
 .el-row {
     margin-bottom: 20px;
 }
@@ -570,8 +602,15 @@ document.querySelectorAll("[href^='https://line.me']").forEach(function(item){
     document.getElementById("sub_title_1").innerHTML='星期一 ~ 星期日';
     document.getElementById("sub_title_2").innerHTML='07:50 / 08:40';
     document.getElementById("sub_title_3").innerHTML='1';
-    document.getElementById("features").innerHTML='★一年僅有4個月的枯水期限定美景！屏東霧台的七彩秘境<br>★由在地專業教練團隊帶領，在安全至上的前提欣賞大自然的鬼斧神工<br>★成團即出發！當日來回一日團';
+    document.getElementById("features").innerHTML='★一年僅有4個月的馬祖海上碉堡SUP！<br>★由在地專業教練團隊帶領，在安全至上的前提體驗馬祖的美<br>★2人即成團！';
 
+    low_price = document.getElementsByName("low_price");
+    for (i = 0;i < low_price.length; i++) {
+        low_price[i].innerHTML = '1600';
+    }
+
+
+    
     /*
     for(i=1;i<4;i++){
         document.getElementById("sub_title_"+i).innerHTML='20';
@@ -598,7 +637,8 @@ document.querySelectorAll("[href^='https://line.me']").forEach(function(item){
                 value: '13:00~15:00',
                 label: '13:00~15:00'
                 }],
-            value: ''
+            value2: '',
+            value3: ''
             ,
             options2: [{
                 value: '04:30~07:30',
@@ -683,15 +723,26 @@ document.querySelectorAll("[href^='https://line.me']").forEach(function(item){
             }
         }else if(type ==2){
             number = radio2.__vue__.value
+            
             if(number == 1){
-                price1 = 2200*quantity2.__vue__.value
-                price(price1)
+                if(choice_time2.value == "04:30~07:30"){
+                    price1 = 2500*quantity2.__vue__.value
+                    price(price1)
+                }else if(choice_time2.value == "15:30~18:30"){
+                    price1 = 2200*quantity2.__vue__.value
+                    price(price1)
+                }                
             }else if(number == 2){
-                price1 = 1900*quantity2.__vue__.value
-                price(price1)
+                if(choice_time2.value == "04:30~07:30"){
+                    price1 = 2200*quantity2.__vue__.value
+                    price(price1)
+                }else if(choice_time2.value == "15:30~18:30"){
+                    price1 = 1900*quantity2.__vue__.value
+                    price(price1)
+                }
             }
         }
-
+        
         function price(price){
             for (i = 0;i < s.length; i++) {
                 s[i].innerHTML = price;
