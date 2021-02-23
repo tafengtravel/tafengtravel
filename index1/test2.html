@@ -155,10 +155,10 @@ document.querySelectorAll("[href^='https://line.me']").forEach(function(item){
 
 
 
-<div id="app" class ="el-col el-col-24 el-col-xs-24 el-col-xs-offset-0 el-col-sm-24 el-col-sm-offset-0 el-col-lg-10 el-col-lg-offset-7"> 
+<div id="app" class ="el-col el-col-24 el-col-xs-24 el-col-xs-offset-0 el-col-sm-24 el-col-sm-offset-0 el-col-lg-6 el-col-lg-offset-9"> 
 
     <br>
-    <div class="el-row">
+    <div class='box'>
         
             <el-row>
                 <font class ="sub_title" id ="sub_title"></font>
@@ -195,7 +195,7 @@ document.querySelectorAll("[href^='https://line.me']").forEach(function(item){
 
     <el-divider></el-divider>
 
-    <div class='buyer_information'>
+    <div class='box'>
 
         <div class="el-row">
 
@@ -207,25 +207,21 @@ document.querySelectorAll("[href^='https://line.me']").forEach(function(item){
 
         <div class="el-row">
 
-            <div class='row'>
-                <div class='col-xl-4 col-l-4 col-s-12 col-md-12'>
-                    <font class ="mini_font">姓名</font>
-                    <el-input v-model="name"></el-input>
+            <el-form :model="ruleForm" :rules="rules" ref="ruleForm" label-width="60px" class="demo-ruleForm">
 
-                </div>      
-                
-                <div class='col-xl-4 col-l-4 col-s-12 col-md-12'>
-                    <font class ="mini_font">電話</font>
-                    <el-input v-model="phone"></el-input>
-                </div>  
-            </div>
-            
-            <div class='row'>
-                <div class='col-xl-8 col-l-8 col-s-12 col-md-12'>
-                    <font class ="mini_font">信箱</font>
-                    <el-input v-model="email"></el-input>
-                </div> 
-            </div>
+                    <el-form-item label="姓名" prop="buyer_name">
+                        <el-input v-model="ruleForm.name"></el-input>
+                    </el-form-item>
+                    
+                    <el-form-item label="電話" prop="phone">
+                        <el-input v-model="ruleForm.phone"></el-input>
+                    </el-form-item>
+
+                    <el-form-item label="信箱" prop="email">
+                        <el-input v-model="ruleForm.email"></el-input>
+                    </el-form-item>
+                    
+            </el-form>
 
         </div>
 
@@ -233,9 +229,7 @@ document.querySelectorAll("[href^='https://line.me']").forEach(function(item){
 
     <el-divider></el-divider>
 
-
-    <div class="el-row">
-
+    <div class='box'>
         <div class="el-row">
 
             <el-row>
@@ -250,33 +244,46 @@ document.querySelectorAll("[href^='https://line.me']").forEach(function(item){
             <font class ="font">第{{i}}位旅客</font>
             </el-row>
 
-            <el-form :label-position="labelPosition" :model="formLabelAlign" >
-                <div class='row'>
+            <el-form :model="ruleForm" :rules="rules" ref="ruleForm" label-width="90px" class="demo-ruleForm">
 
-                        <div class='col-xl-4 col-l-4 col-s-12 col-md-12'>
-                            <font class ="mini_font">姓名</font>
-                            <el-input v-model="name[i-1]"></el-input>
+                <el-form-item label="姓名" prop="guest_name">
+                    <el-input v-model="ruleForm.guest_name[i-1]"></el-input>
+                </el-form-item>                    
 
-                        </div>      
-                        
-                        <div class='col-xl-4 col-l-4 col-s-12 col-md-12'>
-                            <font class ="mini_font">電話</font>
-                            <el-input v-model="phone[i-1]"></el-input>
-                        </div>          
+                <el-form-item label="生日" prop="birth">
+                    <el-date-picker
+                        v-model="ruleForm.birth[i-1]"
+                        type="date"
+                        placeholder="選擇日期"
+                        :picker-options="pickerOptions"
+                        >
+                    </el-date-picker>
 
-                </div>
-                <div class='row'>
+                </el-form-item>
 
-                    <div class='col-xl-8 col-l-8 col-s-12 col-md-12'>
-                        <font class ="mini_font">信箱</font>
-                        <el-input v-model="email[i-1]"></el-input>
-                    </div>     
-
-                </div>
+                <el-form-item label="身分證" prop="ID">
+                    <el-input v-model="ruleForm.ID[i-1]"></el-input>
+                </el-form-item>        
+                                        
             </el-form>
+
             <el-row></el-row>
 
         </li>
+
+    </div>
+
+    <el-divider></el-divider>
+
+    <div class='box'>
+
+        <el-form :model="ruleForm" :rules="rules" ref="ruleForm" label-width="90px" class="demo-ruleForm">
+
+            <el-form-item label="訂單備註" prop="other">
+                <el-input v-model="ruleForm.other" type="textarea" ></el-input>
+            </el-form-item> 
+
+        </el-form>
 
     </div>
 
@@ -426,6 +433,13 @@ document.querySelectorAll("[href^='https://line.me']").forEach(function(item){
     var Main = {
         data() {
             return {
+                disabledDate:'2021-02-20',
+                birth:'',
+                pickerOptions: {
+                    disabledDate(time) {
+                        return time.getTime() > Date.now();
+                    }
+                },
 
                 labelPosition: 'left',
                 formLabelAlign: {
@@ -438,11 +452,40 @@ document.querySelectorAll("[href^='https://line.me']").forEach(function(item){
                 name:'',
                 phone:'',
                 email:'',
-                total_quantity:total_quantity
+                total_quantity:total_quantity,
+
+
+
+                ruleForm: {
+                    buyer_name:'',  
+                    guest_name:[],      
+                    birth:[],  
+                    ID:[],
+                    other:'',
+                },
+                rules: {
+                    buyer_name: [
+                        { required: true, message: '必填'},
+                    ],
+                    phone: [
+                        { required: true, message: '必填'},
+                    ],
+                    email: [
+                        { required: true, message: '必填'},
+                    ],guest_name:[
+                        { required: true, message: '必填'},
+                    ],birth:[
+                        { required: true, message: '必填'},
+                    ],ID:[
+                        { required: true, message: '必填'},
+                    ]
+                }
             };
 
         },methods:{
-
+            test() {
+                
+            }
         }
      
     };
