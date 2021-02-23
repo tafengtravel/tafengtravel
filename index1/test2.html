@@ -190,62 +190,38 @@ document.querySelectorAll("[href^='https://line.me']").forEach(function(item){
                 </span>   
             </el-row>         
             
-
     </div>
 
     <el-divider></el-divider>
 
-    <div class='box'>
+    <el-row>
+        <font class ="sub_title">訂購人資料</font>
+    </el-row>
 
-        <div class="el-row">
+    <el-form :model="ruleForm" :rules="rules" ref="ruleForm" label-width="80px" class="demo-ruleForm">
 
-            <el-row>
-                <font class ="sub_title">訂購人資料</font>
-            </el-row>
+        <el-form-item label="姓名" prop="buyer_name">
+            <el-input v-model="ruleForm.buyer_name"></el-input>
+        </el-form-item>            
+        <el-form-item label="電話" prop="phone">
+            <el-input v-model="ruleForm.phone"></el-input>
+        </el-form-item>
+        <el-form-item label="信箱" prop="email">
+            <el-input v-model="ruleForm.email"></el-input>
+        </el-form-item>
 
-        </div>
+        <el-divider></el-divider>
 
-        <div class="el-row">
 
-            <el-form :model="ruleForm" :rules="rules" ref="ruleForm" label-width="60px" class="demo-ruleForm">
-
-                    <el-form-item label="姓名" prop="buyer_name">
-                        <el-input v-model="ruleForm.name"></el-input>
-                    </el-form-item>
-                    
-                    <el-form-item label="電話" prop="phone">
-                        <el-input v-model="ruleForm.phone"></el-input>
-                    </el-form-item>
-
-                    <el-form-item label="信箱" prop="email">
-                        <el-input v-model="ruleForm.email"></el-input>
-                    </el-form-item>
-                    
-            </el-form>
-
-        </div>
-
-    </div>
-
-    <el-divider></el-divider>
-
-    <div class='box'>
-        <div class="el-row">
-
-            <el-row>
-                <font class ="sub_title">旅客資料</font>
-            </el-row>
-
-        </div>
+        <el-row>
+            <font class ="sub_title">旅客資料</font>
+        </el-row>
 
         <li v-for="i in total_quantity" :key="i">
 
             <el-row>
             <font class ="font">第{{i}}位旅客</font>
             </el-row>
-
-            <el-form :model="ruleForm" :rules="rules" ref="ruleForm" label-width="90px" class="demo-ruleForm">
-
                 <el-form-item label="姓名" prop="guest_name">
                     <el-input v-model="ruleForm.guest_name[i-1]"></el-input>
                 </el-form-item>                    
@@ -258,34 +234,28 @@ document.querySelectorAll("[href^='https://line.me']").forEach(function(item){
                         :picker-options="pickerOptions"
                         >
                     </el-date-picker>
-
                 </el-form-item>
 
                 <el-form-item label="身分證" prop="ID">
                     <el-input v-model="ruleForm.ID[i-1]"></el-input>
-                </el-form-item>        
-                                        
-            </el-form>
+                </el-form-item>       
 
             <el-row></el-row>
 
-        </li>
+        </li>  
 
-    </div>
+        <el-divider></el-divider>
 
-    <el-divider></el-divider>
 
-    <div class='box'>
+        <el-form-item label="訂單備註" prop="other">
+            <el-input v-model="ruleForm.other" type="textarea" ></el-input>
+        </el-form-item> 
 
-        <el-form :model="ruleForm" :rules="rules" ref="ruleForm" label-width="90px" class="demo-ruleForm">
+        <el-form-item>
+            <el-button type="primary" @click="submitForm('ruleForm')">訂購</el-button>
+        </el-form-item>
 
-            <el-form-item label="訂單備註" prop="other">
-                <el-input v-model="ruleForm.other" type="textarea" ></el-input>
-            </el-form-item> 
-
-        </el-form>
-
-    </div>
+    </el-form>
 
 </div>
 
@@ -465,26 +435,37 @@ document.querySelectorAll("[href^='https://line.me']").forEach(function(item){
                 },
                 rules: {
                     buyer_name: [
-                        { required: true, message: '必填'},
+                        { required: true, message: '必填', trigger: 'blur'},
                     ],
                     phone: [
-                        { required: true, message: '必填'},
+                        { required: true, message: '必填', trigger: 'blur'},
                     ],
                     email: [
-                        { required: true, message: '必填'},
+                        { type: 'email',required: true, message: 'Email格式錯誤', trigger: 'blur'},
                     ],guest_name:[
-                        { required: true, message: '必填'},
+                        { required: true, message: '必填', trigger: 'blur'},
                     ],birth:[
-                        { required: true, message: '必填'},
+                        { required: true, message: '必填', trigger: 'blur'},
                     ],ID:[
-                        { required: true, message: '必填'},
+                        { required: true, message: '必填', trigger: 'blur'},
                     ]
                 }
             };
 
         },methods:{
-            test() {
-                
+            submitForm(formName) {
+                this.$refs[formName].validate((valid) => {
+                    if (valid) {
+                        console.log('submit!');
+                        console.log(this.ruleForm)
+                    } else {
+                        console.log('error submit!!');
+                        return false;
+                    }
+                });
+            },
+            resetForm(formName) {
+                this.$refs[formName].resetFields();
             }
         }
      
