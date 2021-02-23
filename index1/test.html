@@ -694,11 +694,26 @@ document.querySelectorAll("[href^='https://line.me']").forEach(function(item){
             console.log(radio1.__vue__.value)
             console.log(document.getElementById('choice_time1').value)
             console.log(quantity1.__vue__.value)
+
+            localStorage.setItem("dep_date", document.getElementById('dep_date').value);
+            localStorage.setItem("type", radio1.__vue__.value);
+            localStorage.setItem("time", document.getElementById('choice_time1').value);
+            localStorage.setItem("quantity", quantity1.__vue__.value);
+            
+            document.location.href='test2.html';
+
         }else if(type == 2){
             console.log(document.getElementById('dep_date').value)
             console.log(radio2.__vue__.value)
             console.log(document.getElementById('choice_time2').value)
             console.log(quantity2.__vue__.value)
+
+            localStorage.setItem("dep_date", document.getElementById('dep_date').value);
+            localStorage.setItem("type", radio2.__vue__.value);
+            localStorage.setItem("time", document.getElementById('choice_time2').value);
+            localStorage.setItem("quantity", quantity2.__vue__.value);
+            
+            document.location.href='test2.html';
         }
 
     }
