@@ -30,6 +30,7 @@
 
 
 <link href="https://tafengtravel.github.io/tafengtravel/index/css/common.css" rel="stylesheet" />
+<link href="book.css" rel="stylesheet" />
 
 <!--自家檔案-->
 
@@ -169,6 +170,7 @@ document.querySelectorAll("[href^='https://line.me']").forEach(function(item){
     
         <a href="#" ><img class="d-none d-md-block" src="image/SupMatsu_1.jpg" alt="#" ><img class="d-block d-md-none" src="image/SupMatsu_1.jpg" alt="#" ></a>
         <a href="#" ><img class="d-none d-md-block" src="image/SupMatsu_2.jpg" alt="#" ><img class="d-block d-md-none" src="image/SupMatsu_2.jpg" alt="#" ></a>
+        <a href="#" ><img class="d-none d-md-block" src="image/SupMatsu_3.jpg" alt="#" ><img class="d-block d-md-none" src="image/SupMatsu_3.jpg" alt="#" ></a>
      
         
     </div>
@@ -236,6 +238,7 @@ document.querySelectorAll("[href^='https://line.me']").forEach(function(item){
                     placeholder="選擇日期"
                     id = 'dep_date'
                     :picker-options="pickerOptions"
+                    
                     >
                     </el-date-picker>
                 </div>
@@ -283,7 +286,7 @@ document.querySelectorAll("[href^='https://line.me']").forEach(function(item){
                         <el-row>
                             <font class ="font"><span>數量：</span></font> 
                             <template>
-                                <el-input-number id='quantity1' v-model="quantity1" :min="1" :max="10" onclick="per_price()" onchange="per_price()"></el-input-number>
+                                <el-input-number id='quantity1' v-model="quantity1" :min="2" :max="10" onclick="per_price()" onchange="per_price()"></el-input-number>
                             </template>
                         </el-row>
                         <el-row>
@@ -339,7 +342,7 @@ document.querySelectorAll("[href^='https://line.me']").forEach(function(item){
                         <el-row>
                             <font class ="font"><span>數量：</span></font> 
                             <template>
-                                <el-input-number id='quantity2' v-model="quantity1" :min="1" :max="10" onclick="per_price()" onchange="per_price()" ></el-input-number>
+                                <el-input-number id='quantity2' v-model="quantity1" :min="2" :max="10" onclick="per_price()" onchange="per_price()" ></el-input-number>
                             </template>
                         </el-row>
                         <el-row>
@@ -399,13 +402,14 @@ document.querySelectorAll("[href^='https://line.me']").forEach(function(item){
             </el-row>
 
             <el-divider></el-divider>
+            <!--
             <el-row>
                 <font class ="sub_title">行程說明</font>
             </el-row>
             <el-row>
                 <font class ="font"><span id ="features"></span></font>
             </el-row>
-
+            -->         
             <el-divider></el-divider>
             <el-row>
                 <font class ="sub_title">集合地點</font>
@@ -435,25 +439,20 @@ document.querySelectorAll("[href^='https://line.me']").forEach(function(item){
                     ＊若取消需求是由在地嚮導提出，您將可獲得全額退款。<br>                
                     ＊若取消需求提出時，我們已為您繳交代辦之行政費用(如簽證費、其他無法由受理單位退回之手續費)將無法退回。</span></font>
             </el-row>
-
-
-            
-
-
-            
-
-            
             
         </div>
 
         <div class=" hidden-sm-and-down h-auto el-col el-col-24 el-col-xs-24 el-col-xs-offset-0 el-col-sm-24 el-col-sm-offset-0 el-col-md-8 el-col-md-offset-0 el-col-lg-8 el-col-lg-offset-0" >
             <div class = "position" id="position" style="position: sticky;top: 120px;">
-                <el-card class="box-card" id="cart" style="width: 400px;">
+                <el-card class="box-card" id="cart" style="width: 450px;">
 
                         <font class ="font"><span>最低售價</span></font>
-                        <font class ="box_sub_title" style="margin-left: 150px;">$<span name='low_price'></span>起</font><br>
+                        <font class ="box_sub_title" style="margin-left: 210px;">$<span name='low_price'></span>起</font><br><br>
+                        <font class ="mini_font"><span>訂購完成後須等待空位確認，專員會於1個工作天內回覆您預定結果，並將付款連結寄至您的信箱，訂單將於付款後正式成立。</span></font><br>
                         <a href="#choose_link"><el-button style="width:100% ;margin-top: 6px;" onclick="choose(1)" >選擇方案</el-button></a><br>
 
+
+                        
                     </div>
                 </el-card>
             </div>
@@ -484,99 +483,6 @@ document.querySelectorAll("[href^='https://line.me']").forEach(function(item){
 
 
 
-@media (min-width: 768px){
-    .title{
-        font-family: Microsoft JhengHei;
-        color:#404040;
-        font-size: 35px;
-        font-weight:bold;
-    }
-    .font{
-        font-family: Microsoft JhengHei;
-        color:#666;
-        font-size: 20px;
-        font-weight:bold;
-    }
-    .sub_title{
-        font-family: Microsoft JhengHei;
-        color:#404040;
-        font-size: 28px;
-        font-weight:bold;
-    }
-    .mini_font{
-        font-family: Microsoft JhengHei;
-        color:#666;
-        font-size: 16px;
-        font-weight:bold;
-    }
-    .box_sub_title{
-        font-family: Microsoft JhengHei;
-        color:#F60;
-        font-size: 28px;
-        font-weight:bold;
-    }.hidden-sm-up{
-        display:none;
-        height: 56px;
-        z-index: 998;
-        position: fixed;
-        bottom: 0;
-        left: 0;
-        right: 0;
-    }
-}
-@media (max-width: 768px) {
-    .title{
-        font-family: Microsoft JhengHei;
-        color:#404040;
-        font-size: 30px;
-        font-weight:bold;
-    }
-    .font{
-        font-family: Microsoft JhengHei;
-        color:#666;
-        font-size: 16px;
-        font-weight:bold;
-    }
-    .sub_title{
-        font-family: Microsoft JhengHei;
-        color:#404040;
-        font-size: 26px;
-        font-weight:bold;
-    }
-    .mini_font{
-        font-family: Microsoft JhengHei;
-        color:#666;
-        font-size: 12px;
-        font-weight:bold;
-    }
-    .hidden-sm-and-down{
-        display:none;
-    }
-    .box_sub_title{
-        font-family: Microsoft JhengHei;
-        color:#F60;
-        font-size: 28px;
-        font-weight:bold;
-    }
-}
-.hidden-sm-up{
-    background-color: #fff;
-    height: 56px;
-    z-index: 998;
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    right: 0;
-}
-.el-row {
-    margin-bottom: 20px;
-}
-.box-detail-hide-card{
-    display:none;    
-}
-
-
-
 </style>
 
 
@@ -601,8 +507,10 @@ document.querySelectorAll("[href^='https://line.me']").forEach(function(item){
     document.getElementById("title_1").innerHTML='馬祖島嶼探索 - 海上碉堡SUP';
     document.getElementById("sub_title_1").innerHTML='星期一 ~ 星期日';
     document.getElementById("sub_title_2").innerHTML='07:50 / 08:40';
-    document.getElementById("sub_title_3").innerHTML='1';
+    document.getElementById("sub_title_3").innerHTML='2';
     document.getElementById("features").innerHTML='★一年僅有4個月的馬祖海上碉堡SUP！<br>★由在地專業教練團隊帶領，在安全至上的前提體驗馬祖的美<br>★2人即成團！';
+
+    price_html = document.getElementsByName("per_price");
 
     low_price = document.getElementsByName("low_price");
     for (i = 0;i < low_price.length; i++) {
@@ -620,11 +528,11 @@ document.querySelectorAll("[href^='https://line.me']").forEach(function(item){
     var Main = {
     data() {
         return {
-            disabledDate:'2021-02-20',
-            value1: '',
+            disabledDate:'',
+            value1: new Date('2021-06-01').getTime(),
             pickerOptions: {
                 disabledDate(time) {
-                    return time.getTime() < Date.now() + 24*60*60*1000;
+                    return time.getTime() < Date.now() + 24*60*60*1000 || time.getTime() > new Date('2021-09-30').getTime() ||time.getTime() < new Date('2021-05-31').getTime() ;
                 }
             },
             options1: [{
@@ -637,8 +545,8 @@ document.querySelectorAll("[href^='https://line.me']").forEach(function(item){
                 value: '13:00~15:00',
                 label: '13:00~15:00'
                 }],
-            value2: '',
-            value3: ''
+            value2: '08:00~10:00',
+            value3: '04:30~07:30'
             ,
             options2: [{
                 value: '04:30~07:30',
@@ -666,7 +574,7 @@ document.querySelectorAll("[href^='https://line.me']").forEach(function(item){
 		var y = window.pageYOffset || document.documentElement.scrollTop;
 		if (y > 900) {
             document.getElementById("position").style.position = "fixed";
-            document.getElementById("cart").style.width = "400px";
+            document.getElementById("cart").style.width = "450px";
 		} else {
             document.getElementById("position").style.position = "sticky";
 		}
@@ -689,29 +597,36 @@ document.querySelectorAll("[href^='https://line.me']").forEach(function(item){
     }
 
     function buy(type){
+        if (radio1.__vue__.value =='1'){
+            radio1.__vue__.value = '單人一板'
+        }else if(radio1.__vue__.value == '2'){
+            radio1.__vue__.value = '雙人一板'
+        }else if(radio2.__vue__.value == '1'){
+            radio2.__vue__.value = '單人一板'
+        }else if(radio2.__vue__.value == '2'){
+            radio2.__vue__.value = '雙人一板'
+        }
+
+
         if(type == 1){
-            console.log(document.getElementById('dep_date').value)
-            console.log(radio1.__vue__.value)
-            console.log(document.getElementById('choice_time1').value)
-            console.log(quantity1.__vue__.value)
 
             localStorage.setItem("dep_date", document.getElementById('dep_date').value);
             localStorage.setItem("type", radio1.__vue__.value);
             localStorage.setItem("time", document.getElementById('choice_time1').value);
             localStorage.setItem("quantity", quantity1.__vue__.value);
+            localStorage.setItem("price",price_html[0].outerText);
+            localStorage.setItem("itinerary",title_1.outerText);
             
             document.location.href='test2.html';
 
         }else if(type == 2){
-            console.log(document.getElementById('dep_date').value)
-            console.log(radio2.__vue__.value)
-            console.log(document.getElementById('choice_time2').value)
-            console.log(quantity2.__vue__.value)
 
             localStorage.setItem("dep_date", document.getElementById('dep_date').value);
             localStorage.setItem("type", radio2.__vue__.value);
             localStorage.setItem("time", document.getElementById('choice_time2').value);
             localStorage.setItem("quantity", quantity2.__vue__.value);
+            localStorage.setItem("price",price_html[0].outerText);
+            localStorage.setItem("itinerary",title_1.outerText);
             
             document.location.href='test2.html';
         }
@@ -723,8 +638,6 @@ document.querySelectorAll("[href^='https://line.me']").forEach(function(item){
 
         //type = 1 兩小時//type = 2 三小時
         //number = 1 單人一板//number = 2 雙人一板
-
-        s = document.getElementsByName("per_price");
         let price1 = 0;
         
         if(type == 1){
@@ -759,8 +672,8 @@ document.querySelectorAll("[href^='https://line.me']").forEach(function(item){
         }
         
         function price(price){
-            for (i = 0;i < s.length; i++) {
-                s[i].innerHTML = price;
+            for (i = 0;i < price_html.length; i++) {
+                price_html[i].innerHTML = price;
             }
         }
 
