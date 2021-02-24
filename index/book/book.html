@@ -397,6 +397,7 @@ document.querySelectorAll("[href^='https://line.me']").forEach(function(item){
                     if (valid) {
                         console.log('submit!');
                         sendMail(this.ruleForm);
+                        localStorage.clear()
                     } else {
                         console.log('error submit!!');
                         return false;
@@ -407,6 +408,7 @@ document.querySelectorAll("[href^='https://line.me']").forEach(function(item){
                 this.$refs[formName].resetFields();
             },
             cancel(){
+                localStorage.clear()
                 window.location.href='https://tafengtravel.github.io/tafengtravel/index/tafengindex.html'
             }
         }
