@@ -604,10 +604,6 @@ document.querySelectorAll("[href^='https://line.me']").forEach(function(item){
             radio1.__vue__.value = '單人一板'
         }else if(radio1.__vue__.value == '2'){
             radio1.__vue__.value = '雙人一板'
-        }else if(radio2.__vue__.value == '1'){
-            radio2.__vue__.value = '單人一板'
-        }else if(radio2.__vue__.value == '2'){
-            radio2.__vue__.value = '雙人一板'
         }
 
 
@@ -625,7 +621,7 @@ document.querySelectorAll("[href^='https://line.me']").forEach(function(item){
         }else if(type == 2){
 
             localStorage.setItem("dep_date", document.getElementById('dep_date').value);
-            localStorage.setItem("type", radio2.__vue__.value);
+            localStorage.setItem("type", radio1.__vue__.value);
             localStorage.setItem("time", document.getElementById('choice_time2').value);
             localStorage.setItem("quantity", quantity2.__vue__.value);
             localStorage.setItem("price",price_html[0].outerText);
