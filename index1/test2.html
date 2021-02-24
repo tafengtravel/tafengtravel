@@ -20,13 +20,17 @@
 <script src="https://tafengtravel.github.io/tafengtravel/index/js/jquery.smartmenus.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
 
+<script src="https://smtpjs.com/v3/smtp.js"></script>
 
 <link href="https://tafengtravel.github.io/tafengtravel/index/css/common.css" rel="stylesheet" />
+<link href="book.css" rel="stylesheet" />
 
 <!--自家檔案-->
 
 <link rel="icon" href="https://tafengtravel.github.io/tafengtravel/index1/tafenglogo6.ico" type="image/x-icon" />
 <link rel="shortcut icon" href="https://tafengtravel.github.io/tafengtravel/index1/tafenglogo6.ico" type="image/x-icon" />
+
+<script src="sendMail.js"></script>     
 
 
 <!-- Global site tag (gtag.js) - Google Analytics -->
@@ -188,7 +192,15 @@ document.querySelectorAll("[href^='https://line.me']").forEach(function(item){
                 <span class= "el-col-22">
                     <font class ="font">人數：<span id ="sub_title_3"></span>人</font>
                 </span>   
-            </el-row>         
+            </el-row>   
+            <el-row>
+                <span class= "el-col-2">
+                    <font class ="font"><i class="el-icon-tickets"></i></font>
+                </span>            
+                <span class= "el-col-22">
+                    <font class ="font">類型：<span id ="sub_title_4"></span></font>
+                </span>   
+            </el-row>      
             
     </div>
 
@@ -199,6 +211,14 @@ document.querySelectorAll("[href^='https://line.me']").forEach(function(item){
     </el-row>
 
     <el-form :model="ruleForm" :rules="rules" ref="ruleForm" label-width="80px" class="demo-ruleForm">
+
+
+        <el-form-item label="" prop="itinerary" style='display: none;'>
+            <el-input v-model="ruleForm.itinerary"></el-input>
+        </el-form-item>  
+        <el-form-item label="" prop="price" style='display: none;'>
+            <el-input v-model="ruleForm.price"></el-input>
+        </el-form-item>  
 
         <el-form-item label="姓名" prop="buyer_name">
             <el-input v-model="ruleForm.buyer_name"></el-input>
@@ -230,6 +250,7 @@ document.querySelectorAll("[href^='https://line.me']").forEach(function(item){
                     <el-date-picker
                         v-model="ruleForm.birth[i-1]"
                         type="date"
+                        value-format="yyyy-MM-dd"
                         placeholder="選擇日期"
                         :picker-options="pickerOptions"
                         >
@@ -251,110 +272,29 @@ document.querySelectorAll("[href^='https://line.me']").forEach(function(item){
             <el-input v-model="ruleForm.other" type="textarea" ></el-input>
         </el-form-item> 
 
+        <el-divider></el-divider>
+
+        <el-row>
+            <font class ="sub_title">訂單金額</font>
+            <font class ="sub_title" id='price' style="color:#F60"></font>
+        </el-row>
+        <el-row>
+            <font class ="mini_font">訂購完成後須等待空位確認，專員會於1個工作天內回覆您預定結果，並將付款連結寄至您的信箱，訂單將於付款後正式成立。</font>
+        </el-row>
+
+
+
         <el-form-item>
             <el-button type="primary" @click="submitForm('ruleForm')">訂購</el-button>
+            <el-button @click="cancel">取消</el-button>
         </el-form-item>
+
 
     </el-form>
 
 </div>
 
 <style>
-
-
-
-@media (min-width: 768px){
-    .title{
-        font-family: Microsoft JhengHei;
-        color:#404040;
-        font-size: 35px;
-        font-weight:bold;
-    }
-    .font{
-        font-family: Microsoft JhengHei;
-        color:#666;
-        font-size: 20px;
-        font-weight:bold;
-    }
-    .sub_title{
-        font-family: Microsoft JhengHei;
-        color:#404040;
-        font-size: 28px;
-        font-weight:bold;
-    }
-    .mini_font{
-        font-family: Microsoft JhengHei;
-        color:#666;
-        font-size: 16px;
-        font-weight:bold;
-    }
-    .box_sub_title{
-        font-family: Microsoft JhengHei;
-        color:#F60;
-        font-size: 28px;
-        font-weight:bold;
-    }.hidden-sm-up{
-        display:none;
-        height: 56px;
-        z-index: 998;
-        position: fixed;
-        bottom: 0;
-        left: 0;
-        right: 0;
-    }
-}
-@media (max-width: 768px) {
-    .title{
-        font-family: Microsoft JhengHei;
-        color:#404040;
-        font-size: 30px;
-        font-weight:bold;
-    }
-    .font{
-        font-family: Microsoft JhengHei;
-        color:#666;
-        font-size: 16px;
-        font-weight:bold;
-    }
-    .sub_title{
-        font-family: Microsoft JhengHei;
-        color:#404040;
-        font-size: 26px;
-        font-weight:bold;
-    }
-    .mini_font{
-        font-family: Microsoft JhengHei;
-        color:#666;
-        font-size: 12px;
-        font-weight:bold;
-    }
-    .hidden-sm-and-down{
-        display:none;
-    }
-    .box_sub_title{
-        font-family: Microsoft JhengHei;
-        color:#F60;
-        font-size: 28px;
-        font-weight:bold;
-    }
-}
-.hidden-sm-up{
-    background-color: #fff;
-    height: 56px;
-    z-index: 998;
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    right: 0;
-}
-.el-row {
-    margin-bottom: 20px;
-}
-.box-detail-hide-card{
-    display:none;    
-}
-
-
 
 </style>
 
@@ -374,11 +314,13 @@ document.querySelectorAll("[href^='https://line.me']").forEach(function(item){
 
 <script>
 
-    let type ; 
     let number ;
     let total_quantity = parseInt(localStorage.getItem("quantity"));
     let time = localStorage.getItem("time");
     let dep_date = localStorage.getItem("dep_date");
+    let price = localStorage.getItem("price");
+    let itinerary = localStorage.getItem("itinerary");
+    let type = localStorage.getItem("type");
 
     let a =[];
 
@@ -386,6 +328,8 @@ document.querySelectorAll("[href^='https://line.me']").forEach(function(item){
     document.getElementById("sub_title_1").innerHTML=dep_date;
     document.getElementById("sub_title_2").innerHTML=time;
     document.getElementById("sub_title_3").innerHTML=total_quantity;
+    document.getElementById("sub_title_4").innerHTML=type;
+    document.getElementById("price").innerHTML='$'+price;
     
     low_price = document.getElementsByName("low_price");
     for (i = 0;i < low_price.length; i++) {
@@ -424,14 +368,16 @@ document.querySelectorAll("[href^='https://line.me']").forEach(function(item){
                 email:'',
                 total_quantity:total_quantity,
 
-
-
                 ruleForm: {
                     buyer_name:'',  
                     guest_name:[],      
                     birth:[],  
                     ID:[],
                     other:'',
+                    itinerary:itinerary,
+                    price:price,
+                    dep_date:dep_date,
+                    type:type,
                 },
                 rules: {
                     buyer_name: [
@@ -457,7 +403,7 @@ document.querySelectorAll("[href^='https://line.me']").forEach(function(item){
                 this.$refs[formName].validate((valid) => {
                     if (valid) {
                         console.log('submit!');
-                        console.log(this.ruleForm)
+                        sendMail(this.ruleForm);
                     } else {
                         console.log('error submit!!');
                         return false;
@@ -466,6 +412,9 @@ document.querySelectorAll("[href^='https://line.me']").forEach(function(item){
             },
             resetForm(formName) {
                 this.$refs[formName].resetFields();
+            },
+            cancel(){
+                window.location.href='https://tafengtravel.github.io/tafengtravel/index/tafengindex.html'
             }
         }
      
