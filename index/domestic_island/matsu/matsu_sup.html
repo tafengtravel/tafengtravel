@@ -166,7 +166,7 @@ document.querySelectorAll("[href^='https://line.me']").forEach(function(item){
 
 
 
-<div id="app" class ="el-col el-col-24 el-col-xs-24 el-col-xs-offset-0 el-col-sm-24 el-col-sm-offset-0 el-col-lg-20 el-col-lg-offset-2"> 
+<div id="app" class ="el-col el-col-24 el-col-xs-24 el-col-xs-offset-0 el-col-sm-24 el-col-sm-offset-0 el-col-lg-18 el-col-lg-offset-3"> 
             
     <div class="home-banner">
     
@@ -250,7 +250,7 @@ document.querySelectorAll("[href^='https://line.me']").forEach(function(item){
 
                 <el-card class="box-card">
                     <div class="el-col el-col-24 el-col-xs-24 el-col-xs-offset-0 el-col-sm-20 el-col-sm-offset-0" id="box-card" style="padding-left:8px;padding-right:8px;">
-                        <font class ="sub_title"><span>馬祖SUP-兩小時課程</span></font><br>
+                        <font class ="font"><span>馬祖SUP-兩小時課程</span></font><br>
                         <font class ="mini_font"><i class="el-icon-time"></i><span>&emsp;行程總長：2 小時</span></font><br>
 
                     </div>
@@ -306,7 +306,7 @@ document.querySelectorAll("[href^='https://line.me']").forEach(function(item){
             <el-row>
                 <el-card class="box-card">
                     <div class="el-col el-col-24 el-col-xs-24 el-col-xs-offset-0 el-col-sm-20 el-col-sm-offset-0" id="box-card" style="padding-left:8px;padding-right:8px;">
-                        <font class ="sub_title"><span>馬祖SUP-三小時課程</span></font><br>
+                        <font class ="font"><span>馬祖SUP-三小時課程</span></font><br>
                         <font class ="mini_font"><i class="el-icon-time"></i><span>&emsp;行程總長：3 小時</span></font><br>
 
                     </div>
@@ -444,12 +444,13 @@ document.querySelectorAll("[href^='https://line.me']").forEach(function(item){
             
         </div>
 
+        
         <div class=" hidden-sm-and-down h-auto el-col el-col-24 el-col-xs-24 el-col-xs-offset-0 el-col-sm-24 el-col-sm-offset-0 el-col-md-8 el-col-md-offset-0 el-col-lg-8 el-col-lg-offset-0" >
             <div class = "position" id="position" style="position: sticky;top: 120px;">
-                <el-card class="box-card" id="cart" style="width: 450px;">
+                <el-card class="box-card" id="cart" style="width: 400px;">
 
                         <font class ="font"><span>最低售價</span></font>
-                        <font class ="box_sub_title" style="margin-left: 210px;">$<span name='low_price'></span>起</font><br><br>
+                        <font class ="box_sub_title" style="margin-left: 150px;">$<span name='low_price'></span>起</font><br><br>
                         <font class ="mini_font"><span>訂購完成後須等待空位確認，專員會於1個工作天內回覆您預定結果，並將付款連結寄至您的信箱，訂單將於付款後正式成立。</span></font><br>
                         <a href="#choose_link"><el-button type="primary" style="width:100% ;margin-top: 6px;" onclick="choose(1)" >選擇方案</el-button></a><br>
 
@@ -577,7 +578,7 @@ document.querySelectorAll("[href^='https://line.me']").forEach(function(item){
 		var y = window.pageYOffset || document.documentElement.scrollTop;
 		if (y > 900) {
             document.getElementById("position").style.position = "fixed";
-            document.getElementById("cart").style.width = "450px";
+            document.getElementById("cart").style.width = "400px";
 		} else {
             document.getElementById("position").style.position = "sticky";
 		}
