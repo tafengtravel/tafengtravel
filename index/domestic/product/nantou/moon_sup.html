@@ -555,6 +555,12 @@ document.querySelectorAll("[href^='https://line.me']").forEach(function(item){
 
     function buy(type){
 
+        if (radio1.__vue__.value =='1'){
+            radio1.__vue__.value = '單人一板'
+        }else if(radio1.__vue__.value == '2'){
+            radio1.__vue__.value = '雙人一板'
+        }
+
         localStorage.setItem("dep_date", document.getElementById('dep_date').value);
         localStorage.setItem("itinerary",title_1.outerText);
         localStorage.setItem("price",price_html[0].outerText);
