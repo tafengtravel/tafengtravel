@@ -140,7 +140,7 @@ async function search(){
     let ref = db.collection(year.toString()+'-0'+month.toString());   
   }
 
-  for(j=0;j<12;j++){
+  for(j=0;j<18;j++){
     if(month > 9){
       ref = db.collection(year.toString()+'-'+month.toString());
     }else if(month<10){
