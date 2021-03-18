@@ -1,4 +1,4 @@
-$(function(){
+$(window).on('load', function () {
     var device = new MobileDetect(window.navigator.userAgent);
     //goTop
     goToTop();
