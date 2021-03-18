@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>自動引入其他HTML標籤</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="Content-Language" content="zh-CN" />
+    <script src="https://tafengtravel.github.io/tafengtravel/index1/js/jquery.min.js.js"></script>  
+      
+<link rel='stylesheet' href='css/smart.css' type='text/css'>
+<link href="index.css" rel="stylesheet" >
+<link href="css/common.css" rel="stylesheet" />
+<link href='https://tafengtravel.github.io/tafengtravel/index/sm-css/sm-core-css.css' rel='stylesheet' type='text/css' />
+<!-- "sm-blue" menu theme (optional, you can use your own CSS, too) -->
+<link href='https://tafengtravel.github.io/tafengtravel/index/sm-css/sm-mint/sm-mint.css' rel='stylesheet' type='text/css' />
+    
+<script src="js/slick.js"></script>
+<script src="js/aos.js"></script>
+<script src="js/smart-app-banner.js"></script>    
+<script src="js/mobile-detect.js"></script>
+
+<script src="js/functions.js"></script>
+<script src="js/controller.js"></script>
+    
+</head>
+<body>
+
+<div class="include" file="https://tafengtravel.github.io/tafengtravel/index1/top1">需要引入的</div>
+
+<br><br><br><br><br>
+<script type="text/javascript">
+
+//使用jQuery的load方法
+$(".include").each(function(){
+    if(!!$(this).attr("file")) {
+        var $includeObj = $(this);
+        $(this).load($(this).attr("file"), function(html){
+            $includeObj.after(html).remove();    //載入的檔案內容寫入到當前標籤後面並移除當前標籤
+        })
+    }
+});
+</script>
+</body>
+</html>
