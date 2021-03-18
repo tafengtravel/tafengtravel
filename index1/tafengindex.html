@@ -6,14 +6,16 @@
 <link rel='stylesheet' href='css/smart.css' type='text/css'>
 <link href="index.css" rel="stylesheet" >
 
-<link rel="import" href="top.html">
+<script src="js/jquery.min.js.js"></script>     
+<script src="https://tafengtravel.github.io/tafengtravel/index/js/jquery.smartmenus.js"></script>
+ 
+
 
 <link href='https://tafengtravel.github.io/tafengtravel/index/sm-css/sm-core-css.css' rel='stylesheet' type='text/css' />
 <!-- "sm-blue" menu theme (optional, you can use your own CSS, too) -->
 <link href='https://tafengtravel.github.io/tafengtravel/index/sm-css/sm-mint/sm-mint.css' rel='stylesheet' type='text/css' />
 <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.css">
 
-<script src="js/jquery.min.js.js"></script>     
 <script src="js/slick.js"></script>
 <script src="js/aos.js"></script>
 <script src="js/smart-app-banner.js"></script>    
@@ -23,7 +25,7 @@
 <script src="js/controller.js"></script>
 <script src="js/swiper.jquery.min.js"></script>
 
-<script src="js/jquery.smartmenus.js"></script>
+
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
 
 
@@ -139,25 +141,66 @@ document.querySelectorAll("[href^='https://line.me']").forEach(function(item){
               "https://tafengtravel.github.io/tafengtravel/index/foreign_self/japan/hokkaido.webp",
           )
 
-          function top1(){
-            let top1 = document.getElementById('top');
-            top1.style.height="180px"
-          }
+
+        
+
   </script>
 </div>
 
 
 
-
 </head>
+
+
+<script>
+    function includeHTML() {
+        var z, i, elmnt, file, xhttp;
+        /*loop through a collection of all HTML elements:*/
+        z = document.getElementsByTagName("*");
+        for (i = 0; i < z.length; i++) {
+        elmnt = z[i];
+        /*search for elements with a certain atrribute:*/
+        file = elmnt.getAttribute("w3-include-html");
+        if (file) {
+            /*make an HTTP request using the attribute value as the file name:*/
+            xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function() {
+            if (this.readyState == 4) {
+                if (this.status == 200) {elmnt.innerHTML = this.responseText;}
+                if (this.status == 404) {elmnt.innerHTML = "Page not found.";}
+                /*remove the attribute, and call this function once more:*/
+                elmnt.removeAttribute("w3-include-html");
+                includeHTML();
+            }
+            }      
+            xhttp.open("GET", file, true);
+            xhttp.send();
+            /*exit the function:*/
+            return;
+        }
+        }
+    };
+</script>
+
 <body id="page_body" class="green-page">
 
 
-
-<iframe id='top' src="top.html"  frameborder="0"  scrolling="no"  width="100%" height="70px"></iframe>
     
+
+
+
+<div w3-include-html="https://tafengtravel.github.io/tafengtravel/index1/top1">
+    <script src="https://www.w3schools.com/lib/w3.js"></script>
+</div> 
+
+
 <div id="pnl_wrapper" class="wrapper homepage green-page">
- 
+
+<script>
+    includeHTML();
+</script>
+
+
 
 <div class="home-banner">
     
