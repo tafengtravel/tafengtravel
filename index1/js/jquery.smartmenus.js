@@ -9,7 +9,6 @@
  * http://www.opensource.org/licenses/MIT
  */
 
-
 (function(factory) {
 	if (typeof define === 'function' && define.amd) {
 		// AMD
@@ -188,7 +187,6 @@
 
 					// make sure mouse detection is enabled
 					initMouseDetection();
-
 				}
 
 				// init sub menus
@@ -785,8 +783,6 @@
 							}, eNS))
 							.dataSM('scroll-arrows').css({ top: 'auto', left: '0', marginLeft: x + (parseInt($sub.css('border-left-width')) || 0), width: subW - (parseInt($sub.css('border-left-width')) || 0) - (parseInt($sub.css('border-right-width')) || 0), zIndex: $sub.css('z-index') })
 								.eq(horizontalParent && this.opts.bottomToTopSubMenus ? 0 : 1).show();
-							
-							top1();
 						// when a menu tree is fixed positioned we allow scrolling via touch too
 						// since there is no other way to access such long sub menus if no mouse is present
 						if (this.isFixed()) {
