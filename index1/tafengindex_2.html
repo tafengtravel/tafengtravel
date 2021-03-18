@@ -146,20 +146,9 @@ document.querySelectorAll("[href^='https://line.me']").forEach(function(item){
 </head>
 <body id="page_body" class="green-page">
 
-<div class="include" file="https://tafengtravel.github.io/tafengtravel/index1/top">需要引入的</div>
+<div class="include" file="https://tafengtravel.github.io/tafengtravel/index1/top"></div>
 
-<script type="text/javascript">
 
-//使用jQuery的load方法
-$(".include").each(function(){
-    if(!!$(this).attr("file")) {
-        var $includeObj = $(this);
-        $(this).load($(this).attr("file"), function(html){
-            $includeObj.after(html).remove();    //載入的檔案內容寫入到當前標籤後面並移除當前標籤
-        })
-    }
-});
-</script>
     
 <div id="pnl_wrapper" class="wrapper homepage green-page">
  
@@ -584,7 +573,13 @@ $(".include").each(function(){
             </table>
         </div>
     </div>
+
+
+    <div class="include" file="https://tafengtravel.github.io/tafengtravel/index1/footer"></div>
+
 </div> 
+
+
 
 
         
@@ -592,5 +587,18 @@ $(".include").each(function(){
 
 <script src="js/4row.js"></script>   
     
+<script type="text/javascript">
+
+    //使用jQuery的load方法
+    $(".include").each(function(){
+        if(!!$(this).attr("file")) {
+            var $includeObj = $(this);
+            $(this).load($(this).attr("file"), function(html){
+                $includeObj.after(html).remove();    //載入的檔案內容寫入到當前標籤後面並移除當前標籤
+            })
+        }
+    });
+</script>
+
 </body>
 </html>
