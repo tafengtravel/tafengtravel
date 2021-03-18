@@ -1,6 +1,4 @@
-var $j = jQuery.noConflict();
-
-$j(function(){
+$(function(){
     var device = new MobileDetect(window.navigator.userAgent);
     //goTop
     goToTop();
@@ -23,11 +21,11 @@ $j(function(){
     //===== 2019/02/20 End =====
 
     //popover
-    $j('[data-toggle="popover"]').popover({
+    $('[data-toggle="popover"]').popover({
         boundary: 'viewport',
         
     }).on('shown.bs.popover', function () {
-        $j('.popover-body').html($(this).data("content"));
+        $('.popover-body').html($(this).data("content"));
     });
 
     var isAutoPlay = true; 
