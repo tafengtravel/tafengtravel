@@ -267,10 +267,6 @@ body {
    
 <body  bgcolor="WHITE" >
 
-<!-- jQuery -->
-<script src="jquery.js" type="text/javascript"></script>
-<!-- SmartMenus jQuery plugin -->
-<script src="jquery.smartmenus.js" type="text/javascript"></script>
 
 <script src="https://tafengtravel.github.io/tafengtravel/index/js/jquery.min.js.js"></script>   
 
@@ -283,18 +279,6 @@ body {
 <!--導航列 記得import jquery.min 刪除js-->
 
 <div class="include" file="https://tafengtravel.github.io/tafengtravel/index1/top"></div>
-<script type="text/javascript">
-
-//使用jQuery的load方法
-$(".include").each(function(){
-    if(!!$(this).attr("file")) {
-        var $includeObj = $(this);
-        $(this).load($(this).attr("file"), function(html){
-            $includeObj.after(html).remove();    //載入的檔案內容寫入到當前標籤後面並移除當前標籤
-        })
-    }
-});
-</script>
 
 <!--導航列-->
 
@@ -358,64 +342,15 @@ showgroup.asp?keyword=&trArea=8K&trDest=5638&startDay=2020/09/11&overDay=2021/12
  
  
 <br> 
-<div class="text-center"> 
-<div class="container">
-<div class="row ">
-    <div class="col">
-		<a href="https://www.facebook.com/tafengtour/">
-        <img src="https://raw.githubusercontent.com/tafengtravel/tafengtravel/master/index/image/fb1.png"  width="140"   class="figure-img img-fluid rounded" alt="">
-    </a></div>
-    <div class="col">
-		<a href="http://line.me/R/ti/p/%40zok5012a">
-        <img id="contact" src="https://raw.githubusercontent.com/tafengtravel/tafengtravel/master/index/image/line1.png" width="140"  class="figure-img img-fluid rounded" alt="">
-    </a></div>
-    <div class="col">
-		<a href="https://www.instagram.com/tafengtour/">
-        <img src="https://raw.githubusercontent.com/tafengtravel/tafengtravel/master/index/image/ig1.png"  width="140"   class="figure-img img-fluid rounded" alt="">
-    </a></div>
-	<div class="col">
-		<a href="http://www.tafeng66.com.tw/webeip/HT00215/customizetour.asp">
-        <img src="https://raw.githubusercontent.com/tafengtravel/tafengtravel/master/index/image/wechat1.png" width="140"   class="figure-img img-fluid rounded" alt="">
-    </a></div>
-  </div>  
- </div>
 
-</div>
+  <div class="text-center">
 
-<br>
+    <div class="include" file="https://tafengtravel.github.io/tafengtravel/index/footer"></div>
 
-  <div class="container">
-    <div class="row justify-content-center">
-      <table class="table table-borderless table-sm col-10 col-xl-10 ">
-        <tr class="text-center">      
-        <th scope="col" COLSPAN=2>大豐旅行社有限公司 TA FENG TRAVEL SERVICE CO.,LTD</th>
-        </tr>
-        <tr class="text-center">      
-        <th scope="col" COLSPAN=2>交觀甲5609號．品保高0098號．週一至週五 08:30-19:00</th>
-        </tr>
-        <tr class="text-center">
-        <th scope="col" >高雄總公司</th>
-        <th scope="col">電話:(07)552-3515</th>
-        </tr>
-        <tr class="text-center">
-        <th scope="col" >台中分公司</th>
-        <th scope="col">電話:(04)2202-5602&emsp;2202-5603</th>
-        </tr>
-        <tr class="text-center">
-        <th scope="col" >台北辦事處</th>
-        <th scope="col">電話:(02)2500-0611&emsp;2500-0612</th>
-        </tr>
-        <tr class="text-center">
-        <th scope="col" COLSPAN=2 >
-          <a href="https://tafengtravel.github.io/tafengtravel/index/payment/pay.html" style="color:black";>                    
-              付款方式&nbsp;&nbsp;<img src="https://raw.githubusercontent.com/tafengtravel/tafengtravel/master/index/image/credit.png" class="figure-img img-fluid rounded" alt="">
-          </a> 
-        </th>
-        </tr>
-      </table>
-    </div>
   </div>
-</div>
+
+  
+
 
 <!-- Facebook Event -->
 <script>
@@ -424,6 +359,18 @@ fbq('track', 'Contact');
 }, false);
 </script>
 
-<!--<font color="blue" size="6"><a href = "http://www.tafeng66.com.tw/webeip/HT00215/">電腦版網頁</font>-->
+<script type="text/javascript">
+
+//使用jQuery的load方法
+$(".include").each(function(){
+    if(!!$(this).attr("file")) {
+        var $includeObj = $(this);
+        $(this).load($(this).attr("file"), function(html){
+            $includeObj.after(html).remove();    //載入的檔案內容寫入到當前標籤後面並移除當前標籤
+        })
+    }
+});
+</script>
+
 </body>
 </html>
