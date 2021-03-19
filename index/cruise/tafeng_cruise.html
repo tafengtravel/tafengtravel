@@ -256,40 +256,7 @@ body {
 	.gray{color:#676767; font-size:22px;text-align:left;letter-spacing: 3px;font-family:微軟正黑體;font-weight: bold;　}
 </style> 
    
-<script type="text/javascript">
-$(function() {
-  $('#main-menu').smartmenus({
-    subMenusSubOffsetX: 6,
-    subMenusSubOffsetY: -8
-  });
-});
-
-// SmartMenus mobile menu toggle button
-$(function() {
-  var $mainMenuState = $('#main-menu-state');
-  if ($mainMenuState.length) {
-    // animate mobile menu
-    $mainMenuState.change(function(e) {
-      var $menu = $('#main-menu');
-      if (this.checked) {
-        $menu.hide().slideDown(250, function() { $menu.css('display', ''); });
-      } else {
-        $menu.show().slideUp(250, function() { $menu.css('display', ''); });
-      }
-    });
-    // hide mobile menu beforeunload
-    $(window).bind('beforeunload unload', function() {
-      if ($mainMenuState[0].checked) {
-        $mainMenuState[0].click();
-      }
-    });
-  }
-});
-
-</script>
-   
-   
-   </head>
+</head>
 
 
 <body  bgcolor="WHITE" >
@@ -339,7 +306,7 @@ $(function() {
   </div>
 </div>
 
-<br>
+<br><br>
 <div class="text-center"> 
 
   <div class="include" file="https://tafengtravel.github.io/tafengtravel/index/footer"></div>
