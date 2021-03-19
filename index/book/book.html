@@ -122,37 +122,8 @@ document.querySelectorAll("[href^='https://line.me']").forEach(function(item){
 
 </head>
 <body id="page_body" class="green-page">
-<nav class="main-nav" role="navigation">
 
-<!-- Mobile menu toggle button (hamburger/x icon) -->
-<input id="main-menu-state" type="checkbox" />
-<label class="main-menu-btn" for="main-menu-state">
-  <span class="main-menu-btn-icon"></span> 
-</label>
-
-<h2 class="nav-brand"><img src="https://tafengtravel.github.io/tafengtravel/index3/tafenglogo2.png"  width="180" height="56"  ></h2>
-
-<!-- Sample menu definition -->
-<ul id="main-menu" class="sm sm-mint">
-    <li><a href="https://tafengtravel.github.io/tafengtravel/index/tafengindex.html">首頁</a></li>    
-    <li><a href="#">國內旅遊</a>
-        <ul>
-            <li><a href="https://tafengtravel.github.io/tafengtravel/index/domestic/tafeng_domestic.html">本島</a></li>
-            <li><a href="https://tafengtravel.github.io/tafengtravel/index/domestic_island/tafeng_domestic_island.html">離島</a></li>
-        </ul>
-    </li>
-    <li><a href="#">國外旅遊</a>
-        <ul>
-            <li><a href="https://tafengtravel.github.io/tafengtravel/index/foreign/tafeng_foreign.html">團體</a></li>
-            <li><a href="https://tafengtravel.github.io/tafengtravel/index/foreign_self/tafeng_foreign_self.html">自由行</a></li>
-        </ul>
-    </li>
-    <li><a href="https://tafengtravel.github.io/tafengtravel/index/cruise/tafeng_cruise.html">世界郵輪</a></li>   
-    <li><a href="https://tafengtravel.github.io/tafengtravel/index/domestic/tafeng_domestic.html">來台專區</a></li>
-    <li><a href="https://tafengtravel.github.io/tafengtravel/index/bus/tafeng_bus.html">遊覽車出租</a></li>
-    <li><a href="https://tafengtravel.github.io/tafengtravel/index/contract/contract.html">線上合約</a></li>
-</ul>
-</nav>
+<div class="include" file="https://tafengtravel.github.io/tafengtravel/index1/top"></div>
     
 <div id="pnl_wrapper" class="wrapper homepage green-page">
  
@@ -311,6 +282,18 @@ document.querySelectorAll("[href^='https://line.me']").forEach(function(item){
 <!-- import JavaScript -->
 <script src="https://unpkg.com/element-ui@2.15.0/lib/index.js"></script>
 
+<script type="text/javascript">
+
+    //使用jQuery的load方法
+    $(".include").each(function(){
+        if(!!$(this).attr("file")) {
+            var $includeObj = $(this);
+            $(this).load($(this).attr("file"), function(html){
+                $includeObj.after(html).remove();    //載入的檔案內容寫入到當前標籤後面並移除當前標籤
+            })
+        }
+    });
+</script>
 
 <script>
 
