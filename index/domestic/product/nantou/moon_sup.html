@@ -129,37 +129,8 @@ document.querySelectorAll("[href^='https://line.me']").forEach(function(item){
 
 </head>
 <body id="page_body" class="green-page">
-<nav class="main-nav" role="navigation">
 
-<!-- Mobile menu toggle button (hamburger/x icon) -->
-<input id="main-menu-state" type="checkbox" />
-<label class="main-menu-btn" for="main-menu-state">
-  <span class="main-menu-btn-icon"></span> 
-</label>
-
-<h2 class="nav-brand"><img src="https://tafengtravel.github.io/tafengtravel/index3/tafenglogo2.png"  width="180" height="56"  ></h2>
-
-<!-- Sample menu definition -->
-<ul id="main-menu" class="sm sm-mint">
-    <li><a href="https://tafengtravel.github.io/tafengtravel/index/tafengindex.html">首頁</a></li>    
-    <li><a href="#">國內旅遊</a>
-        <ul>
-            <li><a href="https://tafengtravel.github.io/tafengtravel/index/domestic/tafeng_domestic.html">本島</a></li>
-            <li><a href="https://tafengtravel.github.io/tafengtravel/index/domestic_island/tafeng_domestic_island.html">離島</a></li>
-        </ul>
-    </li>
-    <li><a href="#">國外旅遊</a>
-        <ul>
-            <li><a href="https://tafengtravel.github.io/tafengtravel/index/foreign/tafeng_foreign.html">團體</a></li>
-            <li><a href="https://tafengtravel.github.io/tafengtravel/index/foreign_self/tafeng_foreign_self.html">自由行</a></li>
-        </ul>
-    </li>
-    <li><a href="https://tafengtravel.github.io/tafengtravel/index/cruise/tafeng_cruise.html">世界郵輪</a></li>   
-    <li><a href="https://tafengtravel.github.io/tafengtravel/index/domestic/tafeng_domestic.html">來台專區</a></li>
-    <li><a href="https://tafengtravel.github.io/tafengtravel/index/bus/tafeng_bus.html">遊覽車出租</a></li>
-    <li><a href="https://tafengtravel.github.io/tafengtravel/index/contract/contract.html">線上合約</a></li>
-</ul>
-</nav>
+<div class="include" file="https://tafengtravel.github.io/tafengtravel/index/top"></div>
     
 <div id="pnl_wrapper" class="wrapper homepage green-page">
  
@@ -432,61 +403,8 @@ document.querySelectorAll("[href^='https://line.me']").forEach(function(item){
 
 <div class="text-center">
 
-    <div class="container">
-        <div class="row ">
-            <div class="col">
-                <a href="https://www.facebook.com/tafengtour/">
-                <img src="https://raw.githubusercontent.com/tafengtravel/tafengtravel/master/index/image/fb1.png"  width="140"   class="figure-img img-fluid rounded" alt="">
-            </a></div>
-            <div class="col">
-                <a href="http://line.me/R/ti/p/%40zok5012a">
-                <img id="contact" src="https://raw.githubusercontent.com/tafengtravel/tafengtravel/master/index/image/line1.png" width="140"  class="figure-img img-fluid rounded" alt="">
-            </a></div>
-            <div class="col">
-                <a href="https://www.instagram.com/tafengtour/">
-                <img src="https://raw.githubusercontent.com/tafengtravel/tafengtravel/master/index/image/ig1.png"  width="140"   class="figure-img img-fluid rounded" alt="">
-            </a></div>
-            <div class="col">
-                <a href="http://www.tafeng66.com.tw/webeip/HT00215/customizetour.asp">
-                <img src="https://raw.githubusercontent.com/tafengtravel/tafengtravel/master/index/image/wechat1.png" width="140"   class="figure-img img-fluid rounded" alt="">
-            </a></div>
-        </div>  
-    </div>
+    <div class="include" file="https://tafengtravel.github.io/tafengtravel/index/footer"></div>
 
-
-    
-    
-    <div class="container">
-        <div class="row justify-content-center">
-            <table class="table table-borderless table-sm col-8 col-xl-8 col-sm-10">
-                <tr class="text-center">      
-                <th scope="col" COLSPAN=2>大豐旅行社有限公司 TA FENG TRAVEL SERVICE CO.,LTD</th>
-                </tr>
-                <tr class="text-center">      
-                <th scope="col" COLSPAN=2>交觀甲5609號．品保高0098號．週一至週五 08:30-19:00</th>
-                </tr>
-                <tr>
-                <th scope="col" class="text-right" >高雄總公司</th>
-                <th scope="col" class="text-center">電話:(07)552-3515</th>
-                </tr>
-                <tr >
-                <th scope="col" class="text-right">台中分公司</th>
-                <th scope="col" class="text-center">電話:(04)2202-5602&emsp;2202-5603</th>
-                </tr>
-                <tr class="text-center">
-                <th scope="col" class="text-right">台北辦事處</th>
-                <th scope="col" class="text-center">電話:(02)2500-0611&emsp;2500-0612</th>
-                </tr>
-                <tr class="text-center">
-                <th scope="col" COLSPAN=2 >
-                    <a href="https://tafengtravel.github.io/tafengtravel/index/payment/pay.html" style="color:black";>                    
-                        付款方式&nbsp;&nbsp;<img src="https://raw.githubusercontent.com/tafengtravel/tafengtravel/master/index/image/credit.png" class="figure-img img-fluid rounded" alt="">
-                    </a> 
-                </th>
-                </tr>
-            </table>
-        </div>
-    </div>
 </div> 
 
 <style>
@@ -503,6 +421,19 @@ document.querySelectorAll("[href^='https://line.me']").forEach(function(item){
 
     
 </body>
+
+<script type="text/javascript">
+
+//使用jQuery的load方法
+$(".include").each(function(){
+    if(!!$(this).attr("file")) {
+        var $includeObj = $(this);
+        $(this).load($(this).attr("file"), function(html){
+            $includeObj.after(html).remove();    //載入的檔案內容寫入到當前標籤後面並移除當前標籤
+        })
+    }
+});
+</script>
 
 <script src="https://unpkg.com/vue@2.6.12/dist/vue.js"></script>
 <!-- import JavaScript -->
