@@ -19,8 +19,8 @@
   <link href='https://tafengtravel.github.io/tafengtravel/index/sm-css/sm-core-css.css' rel='stylesheet' type='text/css' />
   <!-- "sm-blue" menu theme (optional, you can use your own CSS, too) -->
   <link href='https://tafengtravel.github.io/tafengtravel/index/sm-css/sm-mint/sm-mint.css' rel='stylesheet' type='text/css' />
-
-  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+  <script src="https://tafengtravel.github.io/tafengtravel/index/js/jquery.min.js.js"></script>     
+  
   <script src="https://tafengtravel.github.io/tafengtravel/index/js/jquery.smartmenus.js"></script>
 
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
@@ -270,14 +270,6 @@
 </head>
 <body>
 
-       <!-- The core Firebase JS SDK is always required and must be listed first -->
-<script src="/__/firebase/7.14.3/firebase-app.js"></script>
-
-<!-- TODO: Add SDKs for Firebase products that you want to use
-     https://firebase.google.com/docs/web/setup#available-libraries -->
-
-<!-- Initialize Firebase -->
-<script src="/__/firebase/init.js"></script>
    
    <script src="https://www.gstatic.com/firebasejs/4.12.1/firebase.js"></script>
 
@@ -287,37 +279,8 @@
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
 
 
-<nav class="main-nav" role="navigation">
+<div class="include" file="https://tafengtravel.github.io/tafengtravel/index/top"></div>
 
-  <!-- Mobile menu toggle button (hamburger/x icon) -->
-  <input id="main-menu-state" type="checkbox" />
-  <label class="main-menu-btn" for="main-menu-state">
-    <span class="main-menu-btn-icon"></span> Toggle main menu visibility
-  </label>
-
-  <h2 class="nav-brand"><img src="https://tafengtravel.github.io/tafengtravel/index3/tafenglogo2.png"  width="180" height="56"  ></h2>
-
-  <!-- Sample menu definition -->
-  <ul id="main-menu" class="sm sm-mint">
-    <li><a href="https://tafengtravel.github.io/tafengtravel/index/tafengindex.html">首頁</a></li>    
-    <li><a href="#">國內旅遊</a>
-        <ul>
-            <li><a href="https://tafengtravel.github.io/tafengtravel/index/domestic/tafeng_domestic.html">本島</a></li>
-            <li><a href="https://tafengtravel.github.io/tafengtravel/index/domestic_island/tafeng_domestic_island.html">離島</a></li>
-        </ul>
-    </li>
-    <li><a href="#">國外旅遊</a>
-        <ul>
-            <li><a href="https://tafengtravel.github.io/tafengtravel/index/foreign/tafeng_foreign.html">團體</a></li>
-            <li><a href="https://tafengtravel.github.io/tafengtravel/index/foreign_self/tafeng_foreign_self.html">自由行</a></li>
-        </ul>
-    </li>
-    <li><a href="https://tafengtravel.github.io/tafengtravel/index/cruise/tafeng_cruise.html">世界郵輪</a></li>   
-    <li><a href="https://tafengtravel.github.io/tafengtravel/index/domestic/tafeng_domestic.html">來台專區</a></li>
-    <li><a href="https://tafengtravel.github.io/tafengtravel/index/bus/tafeng_bus.html">遊覽車出租</a></li>
-    <li><a href="https://tafengtravel.github.io/tafengtravel/index/contract/contract.html">線上合約</a></li>
-  </ul>
-</nav>
 <p></p>
 
 
@@ -362,62 +325,11 @@
 
 <br> 
 <div class="text-center"> 
-<div class="container">
-<div class="row ">
-    <div class="col">
-		<a href="https://www.facebook.com/tafengtour/">
-        <img src="https://raw.githubusercontent.com/tafengtravel/tafengtravel/master/index/image/fb1.png"  width="140"   class="figure-img img-fluid rounded" alt="">
-    </a></div>
-    <div class="col">
-		<a href="http://line.me/R/ti/p/%40zok5012a">
-        <img id="contact" src="https://raw.githubusercontent.com/tafengtravel/tafengtravel/master/index/image/line1.png" width="140"  class="figure-img img-fluid rounded" alt="">
-    </a></div>
-    <div class="col">
-		<a href="https://www.instagram.com/tafengtour/">
-        <img src="https://raw.githubusercontent.com/tafengtravel/tafengtravel/master/index/image/ig1.png"  width="140"   class="figure-img img-fluid rounded" alt="">
-    </a></div>
-	<div class="col">
-		<a href="http://www.tafeng66.com.tw/webeip/HT00215/customizetour.asp">
-        <img src="https://raw.githubusercontent.com/tafengtravel/tafengtravel/master/index/image/wechat1.png" width="140"   class="figure-img img-fluid rounded" alt="">
-    </a></div>
-  </div>  
- </div>
+  
+  <div class="include" file="https://tafengtravel.github.io/tafengtravel/index/footer"></div>
 
 </div>
 
-<br>
-
-<div class="container">
-  <div class="row justify-content-center">
-      <table class="table table-borderless table-sm col-10 col-xl-10 ">
-          <tr class="text-center">      
-          <th scope="col" COLSPAN=2>大豐旅行社有限公司 TA FENG TRAVEL SERVICE CO.,LTD</th>
-          </tr>
-          <tr class="text-center">      
-          <th scope="col" COLSPAN=2>交觀甲5609號．品保高0098號．週一至週五 08:30-19:00</th>
-          </tr>
-          <tr class="text-center">
-          <th scope="col" >高雄總公司</th>
-          <th scope="col">電話:(07)552-3515</th>
-          </tr>
-          <tr class="text-center">
-          <th scope="col" >台中分公司</th>
-          <th scope="col">電話:(04)2202-5602&emsp;2202-5603</th>
-          </tr>
-          <tr class="text-center">
-          <th scope="col" >台北辦事處</th>
-          <th scope="col">電話:(02)2500-0611&emsp;2500-0612</th>
-          </tr>
-          <tr class="text-center">
-          <th scope="col" COLSPAN=2 >
-              <a href="https://tafengtravel.github.io/tafengtravel/index/payment/pay.html" style="color:black";>                    
-                  付款方式&nbsp;&nbsp;<img src="https://raw.githubusercontent.com/tafengtravel/tafengtravel/master/index/image/credit.png" class="figure-img img-fluid rounded" alt="">
-              </a> 
-          </th>
-          </tr>
-      </table>
-  </div>
-</div>
 
 
 
@@ -426,6 +338,18 @@
 <div class="lable1" id="id1" style =  ></div>
 -->
 
+<script type="text/javascript">
+
+//使用jQuery的load方法
+$(".include").each(function(){
+    if(!!$(this).attr("file")) {
+        var $includeObj = $(this);
+        $(this).load($(this).attr("file"), function(html){
+            $includeObj.after(html).remove();    //載入的檔案內容寫入到當前標籤後面並移除當前標籤
+        })
+    }
+});
+</script>
 
 <script src="secure.js" async>
 </script>
