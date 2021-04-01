@@ -359,10 +359,10 @@ $(".include").each(function(){
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.0.0/jspdf.umd.min.js"></script>
 
+https://cdn.jsdelivr.net/gh/tafengtravel/tafengtravel/index/contract/datauri.js
+<script src="https://cdn.jsdelivr.net/gh/tafengtravel/tafengtravel/index/contract/datauri1.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/tafengtravel/tafengtravel/index/contract/datauri2.js"></script>
 
-
-
-<script type="text/javascript" src="https://drive.google.com/u/0/uc?export=download&confirm=E0wY&id=1tP4DS3KgOKp_58tiuYOlKUckNS2-5Rkd"></script>
 <script src="imguri.js"></script>
 <script src="imguri1.js"></script>
 <script src="imguri2.js"></script>
@@ -429,6 +429,8 @@ function show(data){
   let day = data.合約日;
   let location = data.地點;
 
+  let res
+
   pricedetail = depdate+'~'+enddate+" "+name+" "+'團費共$'+price
 
   let Today=new Date();
@@ -436,6 +438,8 @@ function show(data){
 
   //--------------JSpdf-------------
   window.jsPDF = window.jspdf.jsPDF
+
+  res = res1+res2
 
   // Don't forget, that there are CORS-Restrictions. So if you want to run it without a Server in your Browser you need to transform the image to a dataURL
   // Use http://dataurl.net/#dataurlmaker
