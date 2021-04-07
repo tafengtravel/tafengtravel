@@ -2191,8 +2191,22 @@ function limitdate(){
 
     if(Today.getDate() > 9){
       todaydate = Today.getFullYear()+"-"+(Today.getMonth()+1)+"-"+Today.getDate();
+      
+      if(Today.getHours() > 12){
+        dlDate = Today.getFullYear()+"-"+(Today.getMonth()+1)+"-"+(Today.getDate()+1);
+      }else{
+        dlDate = Today.getFullYear()+"-"+(Today.getMonth()+1)+"-"+Today.getDate();
+      }
+
     }else if(Today.getDate()< 10){
       todaydate = Today.getFullYear()+"-"+(Today.getMonth()+1)+"-0"+Today.getDate();
+
+      if(Today.getHours() > 12){
+        dlDate = Today.getFullYear()+"-"+(Today.getMonth()+1)+"-0"+(Today.getDate()+1);
+      }else{
+        dlDate = Today.getFullYear()+"-"+(Today.getMonth()+1)+"-0"+Today.getDate();
+      }
+
     }
     document.getElementById('date').setAttribute('min', todaydate); 
 
@@ -2202,8 +2216,8 @@ function limitdate(){
 
     for(i=1;i<16;i++){
       document.getElementById("paydate"+i).setAttribute('min', todaydate);
-      document.getElementById("lastpaydatedl"+i).setAttribute('min', todaydate);
-      document.getElementById("downpaydatedl"+i).setAttribute('min', todaydate);
+      document.getElementById("lastpaydatedl"+i).setAttribute('min', dlDate);
+      document.getElementById("downpaydatedl"+i).setAttribute('min', dlDate);
       
     }
 
@@ -2215,8 +2229,22 @@ function limitdate(){
 
     if(Today.getDate() > 9){
       todaydate = Today.getFullYear()+"-0"+(Today.getMonth()+1)+"-"+Today.getDate();
+
+      if(Today.getHours() > 12){
+        dlDate = Today.getFullYear()+"-0"+(Today.getMonth()+1)+"-"+(Today.getDate()+1);
+      }else{
+        dlDate = Today.getFullYear()+"-0"+(Today.getMonth()+1)+"-"+Today.getDate();
+      }
+
     }else if(Today.getDate()< 10){
       todaydate = Today.getFullYear()+"-0"+(Today.getMonth()+1)+"-0"+Today.getDate();
+
+      if(Today.getHours() > 12){
+        dlDate = Today.getFullYear()+"-0"+(Today.getMonth()+1)+"-0"+(Today.getDate()+1);
+      }else{
+        dlDate = Today.getFullYear()+"-0"+(Today.getMonth()+1)+"-0"+Today.getDate();
+      }
+
     }
     document.getElementById('date').setAttribute('min', todaydate); 
 
@@ -2226,8 +2254,8 @@ function limitdate(){
 
     for(i=1;i<16;i++){
       document.getElementById("paydate"+i).setAttribute('min', todaydate);
-      document.getElementById("lastpaydatedl"+i).setAttribute('min', todaydate);
-      document.getElementById("downpaydatedl"+i).setAttribute('min', todaydate);
+      document.getElementById("lastpaydatedl"+i).setAttribute('min', dlDate);
+      document.getElementById("downpaydatedl"+i).setAttribute('min', dlDate);
     } 
 
     for(i=1;i<6;i++){
