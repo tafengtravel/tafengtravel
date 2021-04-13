@@ -105,7 +105,6 @@
 </script>
 <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
 <script src="https://www.chartjs.org/dist/2.9.3/Chart.min.js"></script>
-<script src="https://www.chartjs.org/samples/latest/utils.js"></script>
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 
 
@@ -213,13 +212,23 @@
 
 <script>
 
+window.chartColors = {
+	red: 'rgb(255, 99, 132)',
+	orange: 'rgb(255, 159, 64)',
+	yellow: 'rgb(255, 205, 86)',
+	green: 'rgb(75, 192, 192)',
+	blue: 'rgb(54, 162, 235)',
+	purple: 'rgb(153, 102, 255)',
+	grey: 'rgb(231,233,237)'
+}
+
 function info(){
     
 }
 
 let penghu=[]; green=[]; lanyu=[]; kinmen=[]; matsu=[]; car=[]; unknown=[]; subsidy=[]; other=[]; group=[]; crusie=[]; season=[]; 
 let people=[]; revenue=[]; profit=[]; totalprofit=0;
-let i=1; year=0;
+let i; year=0;
 
 async function search(){  
   totalprofit=0;
@@ -232,6 +241,10 @@ async function search(){
     return;
   }else{
   }
+
+  penghu=[]; green=[]; lanyu=[]; kinmen=[]; matsu=[]; car=[]; unknown=[]; subsidy=[]; other=[]; group=[]; crusie=[]; season=[]; 
+  people=[]; revenue=[]; profit=[]; totalprofit=0;
+  i=1
 
   var ref = db.collection(depdate.substring(0,4)+'-total');
   year = parseInt(depdate.substring(0,4))
@@ -291,14 +304,14 @@ async function search(){
       if (isNaN(subsidy[i])){
         subsidy[i]=0;
       }
-
+      
       other[i]=other[i]+season[i]+crusie[i];
 
       people[i]=parseInt(doc.data().總人數);
       revenue[i]=parseInt(doc.data().營業額);
       profit[i]=parseInt(doc.data().總利潤);
 
-      
+
 
     });
   });
@@ -314,6 +327,9 @@ async function search(){
   }
 
   for(i=1;i<13;i++){
+    if(isNaN(profit[i])){
+      profit[i]=0;
+    }
     totalprofit = profit[i]+totalprofit;
     document.getElementById('month'+i).value=profit[i];
   }
