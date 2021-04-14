@@ -108,6 +108,7 @@ async function search(){
   let parse;
   let a=1;
   let opcheck=0;let moneycheck=0;
+  let money_times=13
 
 
   //判斷是否為0即刪除
@@ -155,7 +156,7 @@ async function search(){
       ref = db.collection(year.toString()+'-0'+month.toString());   
     }
     
-    for(i=1;i<9;i++){
+    for(i=1;i<money_times;i++){
       await ref.where('第'+i+'筆收入報帳日期','==',moneydate).get().then(querySnapshot => {
       querySnapshot.forEach(doc => {      
 
