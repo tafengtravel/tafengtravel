@@ -260,7 +260,7 @@ document.querySelectorAll("[href^='https://line.me']").forEach(function(item){
                         <el-row>
                             <font class ="font"><span>數量：</span></font> 
                             <template>
-                                <el-input-number id="quantity1" v-model="quantity1" :min="2" :max="10" :step="2" onclick="per_price()" onchange="per_price()"></el-input-number>
+                                <el-input-number id="quantity1" v-model="quantity1" :min="1" :max="2" onclick="per_price()" onchange="per_price()"></el-input-number>
                             </template>
                         </el-row>
 
@@ -455,13 +455,13 @@ $(".include").each(function(){
     let type ;//品項內容
     let type2;//判斷 css disable
     let number ;
-    let product_length = 2;
+    let product_length = 1;
     let dateDep 
     let quantity
 
     document.getElementById("title_1").innerHTML='長榮航空夢想起飛 2.0｜一日機長體驗營';
-    document.getElementById("sub_title_1").innerHTML='隔週六一次';
-    document.getElementById("sub_title_2").innerHTML='09:00-16:20';
+    document.getElementById("sub_title_1").innerHTML='每週六';
+    document.getElementById("sub_title_2").innerHTML='08:30-12:15';
     document.getElementById("sub_title_3").innerHTML='1';
     document.getElementById("features").innerHTML='帶您學習專業空服員知識，並且體驗一日空服員生活。由空服教官擔任活動講師，帶領您進入空服員課程如：美姿美儀、機上餐飲服務教學、滅火訓練艙訓練、緊急逃生訓練艙訓練、及各艙門訓練器簡介等。實現您的空服員夢想！<br><br>★空服員體驗課程，學習專業空服知識<br>★午餐帶您享用豪華經濟艙餐食<br>★課程結束後紀念拍照與頒發證書';
     document.getElementById("location").innerHTML='活動集合地點：長榮航空訓練中心';
@@ -487,7 +487,7 @@ $(".include").each(function(){
             disabledDate:'',
             pickerOptions: {
                 disabledDate(time) {
-                    let date = ['2021-05-15','2021-05-29','2021-06-12','2021-06-26','2021-07-10','2021-07-24','2021-08-07','2021-08-21','2021-09-04','2021-09-18','2021-10-02','2021-10-16','2021-10-30','2021-11-13','2021-11-27','2021-12-11','2021-12-25']
+                    let date = ['2021-05-08','2021-05-15','2021-05-22','2021-06-26','2021-07-03','2021-07-10','2021-07-17','2021-07-24','2021-07-31','2021-08-07','2021-08-14','2021-08-21','2021-08-28','2021-09-04','2021-09-11','2021-09-18','2021-09-25','2021-10-02','2021-10-09','2021-10-16','2021-10-23','2021-10-30','2021-11-06','2021-11-13','2021-11-20','2021-11-27','2021-12-04','2021-12-11','2021-12-18','2021-12-25']
                     let disableDateRange = []
                     let disableDateTrue = true
 
@@ -572,7 +572,7 @@ $(".include").each(function(){
         localStorage.setItem("dep_date", document.getElementById('dep_date').value);
         localStorage.setItem("itinerary",itinerary);
         localStorage.setItem("price",price_html[0].outerText);
-        localStorage.setItem("quantity", quantity+'位');
+        localStorage.setItem("quantity", quantity1.__vue__.value+'位');
         localStorage.setItem("time", document.getElementById('choice_time1').value);
         localStorage.setItem("type", type2);
         document.location.href='https://tafengtravel.github.io/tafengtravel/index/book/book.html';
@@ -584,6 +584,8 @@ $(".include").each(function(){
         //type = 1 兩小時//type = 2 三小時
         //number = 1 單人一板//number = 2 雙人一板
         let price1 = 18888
+
+        price1 =  price1*quantity1.__vue__.value
 
         price(price1)
 
