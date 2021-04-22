@@ -298,7 +298,7 @@ document.querySelectorAll("[href^='https://line.me']").forEach(function(item){
 <script>
 
     let number ;
-    let total_quantity = localStorage.getItem("quantity");
+    let total_quantity = parseInt(localStorage.getItem("quantity"));
     let time = localStorage.getItem("time");
     let dep_date = localStorage.getItem("dep_date");
     let price = localStorage.getItem("price");
