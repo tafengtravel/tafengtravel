@@ -259,7 +259,7 @@ document.querySelectorAll("[href^='https://line.me']").forEach(function(item){
                         <el-row>
                             <font class ="font"><span>數量：</span></font> 
                             <template>
-                                <el-input-number id="quantity1" v-model="quantity1" :min="2" :max="10" :step="2" onclick="per_price()" onchange="per_price()"></el-input-number>
+                                <el-input-number id="quantity1" v-model="quantity1" :min="2" :max="4" :step="2" onclick="per_price()" onchange="per_price()"></el-input-number>
                             </template>
                         </el-row>
 
@@ -318,7 +318,7 @@ document.querySelectorAll("[href^='https://line.me']").forEach(function(item){
                         <el-row>
                             <font class ="font"><span>數量：</span></font> 
                             <template>
-                                <el-input-number id="quantity2" v-model="quantity2" :min="1" :max="10" onclick="per_price()" onchange="per_price()"></el-input-number>
+                                <el-input-number id="quantity2" v-model="quantity2" :min="1" :max="4" onclick="per_price()" onchange="per_price()"></el-input-number>
                             </template>
                         </el-row>
 
