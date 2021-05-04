@@ -228,6 +228,7 @@ function info(){
 
 let penghu=[]; green=[]; lanyu=[]; kinmen=[]; matsu=[]; car=[]; unknown=[]; subsidy=[]; other=[]; group=[]; crusie=[]; season=[]; 
 let people=[]; revenue=[]; profit=[]; totalprofit=0;
+let csPay=[];opPay=[];basicPay=[];monthTotalPay=[];totalPay=0
 let i; year=0;
 
 async function search(){  
@@ -243,7 +244,8 @@ async function search(){
   }
 
   penghu=[]; green=[]; lanyu=[]; kinmen=[]; matsu=[]; car=[]; unknown=[]; subsidy=[]; other=[]; group=[]; crusie=[]; season=[]; 
-  people=[]; revenue=[]; profit=[]; totalprofit=0;
+  people=[]; revenue=[]; profit=[]; totalprofit=0; totalPay=0;
+
   i=1
 
   var ref = db.collection(depdate.substring(0,4)+'-total');
@@ -304,6 +306,19 @@ async function search(){
       if (isNaN(subsidy[i])){
         subsidy[i]=0;
       }
+
+      csPay[i]=parseInt(doc.data().客服支出);
+      if (isNaN(csPay[i])){
+        csPay[i]=0;
+      }
+      opPay[i]=parseInt(doc.data().OP支出);
+      if (isNaN(opPay[i])){
+        opPay[i]=0;
+      }
+      basicPay[i]=parseInt(doc.data().基本支出);
+      if (isNaN(basicPay[i])){
+        basicPay[i]=0;
+      }
       
       other[i]=other[i]+season[i]+crusie[i];
 
@@ -330,10 +345,14 @@ async function search(){
     if(isNaN(profit[i])){
       profit[i]=0;
     }
+    monthTotalPay[i]=csPay[i]+opPay[i]+basicPay[i]
+    totalPay = monthTotalPay[i]+totalPay
     totalprofit = profit[i]+totalprofit;
+    profit[i] = profit[i]+monthTotalPay[i]
+
     document.getElementById('month'+i).value=profit[i];
   }
- 
+  totalprofit = totalprofit+totalPay
   document.getElementById('totalprofit').value=totalprofit;
 
   window.myDoughnut1.data.datasets[0].data = [penghu[1],green[1],lanyu[1],kinmen[1],matsu[1],car[1],other[1],group[1]];
@@ -371,6 +390,10 @@ async function search(){
   window.myBar.data.datasets[7].data = [group[1],group[2],group[3],group[4],group[5],group[6],group[7],group[8],group[9],group[10],group[11],group[12]];
   window.myBar.data.datasets[8].data = [unknown[1],unknown[2],unknown[3],unknown[4],unknown[5],unknown[6],unknown[7],unknown[8],unknown[9],unknown[10],unknown[11],unknown[12]];
   window.myBar.data.datasets[9].data = [subsidy[1],subsidy[2],subsidy[3],subsidy[4],subsidy[5],subsidy[6],subsidy[7],subsidy[8],subsidy[9],subsidy[10],subsidy[11],subsidy[12]];
+
+  window.myBar.data.datasets[10].data = [csPay[1],csPay[2],csPay[3],csPay[4],csPay[5],csPay[6],csPay[7],csPay[8],csPay[9],csPay[10],csPay[11],csPay[12]];
+  window.myBar.data.datasets[11].data = [opPay[1],opPay[2],opPay[3],opPay[4],opPay[5],opPay[6],opPay[7],opPay[8],opPay[9],opPay[10],opPay[11],opPay[12]];
+  window.myBar.data.datasets[12].data = [basicPay[1],basicPay[2],basicPay[3],basicPay[4],basicPay[5],basicPay[6],basicPay[7],basicPay[8],basicPay[9],basicPay[10],basicPay[11],basicPay[12]];
   window.myBar.update();
 
 
@@ -459,6 +482,27 @@ var barChartData = {
 				data: [
           subsidy[1],subsidy[2],subsidy[3],subsidy[4],subsidy[5],subsidy[6],
           subsidy[7],subsidy[8],subsidy[9],subsidy[10],subsidy[11],subsidy[12],
+				]
+			}, {
+				label: '客服支出',
+				backgroundColor: window.chartColors.orange,
+				data: [
+          csPay[1],csPay[2],csPay[3],csPay[4],csPay[5],csPay[6],
+          csPay[7],csPay[8],csPay[9],csPay[10],csPay[11],csPay[12],
+				]
+			}, {
+				label: 'OP支出',
+				backgroundColor: window.chartColors.yellow,
+				data: [
+          opPay[1],opPay[2],opPay[3],opPay[4],opPay[5],opPay[6],
+          opPay[7],opPay[8],opPay[9],opPay[10],opPay[11],opPay[12],
+				]
+			}, {
+				label: '基本支出',
+				backgroundColor: window.chartColors.green,
+				data: [
+          basicPay[1],basicPay[2],basicPay[3],basicPay[4],basicPay[5],basicPay[6],
+          basicPay[7],basicPay[8],basicPay[9],basicPay[10],basicPay[11],basicPay[12],
 				]
 			}]
 
