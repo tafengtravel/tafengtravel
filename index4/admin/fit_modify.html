@@ -3215,9 +3215,9 @@ var obj = {
 
 
 
-      ref.set(obj).then(() => {
-        console.log('set data successful');
-        alert('新增成功');
+      ref.update(obj).then(() => {
+        console.log('update data successful');
+        alert('修改成功');
         window.location.reload("");
       });
 
