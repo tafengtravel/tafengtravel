@@ -298,19 +298,25 @@ document.querySelectorAll("[href^='https://line.me']").forEach(function(item){
 <script>
 
     let number ;
+    let quantity = localStorage.getItem("quantity");
     let total_quantity = parseInt(localStorage.getItem("quantity"));
     let time = localStorage.getItem("time");
     let dep_date = localStorage.getItem("dep_date");
     let price = localStorage.getItem("price");
     let itinerary = localStorage.getItem("itinerary");
     let type = localStorage.getItem("type");
+    let guest = localStorage.getItem("guest");
 
     let a =[];
+
+    if(guest == 'false'){
+        total_quantity = 1
+    }
 
     document.getElementById("sub_title").innerHTML=itinerary;
     document.getElementById("sub_title_1").innerHTML=dep_date;
     document.getElementById("sub_title_2").innerHTML=time;
-    document.getElementById("sub_title_3").innerHTML=total_quantity;
+    document.getElementById("sub_title_3").innerHTML=quantity;
     document.getElementById("sub_title_4").innerHTML=type;
     document.getElementById("price").innerHTML='$'+price;
     
