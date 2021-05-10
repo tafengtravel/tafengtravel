@@ -218,7 +218,7 @@ document.querySelectorAll("[href^='https://line.me']").forEach(function(item){
 
             <!--1-->
 
-            <el-row>
+            <!-- <el-row>
 
                 <el-card class="box-card">
                     <div class="el-col el-col-24 el-col-xs-24 el-col-xs-offset-0 el-col-sm-20 el-col-sm-offset-0" id="box-card" style="padding-left:8px;padding-right:8px;">
@@ -273,7 +273,7 @@ document.querySelectorAll("[href^='https://line.me']").forEach(function(item){
                     </div>  
                 </el-card>
 
-            </el-row>
+            </el-row> -->
 
             <!--2-->
 
@@ -281,21 +281,21 @@ document.querySelectorAll("[href^='https://line.me']").forEach(function(item){
 
                 <el-card class="box-card">
                     <div class="el-col el-col-24 el-col-xs-24 el-col-xs-offset-0 el-col-sm-20 el-col-sm-offset-0" id="box-card" style="padding-left:8px;padding-right:8px;">
-                        <font class ="font"><span id = 'itinerary2'>一日空服員體驗營</span></font><br>
+                        <font class ="font"><span id = 'itinerary1'>一日空服員體驗營</span></font><br>
                         <font class ="mini_font"><i class="el-icon-time"></i><span>&emsp;行程總長：7 小時</span></font><br>
 
                     </div>
                     <div class="el-col el-col-24 el-col-xs-24 el-col-xs-offset-0 el-col-sm-4 el-col-sm-offset-0" >
-                        <el-button type="primary is-plain" style="width:100% ;margin:0px 0px 15px 0px" id="choice" onclick="choose(2)">選擇</el-button>
+                        <el-button type="primary is-plain" style="width:100% ;margin:0px 0px 15px 0px" id="choice" onclick="choose(1)">選擇</el-button>
                     </div>  
                 </el-card>            
 
-                <el-card class="box-card box-detail-hide-card" id ="choice_click_2">
+                <el-card class="box-card box-detail-hide-card" id ="choice_click_1">
                     <div class="el-col el-col-24 el-col-xs-24 el-col-xs-offset-0 el-col-sm-20 el-col-sm-offset-0" id="box-card" style="padding-left:8px;padding-right:8px;">
                         <el-row>
                             <template>
                                 <div >
-                                    <el-radio id='radio2_1' v-model="radio1" label="1" border onclick='per_price()' onchange="per_price()">一日空服員體驗營</el-radio>
+                                    <el-radio id='radio1_1' v-model="radio1" label="1" border onclick='per_price()' onchange="per_price()">一日空服員體驗營</el-radio>
                                 </div>
                             </template>
                         </el-row>
@@ -303,7 +303,7 @@ document.querySelectorAll("[href^='https://line.me']").forEach(function(item){
                         <el-row>
                             <font class ="font"><span>場次：</span></font>
                             <template>
-                                <el-select v-model="value1" placeholder="請選擇場次" id='choice_time2'>
+                                <el-select v-model="value1" placeholder="請選擇場次" id='choice_time1'>
                                 <el-option onclick='per_price()' onchange="per_price()"
                                     v-for="item in options1"
                                     :key="item.value"
@@ -328,7 +328,7 @@ document.querySelectorAll("[href^='https://line.me']").forEach(function(item){
                         
                     </div>
                     <div class="el-col el-col-24 el-col-xs-24 el-col-xs-offset-0 el-col-sm-4 el-col-sm-offset-0" >
-                        <el-button type="primary is-plain" style="width:100% ;margin:0px 0px 15px 0px" onclick = 'buy(2)'>立即訂購</el-button>
+                        <el-button type="primary is-plain" style="width:100% ;margin:0px 0px 15px 0px" onclick = 'buy(1)'>立即訂購</el-button>
                     </div>  
                 </el-card>
 
@@ -515,7 +515,7 @@ $(".include").each(function(){
     let type ;//品項內容
     let type2;//判斷 css disable
     let number ;
-    let product_length = 2;
+    let product_length = 1;
     let dateDep 
     let quantity
 
@@ -547,7 +547,7 @@ $(".include").each(function(){
             disabledDate:'',
             pickerOptions: {
                 disabledDate(time) {
-                    let date = ['2021-05-15','2021-05-29','2021-06-12','2021-06-26','2021-07-10','2021-07-24','2021-08-07','2021-08-21','2021-09-04','2021-09-18','2021-10-02','2021-10-16','2021-10-30','2021-11-13','2021-11-27','2021-12-11','2021-12-25']
+                    let date = ['2021-06-26','2021-07-10','2021-07-24','2021-08-07','2021-08-21','2021-09-04','2021-09-18','2021-10-02','2021-10-16','2021-10-30','2021-11-13','2021-11-27','2021-12-11','2021-12-25']
                     let disableDateRange = []
                     let disableDateTrue = true
 
@@ -562,7 +562,7 @@ $(".include").each(function(){
                    
                 }
             },
-            datevalue1:  '',
+            datevalue1: '2021-06-26',
             options1: [{
                 value: '09:00-16:20',
                 label: '09:00-16:20'  
@@ -644,19 +644,10 @@ $(".include").each(function(){
 
         //type = 1 兩小時//type = 2 三小時
         //number = 1 單人一板//number = 2 雙人一板
-        let price1
+        let price1 = 5860
    
-
-        if(type == 1){
-            price1 = 3344;
-            price1=price1*quantity1.__vue__.value
-            quantity = quantity1.__vue__.value
-        }else if(type == 2){
-            price1 = 5860
-            price1=price1*quantity2.__vue__.value
-            quantity = quantity2.__vue__.value
-        }        
-        
+        price1=price1*quantity2.__vue__.value
+        quantity = quantity2.__vue__.value
         price(price1)
 
         function price(price){
