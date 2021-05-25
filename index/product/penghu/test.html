@@ -42,7 +42,8 @@
 <link rel="shortcut icon" href="https://tafengtravel.github.io/tafengtravel/index1/tafenglogo6.ico" type="image/x-icon" />
 
 <!-- The core Firebase JS SDK is always required and must be listed first -->
-<script src="https://www.gstatic.com/firebasejs/8.6.2/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/4.12.1/firebase.js"></script>
+<script src="https://www.gstatic.com/firebasejs/4.12.1/firebase-firestore.js"></script>
 
 <!-- TODO: Add SDKs for Firebase products that you want to use
      https://firebase.google.com/docs/web/setup#available-libraries -->
@@ -143,7 +144,7 @@ document.querySelectorAll("[href^='https://line.me']").forEach(function(item){
    
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<title>大豐旅行社｜澎湖潮間帶體驗｜國內外旅遊專家</title>   	
+<title>大豐旅行社｜{{title}}｜國內外旅遊專家</title>   	
 
 <meta name="description" content="澎湖潮間帶體驗,一起來體驗吧,大豐旅行社">
 <meta name="keywords" content="澎湖潮間帶體驗,一起來體驗吧,大豐旅行社"> 
@@ -151,10 +152,6 @@ document.querySelectorAll("[href^='https://line.me']").forEach(function(item){
 <meta http-equiv="cache-control" content="no-cache">  
 <meta http-equiv="pragma" content="no-cache">
 <meta name="format-detection" content="telephone=no">
-
-<title>
-
-</title>
 
 
 </head>
@@ -493,23 +490,15 @@ $(".include").each(function(){
 
 
 <script>
+    let data 
 
     const urlParams = new URLSearchParams(window.location.search)
     const paramsObj = Object.fromEntries(urlParams)
 
     console.log(paramsObj.id)
 
-    let dataUrl = 'https://firestore.googleapis.com/v1/projects/tafengtravel-web/databases/(default)/documents/product/'+paramsObj.id
-
-    axios.get(dataUrl)
-      .then( (res) => {
-        console.log(res.data.fields.title.stringValue)
-    })
-    .catch( (err) => {
-    console.log(err);
-    });
-
-
+    var db = firebase.firestore();
+    ref = db.collection('product').doc(paramsObj.id);
     
     let type ;//品項內容
     let type2;//判斷 css disable
@@ -585,7 +574,8 @@ $(".include").each(function(){
             'image/penghu8_1.jpg',
             'image/penghu8_2.jpg',
             'image/penghu8_3.jpg',
-            ]
+            ],
+            title:''
             
       
             };
@@ -593,8 +583,21 @@ $(".include").each(function(){
         },methods: {
             
         },mounted(){
-            let id = Ctor().getUrlKey('id')
-            console.log(id)
+
+            
+            ref.onSnapshot(doc => { 
+
+                if(typeof(doc.data()) == 'undefined'){
+                    alert('錯誤');
+                    return 0;
+                }
+                data = doc.data()
+                console.log(doc.data())
+
+                document.title= data.title
+
+
+            });
         }
         
      
