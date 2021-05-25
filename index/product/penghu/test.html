@@ -138,6 +138,9 @@ document.querySelectorAll("[href^='https://line.me']").forEach(function(item){
     padding: 1px;
     } 
 }
+.font{
+    white-space: pre-wrap;
+}
 
 </style>
 
@@ -146,8 +149,8 @@ document.querySelectorAll("[href^='https://line.me']").forEach(function(item){
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <title></title>   	
 
-<meta name="description" content="澎湖潮間帶體驗,一起來體驗吧,大豐旅行社">
-<meta name="keywords" content="澎湖潮間帶體驗,一起來體驗吧,大豐旅行社"> 
+<meta name="description" content="">
+<meta name="keywords" content=""> 
 <meta http-equiv="expires" content="0">
 <meta http-equiv="cache-control" content="no-cache">  
 <meta http-equiv="pragma" content="no-cache">
@@ -177,13 +180,13 @@ document.querySelectorAll("[href^='https://line.me']").forEach(function(item){
     <div class="el-row">
         <div class="el-col el-col-24 el-col-xs-24 el-col-xs-offset-0 el-col-sm-24 el-col-sm-offset-0 el-col-lg-16 el-col-lg-offset-0" style="padding-left:12px;padding-right:12px;">
             <el-row>
-                <font class ="title" id ="title_1"></font>
+                <font class ="title">{{itemData.title}}</font>
             </el-row>
             <el-row>
                 <font class ="sub_title">行程特色</font>
             </el-row>
             <el-row>
-                <font class ="font"><span id ="features"></span></font>
+                <font class ="font">{{itemData.features}}</font>
             </el-row>
             
         </div>
@@ -194,7 +197,7 @@ document.querySelectorAll("[href^='https://line.me']").forEach(function(item){
                     <font class ="font"><i class="el-icon-date"></i></font>
                 </span>            
                 <span class= "el-col-21">
-                    <font class ="font">可預訂日期：<span id ="sub_title_1"></span></font>
+                    <font class ="font">可預訂日期：{{itemData.day}}</font>
                 </span> 
             </el-row>
             <el-row>
@@ -202,7 +205,7 @@ document.querySelectorAll("[href^='https://line.me']").forEach(function(item){
                     <font class ="font"><i class="el-icon-time"></i></font>
                 </span>           
                 <span class= "el-col-21">
-                    <font class ="font">出發時間：<span id ="sub_title_2"></span></font>
+                    <font class ="font">出發時間：{{itemData.depTime}}</font>
                 </span>
             </el-row>
             <el-row>
@@ -210,7 +213,7 @@ document.querySelectorAll("[href^='https://line.me']").forEach(function(item){
                     <font class ="font"><i class="el-icon-s-custom"></i></font>
                 </span>            
                 <span class= "el-col-21">
-                    <font class ="font">最少預定數：<span id ="sub_title_3"></span>人</font>
+                    <font class ="font">最少預定數：{{itemData.minAmount}}人</font>
                 </span>   
             </el-row>
         </div>
@@ -308,34 +311,7 @@ document.querySelectorAll("[href^='https://line.me']").forEach(function(item){
             </el-row>
 
             <el-row>
-                <font class ="font"><span id ="content"></span>
-
-                    在澎湖，陸地上有豐富的沿海風光與樸實人情<br>
-                    海底下正發生著珊瑚與海洋生物的復育計畫<br>
-                    希望能透過日日潛水的專業帶領一覽海洋世界，讓大家將這些體驗寫入每日生活。<br>
-                    我們將跟你分享如何輕鬆地與海洋互動<br>
-                    你我一點的力量如何讓海洋更健康<br>
-                    累積每個旅人的日常點滴，成就你我日日的海洋生活。<br><br>
-                    
-                    集合地址：澎湖縣馬公市68-2號<br>
-                    體驗時間：09:00/13:00/15:00<br>
-                    行程長度：約 2-2.5 小時<br><br>
-
-                    費用包含：<br>
-                    保險<br>
-                    專業教練<br>
-                    潛水全套裝備<br>
-                    潛水專屬防水明信片一張<br>
-                    潛水專屬體驗證書一張<br>
-                    茶點<br>
-                    活動過程中拍攝之照片、影片<br>
-
-                    費用：<br>
-                    $2500/位<br>
-                    
-                </font> 
-                            
-
+                <font class ="font"><p v-html ="itemData.itinerary"></p></font> 
             </el-row>
 
             <el-divider></el-divider>
@@ -377,7 +353,7 @@ document.querySelectorAll("[href^='https://line.me']").forEach(function(item){
                 <font class ="sub_title">集合地點</font>
             </el-row>
             <el-row>
-                <font class ="font"><span id ="location"></span></font>
+                <font class ="font">{{itemData.location}}</font>
             </el-row>
 
             <el-divider></el-divider>
@@ -385,13 +361,7 @@ document.querySelectorAll("[href^='https://line.me']").forEach(function(item){
                 <font class ="sub_title">注意事項</font>
             </el-row>
             <el-row>
-                <font class ="font"><span id ="features">
-                    ＊最少出團人數 2 人，當參加人數未達上述規定的最少成團人數時，將取消旅遊行程，於出發日前 1 天發出取消旅遊的 Email 通知。<br>
-                    ＊因交通、天氣等不可抗力因素所引起的時間延誤，造成部份行程景點取消時，請您主動聯絡客服，我們將會為您辦理部份退款。<br>                    
-                    ＊若遇颱風、暴風雪等天候不佳的情況，將於出發前 1 天（當地時間 00:00 ）決定此團是否取消出發，之後將隨時以電子郵件形式通知。<br>                    
-                    ＊請務必於 15 分鐘前抵達指定地點，為避免耽誤之後行程，逾時不候。<br>                    
-                    ＊考量安全因素，若有心臟病、懷孕、高血壓...等特殊疾病的旅客，請勿參與。<br>                    
-                </span></font>
+                <font class ="font"><p v-html ="itemData.announce"></p></font> 
             </el-row>
 
             <el-divider></el-divider>
@@ -400,13 +370,7 @@ document.querySelectorAll("[href^='https://line.me']").forEach(function(item){
                 <font class ="sub_title">取消規定</font>
             </el-row>
             <el-row>
-                <font class ="font"><span id ="features">
-                    ＊如您在體驗開始日前8-前4天提出需求，我們將收取30%的手續費。<br>
-                    ＊如您在體驗開始日前3-前1天內提出需求，我們會收取50%的手續費。<br>
-                    ＊如您在體驗開始當日提出需求，將無法退費。<br>
-                    ＊若取消需求是由在地嚮導提出，您將可獲得全額退款。<br>
-                    ＊若取消需求提出時，我們已為您繳交代辦之行政費用(如簽證費、其他無法由受理單位退回之手續費)將無法退回。    
-                </span></font>
+                <font class ="font"><p v-html ="itemData.cancel"></p></font> 
             </el-row>
                         
         </div>
@@ -507,13 +471,7 @@ $(".include").each(function(){
     let dateDep 
     let quantity
 
-    document.getElementById("title_1").innerHTML='台灣澎湖｜體驗潛水';
-    document.getElementById("sub_title_1").innerHTML='星期一 ~ 星期日';
-    document.getElementById("sub_title_2").innerHTML='09:00/13:00/15:00';
-    document.getElementById("sub_title_3").innerHTML='1';
-    document.getElementById("features").innerHTML='澎湖水上活動人氣推薦，適合無潛水證照但想一探海底的旅人所提供的專業體驗活動，透過教練的安全帶領，在海底漫遊游動欣賞海洋世界！<br><br>★透過教練1對1或1對2的安全帶領，整個過程由教練抓著氣瓶或手勾手在海底游動，讓無潛水證照但想一探海底的旅人所提供的專業體驗活動<br>★潛水專屬防水明信片一張、潛水專屬體驗證書一張<br>★教練將於活動過程中為您拍攝照片、影片！'
-    document.getElementById("location").innerHTML='活動集合地點：澎湖縣馬公市68-2號';
-
+    
     price_html = document.getElementsByName("per_price");
 
     low_price = document.getElementsByName("low_price");
@@ -575,9 +533,8 @@ $(".include").each(function(){
             'image/penghu8_2.jpg',
             'image/penghu8_3.jpg',
             ],
-            title:''
-            
-      
+
+            itemData:[],
             };
  
         },methods: {
@@ -596,6 +553,7 @@ $(".include").each(function(){
 
                 document.title= data.title
 
+                this.itemData = data
 
             });
         }
