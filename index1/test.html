@@ -141,6 +141,9 @@ document.querySelectorAll("[href^='https://line.me']").forEach(function(item){
 .font{
     white-space: pre-wrap;
 }
+.el-card{
+    margin-bottom:20px; 
+}
 
 </style>
 
@@ -249,58 +252,64 @@ document.querySelectorAll("[href^='https://line.me']").forEach(function(item){
 
             <el-row>
 
-                <el-card class="box-card">
-                    <div class="el-col el-col-24 el-col-xs-24 el-col-xs-offset-0 el-col-sm-20 el-col-sm-offset-0" id="box-card" style="padding-left:8px;padding-right:8px;">
-                        <font class ="font"><span id = 'itinerary1'>體驗潛水</span></font><br>
-                        <font class ="mini_font"><i class="el-icon-time"></i><span>&emsp;行程總長：2 小時</span></font><br>
+                <div v-for="(item, index) in itemDetail" >
+                    
+                    <el-card class="box-card">
+                        <div class="el-col el-col-24 el-col-xs-24 el-col-xs-offset-0 el-col-sm-20 el-col-sm-offset-0" id="box-card" style="padding-left:8px;padding-right:8px;">
+                            <font class ="font">{{item.title}}</font><br>
+                            <font class ="mini_font"><i class="el-icon-time"></i><span>&emsp;行程總長：{{item.time}} 小時</span></font><br>
+    
+                        </div>
+                        <div class="el-col el-col-24 el-col-xs-24 el-col-xs-offset-0 el-col-sm-4 el-col-sm-offset-0" >
+                            <el-button type="primary is-plain" style="width:100% ;margin:0px 0px 15px 0px" @click="isShow = index+1 ;per_price()">選擇</el-button>
+                        </div>  
+                    </el-card>            
+   
+                    <el-card class="box-card " v-if="isShow == index+1">
+                        <div class="el-col el-col-24 el-col-xs-24 el-col-xs-offset-0 el-col-sm-20 el-col-sm-offset-0" id="box-card" style="padding-left:8px;padding-right:8px;">
+                            <el-row>
+                                <template>
+                                    <div >
+                                        <el-radio v-model="radio" label="1" border >{{item.title}}</el-radio>
+                                    </div>
+                                </template>
+                            </el-row>
+    
+                            <el-row>
+                                <font class ="font"><span>場次：</span></font>
+                                <template>
+                                    <el-select v-model="depValue" placeholder="請選擇場次" >
+                                    <el-option 
+                                        v-for="item in depOptions"
+                                        :key="item.time"
+                                        :label="item.time"
+                                        :value="item.time"
+                                        >
+                                    </el-option>
+                                    </el-select>
+                                </template>
+                            </el-row>
+    
+                            <el-row>
+                                <font class ="font"><span>數量：</span></font> 
+                                <template>
+                                    <el-input-number v-model="quantity" :min="1" :max="10" @change="per_price()"></el-input-number>
+                                </template>
+                            </el-row>
+    
+                            <el-row>
+                                    <font class ="font"><span>費用：${{price}}</span></font>                             
+                            </el-row>                
+                            
+                        </div>
+                        <div class="el-col el-col-24 el-col-xs-24 el-col-xs-offset-0 el-col-sm-4 el-col-sm-offset-0" >
+                            <el-button type="primary is-plain" style="width:100% ;margin:0px 0px 15px 0px" onclick = 'buy(1)'>立即訂購</el-button>
+                        </div>  
+                    </el-card>
 
-                    </div>
-                    <div class="el-col el-col-24 el-col-xs-24 el-col-xs-offset-0 el-col-sm-4 el-col-sm-offset-0" >
-                        <el-button type="primary is-plain" style="width:100% ;margin:0px 0px 15px 0px" id="choice" onclick="choose(1)">選擇</el-button>
-                    </div>  
-                </el-card>            
+                </div>
 
-                <el-card class="box-card box-detail-hide-card" id ="choice_click_1">
-                    <div class="el-col el-col-24 el-col-xs-24 el-col-xs-offset-0 el-col-sm-20 el-col-sm-offset-0" id="box-card" style="padding-left:8px;padding-right:8px;">
-                        <el-row>
-                            <template>
-                                <div >
-                                    <el-radio id='radio1_1' v-model="radio1" label="1" border onclick='per_price()' onchange="per_price()">體驗潛水</el-radio>
-                                </div>
-                            </template>
-                        </el-row>
-
-                        <el-row>
-                            <font class ="font"><span>場次：</span></font>
-                            <template>
-                                <el-select v-model="value1" placeholder="請選擇場次" id='choice_time1'>
-                                <el-option onclick='per_price()' onchange="per_price()"
-                                    v-for="item in options1"
-                                    :key="item.value"
-                                    :label="item.label"
-                                    :value="item.value"
-                                    >
-                                </el-option>
-                                </el-select>
-                            </template>
-                        </el-row>
-
-                        <el-row>
-                            <font class ="font"><span>數量：</span></font> 
-                            <template>
-                                <el-input-number id="quantity1" v-model="quantity1" :min="1" :max="10" onclick="per_price()" onchange="per_price()"></el-input-number>
-                            </template>
-                        </el-row>
-
-                        <el-row>
-                                <font class ="font"><span>費用：$<span id = per_price name = per_price></span></span></font>                             
-                        </el-row>                
-                        
-                    </div>
-                    <div class="el-col el-col-24 el-col-xs-24 el-col-xs-offset-0 el-col-sm-4 el-col-sm-offset-0" >
-                        <el-button type="primary is-plain" style="width:100% ;margin:0px 0px 15px 0px" onclick = 'buy(1)'>立即訂購</el-button>
-                    </div>  
-                </el-card>
+                
 
             </el-row>
 
@@ -383,7 +392,7 @@ document.querySelectorAll("[href^='https://line.me']").forEach(function(item){
                         <font class ="font"><span>最低售價</span></font>
                         <font class ="box_sub_title" style="margin-left: 140px;">$<span name='low_price'></span>起</font><br><br>
                         <font class ="mini_font"><span>訂購完成後須等待空位確認，專員會於1個工作天內回覆您預定結果，並將付款連結寄至您的信箱，訂單將於付款後正式成立。</span></font><br>
-                        <a href="#choose_link"><el-button type="primary" style="width:100% ;margin-top: 6px;" onclick="choose(1)" >選擇方案</el-button></a><br>
+                        <a href="#choose_link"><el-button type="primary" style="width:100% ;margin-top: 6px;" @click="isShow = index+1 ;per_price()" >選擇方案</el-button></a><br>
 
 
                         
@@ -400,7 +409,7 @@ document.querySelectorAll("[href^='https://line.me']").forEach(function(item){
                 <font class ="box_sub_title">$<span name='low_price'></span>起</font>
             </div>
             <div class="el-col el-col-xs-6 el-col-xs-offset-0 el-col-sm-6 el-col-sm-offset-0" >
-                <a href="#choose_link"><el-button type="primary" style="width: 100%;margin: 6px 0px 6px -10px;" onclick="choose(1)">選擇方案</el-button></a>
+                <a href="#choose_link"><el-button type="primary" style="width: 100%;margin: 6px 0px 6px -10px;" @click="isShow = index+1 ;per_price()">選擇方案</el-button></a>
             </div>  
 
 
@@ -455,6 +464,7 @@ $(".include").each(function(){
 
 <script>
     let data 
+    let item
 
     const urlParams = new URLSearchParams(window.location.search)
     const paramsObj = Object.fromEntries(urlParams)
@@ -511,20 +521,10 @@ $(".include").each(function(){
                 }
             },
             datevalue1: new Date().getTime() + 48*60*60*1000,
-            options1: [{
-                value: '09:00-11:00',
-                label: '09:00-11:00'  
-                },{
-                value: '13:00-15:00',
-                label: '13:00-15:00'  
-                },{
-                value: '15:00-17:00',
-                label: '15:00-17:00'  
-                }],
-            value1: '09:00-11:00',
-            quantity1: 1,
-            quantity2: 0,
-            radio1: '1',
+            depValue: '',
+            depOptions: [],
+            quantity: 1,
+            radio: '1',
             url: [
             'image/penghu8_1.jpg',
             ],
@@ -535,9 +535,16 @@ $(".include").each(function(){
             ],
 
             itemData:[],
+            itemDetail:[],
+            isShow:false,
+            index:0,
+            price:0,
             };
  
         },methods: {
+            per_price(){
+                this.price = (this.itemDetail[this.isShow-1].price)*this.quantity
+            }
             
         },mounted(){
 
@@ -554,6 +561,12 @@ $(".include").each(function(){
                 document.title= data.title
 
                 this.itemData = data
+                
+
+                this.itemDetail = Object.keys(data.itemPrice).map(swag=>({price:data.itemPrice[swag],title:data.itemTitle[swag],time:data.itemTime[swag]}))
+                this.depOptions = Object.keys(data.itemDepTime).map(swag=>({time:data.itemDepTime[swag]}))
+                this.depValue = this.depOptions[0].time
+
 
             });
         }
@@ -576,22 +589,6 @@ $(".include").each(function(){
 		}
 	};
 
-    function choose(type1){
-
-        type = type1
-
-        for(i=1;i<product_length+1;i++){
-
-            if(i == type){
-                document.getElementById("choice_click_"+i).style.display = "block";
-            }else{
-                document.getElementById("choice_click_"+i).style.display = "none";
-            }
-            
-        }
-        per_price()
-
-    }
 
     function buy(type){
 
@@ -611,26 +608,6 @@ $(".include").each(function(){
 
     }
 
-    function per_price(){
-
-        //type = 1 兩小時//type = 2 三小時
-        //number = 1 單人一板//number = 2 雙人一板
-        let price1 = 2500
-        let price2 = 0
-
-        price1 =  price1*quantity1.__vue__.value
-
-        price1 = price1+price2
-
-        price(price1)
-
-        function price(price){
-            for (i = 0;i < price_html.length; i++) {
-                price_html[i].innerHTML = price;
-            }
-        }
-
-    }
 </script>
 
 </html>
