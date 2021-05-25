@@ -161,7 +161,7 @@ async function search(){
 //------------
 
 
-   for(i=1;i<16;i++){
+   for(i=1;i<21;i++){
     await ref.where('第'+i+'筆支出廠商','==',name).get().then(querySnapshot => {
     querySnapshot.forEach(doc => {      
 
