@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>大豐後台管理系統</title>   	
+  <meta name="description" content="大豐後台管理系統">
+ 
+  <meta http-equiv="cache-control" content="no-cache">  
+  <meta http-equiv="pragma" content="no-cache">
+  <meta http-equiv="expires" content="0">
+  <meta name="format-detection" content="telephone=no">
+
+  <!-- <link rel="icon" href="dreamer.ico" type="image/x-icon" />
+  <link rel="shortcut icon" href="dreamer.ico" type="image/x-icon" /> -->
+
+
+  
+<link href='https://tafengtravel.github.io/tafengtravel/index/sm-css/sm-core-css.css' rel='stylesheet' type='text/css' />
+<!-- "sm-blue" menu theme (optional, you can use your own CSS, too) -->
+<link href='https://tafengtravel.github.io/tafengtravel/index/sm-css/sm-mint/sm-mint.css' rel='stylesheet' type='text/css' />
+<link href='https://tafengtravel.github.io/tafengtravel/index/css/smart.css' rel='stylesheet' type='text/css' />
+
+<script src="https://tafengtravel.github.io/tafengtravel/index/js/jquery.min.js.js"></script>
+<script src="https://tafengtravel.github.io/tafengtravel/index/js/jquery.smartmenus.js"></script>
+
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+
+<link href="https://tafengtravel.github.io/tafengtravel/index/css/elementUI.css" rel="stylesheet" />
+<link href="https://tafengtravel.github.io/tafengtravel/index/css/common.css" rel="stylesheet" />
+<link href="https://tafengtravel.github.io/tafengtravel/index/css/book.css" rel="stylesheet" />
+
+<!-- vue+element ui -->
+<script src="https://unpkg.com/vue@2.6.12/dist/vue.js"></script>
+<!-- import JavaScript -->
+<script src="https://unpkg.com/element-ui@2.15.0/lib/index.js"></script>
+<script src="https://momentjs.com/downloads/moment.js"></script>
+<link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+
+<link href="https://tafengtravel.github.io/tafengtravel/index/css/book.css" rel="stylesheet" />
+
+<!-- axios -->
+<script src='https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.2/axios.min.js'></script>
+
+
+
+</head>
+<body>
+
+   
+   <script src="https://www.gstatic.com/firebasejs/4.12.1/firebase.js"></script>
+
+<script src="https://www.gstatic.com/firebasejs/4.12.1/firebase-firestore.js"></script>
+
+<script>
+  // Your web app's Firebase configuration
+  var firebaseConfig = {
+    apiKey: "AIzaSyC1DlPU6BqCFXzWLBZ_6Y90KNLwYzfei3c",
+    authDomain: "tafengtravel-web.firebaseapp.com",
+    projectId: "tafengtravel-web",
+    storageBucket: "tafengtravel-web.appspot.com",
+    messagingSenderId: "971660802735",
+    appId: "1:971660802735:web:af7e22d11fe81ca63ab25a"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+</script>
+
+
+
+
+
+<!-- <nav class="main-nav" role="navigation">
+
+  
+  <input id="main-menu-state" type="checkbox" />
+  <label class="main-menu-btn" for="main-menu-state">
+    <span class="main-menu-btn-icon"></span> 
+  </label>
+
+  <h2 class="nav-brand"><img src="dreamer.png"  width="132" height="50"  ></h2>
+
+  
+  <ul id="main-menu" class="sm sm-mint">
+    <li><a href="home.html">首頁</a></li>
+    <li><a href="#">球員資料</a>
+      
+    </li>
+    <li><a href="#">戰績排行</a>
+      
+    </li>
+    <li><a href="#">數據統計</a>
+      
+    </li>
+
+  </ul>
+</nav> -->
+
+<div class="include" file="http://tafengtravel.github.io/tafengtravel/index5/top.html"></div>
+
+
+
+<div id="app" class ="el-col el-col-24 el-col-xs-22 el-col-xs-offset-1 el-col-sm-22 el-col-sm-offset-1 el-col-lg-22 el-col-lg-offset-1"> 
+  
+  <el-row></el-row><el-row></el-row>
+  <el-row :gutter="20">
+
+    <el-col class ="el-col el-col-24 el-col-xs-24 el-col-sm-24 el-col-lg-24">
+      <font class ="font"><span>產品編號</span></font>
+      <el-input v-model="idCount" placeholder="" disabled="disabled" style="width:150px"></el-input>
+      
+      <font class ="font"><span>地區</span></font>
+      <template>
+        <el-select v-model="itemData.location" placeholder="請選擇">
+          <el-option-group
+            v-for="group in options"
+            :key="group.label"
+            :label="group.label">
+            <el-option
+              v-for="item in group.options"
+              :key="item.value"
+              :label="item.label"
+              :value="item.value">
+            </el-option>
+          </el-option-group>
+        </el-select>
+      </template>
+      
+      <font class ="font"><span>是否上架</span></font>
+      
+      <template>
+        <el-select v-model="itemData.available" placeholder="">
+          <el-option
+            v-for="item in options1"
+            :key="item.value"
+            :label="item.label"
+            :value="item.value">
+          </el-option>
+        </el-select>
+      </template>
+      
+    </el-col>
+
+  </el-row>
+
+  <el-row :gutter="20">
+
+    <el-col class ="el-col el-col-24 el-col-xs-24 el-col-sm-24 el-col-lg-24">
+      <font class ="font"><span>產品名稱</span></font>
+      <el-input v-model="itemData.title" placeholder="" style="width:450px" @change="a()"></el-input>
+    </el-col>
+
+  </el-row>
+
+  <el-row :gutter="20">
+
+    <el-col class ="el-col el-col-24 el-col-xs-24 el-col-sm-24 el-col-lg-24">
+      <font class ="font"><span>最低售價</span></font>
+      <el-input v-model="itemData.lowPrice" placeholder="" style="width:100px" @change="a()"></el-input>
+      <font class ="font"><span>最少人數</span></font>
+      <el-input v-model="itemData.minAmount" placeholder="" style="width:100px" @change="a()"></el-input>
+      <font class ="font"><span>可預訂日期</span></font>
+      <el-input v-model="itemData.day" placeholder="" style="width:200px" @change="a()"></el-input>
+      <font class ="font"><span>出發時間</span></font>
+      <el-input v-model="itemData.dapTIme" placeholder="" style="width:200px" @change="a()"></el-input>
+    </el-col>
+
+  </el-row>
+
+  <el-row :gutter="20">
+
+    <el-col class ="el-col el-col-24 el-col-xs-24 el-col-sm-24 el-col-lg-24">
+      <font class ="font"><span>集合地點</span></font>
+      <el-input v-model="itemData.pickup" placeholder="" style="width:450px" @change="a()"></el-input>
+    </el-col>
+
+  </el-row>
+
+  <el-row :gutter="20">
+
+    <el-col class ="el-col el-col-24 el-col-xs-24 el-col-sm-24 el-col-lg-24">
+      <font class ="font"><span>成人費用</span></font>
+      
+      <el-input v-model="itemData.itemPrice" placeholder="" style="width:150px" v-for="field in fields"></el-input>
+      <el-button type="primary" icon="el-icon-circle-plus-outline" @click="itemPriceAdd"></el-button>
+    </el-col>
+
+  </el-row>
+
+
+  <el-row :gutter="20">
+
+    <el-col class ="el-col el-col-24 el-col-xs-24 el-col-sm-24 el-col-lg-24">
+      <font class ="font"><span>行程特色</span></font>
+      <el-input type="textarea" :rows="5" placeholder="請輸入內容" v-model="itemData.features" style="width:600px"></el-input>
+    </el-col>
+
+  </el-row>
+
+  <el-row :gutter="20">
+
+    <el-col class ="el-col el-col-24 el-col-xs-24 el-col-sm-24 el-col-lg-24">
+      <font class ="font"><span>行程內容</span></font>
+      <el-input type="textarea" :rows="10" placeholder="請輸入內容" v-model="itemData.itinerary" style="width:600px"></el-input>
+    </el-col>
+
+  </el-row>
+
+  <el-row :gutter="20">
+
+    <el-col class ="el-col el-col-24 el-col-xs-24 el-col-sm-24 el-col-lg-24">
+      <font class ="font"><span>注意事項</span></font>
+      <el-input type="textarea" :rows="10" placeholder="請輸入內容" v-model="itemData.announce" style="width:600px"></el-input>
+    </el-col>
+
+  </el-row>
+
+  <el-row :gutter="20">
+
+    <el-col class ="el-col el-col-24 el-col-xs-24 el-col-sm-24 el-col-lg-24">
+      <font class ="font"><span>取消規定</span></font>
+      <el-input type="textarea" :rows="10" placeholder="請輸入內容" v-model="itemData.cancel" style="width:600px"></el-input>
+    </el-col>
+
+  </el-row>
+
+  <br><br><br><br><br><br><br><br><br><br><br><br>
+</div>
+
+
+<script>
+
+  let count
+
+  var db = firebase.firestore();
+  ref = db.collection('product').doc('count');
+
+  var Main = {
+    data() {
+      return {
+        itemData:[],
+        idCount:'',
+        fields:[],
+        counts: 0,
+        options: [{
+          label: '國內離島',
+          options: [{
+            value: '澎湖',
+            label: '澎湖'
+          }, {
+            value: '綠島',
+            label: '綠島'
+          }, {
+            value: '蘭嶼',
+            label: '蘭嶼'
+          }, {
+            value: '金門',
+            label: '金門'
+          }, {
+            value: '馬祖',
+            label: '馬祖'
+          }]
+        }, {
+          label: '國內本島',
+          options: [{
+            value: '台北',
+            label: '台北'
+          }, {
+            value: '新北',
+            label: '新北'
+          }, {
+            value: '基隆',
+            label: '基隆'
+          }, {
+            value: '桃園',
+            label: '桃園'
+          }, {
+            value: '新竹',
+            label: '新竹'
+          }, {
+            value: '苗栗',
+            label: '苗栗'
+          }, {
+            value: '台中',
+            label: '台中'
+          }, {
+            value: '彰化',
+            label: '彰化'
+          }, {
+            value: '南投',
+            label: '南投'
+          }, {
+            value: '雲林',
+            label: '雲林'
+          }, {
+            value: '嘉義',
+            label: '嘉義'
+          }, {
+            value: '台南',
+            label: '台南'
+          }, {
+            value: '高雄',
+            label: '高雄'
+          }, {
+            value: '屏東',
+            label: '屏東'
+          }, {
+            value: '花蓮',
+            label: '花蓮'
+          }, {
+            value: '宜蘭',
+            label: '宜蘭'
+          }]
+        }],
+        options1: [{
+          value: true,
+          label: '是'
+        },{
+          value: false,
+          label: '否'
+        }]
+        
+      };
+      
+
+    },methods: {
+      a(){
+        console.log(this.itemData)
+      },
+      itemPriceAdd(){
+        this.fields.push({});
+      }
+    },mounted(){
+
+      ref.onSnapshot(doc => { 
+
+        count = parseInt(doc.data().currentId)
+
+        this.idCount = count+1
+
+      });
+      
+    }
+};
+
+var Ctor = Vue.extend(Main)
+new Ctor().$mount('#app')
+
+  
+</script>
+
+<script type="text/javascript">
+
+  //使用jQuery的load方法
+  $(".include").each(function(){
+      if(!!$(this).attr("file")) {
+          var $includeObj = $(this);
+          $(this).load($(this).attr("file"), function(html){
+              $includeObj.after(html).remove();    //載入的檔案內容寫入到當前標籤後面並移除當前標籤
+          })
+      }
+  });
+</script>
+
+
+</body>
+</html>
