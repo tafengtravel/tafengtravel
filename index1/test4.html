@@ -1,0 +1,70 @@
+<html>
+    <script src="https://www.gstatic.com/firebasejs/4.12.1/firebase.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/4.12.1/firebase-firestore.js"></script>
+    
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+         https://firebase.google.com/docs/web/setup#available-libraries -->
+    
+    <script>
+      // Your web app's Firebase configuration
+      var firebaseConfig = {
+        apiKey: "AIzaSyC1DlPU6BqCFXzWLBZ_6Y90KNLwYzfei3c",
+        authDomain: "tafengtravel-web.firebaseapp.com",
+        projectId: "tafengtravel-web",
+        storageBucket: "tafengtravel-web.appspot.com",
+        messagingSenderId: "971660802735",
+        appId: "1:971660802735:web:af7e22d11fe81ca63ab25a"
+      };
+      // Initialize Firebase
+      firebase.initializeApp(firebaseConfig);
+    </script>
+
+
+    <textarea id = 'area'>
+
+    </textarea>
+    <button onclick ="a()">
+
+    </button>
+
+    <script>
+        var db = firebase.firestore();
+        let ref = db.collection('product').doc('3');
+        function a(){
+            let b = document.getElementById('area').value
+
+            // let itemPPrice = [[],[],[]]
+            // itemPPrice[0][0]= 1500
+            // itemPPrice[0][1]= 1600
+            // itemPPrice[1][0]= 1800
+
+            obj = {
+                itemPrice:{
+                    0:{
+                        0:{
+                            price:1500
+                        },
+                        1:{
+                            price:1600
+                        }
+                        
+                    },
+                    1:{
+                        0:{
+                            price:1800
+                        }
+                    }
+                },
+                // itemPPrice
+            }
+            console.log(obj.itemPrice[0][0].price)
+
+            // ref.set(obj).then(() => {
+            //     console.log('update data successful');
+            //     alert('修改成功');
+            //     window.location.reload("");
+            // });
+
+        }
+    </script>
+</html>
