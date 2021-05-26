@@ -179,15 +179,49 @@
 
   <el-row :gutter="20">
 
-    <el-col class ="el-col el-col-24 el-col-xs-24 el-col-sm-24 el-col-lg-24">
-      <font class ="font"><span>成人費用</span></font>
-      
-      <el-input v-model="itemData.itemPrice" placeholder="" style="width:150px" v-for="field in fields"></el-input>
-      <el-button type="primary" icon="el-icon-circle-plus-outline" @click="itemPriceAdd"></el-button>
-    </el-col>
+    <span v-for="(fields,index1) in itemItinerary">
+      <el-col class ="el-col el-col-24 el-col-xs-24 el-col-sm-24 el-col-lg-24">
+        <font class ="font"><span>第{{index1}}行程</span></font>
+        <el-button type="primary" icon="el-icon-circle-plus-outline" @click="itemItineraryAdd"></el-button>
+      </el-col>
+      <!-- <span v-for="(field,index) in itemOption"> -->
+        <el-col class ="el-col el-col-24 el-col-xs-24 el-col-sm-24 el-col-lg-8">
+          <el-card class="box-card" style="min-height: 250px;" >
+            <el-col class ="el-col el-col-24 el-col-xs-24 el-col-sm-24 el-col-lg-24">
+
+              <span v-for="(field,index) in itemOptionAdult">
+                <font class ="font"><span>第{{index+1}}選項</span></font><br>
+                <font class ="font"><span>成人費用</span></font>
+
+                  <el-input v-model="fields[index]" placeholder="" style="width:150px"></el-input><label>&nbsp;</label>
+
+                <el-button type="primary" icon="el-icon-circle-plus-outline" @click="itemOptionAdultAdd"></el-button>
+              </span>
+              
+            </el-col>
+          </el-col>
+        </el-card>
+
+        <el-col class ="el-col el-col-24 el-col-xs-24 el-col-sm-24 el-col-lg-8">
+          <el-card class="box-card" style="min-height: 250px;" >
+            <el-col class ="el-col el-col-24 el-col-xs-24 el-col-sm-24 el-col-lg-24">
+
+              <span v-for="(field,index) in itemOptionKid">
+                <font class ="font"><span>第{{index+1}}選項</span></font><br>
+                <font class ="font"><span>兒童費用</span></font>
+
+                  <el-input v-model="fields[index]" placeholder="" style="width:150px"></el-input><label>&nbsp;</label>
+
+                <el-button type="primary" icon="el-icon-circle-plus-outline" @click="itemOptionKidAdd"></el-button>
+              </span>
+              
+            </el-col>
+          </el-col>
+        </el-card>
+      <!-- </span> -->
+    </span>
 
   </el-row>
-
 
   <el-row :gutter="20">
 
@@ -239,6 +273,7 @@
   var Main = {
     data() {
       return {
+        totalPrice:[[]],
         itemData:[],
         idCount:'',
         fields:[],
@@ -319,6 +354,15 @@
         },{
           value: false,
           label: '否'
+        }],
+        itemOptionAdult:[{
+          value:0
+        }],
+        itemOptionKid:[{
+          value:0
+        }],
+        itemItinerary:[{
+          value:5
         }]
         
       };
@@ -327,9 +371,18 @@
     },methods: {
       a(){
         console.log(this.itemData)
+        console.log(this.itemOptionAdult)
+        console.log(this.itemOptionKid)
+        console.log(this.itemItinerary)
       },
-      itemPriceAdd(){
-        this.fields.push({});
+      itemOptionAdultAdd(){
+        this.itemOptionAdult.push({0:{}});
+      },
+      itemOptionKidAdd(){
+        this.itemOptionKid.push({});
+      },
+      itemItineraryAdd(){
+        this.itemItinerary.push({value:""});
       }
     },mounted(){
 
