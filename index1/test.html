@@ -272,8 +272,8 @@ document.querySelectorAll("[href^='https://line.me']").forEach(function(item){
                                     </template>
                                 </span> -->
                                 <el-radio-group v-model="radio">
-                                    <el-radio v-for="(item,index1) in itemRadio[index]" :label="item.value" @change="radioChange();per_price()" border>
-                                        {{item.value}}
+                                    <el-radio v-for="(item,index1) in itemRadio[index]" :label="item" @change="radioChange();per_price()" border>
+                                        {{item}}
                                     </el-radio>
                                 </el-radio-group>
                             </el-row>
@@ -284,9 +284,9 @@ document.querySelectorAll("[href^='https://line.me']").forEach(function(item){
                                     <el-select v-model="depValue" placeholder="請選擇場次" >
                                     <el-option 
                                         v-for="item in depOptions[index]"
-                                        :key="item.time"
-                                        :label="item.time"
-                                        :value="item.time"
+                                        :key="item"
+                                        :label="item"
+                                        :value="item"
                                         >
                                     </el-option>
                                     </el-select>
@@ -539,8 +539,8 @@ $(".include").each(function(){
  
         },methods: {
             choose(){
-                this.radio = data.itemRadio[this.isShow-1][0].value
-                this.depValue = this.depOptions[this.isShow-1][0].time
+                this.radio = data.itemRadio[this.isShow-1][0]
+                this.depValue = this.depOptions[this.isShow-1][0]
                 this.per_price()
             },
             per_price(){
@@ -548,7 +548,7 @@ $(".include").each(function(){
                 let kidPrice = 0;
                 for(i=0;i<Object.keys(data.itemRadio).length;i++){
                     for(j=0;j<Object.keys(data.itemRadio[i]).length;j++){
-                        if(this.radio == data.itemRadio[i][j].value){
+                        if(this.radio == data.itemRadio[i][j]){
                             x=i
                             y=j
                             break;
@@ -561,9 +561,9 @@ $(".include").each(function(){
                 if (data.itemPriceKid[x] === undefined ){
                     kidPrice = 0
                 }else{
-                    kidPrice = parseInt(data.itemPriceKid[x][y].price)*this.quantity1
+                    kidPrice = parseInt(data.itemPriceKid[x][y])*this.quantity1
                 }
-                this.price = parseInt(data.itemPrice[x][y].price)*this.quantity0 + kidPrice
+                this.price = parseInt(data.itemPrice[x][y])*this.quantity0 + kidPrice
             },
             radioChange(){
                 console.log(this.radio)
