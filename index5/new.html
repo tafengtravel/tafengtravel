@@ -398,7 +398,7 @@
         <el-col class ="el-col el-col-24 el-col-xs-24 el-col-sm-24 el-col-lg-24">
           <font class ="font"><span>取消規定</span></font>
           <el-input type="textarea" :rows="10" placeholder="請輸入內容" v-model="itemData.cancel" style="width:600px"></el-input>
-          <el-button type="primary" @click ="dataArrange">送出</el-button>
+          <el-button type="primary" @click ="dataSend">送出</el-button>
         </el-col>
 
       </el-row>
@@ -421,10 +421,18 @@
   let itemRadio = {}
   let itemDepTime = {}
   let itemOtherKid = {}
+  let itemData
+  let itemItinerary
+  let itemTime = []
+  let itemTitle = []
+  let coverUrl
+  let imageUrl
+
+  let obj = {}
 
 
   var db = firebase.firestore();
-  ref = db.collection('product').doc('count');
+
 
   var Main = {
     data() {
@@ -560,85 +568,71 @@
       },
       imageUrlAdd(){
         this.imageUrl.push({});
-      },dataArrange(){
+      },dataSend(){
 
-        // let x=0;let y=0
+        coverUrl = this.coverUrl
+        imageUrl = this.imageUrl
 
-        // for(i=0;i<(Object.keys(this.itemPrice[i])).length;i++){
-        //   y=0
-        //   itemPrice[x]={
-        //     [x]:''
-        //   }
-        //   for(j=0;j<(Object.keys(this.itemPrice)).length;j++){
-        //     itemPrice[x][y] = this.itemPrice[j][i]
-        //     y=y+1
-        //   }
-        //   x=x+1
-        // }
-        console.log(this.itemPrice)
         itemPrice = this.dataSort(this.itemPrice)
+        itemPriceKid = this.dataSort(this.itemPriceKid)
+        itemOtherAdult = this.dataSort(this.itemOtherAdult)
+        itemOtherKid = this.dataSort(this.itemOtherKid)
+        itemDepTime = this.dataSort(this.itemDepTime)
+        itemRadio = this.dataSort(this.itemRadio)
+        itemData = this.itemData
+        itemItinerary = this.itemItinerary
 
-        // itemPriceKid = this.dataSort(this.itemPriceKid)
-        // itemOtherAdult = this.dataSort(this.itemOtherAdult)
-        // itemOtherKid = this.dataSort(this.itemOtherKid)
-        // itemDepTime = this.dataSort(this.itemDepTime)
-        // itemRadio = this.dataSort(this.itemRadio)
 
         console.log(itemPrice)
-        // console.log(itemPriceKid)
-        // console.log(itemOtherAdult)
-        // console.log(itemOtherKid)
-        // console.log(itemDepTime)
-        // console.log(itemRadio)
+        console.log(itemPriceKid)
+        console.log(itemOtherAdult)
+        console.log(itemOtherKid)
+        console.log(itemDepTime)
+        console.log(itemRadio)
+
+        itemItinerary = this.itemItinerary
+
+        for(i=0;i<Object.keys(itemItinerary).length;i++){
+          itemTime[i] = itemItinerary[i].itemTime
+          itemTitle[i] = itemItinerary[i].itemTitle
+        }
+
+      
+        obj = {...obj,itemPrice,itemPriceKid,itemOtherAdult,itemOtherKid,itemDepTime,itemRadio,...itemData,itemTime,itemTitle,coverUrl,imageUrl}
+        console.log(obj)
+
+
+        let ref = db.collection('product').doc((this.idCount).toString());
+
+        ref.set(obj).then(() => {
+          console.log('update data successful');
+          alert('新增成功');
+          
+        });
+
 
       },dataSort(data){
 
-        let x=0;let y=0
-        let newData = {}
+        // swag obj元素 index只到的位置
+        // swag 用key拆開得到2層數值 foreach去跑 porn得到內層數值 ininder抓到位址
+        let obj=[{}]
 
-        if((Object.keys(data[0])).length == 1 && data.length ==1){
-          newData[0]={
-            [0]:''
-          }
-          newData[0][0] = data[0][0]
-          return newData
-        }
-
-        if(data.length == 1 && (Object.keys(data[0])).length > 1){
-          for(let i=0;i<(Object.keys(data[0])).length;i++){
-            newData[i]={
-              [0]:''
-            }
-            newData[i][0] = data[0][i]
-            
-          }
-          return newData
-          
-        }
-
-        for(let i=0;i<(Object.keys(data[i])).length;i++){
-          y=0
-          newData[x]={
-            [x]:''
+        data.forEach((swag,index)=>{
+          Object.keys(swag).forEach((porn,ininder)=>{obj={
+            ...obj,
+            [ininder]:{...obj[ininder],[index]:swag[ininder]}
           }
 
-          for(let j=0;j<data.length;j++){
-            newData[x][y] = data[j][i]
-            console.log(x,y)
-            console.log(newData[x][y])
-            console.log(data[j][i])
-            y=y+1
-            
-          }
-          if( i == (Object.keys(data[i])).length-1){
-            break;
-          }
-          x=x+1
-        }
+          })
 
-        return newData
+          })
+
+        return obj
+
       }
     },mounted(){
+
+      let ref = db.collection('product').doc('count');
 
       ref.onSnapshot(doc => { 
 
