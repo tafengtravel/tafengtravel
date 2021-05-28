@@ -1,0 +1,732 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>大豐後台管理系統</title>   	
+  <meta name="description" content="大豐後台管理系統">
+ 
+  <meta http-equiv="cache-control" content="no-cache">  
+  <meta http-equiv="pragma" content="no-cache">
+  <meta http-equiv="expires" content="0">
+  <meta name="format-detection" content="telephone=no">
+
+  <!-- <link rel="icon" href="dreamer.ico" type="image/x-icon" />
+  <link rel="shortcut icon" href="dreamer.ico" type="image/x-icon" /> -->
+
+
+  
+<link href='https://tafengtravel.github.io/tafengtravel/index/sm-css/sm-core-css.css' rel='stylesheet' type='text/css' />
+<!-- "sm-blue" menu theme (optional, you can use your own CSS, too) -->
+<link href='https://tafengtravel.github.io/tafengtravel/index/sm-css/sm-mint/sm-mint.css' rel='stylesheet' type='text/css' />
+<link href='https://tafengtravel.github.io/tafengtravel/index/css/smart.css' rel='stylesheet' type='text/css' />
+
+<script src="https://tafengtravel.github.io/tafengtravel/index/js/jquery.min.js.js"></script>
+<script src="https://tafengtravel.github.io/tafengtravel/index/js/jquery.smartmenus.js"></script>
+
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+
+<link href="https://tafengtravel.github.io/tafengtravel/index/css/elementUI.css" rel="stylesheet" />
+<link href="https://tafengtravel.github.io/tafengtravel/index/css/common.css" rel="stylesheet" />
+<link href="https://tafengtravel.github.io/tafengtravel/index/css/book.css" rel="stylesheet" />
+
+<!-- vue+element ui -->
+<script src="https://unpkg.com/vue@2.6.12/dist/vue.js"></script>
+<!-- import JavaScript -->
+<script src="https://unpkg.com/element-ui@2.15.0/lib/index.js"></script>
+<script src="https://momentjs.com/downloads/moment.js"></script>
+<link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+
+<link href="https://tafengtravel.github.io/tafengtravel/index/css/book.css" rel="stylesheet" />
+
+<!-- axios -->
+<script src='https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.2/axios.min.js'></script>
+
+
+
+</head>
+<body>
+
+   
+   <script src="https://www.gstatic.com/firebasejs/4.12.1/firebase.js"></script>
+
+<script src="https://www.gstatic.com/firebasejs/4.12.1/firebase-firestore.js"></script>
+
+<style>
+  .el-card{
+		margin-bottom:20px; 
+	}
+</style>
+
+<script>
+  // Your web app's Firebase configuration
+  var firebaseConfig = {
+    apiKey: "AIzaSyC1DlPU6BqCFXzWLBZ_6Y90KNLwYzfei3c",
+    authDomain: "tafengtravel-web.firebaseapp.com",
+    projectId: "tafengtravel-web",
+    storageBucket: "tafengtravel-web.appspot.com",
+    messagingSenderId: "971660802735",
+    appId: "1:971660802735:web:af7e22d11fe81ca63ab25a"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+</script>
+
+
+
+
+
+<!-- <nav class="main-nav" role="navigation">
+
+  
+  <input id="main-menu-state" type="checkbox" />
+  <label class="main-menu-btn" for="main-menu-state">
+    <span class="main-menu-btn-icon"></span> 
+  </label>
+
+  <h2 class="nav-brand"><img src="dreamer.png"  width="132" height="50"  ></h2>
+
+  
+  <ul id="main-menu" class="sm sm-mint">
+    <li><a href="home.html">首頁</a></li>
+    <li><a href="#">球員資料</a>
+      
+    </li>
+    <li><a href="#">戰績排行</a>
+      
+    </li>
+    <li><a href="#">數據統計</a>
+      
+    </li>
+
+  </ul>
+</nav> -->
+
+<div class="include" file="http://tafengtravel.github.io/tafengtravel/index5/top.html"></div>
+
+
+
+<div id="app"> 
+  <div class ="el-col el-col-24 el-col-xs-22 el-col-xs-offset-1 el-col-sm-22 el-col-sm-offset-1 el-col-lg-22 el-col-lg-offset-1"> 
+    
+    <el-row></el-row><el-row></el-row>
+    <el-row :gutter="20">
+
+      <el-col class ="el-col el-col-24 el-col-xs-24 el-col-sm-24 el-col-lg-24">
+        <font class ="font"><span>產品編號</span></font>
+        <el-input v-model="idCount" placeholder="" style="width:150px"></el-input>
+        <el-button type="primary" @click="read">查詢</el-button>
+        <font class ="font"><span>地區</span></font>
+        <template>
+          <el-select v-model="itemData.location" placeholder="請選擇">
+            <el-option-group
+              v-for="group in options"
+              :key="group.label"
+              :label="group.label">
+              <el-option
+                v-for="item in group.options"
+                :key="item.value"
+                :label="item.label"
+                :value="item.value">
+              </el-option>
+            </el-option-group>
+          </el-select>
+        </template>
+        
+        <font class ="font"><span>是否上架</span></font>
+        
+        <template>
+          <el-select v-model="itemData.available" placeholder="">
+            <el-option
+              v-for="item in options1"
+              :key="item.value"
+              :label="item.label"
+              :value="item.value">
+            </el-option>
+          </el-select>
+        </template>
+        
+      </el-col>
+
+    </el-row>
+
+    <el-row :gutter="20">
+
+      <el-col class ="el-col el-col-24 el-col-xs-24 el-col-sm-24 el-col-lg-24">
+        <font class ="font"><span>產品名稱</span></font>
+        <el-input v-model="itemData.title" placeholder="" style="width:450px" ></el-input>
+      </el-col>
+
+    </el-row>
+
+    <el-row :gutter="20">
+
+      <el-col class ="el-col el-col-24 el-col-xs-24 el-col-sm-24 el-col-lg-24">
+        <font class ="font"><span>最低售價</span></font>
+        <el-input v-model="itemData.lowPrice" placeholder="" style="width:100px" ></el-input>
+        <font class ="font"><span>最少人數</span></font>
+        <el-input v-model="itemData.minAmount" placeholder="" style="width:100px" ></el-input>
+        <font class ="font"><span>可預訂日期</span></font>
+        <el-input v-model="itemData.day" placeholder="" style="width:200px" ></el-input>
+        <font class ="font"><span>出發時間</span></font>
+        <el-input v-model="itemData.dapTIme" placeholder="" style="width:200px" ></el-input>
+      </el-col>
+
+    </el-row>
+
+    <el-row :gutter="20">
+
+      <el-col class ="el-col el-col-24 el-col-xs-24 el-col-sm-24 el-col-lg-24">
+        <font class ="font"><span>集合地點</span></font>
+        <el-input v-model="itemData.pickup" placeholder="" style="width:450px" ></el-input>
+      </el-col>
+
+    </el-row>
+
+    <!-- 封面照片 -->
+
+    <el-row :gutter="20">
+      <el-col class ="el-col el-col-24 el-col-xs-24 el-col-sm-24 el-col-lg-24">
+        <font class ="font"><span>封面電腦版照片</span></font>
+        <span v-for="(fields,index1) in coverUrl">
+          <br><font class ="font"><span>{{index1+1}}.</span></font>
+          <el-input v-model="fields.big" placeholder="" style="width:450px"></el-input>
+        </span>
+        <el-button type="primary" icon="el-icon-circle-plus-outline" @click="coverUrlAdd"></el-button>
+      </el-col>
+    </el-row>
+
+    <el-row :gutter="20">
+      <el-col class ="el-col el-col-24 el-col-xs-24 el-col-sm-24 el-col-lg-24">
+        <font class ="font"><span>封面手機版照片</span></font>
+        <span v-for="(fields,index1) in coverUrl">
+          <br><font class ="font"><span>{{index1+1}}.</span></font>
+          <el-input v-model="fields.small" placeholder="" style="width:450px"></el-input>
+        </span>
+      </el-col>
+    </el-row>
+
+    <!-- 活動照片 -->
+
+    <el-row :gutter="20">
+      <el-col class ="el-col el-col-24 el-col-xs-24 el-col-sm-24 el-col-lg-24">
+        <font class ="font"><span>活動照片</span></font>
+        <span v-for="(fields,index1) in imageUrl">
+          <br><font class ="font"><span>{{index1+1}}.</span></font>
+          <el-input v-model="fields.value" placeholder="" style="width:450px"></el-input>
+        </span>
+        <el-button type="primary" icon="el-icon-circle-plus-outline" @click="imageUrlAdd"></el-button>
+      </el-col>
+    </el-row>
+
+  </div>
+
+
+
+
+
+  <!-- 行程開始 -->
+
+  <div class ="el-col el-col-24 el-col-lg-24 " style="background-color:#E0E0E0">
+    <div class ="el-col el-col-24 el-col-xs-22 el-col-xs-offset-1 el-col-sm-22 el-col-sm-offset-1 el-col-lg-22 el-col-lg-offset-1">  
+
+      
+
+      <el-row :gutter="20" >
+
+        <el-col class ="el-col el-col-24 el-col-xs-24 el-col-sm-24 el-col-lg-24">
+          <font class ="font"><span style="color:	#FF5151">新增行程</span></font>
+          <el-button type="primary" icon="el-icon-circle-plus-outline" @click="itemItineraryAdd"></el-button>
+        </el-col>
+        <span v-for="(fields,index1) in itemItinerary">
+          <el-col class ="el-col el-col-24 el-col-xs-24 el-col-sm-24 el-col-lg-24">
+
+            <font class ="font"><span>第{{index1+1}}行程</span></font>
+            
+          </el-col>
+
+          <el-col class ="el-col el-col-24 el-col-xs-24 el-col-sm-24 el-col-lg-24">
+            <font class ="font"><span>活動名稱</span></font>
+            <el-input v-model="fields.itemTitle" placeholder="" style="width:300px"></el-input>
+            <font class ="font"><span>活動時長</span></font>
+            <el-input v-model="fields.itemTime" placeholder="" style="width:100px"></el-input><br><br>
+          </el-col>
+
+          <el-col class ="el-col el-col-24 el-col-xs-24 el-col-sm-24 el-col-lg-24">
+            
+          </el-col>
+
+          <!-- BOX開始 -->
+
+          <el-col class ="el-col el-col-24 el-col-xs-24 el-col-sm-24 el-col-lg-8">
+            <el-card class="box-card" style="min-height: 250px;" >
+              <el-col class ="el-col el-col-24 el-col-xs-24 el-col-sm-24 el-col-lg-24">
+
+                <span v-for="(field,index) in itemRadio">
+                  <br><font class ="font"><span style="color:	#FF5151">第{{index+1}}選項活動</span></font><br>
+                  <font class ="font"><span>名稱</span></font>
+
+                    <el-input v-model="field[index1]" placeholder="" style="width:150px"></el-input><label>&nbsp;</label>
+                </span>
+
+                <el-button type="primary" icon="el-icon-circle-plus-outline" @click="itemRadioAdd"></el-button>
+                
+              </el-col>
+            </el-col>
+          </el-card>
+
+          <el-col class ="el-col el-col-24 el-col-xs-24 el-col-sm-24 el-col-lg-8">
+            <el-card class="box-card" style="min-height: 250px;" >
+              <el-col class ="el-col el-col-24 el-col-xs-24 el-col-sm-24 el-col-lg-24">
+
+                <span v-for="(field,index) in itemPrice">
+                  <br><font class ="font"><span style="color:	#FF5151">第{{index+1}}選項</span></font><br>
+                  <font class ="font"><span>成人費用</span></font>
+
+                    <el-input v-model="field[index1]" placeholder="" style="width:150px"></el-input><label>&nbsp;</label>
+                </span>
+
+                <el-button type="primary" icon="el-icon-circle-plus-outline" @click="itemOptionAdultAdd"></el-button>
+                
+              </el-col>
+            </el-col>
+          </el-card>
+
+          <el-col class ="el-col el-col-24 el-col-xs-24 el-col-sm-24 el-col-lg-8">
+            <el-card class="box-card" style="min-height: 250px;" >
+              <el-col class ="el-col el-col-24 el-col-xs-24 el-col-sm-24 el-col-lg-24">
+
+                <span v-for="(field,index) in itemOtherAdult">
+                  <br><font class ="font"><span style="color:	#FF5151">第{{index+1}}選項</span></font><br>
+                  <font class ="font"><span>成人備註</span></font>
+
+                    <el-input v-model="field[index1]" placeholder="" style="width:150px"></el-input><label>&nbsp;</label>
+                </span>
+
+                <el-button type="primary" icon="el-icon-circle-plus-outline" @click="itemOptionOtherAdult"></el-button>
+                
+              </el-col>
+            </el-col>
+          </el-card>
+
+          <el-col class ="el-col el-col-24 el-col-xs-24 el-col-sm-24 el-col-lg-8">
+            <el-card class="box-card" style="min-height: 250px;" >
+              <el-col class ="el-col el-col-24 el-col-xs-24 el-col-sm-24 el-col-lg-24">
+
+                <font class ="font"><span>活動出發時間</span></font>
+                <span v-for="(field,index3) in itemDepTime">
+                  <br><font class ="font"><span>{{index3+1}}.</span></font>
+                  <el-input v-model="field[index1]" placeholder="" style="width:150px"></el-input><label>&nbsp;</label>
+                </span>
+                <el-button type="primary" icon="el-icon-circle-plus-outline" @click="itemOptionDepTimeAdd"></el-button>    
+              </el-col>
+            </el-col>
+          </el-card>
+
+          <el-col class ="el-col el-col-24 el-col-xs-24 el-col-sm-24 el-col-lg-8">
+            <el-card class="box-card" style="min-height: 250px;" >
+              <el-col class ="el-col el-col-24 el-col-xs-24 el-col-sm-24 el-col-lg-24">
+
+                <span v-for="(field,index3) in itemPriceKid">
+                  <br><font class ="font"><span style="color:	#FF5151">第{{index3+1}}選項</span></font><br>
+                  <font class ="font"><span>兒童費用</span></font>
+
+                    <el-input v-model="field[index1]" placeholder="" style="width:150px"></el-input><label>&nbsp;</label>
+                </span>
+                <el-button type="primary" icon="el-icon-circle-plus-outline" @click="itemOptionKidAdd"></el-button>    
+              </el-col>
+            </el-col>
+          </el-card>
+
+          <el-col class ="el-col el-col-24 el-col-xs-24 el-col-sm-24 el-col-lg-8">
+            <el-card class="box-card" style="min-height: 250px;" >
+              <el-col class ="el-col el-col-24 el-col-xs-24 el-col-sm-24 el-col-lg-24">
+
+                <span v-for="(field,index) in itemOtherKid">
+                  <br><font class ="font"><span style="color:	#FF5151">第{{index+1}}選項</span></font><br>
+                  <font class ="font"><span>兒童備註</span></font>
+
+                    <el-input v-model="field[index1]" placeholder="" style="width:150px"></el-input><label>&nbsp;</label>
+                </span>
+
+                <el-button type="primary" icon="el-icon-circle-plus-outline" @click="itemOptionOtherKid"></el-button>
+                
+              </el-col>
+            </el-col>
+          </el-card>
+          
+        </span>
+
+      </el-row>
+
+    </div>
+  </div>
+
+  <div class ="el-col el-col-24 el-col-lg-24 ">
+    <div class ="el-col el-col-24 el-col-xs-22 el-col-xs-offset-1 el-col-sm-22 el-col-sm-offset-1 el-col-lg-22 el-col-lg-offset-1">  
+
+      <el-row :gutter="20">
+
+        <el-col class ="el-col el-col-24 el-col-xs-24 el-col-sm-24 el-col-lg-24">
+          <font class ="font"><span>行程特色</span></font>
+          <el-input type="textarea" :rows="5" placeholder="請輸入內容" v-model="itemData.features" style="width:600px"></el-input>
+        </el-col>
+
+      </el-row>
+
+      <el-row :gutter="20">
+
+        <el-col class ="el-col el-col-24 el-col-xs-24 el-col-sm-24 el-col-lg-24">
+          <font class ="font"><span>行程內容</span></font>
+          <el-input type="textarea" :rows="10" placeholder="請輸入內容" v-model="itemData.itinerary" style="width:600px"></el-input>
+        </el-col>
+
+      </el-row>
+
+      <el-row :gutter="20">
+
+        <el-col class ="el-col el-col-24 el-col-xs-24 el-col-sm-24 el-col-lg-24">
+          <font class ="font"><span>注意事項</span></font>
+          <el-input type="textarea" :rows="10" placeholder="請輸入內容" v-model="itemData.announce" style="width:600px"></el-input>
+        </el-col>
+
+      </el-row>
+
+      <el-row :gutter="20">
+
+        <el-col class ="el-col el-col-24 el-col-xs-24 el-col-sm-24 el-col-lg-24">
+          <font class ="font"><span>取消規定</span></font>
+          <el-input type="textarea" :rows="10" placeholder="請輸入內容" v-model="itemData.cancel" style="width:600px"></el-input>
+          <el-button type="primary" @click ="dataSend">送出</el-button>
+        </el-col>
+
+      </el-row>
+
+
+    </div>
+  </div>
+
+  <br><br><br><br><br><br><br><br><br><br><br><br>
+</div>
+
+
+<script>
+
+  let count
+
+  
+
+  let obj = {}
+
+
+  var db = firebase.firestore();
+
+
+  var Main = {
+    data() {
+      return {
+        index1:0,
+        totalPrice:[[]],
+        itemData:[],
+        idCount:'',
+        fields:[],
+        counts: 0,
+        options: [{
+          label: '國內離島',
+          options: [{
+            value: '澎湖',
+            label: '澎湖'
+          }, {
+            value: '綠島',
+            label: '綠島'
+          }, {
+            value: '蘭嶼',
+            label: '蘭嶼'
+          }, {
+            value: '金門',
+            label: '金門'
+          }, {
+            value: '馬祖',
+            label: '馬祖'
+          }]
+        }, {
+          label: '國內本島',
+          options: [{
+            value: '台北',
+            label: '台北'
+          }, {
+            value: '新北',
+            label: '新北'
+          }, {
+            value: '基隆',
+            label: '基隆'
+          }, {
+            value: '桃園',
+            label: '桃園'
+          }, {
+            value: '新竹',
+            label: '新竹'
+          }, {
+            value: '苗栗',
+            label: '苗栗'
+          }, {
+            value: '台中',
+            label: '台中'
+          }, {
+            value: '彰化',
+            label: '彰化'
+          }, {
+            value: '南投',
+            label: '南投'
+          }, {
+            value: '雲林',
+            label: '雲林'
+          }, {
+            value: '嘉義',
+            label: '嘉義'
+          }, {
+            value: '台南',
+            label: '台南'
+          }, {
+            value: '高雄',
+            label: '高雄'
+          }, {
+            value: '屏東',
+            label: '屏東'
+          }, {
+            value: '花蓮',
+            label: '花蓮'
+          }, {
+            value: '宜蘭',
+            label: '宜蘭'
+          }]
+        }],
+        options1: [{
+          value: true,
+          label: '是'
+        },{
+          value: false,
+          label: '否'
+        }],
+        itemPrice:[{}],
+        itemPriceKid:[{}],
+        itemItinerary:[{
+          itemTitle:'',
+          itemTime:'',
+        }],
+        itemOtherAdult:[{}],
+        itemRadio:[{}],
+        itemDepTime:[{}],
+        itemOtherKid:[{}],
+        coverUrl:[{
+          big:"",
+          small:"",
+        }],
+        imageUrl:[{
+          value:''
+        }],
+        
+      };
+      
+
+    },methods: {
+      itemOptionAdultAdd(){
+        this.itemPrice.push({});
+      },
+      itemOptionKidAdd(){
+        this.itemPriceKid.push({});
+      },
+      itemItineraryAdd(){
+        this.itemItinerary.push({});
+      },
+      itemOptionOtherAdult(){
+        this.itemOtherAdult.push({});
+      },
+      itemRadioAdd(){
+        this.itemRadio.push({});
+      },
+      itemOptionDepTimeAdd(){
+        this.itemDepTime.push({});
+      },
+      itemOptionOtherKid(){
+        this.itemOtherKid.push({});
+      },
+      coverUrlAdd(){
+        this.coverUrl.push({});
+      },
+      imageUrlAdd(){
+        this.imageUrl.push({});
+      },dataSend(){
+
+        let itemPrice = {}
+        let itemPriceKid = {}
+        let itemOtherAdult = {}
+        let itemRadio = {}
+        let itemDepTime = {}
+        let itemOtherKid = {}
+        let itemData
+        let itemItinerary
+        let itemTime = []
+        let itemTitle = []
+        let coverUrl
+        let imageUrl
+
+        coverUrl = this.coverUrl
+        imageUrl = this.imageUrl
+
+        itemPrice = this.dataSort(this.itemPrice)
+        itemPriceKid = this.dataSort(this.itemPriceKid)
+        itemOtherAdult = this.dataSort(this.itemOtherAdult)
+        itemOtherKid = this.dataSort(this.itemOtherKid)
+        itemDepTime = this.dataSort(this.itemDepTime)
+        itemRadio = this.dataSort(this.itemRadio)
+        itemData = this.itemData
+        itemItinerary = this.itemItinerary
+
+
+        console.log(itemPrice)
+        console.log(itemPriceKid)
+        console.log(itemOtherAdult)
+        console.log(itemOtherKid)
+        console.log(itemDepTime)
+        console.log(itemRadio)
+
+        itemItinerary = this.itemItinerary
+
+        for(i=0;i<Object.keys(itemItinerary).length;i++){
+          itemTime[i] = itemItinerary[i].itemTime
+          itemTitle[i] = itemItinerary[i].itemTitle
+        }
+
+      
+        obj = {...obj,itemPrice,itemPriceKid,itemOtherAdult,itemOtherKid,itemDepTime,itemRadio,...itemData,itemTime,itemTitle,coverUrl,imageUrl}
+        console.log(obj)
+
+
+        let ref = db.collection('product').doc((this.idCount).toString());
+
+        ref.set(obj).then(() => {
+          console.log('update data successful');
+          alert('新增成功');
+          
+        });
+
+
+      },dataSort(data){
+
+        // swag obj元素 index只到的位置
+        // swag 用key拆開得到2層數值 foreach去跑 porn得到內層數值 ininder抓到位址
+        let obj=[{}]
+
+        data.forEach((swag,index)=>{
+          Object.keys(swag).forEach((porn,ininder)=>{obj={
+            ...obj,
+            [ininder]:{...obj[ininder],[index]:swag[ininder]}
+          }
+
+          })
+
+          })
+
+        return obj
+
+      },read(){
+
+        let ref = db.collection('product').doc(this.idCount);
+
+        let itemPrice = []
+        let itemPriceKid = {}
+        let itemOtherAdult = {}
+        let itemDepTime = {}
+        let itemOtherKid = {}
+        let itemRadio = []
+        let itemItinerary = []
+
+        ref.onSnapshot(doc => { 
+
+          console.log(doc.data())
+
+          itemData = doc.data()
+          this.itemData = itemData
+
+          console.log(itemData.itemPrice)
+
+          itemPrice = this.objToArr(itemData.itemPrice)
+          itemPrice = this.dataSort(itemPrice)
+          itemPrice = this.objToArr(itemPrice)
+
+          itemPriceKid = this.objToArr(itemData.itemPriceKid)
+          itemPriceKid = this.dataSort(itemPriceKid)
+          itemPriceKid = this.objToArr(itemPriceKid)
+
+          itemOtherAdult = this.objToArr(itemData.itemOtherAdult)
+          itemOtherAdult = this.dataSort(itemOtherAdult)
+          itemOtherAdult = this.objToArr(itemOtherAdult)
+
+          itemOtherKid = this.objToArr(itemData.itemOtherKid)
+          itemOtherKid = this.dataSort(itemOtherKid)
+          itemOtherKid = this.objToArr(itemOtherKid)
+
+          itemDepTime = this.objToArr(itemData.itemDepTime)
+          itemDepTime = this.dataSort(itemDepTime)
+          itemDepTime = this.objToArr(itemDepTime)
+
+          itemRadio = this.objToArr(itemData.itemRadio)
+          itemRadio = this.dataSort(itemRadio)
+          itemRadio = this.objToArr(itemRadio)
+
+          // console.log(itemPrice)
+
+          for(i=0;i<(itemData.itemTitle).length;i++){
+            itemItinerary[i] = {
+              'itemTitle':itemData.itemTitle[i],
+              'itemTime':itemData.itemTime[i]
+            }
+          }
+          this.itemItinerary =itemItinerary
+
+          this.itemPrice = itemPrice
+          this.itemPriceKid = itemPriceKid
+          this.itemOtherAdult = itemOtherAdult
+          this.itemOtherKid = itemOtherKid
+          this.itemDepTime = itemDepTime
+          this.itemRadio = itemRadio
+                    
+        });
+      },objToArr(data){
+        let newData = []
+        for(i=0;i<Object.keys(data).length;i++){
+          newData[i] = {}
+          newData[i] = data[i]
+        }
+        return newData
+
+      }
+    },mounted(){
+
+    }
+};
+
+var Ctor = Vue.extend(Main)
+new Ctor().$mount('#app')
+
+  
+</script>
+
+<script type="text/javascript">
+
+  //使用jQuery的load方法
+  $(".include").each(function(){
+      if(!!$(this).attr("file")) {
+          var $includeObj = $(this);
+          $(this).load($(this).attr("file"), function(html){
+              $includeObj.after(html).remove();    //載入的檔案內容寫入到當前標籤後面並移除當前標籤
+          })
+      }
+  });
+</script>
+
+
+</body>
+</html>
