@@ -9,6 +9,7 @@
 
 <link rel="stylesheet" href="https://tafengtravel.github.io/tafengtravel/index/index.css">
 
+<link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
 
 <link href='https://tafengtravel.github.io/tafengtravel/index/sm-css/sm-core-css.css' rel='stylesheet' type='text/css' />
 <!-- "sm-blue" menu theme (optional, you can use your own CSS, too) -->
@@ -26,6 +27,9 @@
 <script src="https://tafengtravel.github.io/tafengtravel/index/js/swiper.jquery.min.js"></script>
 
 <script src="https://tafengtravel.github.io/tafengtravel/index/js/jquery.smartmenus.js"></script>
+<script src="https://cdn.rawgit.com/SSENSE/vue-carousel/6823411d/dist/vue-carousel.min.js"></script>
+
+
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
 
 <link href="https://tafengtravel.github.io/tafengtravel/index/css/elementUI.css" rel="stylesheet" />
@@ -158,6 +162,7 @@ document.querySelectorAll("[href^='https://line.me']").forEach(function(item){
 <meta name="format-detection" content="telephone=no">
 
 
+
 </head>
 <body id="page_body" class="green-page">
 
@@ -169,13 +174,24 @@ document.querySelectorAll("[href^='https://line.me']").forEach(function(item){
 
 
     <div id="app" class ="el-col el-col-24 el-col-xs-24 el-col-xs-offset-0 el-col-sm-24 el-col-sm-offset-0 el-col-lg-18 el-col-lg-offset-3"> 
-                
-        <div class="home-banner">
-            <span v-for="(item, index) in itemData.coverUrl">    
-                <a href="#" ><img class="d-none d-md-block" :src= "item.big" alt="#" ><img class="d-block d-md-none" :src="item.small" alt="#" ></a>
-                <a href="#" ><img class="d-none d-md-block" :src= "item.big" alt="#" ><img class="d-block d-md-none" :src="item.small" alt="#" ></a>
-            </span>
+        <div class="el-row">
+        <carousel v-bind:autoplay="true" v-bind:loop="true" :per-Page="1">
+            
+                <slide v-for="(item, index) in itemData.coverUrl">
+                    <img class="d-none d-md-block" style="width:100%" :src= "item.big" >
+                    <img class="d-block d-md-none" style="width:100%" :src="item.small" alt="#" ></a>
+                </slide>
+            
+            
+                        
+          </carousel>
         </div>
+        <!-- <div >
+            <span v-for="(item, index) in itemData.coverUrl" class="home-banner">    
+                <a href="#" ><img class="d-none d-md-block" src="https://tafengtravel.github.io/tafengtravel/index/product/penghu/image/penghu_1_cover_1.jpg" alt="#" ><img class="d-block d-md-none" src="https://tafengtravel.github.io/tafengtravel/index/product/penghu/image/penghu_1_cover_1.jpg" alt="#" ></a>
+                <a href="#" ><img class="d-none d-md-block" src="https://tafengtravel.github.io/tafengtravel/index/product/penghu/image/penghu_1_cover_1.jpg" alt="#" ><img class="d-block d-md-none" src="https://tafengtravel.github.io/tafengtravel/index/product/penghu/image/penghu_1_cover_1.jpg" alt="#" ></a>
+            </span>
+        </div> -->
 
         <br>
         <div class="el-row">
@@ -441,11 +457,6 @@ document.querySelectorAll("[href^='https://line.me']").forEach(function(item){
 
 </div> 
 
-<style>
-
-
-
-</style>
 
 
 <a class="go-to-top" id="goTop" href="#"><i class="fa fa-caret-up"></i>top</a>
@@ -469,8 +480,42 @@ $(".include").each(function(){
 <script src="https://unpkg.com/vue@2.6.12/dist/vue.js"></script>
 <!-- import JavaScript -->
 <script src="https://unpkg.com/element-ui@2.15.0/lib/index.js"></script>
-<script src="https://momentjs.com/downloads/moment.js"></script>
 
+<style>
+@media (min-width: 768px){
+    .VueCarousel-slide {
+        height:350px;
+    }
+    .VueCarousel-pagination{
+        margin-top: -80px; 
+        margin-bottom: -30px;
+        position: absolute;
+    }
+
+}
+@media (max-width: 768px) {
+    .VueCarousel-slide {
+        height:250px;
+    }
+    .VueCarousel-pagination{
+        margin-top: -60px; 
+        margin-bottom: -50px;
+        position: absolute;
+    }
+}
+    .VueCarousel-slide {
+  color:#FFF;
+  background:white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-right:1px solid #FFF;
+  box-sizing:border-box;
+  font-size:12px;
+  text-align:center;
+}
+
+</style>
 
 <script>
     let data 
@@ -493,6 +538,10 @@ $(".include").each(function(){
     let quantity
     
     var Main = {
+        components: {
+            'carousel': VueCarousel.Carousel,
+            'slide': VueCarousel.Slide
+        },
     data() {
         return {
             disabledDate:'',
@@ -522,12 +571,10 @@ $(".include").each(function(){
             quantity1: 0,
             radio: '',
             url: [
-            'image/penghu8_1.jpg',
+            
             ],
             srcList: [
-            'image/penghu8_1.jpg',
-            'image/penghu8_2.jpg',
-            'image/penghu8_3.jpg',
+
             ],
 
             itemData:[],
@@ -572,6 +619,18 @@ $(".include").each(function(){
             },
             radioChange(){
                 console.log(this.radio)
+            },
+            dataArrange(data){
+
+                for(i=0;i<Object.keys(data).length;i++){
+                    let jLength = Object.keys(data[i]).length
+                    for(j=0;j<jLength;j++){
+                        if (data[i][j] == ''){
+                            delete data[i][j]
+                        }
+                    }
+                }
+                return data
             }
         },mounted(){
 
@@ -596,18 +655,21 @@ $(".include").each(function(){
                 
                 // this.depOptions = Object.keys(data.itemDepTime).map(swag=>({time:data.itemDepTime[swag]}))
                 this.depOptions = data.itemDepTime
-                kidTrue = Object.keys(data.itemPriceKid)
-                console.log(kidTrue)
 
                 let a = 0
-                for(i=0;i<Object.keys(data.itemPrice).length;i++){
-                    if(i == kidTrue[a]){
+
+                for(i=0;i<Object.keys(data.itemPriceKid).length;i++){
+                    if(data.itemPriceKid[i][0] != 0){
                         this.isShowKid[i] = true
-                        a = a+1
                     }else{
                         this.isShowKid[i] = false
                     }
                 }
+
+                data.itemDepTime = this.dataArrange(data.itemDepTime)
+                data.itemRadio = this.dataArrange(data.itemRadio)
+                this.itemData.itemDepTime = data.itemDepTime
+                this.itemData.itemRadio = data.itemRadio
 
             });
         } 
