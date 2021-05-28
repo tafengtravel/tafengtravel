@@ -645,6 +645,15 @@
 
         ref.onSnapshot(doc => { 
 
+          if(typeof(doc.data()) == 'undefined'){
+            this.$message.error('錯誤，團號不存在');
+            return 0
+          }
+          this.$message({
+            message: '團號讀取成功',
+            type: 'success'
+          });
+
           this.idCount.disabled
 
           console.log(doc.data())
@@ -708,7 +717,25 @@
 
       }
     },mounted(){
-
+      firebase.auth().onAuthStateChanged((user)=> {
+        
+        if (user) {
+          console.log('o')
+          this.$notify({
+            title: '帳號狀態',
+            message: '已登入',
+            type: 'success',
+            offset:50
+          });
+        }else{
+          console.log('x')
+          this.$notify.error({
+            title: '帳號狀態',
+            message: '未登入',
+            offset:50
+          });
+        }
+      });
     }
 };
 
