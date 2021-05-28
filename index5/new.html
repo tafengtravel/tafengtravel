@@ -620,7 +620,11 @@
 
         ref.set(obj).then(() => {
           console.log('update data successful');
-          alert('新增成功');
+          this.$message({
+            message: '新增成功',
+            type: 'success'
+          });
+          console.log('新增成功');
           
         });
 
@@ -646,6 +650,26 @@
       }
     },mounted(){
 
+      firebase.auth().onAuthStateChanged((user)=> {
+        
+        if (user) {
+          console.log('o')
+          this.$notify({
+            title: '帳號狀態',
+            message: '已登入',
+            type: 'success',
+            offset:50
+          });
+        }else{
+          console.log('x')
+          this.$notify.error({
+            title: '帳號狀態',
+            message: '未登入',
+            offset:50
+          });
+        }
+      });
+
       let ref = db.collection('product').doc('count');
 
       ref.get().then(doc => { 
@@ -653,6 +677,10 @@
         count = parseInt(doc.data().currentId)
 
         this.idCount = count+1
+        this.$message({
+          message: '團號讀取成功，可以開始新建行程',
+          type: 'success'
+        });
 
       });
 
