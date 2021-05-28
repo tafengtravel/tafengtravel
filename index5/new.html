@@ -606,23 +606,23 @@
         obj = {...obj,itemPrice,itemPriceKid,itemOtherAdult,itemOtherKid,itemDepTime,itemRadio,...itemData,itemTime,itemTitle,coverUrl,imageUrl}
         console.log(obj)
 
-        // let objCurrentId = {
-        //   'currentId': (this.idCount).toString()
-        // }
+        let objCurrentId = {
+          'currentId': (this.idCount).toString()
+        }
 
-        // let ref = db.collection('product').doc('count');
+        let ref = db.collection('product').doc('count');
 
-        // ref.update(objCurrentId).then(() => {
-        //   console.log('id update data successful');
-        // });
+        ref.update(objCurrentId).then(() => {
+          console.log('id update data successful');
+        });
 
-        // ref = db.collection('product').doc((this.idCount).toString());
+        ref = db.collection('product').doc((this.idCount).toString());
 
-        // ref.set(obj).then(() => {
-        //   console.log('update data successful');
-        //   alert('新增成功');
+        ref.set(obj).then(() => {
+          console.log('update data successful');
+          alert('新增成功');
           
-        // });
+        });
 
 
       },dataSort(data){
