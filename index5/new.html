@@ -609,11 +609,11 @@
 
         let ref = db.collection('product').doc((this.idCount).toString());
 
-        // ref.set(obj).then(() => {
-        //   console.log('update data successful');
-        //   alert('新增成功');
+        ref.set(obj).then(() => {
+          console.log('update data successful');
+          alert('新增成功');
           
-        // });
+        });
 
 
       },dataSort(data){
