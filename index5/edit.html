@@ -170,7 +170,7 @@
         <font class ="font"><span>可預訂日期</span></font>
         <el-input v-model="itemData.day" placeholder="" style="width:200px" ></el-input>
         <font class ="font"><span>出發時間</span></font>
-        <el-input v-model="itemData.depTIme" placeholder="" style="width:200px" ></el-input>
+        <el-input v-model="itemData.depTime" placeholder="" style="width:200px" ></el-input>
       </el-col>
 
     </el-row>
@@ -417,8 +417,7 @@
 
   
 
-  let obj = {}
-
+  
 
   var db = firebase.firestore();
 
@@ -592,17 +591,20 @@
         console.log(itemDepTime)
         console.log(itemRadio)
 
+        console.log(itemData)
+
         itemItinerary = this.itemItinerary
 
+        
         for(i=0;i<Object.keys(itemItinerary).length;i++){
           itemTime[i] = itemItinerary[i].itemTime
           itemTitle[i] = itemItinerary[i].itemTitle
         }
 
+        let obj = {}
       
-        obj = {...obj,itemPrice,itemPriceKid,itemOtherAdult,itemOtherKid,itemDepTime,itemRadio,...itemData,itemTime,itemTitle,coverUrl,imageUrl}
+        obj = {...itemData,itemPrice,itemPriceKid,itemOtherAdult,itemOtherKid,itemDepTime,itemRadio,itemTime,itemTitle,coverUrl,imageUrl}
         console.log(obj)
-
 
         let ref = db.collection('product').doc((this.idCount).toString());
 
@@ -611,25 +613,23 @@
           alert('新增成功');
           
         });
-
-
       },dataSort(data){
 
         // swag obj元素 index只到的位置
         // swag 用key拆開得到2層數值 foreach去跑 porn得到內層數值 ininder抓到位址
-        let obj=[{}]
+        let obj1=[{}]
 
         data.forEach((swag,index)=>{
-          Object.keys(swag).forEach((porn,ininder)=>{obj={
-            ...obj,
-            [ininder]:{...obj[ininder],[index]:swag[ininder]}
+          Object.keys(swag).forEach((porn,ininder)=>{obj1={
+            ...obj1,
+            [ininder]:{...obj1[ininder],[index]:swag[ininder]}
           }
 
           })
 
           })
 
-        return obj
+        return obj1
 
       },read(){
 
