@@ -648,7 +648,7 @@
 
       let ref = db.collection('product').doc('count');
 
-      ref.onSnapshot(doc => { 
+      ref.get().then(doc => { 
 
         count = parseInt(doc.data().currentId)
 
