@@ -573,6 +573,8 @@
         coverUrl = this.coverUrl
         imageUrl = this.imageUrl
 
+        console.log(this.itemPrice)
+
         itemPrice = this.dataSort(this.itemPrice)
         itemPriceKid = this.dataSort(this.itemPriceKid)
         itemOtherAdult = this.dataSort(this.itemOtherAdult)
@@ -582,6 +584,9 @@
         itemData = this.itemData
         itemItinerary = this.itemItinerary
 
+
+        itemPrice = this.dataSort(this.itemPrice)
+        itemPrice = this.dataSort(this.itemPrice)
 
         console.log(itemPrice)
         console.log(itemPriceKid)
@@ -604,11 +609,11 @@
 
         let ref = db.collection('product').doc((this.idCount).toString());
 
-        ref.set(obj).then(() => {
-          console.log('update data successful');
-          alert('新增成功');
+        // ref.set(obj).then(() => {
+        //   console.log('update data successful');
+        //   alert('新增成功');
           
-        });
+        // });
 
 
       },dataSort(data){
@@ -641,7 +646,8 @@
         this.idCount = count+1
 
       });
-      
+
+            
     }
 };
 
