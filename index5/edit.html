@@ -722,16 +722,16 @@
         if (user) {
           console.log('o')
           this.$notify({
-            title: '帳號狀態',
-            message: '已登入',
+            title: '帳號狀態：已登入',
+            message: '可以開始進行作業',
             type: 'success',
             offset:50
           });
         }else{
           console.log('x')
           this.$notify.error({
-            title: '帳號狀態',
-            message: '未登入',
+            title: '帳號狀態：未登入',
+            message: '無法進行新增編輯',
             offset:50
           });
         }
