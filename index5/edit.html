@@ -736,6 +736,15 @@
           });
         }
       });
+
+      const urlParams = new URLSearchParams(window.location.search)
+      const paramsObj = Object.fromEntries(urlParams)
+      if (paramsObj.id === undefined){
+        return 0
+      }else{
+        this.idCount = paramsObj.id
+        this.read()
+      }
     }
 };
 
