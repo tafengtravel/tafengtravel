@@ -187,36 +187,52 @@
     <!-- 封面照片 -->
 
     <el-row :gutter="20">
-      <el-col class ="el-col el-col-24 el-col-xs-24 el-col-sm-24 el-col-lg-24">
+      <el-col class ="el-col el-col-24 el-col-xs-24 el-col-sm-24 el-col-lg-8">
         <font class ="font"><span>封面電腦版照片</span></font>
-        <span v-for="(fields,index1) in coverUrl">
-          <br><font class ="font"><span>{{index1+1}}.</span></font>
-          <el-input v-model="fields.big" placeholder="" style="width:450px"></el-input>
-        </span>
-        <el-button type="primary" icon="el-icon-circle-plus-outline" @click="coverUrlAdd"></el-button>
+        <el-upload
+          class="upload-demo"
+          action= ""
+          ref="UploadCoverBig"
+          :on-remove="handleRemove"
+          list-type="picture"
+          :auto-upload="false">
+          <el-button slot="trigger" size="small" type="primary">選取照片</el-button>
+          <el-button style="margin-left: 10px;" size="small" type="success" @click="UploadCoverBig">上傳</el-button>
+        </el-upload>
       </el-col>
     </el-row>
 
     <el-row :gutter="20">
-      <el-col class ="el-col el-col-24 el-col-xs-24 el-col-sm-24 el-col-lg-24">
+      <el-col class ="el-col el-col-24 el-col-xs-24 el-col-sm-24 el-col-lg-8">
         <font class ="font"><span>封面手機版照片</span></font>
-        <span v-for="(fields,index1) in coverUrl">
-          <br><font class ="font"><span>{{index1+1}}.</span></font>
-          <el-input v-model="fields.small" placeholder="" style="width:450px"></el-input>
-        </span>
+        <el-upload
+          class="upload-demo"
+          action= ""
+          ref="UploadCoverSmall"
+          :on-remove="handleRemove"
+          list-type="picture"
+          :auto-upload="false">
+          <el-button slot="trigger" size="small" type="primary">選取照片</el-button>
+          <el-button style="margin-left: 10px;" size="small" type="success" @click="UploadCoverSmall">上傳</el-button>
+        </el-upload>
       </el-col>
     </el-row>
 
     <!-- 活動照片 -->
 
     <el-row :gutter="20">
-      <el-col class ="el-col el-col-24 el-col-xs-24 el-col-sm-24 el-col-lg-24">
+      <el-col class ="el-col el-col-24 el-col-xs-24 el-col-sm-24 el-col-lg-8">
         <font class ="font"><span>活動照片</span></font>
-        <span v-for="(fields,index1) in imageUrl">
-          <br><font class ="font"><span>{{index1+1}}.</span></font>
-          <el-input v-model="fields.value" placeholder="" style="width:450px"></el-input>
-        </span>
-        <el-button type="primary" icon="el-icon-circle-plus-outline" @click="imageUrlAdd"></el-button>
+        <el-upload
+          class="upload-demo"
+          action= ""
+          ref="UploadImg"
+          :on-remove="handleRemove"
+          list-type="picture"
+          :auto-upload="false">
+          <el-button slot="trigger" size="small" type="primary">選取照片</el-button>
+          <el-button style="margin-left: 10px;" size="small" type="success" @click="UploadImg">上傳</el-button>
+        </el-upload>
       </el-col>
     </el-row>
 
@@ -428,6 +444,10 @@
   let coverUrl
   let imageUrl
 
+  let coverUrlBig =[]
+  let coverUrlSmall = []
+  let imgUrl = []
+  
   let obj = {}
 
 
@@ -537,6 +557,7 @@
         imageUrl:[{
           value:''
         }],
+        fileList:[]
         
       };
       
@@ -568,7 +589,8 @@
       },
       imageUrlAdd(){
         this.imageUrl.push({});
-      },dataSend(){
+      },
+      dataSend(){
 
         coverUrl = this.coverUrl
         imageUrl = this.imageUrl
@@ -603,7 +625,7 @@
         }
 
       
-        obj = {...itemData,itemPrice,itemPriceKid,itemOtherAdult,itemOtherKid,itemDepTime,itemRadio,itemTime,itemTitle,coverUrl,imageUrl}
+        obj = {...itemData,itemPrice,itemPriceKid,itemOtherAdult,itemOtherKid,itemDepTime,itemRadio,itemTime,itemTitle,coverUrl,imageUrl,'id':this.idCount,coverUrlBig,coverUrlSmall,imgUrl}
         console.log(obj)
 
         let objCurrentId = {
@@ -626,10 +648,15 @@
           });
           console.log('新增成功');
           
+        }).catch((error) => {
+          this.$message.error({
+            message: '新增失敗，錯誤原因：'+error,
+          });
         });
 
 
-      },dataSort(data){
+      },
+      dataSort(data){
 
         // swag obj元素 index只到的位置
         // swag 用key拆開得到2層數值 foreach去跑 porn得到內層數值 ininder抓到位址
@@ -647,7 +674,109 @@
 
         return obj
 
+      },
+      handleRemove(file, fileList) {
+        console.log(file, fileList);
+      },
+      handlePreview(file) {
+        
+      },
+      async UploadCoverBig(){
+        //封面大圖上傳
+        console.log(this.$refs.UploadCoverBig.uploadFiles)
+        this.$notify({
+          title: '上傳中，請稍後',
+          type: 'warning',
+          offset:50
+        });
+
+        try { // statements to try
+          for(i=0;i<this.$refs.UploadCoverBig.uploadFiles.length;i++){
+            const path = this.$refs.UploadCoverBig.uploadFiles[i].name;
+            const storageRef = firebase.storage().ref('product/'+(this.idCount).toString()+'/'+path);
+
+            const task =await storageRef.put(this.$refs.UploadCoverBig.uploadFiles[i].raw);
+            coverUrlBig[i] = {'name':path,'url':task.downloadURL}
+            console.log(coverUrlBig)
+          }
+          this.$notify({
+            title: '上傳成功',
+            type: 'success',
+            offset:50
+          });
+        }
+        catch (e) {
+          this.$notify.error({
+            title: '上傳失敗',
+            offset:50
+          });
+        }
+      },
+      async UploadCoverSmall(){
+        //封面小圖上傳
+        console.log(this.$refs.UploadCoverSmall.uploadFiles)
+        this.$notify({
+          title: '上傳中，請稍後',
+          type: 'warning',
+          offset:50
+        });
+
+        try { // statements to try
+          for(j=0;j<this.$refs.UploadCoverSmall.uploadFiles.length;j++){
+            const path = this.$refs.UploadCoverSmall.uploadFiles[j].name;
+            const storageRef = firebase.storage().ref('product/'+(this.idCount).toString()+'/'+path);
+
+            const task =await storageRef.put(this.$refs.UploadCoverSmall.uploadFiles[j].raw);
+            coverUrlSmall[j] = {'name':path,'url':task.downloadURL}
+            console.log(coverUrlSmall)
+          }
+          this.$notify({
+            title: '上傳成功',
+            type: 'success',
+            offset:50
+          });
+        }
+        catch (e) {
+          this.$notify.error({
+            title: '上傳失敗',
+            offset:50
+          });
+          console.log(e)
+        }
+      },
+      async UploadImg(){
+        //活動照片上傳
+        console.log(this.$refs.UploadImg.uploadFiles)
+        this.$notify({
+          title: '上傳中，請稍後',
+          type: 'warning',
+          offset:50
+        });
+
+        try { // statements to try
+          for(k=0;i<this.$refs.UploadImg.uploadFiles.length;k++){
+            const path = this.$refs.UploadImg.uploadFiles[k].name;
+            const storageRef = firebase.storage().ref('product/'+(this.idCount).toString()+'/'+path);
+
+            const task =await storageRef.put(this.$refs.UploadImg.uploadFiles[k].raw);
+            imgUrl[k] = {'name':path,'url':task.downloadURL}
+            console.log(imgUrl)
+          }
+          this.$notify({
+            title: '上傳成功',
+            type: 'success',
+            offset:50
+          });
+        }
+        catch (e) {
+          this.$notify.error({
+            title: '上傳失敗',
+            offset:50
+          });
+          console.log(e)
+        }
       }
+
     },mounted(){
 
       firebase.auth().onAuthStateChanged((user)=> {
@@ -682,6 +811,10 @@
           type: 'success'
         });
 
+      }).catch((error) => {
+        this.$message.error({
+          message: '新增失敗，錯誤原因：'+error,
+        });
       });
 
             
