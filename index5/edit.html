@@ -612,6 +612,10 @@
           console.log('update data successful');
           alert('新增成功');
           
+        }).catch((error) => {
+          this.$message.error({
+            message: '修改失敗，錯誤原因：'+error,
+          });
         });
       },dataSort(data){
 
