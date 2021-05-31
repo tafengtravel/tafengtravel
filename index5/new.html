@@ -195,6 +195,7 @@
           ref="UploadCoverBig"
           :on-remove="handleRemove"
           list-type="picture"
+          :file-list="coverUrlBig"
           :auto-upload="false">
           <el-button slot="trigger" size="small" type="primary">選取照片</el-button>
           <el-button style="margin-left: 10px;" size="small" type="success" @click="UploadCoverBig">上傳</el-button>
@@ -211,6 +212,7 @@
           ref="UploadCoverSmall"
           :on-remove="handleRemove"
           list-type="picture"
+          :file-list="coverUrlSmall"
           :auto-upload="false">
           <el-button slot="trigger" size="small" type="primary">選取照片</el-button>
           <el-button style="margin-left: 10px;" size="small" type="success" @click="UploadCoverSmall">上傳</el-button>
@@ -229,6 +231,7 @@
           ref="UploadImg"
           :on-remove="handleRemove"
           list-type="picture"
+          :file-list="imageUrl"
           :auto-upload="false">
           <el-button slot="trigger" size="small" type="primary">選取照片</el-button>
           <el-button style="margin-left: 10px;" size="small" type="success" @click="UploadImg">上傳</el-button>
@@ -441,12 +444,10 @@
   let itemItinerary
   let itemTime = []
   let itemTitle = []
-  let coverUrl
-  let imageUrl
 
   let coverUrlBig =[]
   let coverUrlSmall = []
-  let imgUrl = []
+  let imageUrl = []
   
   let obj = {}
 
@@ -550,14 +551,10 @@
         itemRadio:[{}],
         itemDepTime:[{}],
         itemOtherKid:[{}],
-        coverUrl:[{
-          big:"",
-          small:"",
-        }],
-        imageUrl:[{
-          value:''
-        }],
-        fileList:[]
+
+        coverUrlBig:[],
+        coverUrlSmall:[],
+        imageUrl:[]
         
       };
       
@@ -584,16 +581,8 @@
       itemOptionOtherKid(){
         this.itemOtherKid.push({});
       },
-      coverUrlAdd(){
-        this.coverUrl.push({});
-      },
-      imageUrlAdd(){
-        this.imageUrl.push({});
-      },
-      dataSend(){
 
-        coverUrl = this.coverUrl
-        imageUrl = this.imageUrl
+      dataSend(){
 
         console.log(this.itemPrice)
 
@@ -610,6 +599,10 @@
         itemPrice = this.dataSort(this.itemPrice)
         itemPrice = this.dataSort(this.itemPrice)
 
+        coverUrlBig = this.coverUrlBig
+        coverUrlSmall = this.coverUrlSmall
+        imageUrl = this.imageUrl
+
         console.log(itemPrice)
         console.log(itemPriceKid)
         console.log(itemOtherAdult)
@@ -625,7 +618,7 @@
         }
 
       
-        obj = {...itemData,itemPrice,itemPriceKid,itemOtherAdult,itemOtherKid,itemDepTime,itemRadio,itemTime,itemTitle,coverUrl,imageUrl,'id':this.idCount,coverUrlBig,coverUrlSmall,imgUrl}
+        obj = {...itemData,itemPrice,itemPriceKid,itemOtherAdult,itemOtherKid,itemDepTime,itemRadio,itemTime,itemTitle,'id':this.idCount,coverUrlBig,coverUrlSmall,imageUrl}
         console.log(obj)
 
         let objCurrentId = {
@@ -696,14 +689,16 @@
             const storageRef = firebase.storage().ref('product/'+(this.idCount).toString()+'/'+path);
 
             const task =await storageRef.put(this.$refs.UploadCoverBig.uploadFiles[i].raw);
-            coverUrlBig[i] = {'name':path,'url':task.downloadURL}
-            console.log(coverUrlBig)
+            this.coverUrlBig[i] = {'name':path,'url':task.downloadURL}
+            console.log(this.coverUrlBig)
           }
           this.$notify({
             title: '上傳成功',
             type: 'success',
             offset:50
           });
+          this.coverUrlBig.reverse()
+          this.coverUrlBig.reverse()
         }
         catch (e) {
           this.$notify.error({
@@ -727,14 +722,16 @@
             const storageRef = firebase.storage().ref('product/'+(this.idCount).toString()+'/'+path);
 
             const task =await storageRef.put(this.$refs.UploadCoverSmall.uploadFiles[j].raw);
-            coverUrlSmall[j] = {'name':path,'url':task.downloadURL}
-            console.log(coverUrlSmall)
+            this.coverUrlSmall[j] = {'name':path,'url':task.downloadURL}
+            console.log(this.coverUrlSmall)
           }
           this.$notify({
             title: '上傳成功',
             type: 'success',
             offset:50
           });
+          this.coverUrlSmall.reverse()
+          this.coverUrlSmall.reverse()
         }
         catch (e) {
           this.$notify.error({
@@ -754,19 +751,21 @@
         });
 
         try { // statements to try
-          for(k=0;i<this.$refs.UploadImg.uploadFiles.length;k++){
+          for(k=0;k<this.$refs.UploadImg.uploadFiles.length;k++){
             const path = this.$refs.UploadImg.uploadFiles[k].name;
             const storageRef = firebase.storage().ref('product/'+(this.idCount).toString()+'/'+path);
 
             const task =await storageRef.put(this.$refs.UploadImg.uploadFiles[k].raw);
-            imgUrl[k] = {'name':path,'url':task.downloadURL}
-            console.log(imgUrl)
+            this.imageUrl[k] = {'name':path,'url':task.downloadURL}
+            console.log(this.imageUrl)
           }
           this.$notify({
             title: '上傳成功',
             type: 'success',
             offset:50
           });
+          this.imageUrl.reverse()
+          this.imageUrl.reverse()
         }
         catch (e) {
           this.$notify.error({
