@@ -28,6 +28,7 @@
 
 <script src="https://tafengtravel.github.io/tafengtravel/index/js/sendMail.js"></script>   
 
+
 <!--自家檔案-->
 
 <link rel="icon" href="https://tafengtravel.github.io/tafengtravel/index1/tafenglogo6.ico" type="image/x-icon" />
@@ -136,7 +137,7 @@ document.querySelectorAll("[href^='https://line.me']").forEach(function(item){
     <div class='box'>
         
             <el-row>
-                <font class ="sub_title" id ="sub_title"></font>
+                <font class ="sub_title">{{itemData.itinerary}}</font>
             </el-row>
 
 
@@ -145,7 +146,7 @@ document.querySelectorAll("[href^='https://line.me']").forEach(function(item){
                     <font class ="font"><i class="el-icon-date"></i></font>
                 </span>            
                 <span class= "el-col-22">
-                    <font class ="font">日期：<span id ="sub_title_1"></span></font>
+                    <font class ="font">日期：{{itemData.dep_date}}</font>
                 </span> 
             </el-row>
             <el-row>
@@ -153,7 +154,7 @@ document.querySelectorAll("[href^='https://line.me']").forEach(function(item){
                     <font class ="font"><i class="el-icon-time"></i></font>
                 </span>           
                 <span class= "el-col-22">
-                    <font class ="font">時間：<span id ="sub_title_2"></span></font>
+                    <font class ="font">時間：{{itemData.time}}</font>
                 </span>
             </el-row>
             <el-row>
@@ -161,7 +162,7 @@ document.querySelectorAll("[href^='https://line.me']").forEach(function(item){
                     <font class ="font"><i class="el-icon-s-custom"></i></font>
                 </span>            
                 <span class= "el-col-22">
-                    <font class ="font">人數：<span id ="sub_title_3"></span></font>
+                    <font class ="font">人數：{{itemData.quantityAdult}}大{{itemData.quantityKid}}小</font>
                 </span>   
             </el-row>   
             <el-row>
@@ -169,7 +170,7 @@ document.querySelectorAll("[href^='https://line.me']").forEach(function(item){
                     <font class ="font"><i class="el-icon-tickets"></i></font>
                 </span>            
                 <span class= "el-col-22">
-                    <font class ="font">類型：<span id ="sub_title_4"></span></font>
+                    <font class ="font">類型：{{itemData.type}}</span></font>
                 </span>   
             </el-row>      
             
@@ -190,6 +191,15 @@ document.querySelectorAll("[href^='https://line.me']").forEach(function(item){
         <el-form-item label="" prop="price" style='display: none;'>
             <el-input v-model="ruleForm.price"></el-input>
         </el-form-item>  
+        <el-form-item label="" prop="dep_date" style='display: none;'>
+            <el-input v-model="ruleForm.dep_date"></el-input>
+        </el-form-item>  
+        <el-form-item label="" prop="time" style='display: none;'>
+            <el-input v-model="ruleForm.time"></el-input>
+        </el-form-item>  
+        <el-form-item label="" prop="amount" style='display: none;'>
+            <el-input v-model="ruleForm.amount"></el-input>
+        </el-form-item> 
 
         <el-form-item label="姓名" prop="buyer_name">
             <el-input v-model="ruleForm.buyer_name"></el-input>
@@ -208,7 +218,7 @@ document.querySelectorAll("[href^='https://line.me']").forEach(function(item){
             <font class ="sub_title">旅客資料</font>
         </el-row>
 
-        <li v-for="i in total_quantity" :key="i">
+        <li v-for="i in itemData.total_quantity" :key="i">
 
             <el-row>
             <font class ="font">第{{i}}位旅客</font>
@@ -246,8 +256,8 @@ document.querySelectorAll("[href^='https://line.me']").forEach(function(item){
         <el-divider></el-divider>
 
         <el-row>
-            <font class ="sub_title">訂單金額</font>
-            <font class ="sub_title" id='price' style="color:#F60"></font>
+            <font class ="sub_title">訂單金額：</font>
+            <font class ="sub_title"style="color:#F60">{{itemData.price}}</font>
         </el-row>
         <el-row>
             <font class ="mini_font">訂購完成後須等待空位確認，專員會於1個工作天內回覆您預定結果，並將付款連結寄至您的信箱，訂單將於付款後正式成立。</font>
@@ -297,29 +307,8 @@ document.querySelectorAll("[href^='https://line.me']").forEach(function(item){
 
 <script>
 
-    let number ;
-    let quantity = localStorage.getItem("quantity");
-    let total_quantity = parseInt(localStorage.getItem("quantity"));
-    let time = localStorage.getItem("time");
-    let dep_date = localStorage.getItem("dep_date");
-    let price = localStorage.getItem("price");
-    let itinerary = localStorage.getItem("itinerary");
-    let type = localStorage.getItem("type");
-    let guest = localStorage.getItem("guest");
-
-    let a =[];
-
-    if(guest == 'false'){
-        total_quantity = 1
-    }
-
-    document.getElementById("sub_title").innerHTML=itinerary;
-    document.getElementById("sub_title_1").innerHTML=dep_date;
-    document.getElementById("sub_title_2").innerHTML=time;
-    document.getElementById("sub_title_3").innerHTML=quantity;
-    document.getElementById("sub_title_4").innerHTML=type;
-    document.getElementById("price").innerHTML='$'+price;
-    
+    const urlParams = new URLSearchParams(window.location.search)
+    const paramsObj = Object.fromEntries(urlParams)
     /*
     for(i=1;i<4;i++){
         document.getElementById("sub_title_"+i).innerHTML='20';
@@ -329,7 +318,6 @@ document.querySelectorAll("[href^='https://line.me']").forEach(function(item){
     var Main = {
         data() {
             return {
-                disabledDate:'2021-02-20',
                 birth:'',
                 pickerOptions: {
                     disabledDate(time) {
@@ -348,7 +336,8 @@ document.querySelectorAll("[href^='https://line.me']").forEach(function(item){
                 name:'',
                 phone:'',
                 email:'',
-                total_quantity:total_quantity,
+                total_quantity:1,
+                itemData:[],
 
                 ruleForm: {
                     buyer_name:'',  
@@ -356,10 +345,12 @@ document.querySelectorAll("[href^='https://line.me']").forEach(function(item){
                     birth:[],  
                     ID:[],
                     other:'',
-                    itinerary:itinerary,
-                    price:price,
-                    dep_date:dep_date,
-                    type:type,
+                    itinerary:'',
+                    price:'',
+                    dep_date:'',
+                    type:'',
+                    time:'',
+                    amount:''
                 },
                 rules: {
                     buyer_name: [
@@ -386,6 +377,7 @@ document.querySelectorAll("[href^='https://line.me']").forEach(function(item){
                     if (valid) {
                         console.log('submit!');
                         sendMail(this.ruleForm);
+                        console.log(this.ruleForm)
                         localStorage.clear()
                     } else {
                         console.log('error submit!!');
@@ -400,6 +392,22 @@ document.querySelectorAll("[href^='https://line.me']").forEach(function(item){
                 localStorage.clear()
                 window.location.href='https://tafengtravel.github.io/tafengtravel/index/tafengindex.html'
             }
+        },mounted(){
+            this.itemData = paramsObj
+            if (this.itemData.guest == 'false'){
+                
+            }else{
+                console.log(paramsObj)
+                this.itemData = {...paramsObj,"total_quantity":parseInt(paramsObj.quantityAdult) + parseInt(paramsObj.quantityKid)}
+                console.log(this.itemData)
+            }
+
+            this.ruleForm.itinerary = this.itemData.itinerary
+            this.ruleForm.dep_date = this.itemData.dep_date
+            this.ruleForm.type = this.itemData.type
+            this.ruleForm.time = this.itemData.time
+            this.ruleForm.price = this.itemData.price
+            this.ruleForm.amount = paramsObj.quantityAdult+'大'+paramsObj.quantityKid+'小'
         }
      
     };
