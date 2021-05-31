@@ -330,7 +330,7 @@ document.querySelectorAll("[href^='https://line.me']").forEach(function(item){
                                 
                             </div>
                             <div class="el-col el-col-24 el-col-xs-24 el-col-xs-offset-0 el-col-sm-4 el-col-sm-offset-0" >
-                                <el-button type="primary is-plain" style="width:100% ;margin:0px 0px 15px 0px" onclick = 'buy(1)'>立即訂購</el-button>
+                                <el-button type="primary is-plain" style="width:100% ;margin:0px 0px 15px 0px" @click = 'buy()'>立即訂購</el-button>
                             </div>  
                         </el-card>
 
@@ -631,6 +631,25 @@ $(".include").each(function(){
                     }
                 }
                 return data
+            },
+            buy(){
+                let date = new Date(this.datevalue1).getFullYear() +'-'+(new Date(this.datevalue1).getMonth()+1)+'-'+new Date(this.datevalue1).getDate()
+                console.log(this.itemDetail)
+                let URL = 'https://tafengtravel.github.io/tafengtravel/index5/edit.html'
+
+                let urlParams = (new URLSearchParams(
+                    {itinerary: this.itemDetail[this.index].title,dep_date:date,
+                        price:this.price,quantityAdult:this.quantity0,quantityKid:this.quantity1,time:this.depValue,
+                        type:this.radio
+                })).toString();
+                console.log(urlParams)
+
+                let URL2 ='https://tafengtravel.github.io/tafengtravel/index/book/book.html'+'?'+urlParams
+
+                window.location.href= URL2
+
+                // const urlParams1 = new URLSearchParams(urlParams)
+                // const paramsObj1 = Object.fromEntries(urlParams1)
             }
         },mounted(){
 
@@ -701,23 +720,23 @@ $(".include").each(function(){
 	};
 
 
-    function buy(type){
+    // function buy(type){
 
-        let itinerary = document.getElementById('itinerary'+type).innerText
+    //     let itinerary = document.getElementById('itinerary'+type).innerText
 
-        type2 = document.getElementById('radio'+type+'_'+radio1_1.__vue__.value).innerText
+    //     type2 = document.getElementById('radio'+type+'_'+radio1_1.__vue__.value).innerText
 
 
-        localStorage.setItem("dep_date", document.getElementById('dep_date').value);
-        localStorage.setItem("itinerary",itinerary);
-        localStorage.setItem("price",price_html[0].outerText);
-        localStorage.setItem("quantity", quantity1.__vue__.value+'位');
-        localStorage.setItem("time", document.getElementById('choice_time1').value);
-        localStorage.setItem("type", type2);
-        localStorage.setItem("guest", true);
-        document.location.href='https://tafengtravel.github.io/tafengtravel/index/book/book.html';
+    //     localStorage.setItem("dep_date", document.getElementById('dep_date').value);
+    //     localStorage.setItem("itinerary",itinerary);
+    //     localStorage.setItem("price",price_html[0].outerText);
+    //     localStorage.setItem("quantity", quantity1.__vue__.value+'位');
+    //     localStorage.setItem("time", document.getElementById('choice_time1').value);
+    //     localStorage.setItem("type", type2);
+    //     localStorage.setItem("guest", true);
+    //     document.location.href='https://tafengtravel.github.io/tafengtravel/index/book/book.html';
 
-    }
+    // }
 
 </script>
 
