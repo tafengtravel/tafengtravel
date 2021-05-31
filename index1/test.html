@@ -177,13 +177,10 @@ document.querySelectorAll("[href^='https://line.me']").forEach(function(item){
         <div class="el-row">
         <carousel v-bind:autoplay="true" v-bind:loop="true" :per-Page="1">
             
-                <slide v-for="(item, index) in itemData.coverUrl">
-                    <img class="d-none d-md-block" style="width:100%" :src= "item.big" >
-                    <img class="d-block d-md-none" style="width:100%" :src="item.small" alt="#" ></a>
+                <slide v-for="(item, index) in coverCount">
+                    <img class="d-none d-md-block" style="width:100%" :src= "itemData.coverUrlBig[index].url">
+                    <img class="d-block d-md-none" style="width:100%" :src="itemData.coverUrlSmall[index].url"></a>
                 </slide>
-            
-            
-                        
           </carousel>
         </div>
         <!-- <div >
@@ -362,10 +359,9 @@ document.querySelectorAll("[href^='https://line.me']").forEach(function(item){
                 <div class="el-row">
                     <div class="el-col el-col-xl-16 el-col-lg-16 el-col-md-16 el-col-xs-24 el-col-sm-24 " >
                         <el-row>
-                            <el-image v-for="url in url"
-                                    :key="url"
+                            <el-image 
                                     style="width: 100%"
-                                    :src="url"
+                                    :src="srcList[0]"
                                     :preview-src-list="srcList"
                                     >
                             </el-image>
@@ -585,8 +581,12 @@ $(".include").each(function(){
             index:0,
             index1:0,
             price:0,
-            coverBigUrl:'',
-            coverSmallUrl:'',
+            
+            coverUrlBig:[],
+            coverUrlSmall:[],
+            imageUrl:[],
+
+            coverCount:0,
             };
  
         },methods: {
@@ -671,7 +671,13 @@ $(".include").each(function(){
                 this.itemData.itemDepTime = data.itemDepTime
                 this.itemData.itemRadio = data.itemRadio
                 
-                // this.url =  data.imageUrl[0]
+                this.coverCount = data.coverUrlBig.length
+
+                for(i=0;i<data.imageUrl.length;i++){
+                    this.srcList[i] = data.imageUrl[i].url
+                }
+                this.srcList.reverse()
+                this.srcList.reverse()
 
             });
         } 
