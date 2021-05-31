@@ -15,6 +15,7 @@
     Subject: "加購訂單",
     Body: 
     ruleForm.itinerary+'<br>'+
+    '訂購人數：'+ruleForm.amount+'<br>'+
     '訂購日期：'+ruleForm.dep_date+'<br>'+
     '訂購類型：'+ruleForm.type+'<br>'+
     '行程費用：'+ruleForm.price+'<br>'+
