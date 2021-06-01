@@ -640,7 +640,7 @@ $(".include").each(function(){
                 let URL = 'https://tafengtravel.github.io/tafengtravel/index5/edit.html'
 
                 let urlParams = (new URLSearchParams(
-                    {itinerary: this.itemDetail[this.index].title,dep_date:date,
+                    {title:this.itemData.title,itinerary: this.itemDetail[this.isShow-1].title,dep_date:date,
                         price:this.price,quantityAdult:this.quantity0,quantityKid:this.quantity1,time:this.depValue,
                         type:this.radio
                 })).toString();
