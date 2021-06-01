@@ -607,15 +607,17 @@ $(".include").each(function(){
                         }
                     }
                 }
-
-                console.log(x,y)
-                
-                if (data.itemPriceKid[x] === undefined ){
+                // console.log(x,y)
+                if (data.itemPriceKid[x][y] === undefined || data.itemPriceKid[x][y] == '0' ){
                     kidPrice = 0
                 }else{
                     kidPrice = parseInt(data.itemPriceKid[x][y])*this.quantity1
                 }
                 this.price = parseInt(data.itemPrice[x][y])*this.quantity0 + kidPrice
+                // console.log(data.itemPrice[x][y])
+                // console.log(this.quantity0)
+                // console.log(kidPrice)
+                // console.log(this.price )
             },
             radioChange(){
                 console.log(this.radio)
@@ -687,6 +689,7 @@ $(".include").each(function(){
 
                 data.itemDepTime = this.dataArrange(data.itemDepTime)
                 data.itemRadio = this.dataArrange(data.itemRadio)
+                data.itemOtherAdult = this.dataArrange(data.itemOtherAdult)
                 this.itemData.itemDepTime = data.itemDepTime
                 this.itemData.itemRadio = data.itemRadio
                 
