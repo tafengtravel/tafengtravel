@@ -137,6 +137,10 @@ document.querySelectorAll("[href^='https://line.me']").forEach(function(item){
     <div class='box'>
         
             <el-row>
+                <font class ="title">{{itemData.title}}</font>
+            </el-row>
+
+            <el-row>
                 <font class ="sub_title">{{itemData.itinerary}}</font>
             </el-row>
 
@@ -185,6 +189,9 @@ document.querySelectorAll("[href^='https://line.me']").forEach(function(item){
     <el-form :model="ruleForm" :rules="rules" ref="ruleForm" label-width="80px" class="demo-ruleForm">
 
 
+        <el-form-item label="" prop="title" style='display: none;'>
+            <el-input v-model="ruleForm.title"></el-input>
+        </el-form-item>  
         <el-form-item label="" prop="itinerary" style='display: none;'>
             <el-input v-model="ruleForm.itinerary"></el-input>
         </el-form-item>  
@@ -402,6 +409,7 @@ document.querySelectorAll("[href^='https://line.me']").forEach(function(item){
                 console.log(this.itemData)
             }
 
+            this.ruleForm.title = this.itemData.title
             this.ruleForm.itinerary = this.itemData.itinerary
             this.ruleForm.dep_date = this.itemData.dep_date
             this.ruleForm.type = this.itemData.type
