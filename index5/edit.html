@@ -587,7 +587,9 @@
         let coverUrlSmall = []
         let imageUrl = []
 
+        let obj = {}
 
+        let coverUrlSmallCheck
         itemPrice = this.dataSort(this.itemPrice)
         itemPriceKid = this.dataSort(this.itemPriceKid)
         itemOtherAdult = this.dataSort(this.itemOtherAdult)
@@ -606,22 +608,46 @@
           itemTitle[i] = itemItinerary[i].itemTitle
         }
 
-        let obj = {}
       
         obj = {...itemData,itemPrice,itemPriceKid,itemOtherAdult,itemOtherKid,itemDepTime,itemRadio,itemTime,itemTitle,'id':this.idCount,coverUrlBig,coverUrlSmall,imageUrl}
-        console.log(obj)
+
+        //判斷有無小圖 如無則上傳空字串
+        if(coverUrlSmall[0] === undefined){
+          coverUrlSmallCheck = ''
+        }else{
+          coverUrlSmallCheck = coverUrlSmall[0].url
+        }
+
+        objList={"title":itemData.title,"coverUrlSmall":coverUrlSmallCheck,"features":itemData.features,"lowPrice":itemData.lowPrice,"location":itemData.location,"available":itemData.available,
+                  "id":itemData.id
+                }
 
         let ref = db.collection('product').doc((this.idCount).toString());
 
         ref.update(obj).then(() => {
-          console.log('update data successful');
-          alert('新增成功');
+          
+          ref = db.collection('list').doc((this.idCount).toString());
+
+          ref.set(objList).then(() => {
+            this.$message({
+              message: '修改成功',
+              type: 'success'
+            });
+            console.log('update data successful');
+          }).catch((error) => {
+            this.$message.error({
+              message: '修改失敗，錯誤原因：'+error,
+            });
+            console.log(error)
+          });
           
         }).catch((error) => {
           this.$message.error({
             message: '修改失敗，錯誤原因：'+error,
           });
+          console.log(error)
         });
+
       },dataSort(data){
 
         // swag obj元素 index只到的位置
