@@ -213,16 +213,16 @@ firebase.auth().setPersistence(firebase.auth.Auth.Persistence.LOCAL)
       let i = 0
 
       ref.get().then(querySnapshot => {
-      querySnapshot.forEach(doc => {  
-        itemData[i] = doc.data()
-        this.itemData = itemData
-        i=i+1
-        });  
-        if(Object.keys(this.itemData[i-1]).length == 1){
-          this.itemData.pop()
-        }
-        console.log(this.itemData)
-      });
+        querySnapshot.forEach(doc => {  
+          itemData[i] = doc.data()
+          this.itemData = itemData
+          i=i+1
+          });  
+          if(Object.keys(this.itemData[i-1]).length == 1){
+            this.itemData.pop()
+          }
+          console.log(this.itemData)
+        });
      
     }
 };
