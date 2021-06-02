@@ -101,13 +101,14 @@
     <el-row></el-row><el-row></el-row>
     
     <el-table :data="itemData" height="730px" style="width: 100%" height="250" :row-class-name="tableRowClassName" :default-sort = "{prop: 'id', order: 'ascending'}" empty-text="沒有資料">
-      <el-table-column prop="id" label="編號" width='75%' fixed sortable :sort-method = "(a,b)=>{return a.id - b.id}"></el-table-column></el-table-column>
-      <el-table-column prop="title" label="產品名稱" sortable :sort-method = "(a,b)=>{return a.title - b.title}"></el-table-column></el-table-column>
+      <el-table-column prop="id" label="編號" width='75%' fixed sortable :sort-method = "(a,b)=>{return a.id - b.id}"></el-table-column>
+      <el-table-column prop="location" label="地區" width='125%' sortable :sort-method="(a,b) => a.location.localeCompare(b.location)"></el-table-column>
+      <el-table-column prop="title" label="產品名稱" sortable :sort-method = "(a,b)=>{return a.title - b.title}"></el-table-column>
       <el-table-column fixed="right" label="操作" width="100">
         <template slot-scope="scope">
           <el-button @click="edit(scope.row)" type="text" size="medium">編輯</el-button>
         </template>
-    </el-table-column>
+      </el-table-column>
      
     </el-table>
 
@@ -209,7 +210,7 @@ firebase.auth().setPersistence(firebase.auth.Auth.Persistence.LOCAL)
         }
       });
 
-      let ref = db.collection('product')
+      let ref = db.collection('list')
       let i = 0
 
       ref.get().then(querySnapshot => {
@@ -218,9 +219,6 @@ firebase.auth().setPersistence(firebase.auth.Auth.Persistence.LOCAL)
           this.itemData = itemData
           i=i+1
           });  
-          if(Object.keys(this.itemData[i-1]).length == 1){
-            this.itemData.pop()
-          }
           console.log(this.itemData)
         });
      
