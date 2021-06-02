@@ -174,7 +174,7 @@ document.querySelectorAll("[href^='https://line.me']").forEach(function(item){
 <div class="include" file="https://tafengtravel.github.io/tafengtravel/index/top"></div>
 
 <div id="pnl_wrapper" class="wrapper homepage green-page">
-    <div id="app" class ="el-col el-col-24 el-col-xs-20 el-col-xs-offset-2 el-col-sm-20 el-col-sm-offset-2 el-col-md-18 el-col-md-offset-3 el-col-lg-16 el-col-lg-offset-4"> 
+    <div id="app" class ="el-col el-col-24 el-col-xs-20 el-col-xs-offset-2 el-col-sm-20 el-col-sm-offset-2 el-col-md-22 el-col-md-offset-1 el-col-lg-16 el-col-lg-offset-4"> 
         <el-row></el-row>
         <el-row :gutter="20">
         <div v-for="item in data">
@@ -182,28 +182,24 @@ document.querySelectorAll("[href^='https://line.me']").forEach(function(item){
             <a :href ='"https://tafengtravel.github.io/tafengtravel/index/product/product.html?id="+item.id' target="_blank">
                 <el-col class ="el-col el-col-24 el-col-xs-24 el-col-sm-24 el-col-md-8 el-col-lg-8 ">
                     <el-card class="box-card"  :body-style="{ padding: '0px' }" shadow="hover">
+                        <div class ="image-margin  el-col el-col-24 el-col-xs-24 el-col-sm-24 el-col-md-24 el-col-lg-24 ">
+                            <el-image style="width:100% ;height: 260px" :src="item.coverUrlSmall":fit="fits">
+                            </el-image>
+                        </div>
 
+                        <div  style="padding: 14px;" class ="text-margin el-col el-col-24 el-col-xs-24 el-col-sm-24 el-col-md-24 el-col-lg-24"> 
+                            <span class="font"><font color="black">{{item.title}}</font></span>
+                        </div>
 
-                            <div class ="image-margin  el-col el-col-24 el-col-xs-24 el-col-sm-24 el-col-md-24 el-col-lg-24 ">
-                                <el-image style="width:100% ;height: 260px" :src="item.coverUrlSmall":fit="fits">
-                                </el-image>
-                            </div>
+                        <div  style="padding: 14px;" class ="text-margin el-col el-col-24 el-col-xs-24 el-col-sm-24 el-col-md-24 el-col-lg-24"> 
+                            <font class="mini_font">{{item.features}}...</font>
+                        </div>
 
-
-                            <div  style="padding: 14px;" class ="text-margin el-col el-col-24 el-col-xs-24 el-col-sm-24 el-col-md-24 el-col-lg-24"> 
-                                <span class="font"><font color="black">{{item.title}}</font></span>
-                            </div>
-
-                            <div  style="padding: 14px;" class ="text-margin el-col el-col-24 el-col-xs-24 el-col-sm-24 el-col-md-24 el-col-lg-24"> 
-                                <font class="mini_font">{{item.features}}...</font>
-                            </div>
-
-                            <div  style="padding: 14px; text-align:right" class ="text-margin el-col el-col-24 el-col-xs-24 el-col-sm-24 el-col-md-24 el-col-lg-24"> 
-                                <span class="font">$</span> 
-                                <span class="sub_title"><font color="#FF6600">{{item.lowPrice}}</font></span>
-                                <span class="font">起</span> 
-                            </div>
-
+                        <div  style="padding: 14px; text-align:right" class ="text-margin el-col el-col-24 el-col-xs-24 el-col-sm-24 el-col-md-24 el-col-lg-24"> 
+                            <span class="font">$</span> 
+                            <span class="sub_title"><font color="#FF6600">{{item.lowPrice}}</font></span>
+                            <span class="font">起</span> 
+                        </div>
                     </el-card>
                 </el-col>
             </a>
