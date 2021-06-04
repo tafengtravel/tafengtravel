@@ -547,6 +547,10 @@ $(".include").each(function(){
                     let disableDateRange = []
                     let disableDateTrue = true
 
+                    if(date === undefined){
+                        return time.getTime() < new Date().getTime() + 48*60*60*1000 || time.getTime() > new Date('2021/10/31').getTime() 
+                    }
+
                     for(i=0;i<date.length;i++){
                         disableDateRange[i] = time.getTime() < new Date(date[i]).getTime()-24*60*60*1000 || time.getTime() > new Date(date[i]).getTime()
                     }
@@ -555,8 +559,6 @@ $(".include").each(function(){
                     }
 
                     return disableDateTrue || time.getTime() < new Date().getTime()+24*60*60*1000
-
-                    // return time.getTime() < new Date().getTime() + 48*60*60*1000 || time.getTime() > new Date('2021/10/31').getTime() 
                 }
             },
             datevalue1: new Date().getTime() + 48*60*60*1000,
@@ -719,25 +721,6 @@ $(".include").each(function(){
             document.getElementById("position").style.position = "sticky";
 		}
 	};
-
-
-    // function buy(type){
-
-    //     let itinerary = document.getElementById('itinerary'+type).innerText
-
-    //     type2 = document.getElementById('radio'+type+'_'+radio1_1.__vue__.value).innerText
-
-
-    //     localStorage.setItem("dep_date", document.getElementById('dep_date').value);
-    //     localStorage.setItem("itinerary",itinerary);
-    //     localStorage.setItem("price",price_html[0].outerText);
-    //     localStorage.setItem("quantity", quantity1.__vue__.value+'位');
-    //     localStorage.setItem("time", document.getElementById('choice_time1').value);
-    //     localStorage.setItem("type", type2);
-    //     localStorage.setItem("guest", true);
-    //     document.location.href='https://tafengtravel.github.io/tafengtravel/index/book/book.html';
-
-    // }
 
 </script>
 
