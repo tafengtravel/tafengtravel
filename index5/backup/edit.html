@@ -187,38 +187,58 @@
     <!-- 封面照片 -->
 
     <el-row :gutter="20">
-      <el-col class ="el-col el-col-24 el-col-xs-24 el-col-sm-24 el-col-lg-24">
+      <el-col class ="el-col el-col-24 el-col-xs-24 el-col-sm-24 el-col-lg-8">
         <font class ="font"><span>封面電腦版照片</span></font>
-        <span v-for="(fields,index1) in coverUrl">
-          <br><font class ="font"><span>{{index1+1}}.</span></font>
-          <el-input v-model="fields.big" placeholder="" style="width:450px"></el-input>
-        </span>
-        <el-button type="primary" icon="el-icon-circle-plus-outline" @click="coverUrlAdd"></el-button>
+        <el-upload
+          class="upload-demo"
+          action= ""
+          ref="UploadCoverBig"
+          :on-remove="handleRemove"
+          list-type="picture"
+          :file-list="coverUrlBig"
+          :auto-upload="false">
+          <el-button slot="trigger" size="small" type="primary">選取照片</el-button>
+          <el-button style="margin-left: 10px;" size="small" type="success" @click="UploadCoverBig">上傳</el-button>
+        </el-upload>
       </el-col>
     </el-row>
 
     <el-row :gutter="20">
-      <el-col class ="el-col el-col-24 el-col-xs-24 el-col-sm-24 el-col-lg-24">
+      <el-col class ="el-col el-col-24 el-col-xs-24 el-col-sm-24 el-col-lg-8">
         <font class ="font"><span>封面手機版照片</span></font>
-        <span v-for="(fields,index1) in coverUrl">
-          <br><font class ="font"><span>{{index1+1}}.</span></font>
-          <el-input v-model="fields.small" placeholder="" style="width:450px"></el-input>
-        </span>
+        <el-upload
+          class="upload-demo"
+          action= ""
+          ref="UploadCoverSmall"
+          :on-remove="handleRemove"
+          list-type="picture"
+          :file-list="coverUrlSmall"
+          :auto-upload="false">
+          <el-button slot="trigger" size="small" type="primary">選取照片</el-button>
+          <el-button style="margin-left: 10px;" size="small" type="success" @click="UploadCoverSmall">上傳</el-button>
+        </el-upload>
       </el-col>
     </el-row>
 
     <!-- 活動照片 -->
 
     <el-row :gutter="20">
-      <el-col class ="el-col el-col-24 el-col-xs-24 el-col-sm-24 el-col-lg-24">
+      <el-col class ="el-col el-col-24 el-col-xs-24 el-col-sm-24 el-col-lg-8">
         <font class ="font"><span>活動照片</span></font>
-        <span v-for="(fields,index1) in imageUrl">
-          <br><font class ="font"><span>{{index1+1}}.</span></font>
-          <el-input v-model="fields.value" placeholder="" style="width:450px"></el-input>
-        </span>
-        <el-button type="primary" icon="el-icon-circle-plus-outline" @click="imageUrlAdd"></el-button>
+        <el-upload
+          class="upload-demo"
+          action= ""
+          ref="UploadImg"
+          :on-remove="handleRemove"
+          list-type="picture"
+          :file-list="imageUrl"
+          :auto-upload="false">
+          <el-button slot="trigger" size="small" type="primary">選取照片</el-button>
+          <el-button style="margin-left: 10px;" size="small" type="success" @click="UploadImg">上傳</el-button>
+        </el-upload>
       </el-col>
     </el-row>
+
 
   </div>
 
@@ -522,9 +542,9 @@
           big:"",
           small:"",
         }],
-        imageUrl:[{
-          value:''
-        }],
+        coverUrlBig:[],
+        coverUrlSmall:[],
+        imageUrl:[],
         
       };
       
@@ -551,13 +571,7 @@
       itemOptionOtherKid(){
         this.itemOtherKid.push({});
       },
-      coverUrlAdd(){
-        this.coverUrl.push({});
-      },
-      imageUrlAdd(){
-        this.imageUrl.push({});
-      },dataSend(){
-
+      dataSend(){
         let itemPrice = {}
         let itemPriceKid = {}
         let itemOtherAdult = {}
@@ -568,12 +582,14 @@
         let itemItinerary
         let itemTime = []
         let itemTitle = []
-        let coverUrl
-        let imageUrl
 
-        coverUrl = this.coverUrl
-        imageUrl = this.imageUrl
+        let coverUrlBig =[]
+        let coverUrlSmall = []
+        let imageUrl = []
 
+        let obj = {}
+
+        let coverUrlSmallCheck
         itemPrice = this.dataSort(this.itemPrice)
         itemPriceKid = this.dataSort(this.itemPriceKid)
         itemOtherAdult = this.dataSort(this.itemOtherAdult)
@@ -583,40 +599,55 @@
         itemData = this.itemData
         itemItinerary = this.itemItinerary
 
-
-        console.log(itemPrice)
-        console.log(itemPriceKid)
-        console.log(itemOtherAdult)
-        console.log(itemOtherKid)
-        console.log(itemDepTime)
-        console.log(itemRadio)
-
-        console.log(itemData)
-
-        itemItinerary = this.itemItinerary
-
+        coverUrlBig = this.coverUrlBig
+        coverUrlSmall = this.coverUrlSmall
+        imageUrl = this.imageUrl
         
         for(i=0;i<Object.keys(itemItinerary).length;i++){
           itemTime[i] = itemItinerary[i].itemTime
           itemTitle[i] = itemItinerary[i].itemTitle
         }
 
-        let obj = {}
       
-        obj = {...itemData,itemPrice,itemPriceKid,itemOtherAdult,itemOtherKid,itemDepTime,itemRadio,itemTime,itemTitle,coverUrl,imageUrl}
-        console.log(obj)
+        obj = {...itemData,itemPrice,itemPriceKid,itemOtherAdult,itemOtherKid,itemDepTime,itemRadio,itemTime,itemTitle,'id':this.idCount,coverUrlBig,coverUrlSmall,imageUrl}
+
+        //判斷有無小圖 如無則上傳空字串
+        if(coverUrlSmall[0] === undefined){
+          coverUrlSmallCheck = ''
+        }else{
+          coverUrlSmallCheck = coverUrlSmall[0].url
+        }
+
+        objList={"title":itemData.title,"coverUrlSmall":coverUrlSmallCheck,"features":itemData.features,"lowPrice":itemData.lowPrice,"location":itemData.location,"available":itemData.available,
+                  "id":itemData.id
+                }
 
         let ref = db.collection('product').doc((this.idCount).toString());
 
-        ref.set(obj).then(() => {
-          console.log('update data successful');
-          alert('新增成功');
+        ref.update(obj).then(() => {
+          
+          ref = db.collection('list').doc((this.idCount).toString());
+
+          ref.set(objList).then(() => {
+            this.$message({
+              message: '修改成功',
+              type: 'success'
+            });
+            console.log('update data successful');
+          }).catch((error) => {
+            this.$message.error({
+              message: '修改失敗，錯誤原因：'+error,
+            });
+            console.log(error)
+          });
           
         }).catch((error) => {
           this.$message.error({
             message: '修改失敗，錯誤原因：'+error,
           });
+          console.log(error)
         });
+
       },dataSort(data){
 
         // swag obj元素 index只到的位置
@@ -707,9 +738,11 @@
           this.itemOtherKid = itemOtherKid
           this.itemDepTime = itemDepTime
           this.itemRadio = itemRadio
-          this.coverUrl = itemData.coverUrl
+
+          this.coverUrlBig = itemData.coverUrlBig
+          this.coverUrlSmall = itemData.coverUrlSmall
           this.imageUrl = itemData.imageUrl
-                    
+
         });
       },objToArr(data){
         let newData = []
@@ -719,7 +752,121 @@
         }
         return newData
 
+      },
+      handleRemove(file, fileList) {
+        console.log(file, fileList);
+      },
+      handlePreview(file) {
+        
+      },
+      async UploadCoverBig(){
+        //封面大圖上傳
+        console.log(this.$refs.UploadCoverBig.uploadFiles)
+        this.$notify({
+          title: '上傳中，請稍後',
+          type: 'warning',
+          offset:50
+        });
+
+        try { // statements to try
+          let oldCountCoverBig = this.coverUrlBig.length
+          for(i=0;i<this.$refs.UploadCoverBig.uploadFiles.length-oldCountCoverBig;i++){
+            const path = this.$refs.UploadCoverBig.uploadFiles[oldCountCoverBig+i].name;
+            const storageRef = firebase.storage().ref('product/'+(this.idCount).toString()+'/'+path);
+
+            const task =await storageRef.put(this.$refs.UploadCoverBig.uploadFiles[oldCountCoverBig+i].raw);
+            this.coverUrlBig[oldCountCoverBig+i] = {'name':path,'url':task.downloadURL}
+            console.log(this.coverUrlBig)
+          }
+          this.$notify({
+            title: '上傳成功',
+            type: 'success',
+            offset:50
+          });
+          this.coverUrlBig.reverse()
+          this.coverUrlBig.reverse()
+        }
+        catch (e) {
+          this.$notify.error({
+            title: '上傳失敗',
+            offset:50
+          });
+        }
+      },
+      async UploadCoverSmall(){
+        //封面小圖上傳
+        console.log(this.$refs.UploadCoverSmall.uploadFiles)
+        this.$notify({
+          title: '上傳中，請稍後',
+          type: 'warning',
+          offset:50
+        });
+
+        try { // statements to try
+          let oldCountCoverSmall = this.coverUrlSmall.length
+          for(j=0;j<this.$refs.UploadCoverSmall.uploadFiles.length-oldCountCoverSmall;j++){
+            const path = this.$refs.UploadCoverSmall.uploadFiles[oldCountCoverSmall+j].name;
+            const storageRef = firebase.storage().ref('product/'+(this.idCount).toString()+'/'+path);
+
+            const task =await storageRef.put(this.$refs.UploadCoverSmall.uploadFiles[oldCountCoverSmall+j].raw);
+            this.coverUrlSmall[oldCountCoverSmall+j] = {'name':path,'url':task.downloadURL}
+            console.log(this.coverUrlSmall)
+
+          }
+          this.$notify({
+            title: '上傳成功',
+            type: 'success',
+            offset:50
+          });
+          this.coverUrlSmall.reverse()
+          this.coverUrlSmall.reverse()
+        }
+        catch (e) {
+          this.$notify.error({
+            title: '上傳失敗',
+            offset:50
+          });
+          console.log(e)
+        }
+      },
+      async UploadImg(){
+        //活動照片上傳
+        console.log(this.$refs.UploadImg.uploadFiles)
+        this.$notify({
+          title: '上傳中，請稍後',
+          type: 'warning',
+          offset:50
+        });
+
+        try { // statements to try
+          let oldCountImg = this.imageUrl.length
+          console.log(oldCountImg)
+          console.log(this.$refs.UploadImg.uploadFiles.length-oldCountImg)
+          for(k=0;k<this.$refs.UploadImg.uploadFiles.length-oldCountImg;k++){
+            const path = this.$refs.UploadImg.uploadFiles[oldCountImg+k].name;
+            const storageRef = firebase.storage().ref('product/'+(this.idCount).toString()+'/'+path);
+
+            const task =await storageRef.put(this.$refs.UploadImg.uploadFiles[oldCountImg+k].raw);
+            this.imageUrl[oldCountImg+k] = {'name':path,'url':task.downloadURL}
+            console.log(this.imageUrl)
+          }
+          this.$notify({
+            title: '上傳成功',
+            type: 'success',
+            offset:50
+          });
+          this.imageUrl.reverse()
+          this.imageUrl.reverse()
+        }
+        catch (e) {
+          this.$notify.error({
+            title: '上傳失敗',
+            offset:50
+          });
+          console.log(e)
+        }
       }
+
     },mounted(){
       firebase.auth().onAuthStateChanged((user)=> {
         
