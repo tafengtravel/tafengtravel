@@ -31,17 +31,25 @@
 <link href="https://tafengtravel.github.io/tafengtravel/index/css/common.css" rel="stylesheet" />
 <link href="https://tafengtravel.github.io/tafengtravel/index/css/book.css" rel="stylesheet" />
 
+<!-- 先載入datepicker css 避免覆蓋 -->
+<link href="https://cdn.jsdelivr.net/npm/@mdi/font@4.x/css/materialdesignicons.min.css" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.min.css" rel="stylesheet">
+
+
 <!-- vue+element ui -->
 <script src="https://unpkg.com/vue@2.6.12/dist/vue.js"></script>
 <!-- import JavaScript -->
 <script src="https://unpkg.com/element-ui@2.15.0/lib/index.js"></script>
-<script src="https://momentjs.com/downloads/moment.js"></script>
 <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
 
 <link href="https://tafengtravel.github.io/tafengtravel/index/css/book.css" rel="stylesheet" />
 
 <!-- axios -->
 <script src='https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.2/axios.min.js'></script>
+
+<!-- datepicker+moment -->
+<script src="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
 
 
 
@@ -57,6 +65,16 @@
   .el-card{
 		margin-bottom:20px; 
 	}
+  .v-application--wrap {
+    flex: 1 1 auto;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    display: flex;
+    flex-direction: column;
+    min-height: 0vh;
+    max-width: 50%;
+    position: relative;
+}
 </style>
 
 <script>
@@ -73,38 +91,7 @@
   firebase.initializeApp(firebaseConfig);
 </script>
 
-
-
-
-
-<!-- <nav class="main-nav" role="navigation">
-
-  
-  <input id="main-menu-state" type="checkbox" />
-  <label class="main-menu-btn" for="main-menu-state">
-    <span class="main-menu-btn-icon"></span> 
-  </label>
-
-  <h2 class="nav-brand"><img src="dreamer.png"  width="132" height="50"  ></h2>
-
-  
-  <ul id="main-menu" class="sm sm-mint">
-    <li><a href="home.html">首頁</a></li>
-    <li><a href="#">球員資料</a>
-      
-    </li>
-    <li><a href="#">戰績排行</a>
-      
-    </li>
-    <li><a href="#">數據統計</a>
-      
-    </li>
-
-  </ul>
-</nav> -->
-
 <div class="include" file="https://tafengtravel.github.io/tafengtravel/index5/top.html"></div>
-
 
 
 <div id="app"> 
@@ -180,10 +167,19 @@
       <el-col class ="el-col el-col-24 el-col-xs-24 el-col-sm-24 el-col-lg-24">
         <font class ="font"><span>集合地點</span></font>
         <el-input v-model="itemData.pickup" placeholder="" style="width:450px" ></el-input>
-      </el-col>
+
 
     </el-row>
 
+    <font class ="font"><span>上架日期</span></font>
+    <v-app id="inspire">
+      <v-row>
+        <v-col cols="12" sm="6">
+          <v-date-picker v-model="itemData.dates"@click:date="dateClick" @dblclick:date="selectAll" @contextmenu:date="disableAll" multiple></v-date-picker>
+        </v-col>
+      </v-row>
+    </v-app>
+      
     <!-- 封面照片 -->
 
     <el-row :gutter="20">
@@ -443,6 +439,7 @@
 
 
   var Main = {
+    vuetify: new Vuetify(),
     data() {
       return {
         index1:0,
@@ -865,6 +862,31 @@
           });
           console.log(e)
         }
+      },
+      dateClick(){
+        console.log(this.itemData.dates)
+      },
+      selectAll(date){
+        let currentMonth = moment(date).format('YYYY-MM')
+        let days = moment(date,'YYYY-MM').daysInMonth()
+        let formatDate
+        for(i=1;i<days+1;i++){
+            formatDate = new Date(currentMonth +'-'+ i.toString())
+            this.itemData.dates.push(moment(formatDate).format('YYYY-MM-DD'))
+        }
+        console.log(this.itemData.dates)
+      },
+      disableAll(date){
+        let currentMonth = moment(date).format('YYYY-MM')
+        let days = moment(date,'YYYY-MM').daysInMonth()
+        let formatDate
+        let index
+        for(i=1;i<days+1;i++){
+            formatDate = new Date(currentMonth +'-'+ i.toString())
+            index = this.itemData.dates.indexOf(moment(formatDate).format('YYYY-MM-DD'));
+            this.itemData.dates.splice(index, 1);
+        }
+        console.log(this.itemData.dates)
       }
 
     },mounted(){
