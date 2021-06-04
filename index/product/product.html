@@ -543,7 +543,7 @@ $(".include").each(function(){
             disabledDate:'',
             pickerOptions: {
                 disabledDate(time) {
-                    let date = []
+                    let date = data.dates
                     let disableDateRange = []
                     let disableDateTrue = true
 
@@ -554,10 +554,9 @@ $(".include").each(function(){
                         disableDateTrue = disableDateRange[i]&&disableDateRange[i+1]&&disableDateTrue
                     }
 
-                    // return disableDateTrue||time.getTime() < new Date().getTime()-24*60*60*1000
+                    return disableDateTrue || time.getTime() < new Date().getTime()+24*60*60*1000
 
-                    return time.getTime() < new Date().getTime() + 48*60*60*1000 || time.getTime() > new Date('2021/10/31').getTime() 
-                   
+                    // return time.getTime() < new Date().getTime() + 48*60*60*1000 || time.getTime() > new Date('2021/10/31').getTime() 
                 }
             },
             datevalue1: new Date().getTime() + 48*60*60*1000,
@@ -700,7 +699,6 @@ $(".include").each(function(){
                 }
                 this.srcList.reverse()
                 this.srcList.reverse()
-
             });
         } 
         
