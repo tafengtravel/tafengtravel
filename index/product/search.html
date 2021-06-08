@@ -260,12 +260,12 @@ $(".include").each(function(){
     
             },methods: {
             
-            },mounted(){
+            },async mounted(){
 
                 var db = firebase.firestore();
                 ref = db.collection('list')
 
-                ref.where('location','==',paramsObj.location).get().then(querySnapshot => {
+                await ref.where('location','==',paramsObj.location).get().then(querySnapshot => {
                     let i=0
                     querySnapshot.forEach(doc => {  
                         if(doc.data().available == true){
@@ -277,13 +277,10 @@ $(".include").each(function(){
                         }
                         
                     });  
+                    data.sort((a,b)=>{return a.lowPrice - b.lowPrice})
                     this.data = data
-                    console.log(this.data)
-                    
+                    // console.log(this.data)
                 });
-                
-                
-            
             } 
         
      
