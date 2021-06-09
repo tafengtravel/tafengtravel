@@ -451,7 +451,7 @@ document.querySelectorAll("[href^='https://line.me']").forEach(function(item){
                     <div class="sub_title" style="text-align:center">更多行程</div>
                     <br>
                     <el-row :gutter="20">
-                        <carousel v-bind:autoplay="true" v-bind:loop="carouselLoop" :per-page-custom=[[240,1],[480,2],[780,4]] :pagination-padding='26' >
+                        <carousel v-bind:autoplay="true" v-bind:loop="carouselLoop" :per-page-custom=[[480,2],[780,4]] :pagination-padding='26' >
                             
                             <!-- <slide v-for="(item, index) in coverCount">
                                 <img class="d-none d-md-block" style="width:100%" :src= "itemData.coverUrlBig[index].url">
