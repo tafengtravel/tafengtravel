@@ -444,14 +444,14 @@ document.querySelectorAll("[href^='https://line.me']").forEach(function(item){
 
         <div class ="el-col el-col-24" style="background-color:#F0F0F0;">
 
-            <div class ="el-col el-col-24 el-col-xs-24 el-col-xs-offset-0 el-col-sm-24 el-col-sm-offset-0 el-col-lg-18 el-col-lg-offset-3">
+            <div class ="el-col el-col-22 el-col-xs-22 el-col-xs-offset-1 el-col-sm-22 el-col-sm-offset-1 el-col-lg-18 el-col-lg-offset-3">
 
                 <div class="el-row">
                     <br>
                     <div class="sub_title" style="text-align:center">更多行程</div>
                     <br>
                     <el-row :gutter="20">
-                        <carousel v-bind:autoplay="true" v-bind:loop="carouselLoop" :per-page-custom=[[480,2],[780,4]] :pagination-padding='26' >
+                        <carousel v-bind:autoplay="true" v-bind:loop="carouselLoop" :per-page-custom=[[240,1],[480,2],[780,4]] :pagination-padding='26' >
                             
                             <!-- <slide v-for="(item, index) in coverCount">
                                 <img class="d-none d-md-block" style="width:100%" :src= "itemData.coverUrlBig[index].url">
@@ -462,9 +462,9 @@ document.querySelectorAll("[href^='https://line.me']").forEach(function(item){
                                 <a :href ='"https://tafengtravel.github.io/tafengtravel/index/product/product.html?id="+item.id'>
         
                                     <el-col class ="el-col el-col-24 el-col-xs-24 el-col-sm-24 el-col-md-24 el-col-lg-24 ">
-                                        <el-card class="box-card"  :body-style="{ padding: '0px'}"  style="min-height: 400px; " shadow="hover" >
+                                        <el-card class="box-card"  :body-style="{ padding: '0px'}"  style="min-height: 370px; " shadow="hover" >
                                             <div class ="image-margin  el-col el-col-24 el-col-xs-24 el-col-sm-24 el-col-md-24 el-col-lg-24 ">
-                                                <el-image style="width:100% ;height: 180px" :src="item.coverUrlSmall":fit="fits">
+                                                <el-image style="width:100% ;height: 200px" :src="item.coverUrlSmall":fit="fits">
                                                 </el-image>
                                             </div>
         
@@ -472,9 +472,9 @@ document.querySelectorAll("[href^='https://line.me']").forEach(function(item){
                                                 <span class="font"><font color="black">{{item.title}}</font></span>
                                             </div>
         
-                                            <div  style="padding: 10px;" class ="text-margin el-col el-col-24 el-col-xs-24 el-col-sm-24 el-col-md-24 el-col-lg-24"> 
+                                            <!-- <div  style="padding: 10px;" class ="text-margin el-col el-col-24 el-col-xs-24 el-col-sm-24 el-col-md-24 el-col-lg-24"> 
                                                 <font class="mini_font">{{item.features}}...</font>
-                                            </div>
+                                            </div> -->
         
                                             <div  style="padding: 10px; text-align:right" class ="text-margin el-col el-col-24 el-col-xs-24 el-col-sm-24 el-col-md-24 el-col-lg-24"> 
                                                 <span class="font">$</span> 
