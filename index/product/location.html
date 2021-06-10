@@ -271,7 +271,7 @@ document.querySelectorAll("[href^='https://line.me']").forEach(function(item){
                     <a href="#top">
                         <el-pagination background
                         layout="prev, pager, next"
-                        :total= "this.dataSearch1.length"
+                        :total= "total"
                         :page-size ="6"
                         @current-change="setPage">
                         </el-pagination>
@@ -331,6 +331,7 @@ $(".include").each(function(){
     var Main = {
         data() {
             return {
+                    total:0,
                     dataSearch1:'',
                     dataSearch:'',
                     data1:'',
@@ -400,6 +401,7 @@ $(".include").each(function(){
                     data.length = 0
                     this.data1.length = 0
                     this.data.length = 0
+
                         querySnapshot.forEach(doc => {  
                             data[i] = doc.data()
                             data[i].features = (doc.data().features).slice(0,40)
@@ -407,15 +409,17 @@ $(".include").each(function(){
                             console.log(doc.data())
                         });  
                         data.sort((a,b)=>{return a.lowPrice - b.lowPrice})
+                        this.total = data.length
                         this.dataSearch1 = data
                         this.dataSearch = this.dataSearch1.slice(0,6)
                     });
 
                 }
             },mounted(){
-                data.sort((a,b)=>{return a.lowPrice - b.lowPrice})
                 this.data1 = this.data
+                this.total = this.data.length
                 this.data = this.data1.slice(0,6)
+
             
             } 
         
