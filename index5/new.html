@@ -218,7 +218,7 @@
     </el-row>
 
     <el-row :gutter="20">
-      
+
       <el-col class ="el-col el-col-24 el-col-xs-24 el-col-sm-24 el-col-lg-24">
         <font class ="font"><span>關鍵字</span></font>
         <font class ="mini_font"><span>&emsp;請確實輸入關鍵字 EX：澎湖、七美、望安、水上活動</span></font>
@@ -715,7 +715,7 @@
         }
 
         objList={"title":itemData.title ||'',"coverUrlSmall":coverUrlSmallCheck,"features":itemData.features ||'',"lowPrice":itemData.lowPrice ||'',"location":itemData.location ||'',"available":itemData.available ||'',
-                  'id':this.idCount
+                  'id':this.idCount,'keyword':itemData.keyword
                 }
 
         ref = db.collection('product').doc((this.idCount).toString());
