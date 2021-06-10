@@ -664,7 +664,7 @@
         }
 
         objList={"title":itemData.title,"coverUrlSmall":coverUrlSmallCheck,"features":itemData.features,"lowPrice":itemData.lowPrice,"location":itemData.location,"available":itemData.available,
-                  "id":itemData.id
+                  "id":itemData.id,'keyword':itemData.keyword
                 }
 
         let ref = db.collection('product').doc((this.idCount).toString());
