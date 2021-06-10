@@ -391,7 +391,9 @@ $(".include").each(function(){
             },methods: {
                 setPage(val){
                     let dataSlice = this.data1 
+                    let dataSearchSlice = this.dataSearch1
                     this.data = dataSlice.slice((val-1)*6,val*6)
+                    this.dataSearch = dataSearchSlice.slice((val-1)*6,val*6)
                 },
                 searchClick(){
                     let db = firebase.firestore();
@@ -406,7 +408,7 @@ $(".include").each(function(){
                             data[i] = doc.data()
                             data[i].features = (doc.data().features).slice(0,40)
                             i=i+1
-                            console.log(doc.data())
+                            // console.log(doc.data())
                         });  
                         data.sort((a,b)=>{return a.lowPrice - b.lowPrice})
                         this.total = data.length
