@@ -37,14 +37,30 @@
 <link rel="shortcut icon" href="https://tafengtravel.github.io/tafengtravel/index1/tafenglogo6.ico" type="image/x-icon" />
 
 <!-- The core Firebase JS SDK is always required and must be listed first -->
-<script src="https://www.gstatic.com/firebasejs/4.12.1/firebase.js"></script>
-<script src="https://www.gstatic.com/firebasejs/4.12.1/firebase-firestore.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.3.0/firebase.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.3.0/firebase-firestore.js"></script>
 
 <!-- TODO: Add SDKs for Firebase products that you want to use
      https://firebase.google.com/docs/web/setup#available-libraries -->
 
 
 <!-- axios -->
+
+<script>
+    // Your web app's Firebase configuration
+    var firebaseConfig = {
+        apiKey: "AIzaSyC1DlPU6BqCFXzWLBZ_6Y90KNLwYzfei3c",
+        authDomain: "tafengtravel-web.firebaseapp.com",
+        projectId: "tafengtravel-web",
+        storageBucket: "tafengtravel-web.appspot.com",
+        messagingSenderId: "971660802735",
+        appId: "1:971660802735:web:af7e22d11fe81ca63ab25a"
+    };
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+</script>
+
+
 <script src='https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.2/axios.min.js'></script>
 
 
@@ -120,6 +136,9 @@ document.querySelectorAll("[href^='https://line.me']").forEach(function(item){
     }.image-fit{
         width:280px;
     }
+    .back{
+        background-image: url("image/search1.jpg");
+    }
 
 }
 @media (max-width: 768px) {
@@ -128,6 +147,9 @@ document.querySelectorAll("[href^='https://line.me']").forEach(function(item){
     } 
     .image-fit{
         width:100%;
+    }
+    .back{
+        background-image: url("image/search.jpg");
     }
 }
 .font{
@@ -161,41 +183,106 @@ document.querySelectorAll("[href^='https://line.me']").forEach(function(item){
 <div class="include" file="https://tafengtravel.github.io/tafengtravel/index/top"></div>
 
 <div id="pnl_wrapper" class="wrapper homepage green-page">
-    <div id="app" class ="el-col el-col-24 el-col-xs-20 el-col-xs-offset-2 el-col-sm-20 el-col-sm-offset-2 el-col-md-22 el-col-md-offset-1 el-col-lg-16 el-col-lg-offset-4"> 
-        <el-row></el-row>
-        <el-row :gutter="20">
-            <div v-for="item in data">
+    <div id="app"> 
+
+        <div class="el-col el-col-24 el-col-xs-24 el-col-sm-24 el-col-md-24 el-col-lg-24">
+
+               
+            <el-row :gutter="20" class="back">
+
+                <el-col class ="el-col el-col-xs-20 el-col-xs-offset-2 el-col-sm-20 el-col-sm-offset-2 el-col-md-8 el-col-lg-8 el-col-lg-offset-8">
+                    <el-row></el-row><el-row></el-row><el-row></el-row><el-row></el-row><el-row></el-row><el-row></el-row><el-row></el-row><el-row></el-row>
+                    <el-input v-model="search" placeholder="搜尋活動體驗" >
+                        <el-button type="primary" icon="el-icon-search" @click="searchClick" slot="append">搜尋</el-button>
+                    </el-input>
+                    <el-row></el-row><el-row></el-row><el-row></el-row><el-row></el-row><el-row></el-row><el-row></el-row><el-row></el-row><el-row></el-row>
+                </el-col>
                 
-                <a :href ='"https://tafengtravel.github.io/tafengtravel/index/product/search.html?location="+item.title'>
-                    <el-col class ="el-col el-col-24 el-col-xs-24 el-col-sm-24 el-col-md-8 el-col-lg-8 ">
-                        <el-card class="box-card"  :body-style="{ padding: '0px' }" shadow="hover">
-                            <div class ="image-margin  el-col el-col-24 el-col-xs-24 el-col-sm-24 el-col-md-24 el-col-lg-24 ">
-                                <el-image style="width:100% ;height: 260px" :src="item.image":fit="fits">
-                                </el-image>
-                            </div>
+            </el-row>
 
-                            <div  style="padding: 10px;" class ="text-margin el-col el-col-24 el-col-xs-24 el-col-sm-24 el-col-md-24 el-col-lg-24"> 
-                                <span class="font"><font color="black">{{item.title}}</font></span>
-                            </div>
 
-                            <div  style="padding: 10px;" class ="text-margin el-col el-col-24 el-col-xs-24 el-col-sm-24 el-col-md-24 el-col-lg-24"> 
-                                <font class="mini_font">{{item.features}}...</font>
-                            </div>
+        </div>
 
-                            <div  style="padding: 10px; text-align:right" class ="text-margin el-col el-col-24 el-col-xs-24 el-col-sm-24 el-col-md-24 el-col-lg-24"> 
-                                <span class="font">$</span> 
-                                <span class="sub_title"><font color="#FF6600">{{item.lowPrice}}</font></span>
-                                <span class="font">起</span> 
-                            </div>
+        
+        <div class ="el-col el-col-24 el-col-xs-20 el-col-xs-offset-2 el-col-sm-20 el-col-sm-offset-2 el-col-md-22 el-col-md-offset-1 el-col-lg-16 el-col-lg-offset-4">
+            <el-row :gutter="20">
+                <div v-for="item in data">
+                    
+                    <a :href ='"https://tafengtravel.github.io/tafengtravel/index/product/search.html?location="+item.title'>
+                        <el-col class ="el-col el-col-24 el-col-xs-24 el-col-sm-24 el-col-md-8 el-col-lg-8 ">
+                            <el-card class="box-card"  :body-style="{ padding: '0px' }" shadow="hover">
+                                <div class ="image-margin  el-col el-col-24 el-col-xs-24 el-col-sm-24 el-col-md-24 el-col-lg-24 ">
+                                    <el-image style="width:100% ;height: 260px" :src="item.coverUrlSmall":fit="fits">
+                                    </el-image>
+                                </div>
 
-                        </el-card>
-                    </el-col>
-                </a>
-            </div>
-        </el-row>
-        <el-row>
-            <el-backtop :bottom="100"></el-backtop>
-        </el-row>
+                                <div  style="padding: 10px;" class ="text-margin el-col el-col-24 el-col-xs-24 el-col-sm-24 el-col-md-24 el-col-lg-24"> 
+                                    <span class="font"><font color="black">{{item.title}}</font></span>
+                                </div>
+
+                                <div  style="padding: 10px;" class ="text-margin el-col el-col-24 el-col-xs-24 el-col-sm-24 el-col-md-24 el-col-lg-24"> 
+                                    <font class="mini_font">{{item.features}}...</font>
+                                </div>
+
+                                <div  style="padding: 10px; text-align:right" class ="text-margin el-col el-col-24 el-col-xs-24 el-col-sm-24 el-col-md-24 el-col-lg-24"> 
+                                    <span class="font">$</span> 
+                                    <span class="sub_title"><font color="#FF6600">{{item.lowPrice}}</font></span>
+                                    <span class="font">起</span> 
+                                </div>
+
+                            </el-card>
+                        </el-col>
+                    </a>
+                </div>
+
+                <div v-for="item in dataSearch">
+                    
+                    <a :href ='"https://tafengtravel.github.io/tafengtravel/index/product/product.html?id="+item.id' target="_blank">
+                        <el-col class ="el-col el-col-24 el-col-xs-24 el-col-sm-24 el-col-md-8 el-col-lg-8 ">
+                            <el-card class="box-card"  :body-style="{ padding: '0px' }" shadow="hover">
+                                <div class ="image-margin  el-col el-col-24 el-col-xs-24 el-col-sm-24 el-col-md-24 el-col-lg-24 ">
+                                    <el-image style="width:100% ;height: 260px" :src="item.coverUrlSmall":fit="fits">
+                                    </el-image>
+                                </div>
+
+                                <div  style="padding: 10px;" class ="text-margin el-col el-col-24 el-col-xs-24 el-col-sm-24 el-col-md-24 el-col-lg-24"> 
+                                    <span class="font"><font color="black">{{item.title}}</font></span>
+                                </div>
+
+                                <div  style="padding: 10px;" class ="text-margin el-col el-col-24 el-col-xs-24 el-col-sm-24 el-col-md-24 el-col-lg-24"> 
+                                    <font class="mini_font">{{item.features}}...</font>
+                                </div>
+
+                                <div  style="padding: 10px; text-align:right" class ="text-margin el-col el-col-24 el-col-xs-24 el-col-sm-24 el-col-md-24 el-col-lg-24"> 
+                                    <span class="font">$</span> 
+                                    <span class="sub_title"><font color="#FF6600">{{item.lowPrice}}</font></span>
+                                    <span class="font">起</span> 
+                                </div>
+
+                            </el-card>
+                        </el-col>
+                    </a>
+                </div>
+
+            </el-row>
+            <el-row>
+                
+                <div style="text-align:center" >
+                    <a href="#top">
+                        <el-pagination background
+                        layout="prev, pager, next"
+                        :total= "this.dataSearch1.length"
+                        :page-size ="6"
+                        @current-change="setPage">
+                        </el-pagination>
+                    </a>
+                </div>
+                
+            </el-row>
+            <el-row>
+                <el-backtop :bottom="100"></el-backtop>
+            </el-row>
+        </div>
     </div>
 </div>
 
@@ -244,51 +331,55 @@ $(".include").each(function(){
     var Main = {
         data() {
             return {
+                    dataSearch1:'',
+                    dataSearch:'',
+                    data1:'',
+                    search:'',
                     fits:'cover',
                     data:[
                         {
                             title:'澎湖',
-                            image:'image/penghu.jpg',
+                            coverUrlSmall:'image/penghu.jpg',
                             lowPrice:'330',
                             features:'機車、BBQ、海底漫步、七美、望安、燒烤吃到飽、水上活動、手做DIY，等你來訂購！',
                         },{
                             title:'金門',
-                            image:'image/kinmen.jpg',
+                            coverUrlSmall:'image/kinmen.jpg',
                             lowPrice:'249',
                             features:'SUP、手做DIY、自己釀的酒、夜遊金門，等你來訂購！',
                         },{
                             title:'馬祖',
-                            image:'image/matsu.jpg',
+                            coverUrlSmall:'image/matsu.jpg',
                             lowPrice:'500',
                             features:'電動機車、SUP、碉堡BBQ、坑道導覽，等你來訂購！',
                         },{
                             title:'綠島',
-                            image:'image/green.jpg',
+                            coverUrlSmall:'image/green.jpg',
                             lowPrice:'200',
                             features:'機車、BBQ、燒烤吃到飽、藍洞秘境、柴魚烘烤體驗、SUP、水上活動、手做DIY，等你來訂購！',
                         },{
                             title:'蘭嶼',
-                            image:'image/lanyu.jpg',
+                            coverUrlSmall:'image/lanyu.jpg',
                             lowPrice:'280',
                             features:'達悟族拼板舟體驗、傳統地下屋體驗、體驗潛水，等你來訂購！',
                         },{
                             title:'花蓮',
-                            image:'image/hualien.jpg',
+                            coverUrlSmall:'image/hualien.jpg',
                             lowPrice:'880',
                             features:'清水段癌獨木舟、多羅滿賞鯨、半日部落文化體驗，等你來訂購！',
                         },{
                             title:'宜蘭',
-                            image:'image/yilan.jpg',
+                            coverUrlSmall:'image/yilan.jpg',
                             lowPrice:'590',
                             features:'東澳海蝕洞獨木舟、龜山島登島、沙灘車自駕，等你來訂購！',
                         },{
                             title:'屏東',
-                            image:'image/pingtung.jpg',
+                            coverUrlSmall:'image/pingtung.jpg',
                             lowPrice:'800',
                             features:'小琉球SUP、風帆獨木舟、獨木舟，等你來訂購！',
                         },{
                             title:'南投',
-                            image:'image/nantou.jpg',
+                            coverUrlSmall:'image/nantou.jpg',
                             lowPrice:'1800',
                             features:'日月潭日出SUP，等你來訂購！',
                         },
@@ -297,9 +388,34 @@ $(".include").each(function(){
                 
     
             },methods: {
-            
+                setPage(val){
+                    let dataSlice = this.data1 
+                    this.data = dataSlice.slice((val-1)*6,val*6)
+                },
+                searchClick(){
+                    let db = firebase.firestore();
+                    ref = db.collection('list')
+                    ref.where('keyword','array-contains',this.search).get().then(querySnapshot => {
+                    let i=0
+                    data.length = 0
+                    this.data1.length = 0
+                    this.data.length = 0
+                        querySnapshot.forEach(doc => {  
+                            data[i] = doc.data()
+                            data[i].features = (doc.data().features).slice(0,40)
+                            i=i+1
+                            console.log(doc.data())
+                        });  
+                        data.sort((a,b)=>{return a.lowPrice - b.lowPrice})
+                        this.dataSearch1 = data
+                        this.dataSearch = this.dataSearch1.slice(0,6)
+                    });
+
+                }
             },mounted(){
-                
+                data.sort((a,b)=>{return a.lowPrice - b.lowPrice})
+                this.data1 = this.data
+                this.data = this.data1.slice(0,6)
             
             } 
         
