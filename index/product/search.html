@@ -186,21 +186,22 @@ document.querySelectorAll("[href^='https://line.me']").forEach(function(item){
     <div id="app"> 
         
         <div class="el-col el-col-24 el-col-xs-24 el-col-sm-24 el-col-md-24 el-col-lg-24">
-
-               
-                <el-row :gutter="20" class="back">
-
-                    <el-col class ="el-col el-col-xs-20 el-col-xs-offset-2 el-col-sm-20 el-col-sm-offset-2 el-col-md-8 el-col-lg-8 el-col-lg-offset-8">
-                        <el-row></el-row><el-row></el-row><el-row></el-row><el-row></el-row><el-row></el-row><el-row></el-row><el-row></el-row><el-row></el-row>
-                        <el-input v-model="search" placeholder="搜尋全站活動體驗" >
-                            <el-button type="primary" icon="el-icon-search" @click="searchClick" slot="append">搜尋</el-button>
-                        </el-input>
-                        <el-row></el-row><el-row></el-row><el-row></el-row><el-row></el-row><el-row></el-row><el-row></el-row><el-row></el-row><el-row></el-row>
-                    </el-col>
+            <el-row :gutter="20" class="back">
+                <br><br><br><br><br><br><br>
+                <el-col>
                     
-                </el-row>
-
-
+                    <el-autocomplete
+                        v-model="search"
+                        :fetch-suggestions="querySearchAsync"
+                        placeholder="搜尋全站活動體驗"
+                        class ="el-col el-col-xs-20 el-col-xs-offset-2 el-col-sm-20 el-col-sm-offset-2 el-col-md-12 el-col-md-offset-6 el-col-lg-8 el-col-lg-offset-8"
+                    >
+                        <el-button type="primary" icon="el-icon-search" @click="searchClick" slot="append">搜尋</el-button>
+                    </el-autocomplete>
+                    
+                </el-col>
+                <br><br><br><br><br><br><br><br>
+            </el-row>
         </div>
         
         <div class="top el-col el-col-24 el-col-xs-20 el-col-xs-offset-2 el-col-sm-20 el-col-sm-offset-2 el-col-md-22 el-col-md-offset-1 el-col-lg-16 el-col-lg-offset-4">
@@ -306,6 +307,7 @@ $(".include").each(function(){
                     fits:'cover',
                     data1:'',
                     search:'',
+                    searchSuggest: [],
                 };
     
             },methods: {
@@ -334,8 +336,32 @@ $(".include").each(function(){
                         this.data = this.data1.slice(0,6)
                     });
 
-                }
+                },
+                loadAll() {
+                let searchSuggest = [
+                        '水上活動','租車','BBQ','DIY','SUP','獨木舟','風帆','夜釣小管','七美','望安','龍蝦島','飛行傘','拼板舟','夜間導覽'
+                    ]
+                    let searchSuggest1 = [{}]
+                    for (i=0;i<searchSuggest.length;i++){
+                        searchSuggest1[i] = {"value":searchSuggest[i]}
+                    }
+
+                    return searchSuggest1;
+                },
+                querySearchAsync(queryString, cb) {
+                    let searchSuggest = this.searchSuggest;
+                    let results = queryString ? searchSuggest.filter(this.createStateFilter(queryString)) : searchSuggest;
+
+                    cb(results);
+                },
+                createStateFilter(queryString) {
+                    return (search) => {
+                    return (search.value.toLowerCase().indexOf(queryString.toLowerCase()) === 0);
+                    };
+                },
             },async mounted(){
+
+                this.searchSuggest = this.loadAll();
 
                 let db = firebase.firestore();
                 ref = db.collection('list')
@@ -355,11 +381,9 @@ $(".include").each(function(){
                     data.sort((a,b)=>{return a.lowPrice - b.lowPrice})
                     this.data1 = data
                     this.data = this.data1.slice(0,6)
-
-                    
-
                     // console.log(this.data)
                 });
+
             } 
         
      
