@@ -316,7 +316,7 @@ $(".include").each(function(){
                 searchClick(){
                     let db = firebase.firestore();
                     ref = db.collection('list')
-                    ref.where('keyword','array-contains',this.search).get().then(querySnapshot => {
+                    ref.where('keyword','array-contains',(this.search).toUpperCase()).get().then(querySnapshot => {
                     let i=0
                     data.length = 0
                     this.data1.length = 0
