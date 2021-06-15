@@ -233,7 +233,7 @@
           class="upload-demo"
           action= ""
           ref="UploadCoverBig"
-          :on-remove="handleRemove"
+          :on-remove="coverBigRemove"
           list-type="picture"
           :file-list="coverUrlBig"
           :auto-upload="false">
@@ -250,7 +250,7 @@
           class="upload-demo"
           action= ""
           ref="UploadCoverSmall"
-          :on-remove="handleRemove"
+          :on-remove="coverSmallRemove"
           list-type="picture"
           :file-list="coverUrlSmall"
           :auto-upload="false">
@@ -269,7 +269,7 @@
           class="upload-demo"
           action= ""
           ref="UploadImg"
-          :on-remove="handleRemove"
+          :on-remove="imgRemove"
           list-type="picture"
           :file-list="imageUrl"
           :auto-upload="false">
@@ -298,6 +298,7 @@
         <el-col class ="el-col el-col-24 el-col-xs-24 el-col-sm-24 el-col-lg-24">
           <font class ="font"><span style="color:	#FF5151">新增行程</span></font>
           <el-button type="primary" icon="el-icon-circle-plus-outline" @click="itemItineraryAdd"></el-button>
+          <el-button type="danger" icon="el-icon-remove-outline" @click="itemItineraryRemove"></el-button>
         </el-col>
         <span v-for="(fields,index1) in itemItinerary">
           <el-col class ="el-col el-col-24 el-col-xs-24 el-col-sm-24 el-col-lg-24">
@@ -328,10 +329,12 @@
                   <font class ="font"><span>名稱</span></font>
 
                     <el-input v-model="field[index1]" placeholder="" style="width:150px"></el-input><label>&nbsp;</label>
+                                        
                 </span>
 
                 <el-button type="primary" icon="el-icon-circle-plus-outline" @click="itemRadioAdd"></el-button>
-                
+                <el-button type="danger" icon="el-icon-remove-outline" @click="itemRadioRemove"></el-button>
+
               </el-col>
             </el-col>
           </el-card>
@@ -348,7 +351,8 @@
                 </span>
 
                 <el-button type="primary" icon="el-icon-circle-plus-outline" @click="itemOptionAdultAdd"></el-button>
-                
+                <el-button type="danger" icon="el-icon-remove-outline" @click="itemOptionAdultRemove"></el-button>
+
               </el-col>
             </el-col>
           </el-card>
@@ -364,8 +368,9 @@
                     <el-input v-model="field[index1]" placeholder="" style="width:150px"></el-input><label>&nbsp;</label>
                 </span>
 
-                <el-button type="primary" icon="el-icon-circle-plus-outline" @click="itemOptionOtherAdult"></el-button>
-                
+                <el-button type="primary" icon="el-icon-circle-plus-outline" @click="itemOptionOtherAdultAdd"></el-button>
+                <el-button type="danger" icon="el-icon-remove-outline" @click="itemOptionOtherAdultRemove"></el-button>
+
               </el-col>
             </el-col>
           </el-card>
@@ -379,7 +384,10 @@
                   <br><font class ="font"><span>{{index3+1}}.</span></font>
                   <el-input v-model="field[index1]" placeholder="" style="width:150px"></el-input><label>&nbsp;</label>
                 </span>
+
                 <el-button type="primary" icon="el-icon-circle-plus-outline" @click="itemOptionDepTimeAdd"></el-button>    
+                <el-button type="danger" icon="el-icon-remove-outline" @click="itemOptionDepTimeRemove"></el-button>
+
               </el-col>
             </el-col>
           </el-card>
@@ -395,6 +403,8 @@
                     <el-input v-model="field[index1]" placeholder="" style="width:150px"></el-input><label>&nbsp;</label>
                 </span>
                 <el-button type="primary" icon="el-icon-circle-plus-outline" @click="itemOptionKidAdd"></el-button>    
+                <el-button type="danger" icon="el-icon-remove-outline" @click="itemOptionKidRemove"></el-button>
+
               </el-col>
             </el-col>
           </el-card>
@@ -410,8 +420,9 @@
                     <el-input v-model="field[index1]" placeholder="" style="width:150px"></el-input><label>&nbsp;</label>
                 </span>
 
-                <el-button type="primary" icon="el-icon-circle-plus-outline" @click="itemOptionOtherKid"></el-button>
-                
+                <el-button type="primary" icon="el-icon-circle-plus-outline" @click="itemOptionOtherKidAdd"></el-button>
+                <el-button type="danger" icon="el-icon-remove-outline" @click="itemOptionOtherKidRemove"></el-button>
+
               </el-col>
             </el-col>
           </el-card>
@@ -593,21 +604,24 @@
 
         inputVisible: false,
         inputValue: '',
-        
+
       };
       
 
     },methods: {
+      itemItineraryAdd(){
+        this.itemItinerary.push({});
+      },
+      itemItineraryRemove(){
+        this.itemItinerary.pop();
+      },
       itemOptionAdultAdd(){
         this.itemPrice.push({});
       },
       itemOptionKidAdd(){
         this.itemPriceKid.push({});
       },
-      itemItineraryAdd(){
-        this.itemItinerary.push({});
-      },
-      itemOptionOtherAdult(){
+      itemOptionOtherAdultAdd(){
         this.itemOtherAdult.push({});
       },
       itemRadioAdd(){
@@ -616,8 +630,26 @@
       itemOptionDepTimeAdd(){
         this.itemDepTime.push({});
       },
-      itemOptionOtherKid(){
+      itemOptionOtherKidAdd(){
         this.itemOtherKid.push({});
+      },
+      itemRadioRemove(){
+        this.itemRadio.pop();
+      },
+      itemOptionAdultRemove(){
+        this.itemPrice.pop();
+      },
+      itemOptionOtherAdultRemove(){
+        this.itemOtherAdult.pop();
+      },
+      itemOptionDepTimeRemove(){
+        this.itemDepTime.pop();
+      },
+      itemOptionKidRemove(){
+        this.itemPriceKid.pop();
+      },
+      itemOptionOtherKidRemove(){
+        this.itemOtherKid.pop();
       },
       dataSend(){
         let itemPrice = {}
@@ -659,6 +691,9 @@
       
         obj = {...itemData,itemPrice,itemPriceKid,itemOtherAdult,itemOtherKid,itemDepTime,itemRadio,itemTime,itemTitle,'id':this.idCount,coverUrlBig,coverUrlSmall,imageUrl}
 
+        console.log(this.coverUrlBig)
+        console.log(coverUrlBig)
+        console.log(obj)
         //判斷有無小圖 如無則上傳空字串
         if(coverUrlSmall[0] === undefined){
           coverUrlSmallCheck = ''
@@ -726,7 +761,7 @@
         let itemRadio = []
         let itemItinerary = []
 
-        ref.onSnapshot(doc => { 
+        ref.get().then(doc => { 
 
           if(typeof(doc.data()) == 'undefined'){
             this.$message.error('錯誤，團號不存在');
@@ -745,8 +780,6 @@
           itemData = doc.data()
 
           this.itemData = {...this.itemData,...itemData}
-
-          console.log(itemData.itemPrice)
 
           itemPrice = this.objToArr(itemData.itemPrice)
           itemPrice = this.dataSort(itemPrice)
@@ -792,7 +825,6 @@
           this.coverUrlBig = itemData.coverUrlBig
           this.coverUrlSmall = itemData.coverUrlSmall
           this.imageUrl = itemData.imageUrl
-
         });
       },objToArr(data){
         let newData = []
@@ -803,11 +835,77 @@
         return newData
 
       },
-      handleRemove(file, fileList) {
-        console.log(file, fileList);
+      async coverBigRemove(file, fileList) {
+        if(file.status == 'success'){
+          let storageRef = firebase.storage().ref('product/'+this.idCount+'/'+file.name);
+
+          await storageRef.delete().then(doc =>{
+            this.coverUrlBig.length = 0
+
+            this.$notify({
+              title: '刪除成功',
+              type: 'success',
+              offset:50
+            });
+
+          }).catch(function(error) {
+            console.log(error)
+
+            this.$notify.error({
+              title: '刪除失敗，請聯繫管理員',
+              offset:50
+            });
+          });
+        }
+        this.coverUrlBig = fileList
       },
-      handlePreview(file) {
-        
+      async coverSmallRemove(file, fileList) {
+        if(file.status == 'success'){
+          let storageRef = firebase.storage().ref('product/'+this.idCount+'/'+file.name);
+
+          await storageRef.delete().then(doc =>{
+            this.coverUrlSmall.length = 0
+
+            this.$notify({
+              title: '刪除成功',
+              type: 'success',
+              offset:50
+            });
+            
+          }).catch(function(error) {
+            console.log(error)
+
+            this.$notify.error({
+              title: '刪除失敗，請聯繫管理員',
+              offset:50
+            });
+          });
+        }
+        this.coverUrlSmall = fileList
+      },
+      async imgRemove(file, fileList) {
+        if(file.status == 'success'){
+          let storageRef = firebase.storage().ref('product/'+this.idCount+'/'+file.name);
+
+          await storageRef.delete().then(doc =>{
+            this.imageUrl.length = 0
+
+            this.$notify({
+              title: '刪除成功',
+              type: 'success',
+              offset:50
+            });
+
+          }).catch(function(error) {
+            console.log(error)
+
+            this.$notify.error({
+              title: '刪除失敗，請聯繫管理員',
+              offset:50
+            });
+          });
+        }
+        this.imageUrl = fileList
       },
       async UploadCoverBig(){
         //封面大圖上傳
