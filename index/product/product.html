@@ -199,6 +199,20 @@ document.querySelectorAll("[href^='https://line.me']").forEach(function(item){
                         <font class ="title">{{itemData.title}}</font>
                     </el-row>
                     <el-row>
+                        <el-breadcrumb separator-class="el-icon-arrow-right">
+                            <el-breadcrumb-item>
+                                <font class ="mini_font">
+                                    <a :href = "countryUrl">{{itemData.country}}</a>
+                                </font>
+                            </el-breadcrumb-item>
+                            <el-breadcrumb-item>
+                                <font class ="mini_font">
+                                    <a :href = '"https://tafengtravel.github.io/tafengtravel/index/product/search.html?location="+ itemData.location'>{{itemData.location}}</a>
+                                </font>
+                            </el-breadcrumb-item>
+                        </el-breadcrumb>
+                    </el-row>
+                    <el-row>
                         <font class ="sub_title">行程特色</font>
                     </el-row>
                     <el-row>
@@ -647,6 +661,8 @@ $(".include").each(function(){
             itemCarousel:[],
             fits:'cover',
             carouselLoop:true,
+
+            countryUrl:'',
             };
  
         },methods: {
@@ -774,9 +790,14 @@ $(".include").each(function(){
                     }
                     this.itemCarousel = itemCarousel
                 });
+
+                if(data.country == '台灣'){
+                    this.countryUrl = 'https://tafengtravel.github.io/tafengtravel/index/product/location.html'
+                }else{
+                    this.countryUrl = ''
+                }
             });
 
-            
         } 
         
      
