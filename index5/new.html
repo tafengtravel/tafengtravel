@@ -152,6 +152,21 @@
         
         <font class ="font"><span>地區</span></font>
         <template>
+          <el-select v-model="itemData.country" placeholder="請選擇">
+            <el-option-group
+              v-for="group in optionsCountry"
+              :key="group.label"
+              :label="group.label">
+              <el-option
+                v-for="item in group.options"
+                :key="item.value"
+                :label="item.label"
+                :value="item.value">
+              </el-option>
+            </el-option-group>
+          </el-select>
+        </template>
+        <template>
           <el-select v-model="itemData.location" placeholder="請選擇">
             <el-option-group
               v-for="group in options"
@@ -535,7 +550,6 @@
 
   var db = firebase.firestore();
 
-
   var Main = {
     vuetify: new Vuetify(),
     data() {
@@ -547,7 +561,13 @@
         fields:[],
         counts: 0,
         options: [{
-          label: '國內離島',
+          label: '無',
+          options: [{
+            value: '',
+            label: ''
+          }]
+        },{
+          label: '台灣離島',
           options: [{
             value: '澎湖',
             label: '澎湖'
@@ -565,7 +585,7 @@
             label: '馬祖'
           }]
         }, {
-          label: '國內本島',
+          label: '台灣本島',
           options: [{
             value: '台北',
             label: '台北'
@@ -619,6 +639,24 @@
             label: '宜蘭'
           }]
         }],
+
+        optionsCountry: [{
+          label: '東北亞',
+          options: [{
+            value: '台灣',
+            label: '台灣'
+          }, {
+            value: '日本',
+            label: '日本'
+          }, {
+            value: '韓國',
+            label: '韓國'
+          }, {
+            value: '中國',
+            label: '中國'
+          }]
+        }],
+
         options1: [{
           value: true,
           label: '是'
