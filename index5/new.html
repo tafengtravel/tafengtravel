@@ -789,7 +789,7 @@
         }
 
         objList={"title":itemData.title ||'',"coverUrlSmall":coverUrlSmallCheck,"features":itemData.features ||'',"lowPrice":itemData.lowPrice ||'',"location":itemData.location ||'',"available":itemData.available ||'',
-                  'id':this.idCount,'keyword':itemData.keyword
+                  'id':this.idCount,'keyword':itemData.keyword,'country':itemData.country
                 }
 
         ref = db.collection('product').doc((this.idCount).toString());
