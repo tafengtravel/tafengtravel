@@ -775,26 +775,43 @@ $(".include").each(function(){
 
                 ref = db.collection('list')
 
-                ref.where('location','==',this.itemData.location).get().then(querySnapshot => {
-                    let i=0
-                    querySnapshot.forEach(doc => { 
-                        if(doc.data().available == true && doc.data().id != data.id){
-                            itemCarousel[i] = doc.data()
-                            itemCarousel[i].features = (doc.data().features).slice(0,20)
-                            i = i+1
-                        }
-                        
-                    });  
-                    if (i<4){
-                        this.carouselLoop = false
-                    }
-                    this.itemCarousel = itemCarousel
-                });
-
-                if(data.country == '台灣'){
+                if(data.location != ''){
                     this.countryUrl = 'https://tafengtravel.github.io/tafengtravel/index/product/location.html'
+
+                    ref.where('location','==',data.location).get().then(querySnapshot => {
+                        let i=0
+                        querySnapshot.forEach(doc => { 
+                            if(doc.data().available == true && doc.data().id != data.id){
+                                itemCarousel[i] = doc.data()
+                                itemCarousel[i].features = (doc.data().features).slice(0,20)
+                                i = i+1
+                            }
+                            
+                        });  
+                        if (i<4){
+                            this.carouselLoop = false
+                        }
+                        this.itemCarousel = itemCarousel
+                    });
                 }else{
                     this.countryUrl = ''
+
+                    ref.where('country','==',data.country).get().then(querySnapshot => {
+                        let i=0
+                        querySnapshot.forEach(doc => { 
+                            if(doc.data().available == true && doc.data().id != data.id){
+                                itemCarousel[i] = doc.data()
+                                itemCarousel[i].features = (doc.data().features).slice(0,20)
+                                i = i+1
+                            }
+                            
+                        });  
+                        if (i<4){
+                            this.carouselLoop = false
+                        }
+                        this.itemCarousel = itemCarousel
+                    });
+
                 }
             });
 
