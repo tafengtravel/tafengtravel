@@ -137,6 +137,14 @@ document.querySelectorAll("[href^='https://line.me']").forEach(function(item){
     .back{
     background-image: url("image/search1.jpg");
     }
+    .slogan_title{
+        font-size: 40px;
+        font-weight: bold;
+    }
+    .slogan_sub_title{
+        font-size: 25px;
+        font-weight: bold;
+    }
 
 }
 @media (max-width: 768px) {
@@ -148,6 +156,14 @@ document.querySelectorAll("[href^='https://line.me']").forEach(function(item){
     }
     .back{
     background-image: url("image/search.jpg");
+    }
+    .slogan_title{
+        font-size: 25px;
+        font-weight: bold;
+    }
+    .slogan_sub_title{
+        font-size: 15px;
+        font-weight: bold;
     }
 }
 .font{
@@ -187,7 +203,14 @@ document.querySelectorAll("[href^='https://line.me']").forEach(function(item){
         
         <div class="el-col el-col-24 el-col-xs-24 el-col-sm-24 el-col-md-24 el-col-lg-24">
             <el-row :gutter="20" class="back">
-                <br><br><br><br><br><br><br>
+                <br><br><br><br><br>
+
+                <el-col class ="el-col el-col-xs-22 el-col-xs-offset-1 el-col-sm-22 el-col-sm-offset-1 el-col-md-12 el-col-md-offset-6 el-col-lg-12 el-col-lg-offset-6" style="text-align: center;">
+                    <div class="slogan_title"><font color="white">網羅全球最適合您的行程體驗</font></div><br>
+                    <div class="slogan_sub_title"><font color="white">提供您最方便又有效率的訂購方式</font></div><br>
+                </el-col>
+
+                <br><br>
                 <el-col>
                     
                     <el-autocomplete
