@@ -255,6 +255,55 @@ document.querySelectorAll("[href^='https://line.me']").forEach(function(item){
                 </div>
             </div>
 
+            <div class="home-section -grey home-service">
+                <div class="-intro container">
+                    <h2>
+                        <font color = #FF6600>單購</font>在地行程 
+                    </h2>
+                    <p data-aos="fade-up" data-aos-once="true" class="aos-init aos-animate">
+                        給您最深度的旅遊體驗
+                    </p>
+                    
+                    <el-row :gutter="20">
+                        <carousel v-bind:autoplay="true" v-bind:loop="carouselLoop" :per-page-custom=[[480,2],[780,4]] :pagination-enabled='false' >
+                            <slide v-for="item in data" style="background-color:#F0F0F0; height:410px;">
+                                
+                                <a :href ='"https://tafengtravel.github.io/tafengtravel/index/product/product.html?id="+item.id' target="_blank">
+                                            
+                                    <el-col class ="el-col el-col-24 el-col-xs-24 el-col-sm-24 el-col-md-24 el-col-lg-24 ">
+                                        <el-card class="box-card"  :body-style="{ padding: '0px' }"  style="min-height: 430px;" shadow="hover">
+                                            <div class ="image-margin ">
+                                                <el-image style="width:100% ;height: 180px" :src="item.coverUrlSmall":fit="fits">
+                                                </el-image>
+                                            </div>
+        
+                                            <div  style="padding: 10px;" class ="text-margin "> 
+                                                <span class="font"><font color="black">{{item.title}}</font></span>
+                                            </div>
+        
+                                            <div  style="padding: 10px;" class ="text-margin"> 
+                                                <font class="mini_font">{{item.features}}...</font>
+                                            </div>
+        
+                                            <div  style="padding: 10px; text-align:right" class ="text-margin "> 
+                                                <span class="font">$</span> 
+                                                <span class="sub_title"><font color="#FF6600">{{item.lowPrice}}</font></span>
+                                                <span class="font">起</span> 
+                                            </div>
+        
+                                        </el-card>
+                                    </el-col>
+                                </a>
+        
+                            </slide>
+                        </carousel>
+                    </el-row>
+                    
+                    <div class="swiper-pagination travel"></div>
+        
+                </div>
+            </div>
+
             
             <div class="-promotions">
                             
@@ -440,54 +489,7 @@ document.querySelectorAll("[href^='https://line.me']").forEach(function(item){
         </div>
     </div>
 
-    <div class="home-section -grey home-service">
-        <div class="-intro container">
-            <h2>
-                <font color = #FF6600>單購</font>在地行程 
-            </h2>
-            <p data-aos="fade-up" data-aos-once="true" class="aos-init aos-animate">
-                給您最深度的旅遊體驗
-            </p>
-            
-            <el-row :gutter="20">
-                <carousel v-bind:autoplay="true" v-bind:loop="carouselLoop" :per-page-custom=[[480,2],[780,4]] :pagination-enabled='false' >
-                    <slide v-for="item in data" style="background-color:#F0F0F0; height:410px;">
-                        
-                        <a :href ='"https://tafengtravel.github.io/tafengtravel/index/product/product.html?id="+item.id' target="_blank">
-                                    
-                            <el-col class ="el-col el-col-24 el-col-xs-24 el-col-sm-24 el-col-md-24 el-col-lg-24 ">
-                                <el-card class="box-card"  :body-style="{ padding: '0px' }"  style="min-height: 430px;" shadow="hover">
-                                    <div class ="image-margin ">
-                                        <el-image style="width:100% ;height: 180px" :src="item.coverUrlSmall":fit="fits">
-                                        </el-image>
-                                    </div>
-
-                                    <div  style="padding: 10px;" class ="text-margin "> 
-                                        <span class="font"><font color="black">{{item.title}}</font></span>
-                                    </div>
-
-                                    <div  style="padding: 10px;" class ="text-margin"> 
-                                        <font class="mini_font">{{item.features}}...</font>
-                                    </div>
-
-                                    <div  style="padding: 10px; text-align:right" class ="text-margin "> 
-                                        <span class="font">$</span> 
-                                        <span class="sub_title"><font color="#FF6600">{{item.lowPrice}}</font></span>
-                                        <span class="font">起</span> 
-                                    </div>
-
-                                </el-card>
-                            </el-col>
-                        </a>
-
-                    </slide>
-                </carousel>
-            </el-row>
-            
-            <div class="swiper-pagination travel"></div>
-
-        </div>
-    </div><br>
+    
 
 
     <!-- <div class="home-section -grey home-service">
@@ -561,7 +563,7 @@ document.querySelectorAll("[href^='https://line.me']").forEach(function(item){
             </div>
         </div>
     </div><br> -->
-
+    <br>
     <div class="page-inner px-md-3">
         </div>                
         </div>
