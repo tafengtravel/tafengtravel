@@ -65,26 +65,7 @@
   <url>
     <loc>https://tafengtravel.github.io/tafengtravel/index/product/location.html</loc>
   </url>
-  <url>
-    <loc>https://tafengtravel.github.io/tafengtravel/index/product/penghu.html</loc>
-  </url>
-  <url>
-    <loc>https://tafengtravel.github.io/tafengtravel/index/product/penghu/1.html</loc>
-  </url>
 
-  <url>
-    <loc>https://tafengtravel.github.io/tafengtravel/index/product/matsu.html</loc>
-  </url>
-  <url>
-    <loc>https://tafengtravel.github.io/tafengtravel/index/product/matsu/1.html</loc>
-  </url>
-  <url>
-    <loc>https://tafengtravel.github.io/tafengtravel/index/product/nantou.html</loc>
-  </url>
-
-  <url>
-    <loc>https://tafengtravel.github.io/tafengtravel/index/product/nantou/1.html</loc>
-  </url>
   <url>
     <loc>https://tafengtravel.github.io/tafengtravel/index/foreign/bubble.html</loc>
   </url>
@@ -129,6 +110,18 @@
 
   <url>
     <loc>https://tafengtravel.github.io/tafengtravel/index/product/search.html?location=屏東</loc>
+  </url>
+
+  <url>
+    <loc>https://tafengtravel.github.io/tafengtravel/index/product/search.html?location=台東</loc>
+  </url>
+
+  <url>
+    <loc>https://tafengtravel.github.io/tafengtravel/index/product/search.html?location=基隆</loc>
+  </url>
+
+  <url>
+    <loc>https://tafengtravel.github.io/tafengtravel/index/product/search.html?location=台南</loc>
   </url>
 
   <url>
