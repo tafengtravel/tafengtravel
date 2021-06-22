@@ -38,7 +38,7 @@
 
 <link href="https://tafengtravel.github.io/tafengtravel/index/css/book.css" rel="stylesheet" />
 
-
+<link rel="canonical" id="canonical" href="" />
 
 
 <!--自家檔案-->
@@ -738,6 +738,8 @@ $(".include").each(function(){
                 console.log(doc.data())
 
                 document.title= data.title+'｜大豐旅行社'
+                
+                document.getElementById("canonical").href = "https://tafengtravel.github.io/tafengtravel/index/product/product.html?id="+ data.id
 
                 this.itemData = data
 
