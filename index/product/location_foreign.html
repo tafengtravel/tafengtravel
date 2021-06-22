@@ -1,0 +1,475 @@
+
+
+<!DOCTYPE html>
+<head>
+ 
+
+<link rel='stylesheet' href='https://tafengtravel.github.io/tafengtravel/index/css/smart.css' type='text/css'>
+<link href="https://tafengtravel.github.io/tafengtravel/index/index.css" rel="stylesheet" >
+
+<link rel="stylesheet" href="https://tafengtravel.github.io/tafengtravel/index/index.css">
+
+<link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+
+<link href='https://tafengtravel.github.io/tafengtravel/index/sm-css/sm-core-css.css' rel='stylesheet' type='text/css' />
+<!-- "sm-blue" menu theme (optional, you can use your own CSS, too) -->
+<link href='https://tafengtravel.github.io/tafengtravel/index/sm-css/sm-mint/sm-mint.css' rel='stylesheet' type='text/css' />
+<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.css">
+
+<script src="https://tafengtravel.github.io/tafengtravel/index/js/jquery.min.js.js"></script>     
+
+
+<script src="https://tafengtravel.github.io/tafengtravel/index/js/jquery.smartmenus.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+
+<link href="https://tafengtravel.github.io/tafengtravel/index/css/elementUI.css" rel="stylesheet" />
+<link href="https://tafengtravel.github.io/tafengtravel/index/css/common.css" rel="stylesheet" />
+<link href="https://tafengtravel.github.io/tafengtravel/index/css/swiper.min.css" rel="stylesheet" />
+
+<link href="https://tafengtravel.github.io/tafengtravel/index/css/book.css" rel="stylesheet" />
+
+
+
+
+<!--自家檔案-->
+
+<link rel="icon" href="https://tafengtravel.github.io/tafengtravel/index1/tafenglogo6.ico" type="image/x-icon" />
+<link rel="shortcut icon" href="https://tafengtravel.github.io/tafengtravel/index1/tafenglogo6.ico" type="image/x-icon" />
+
+<!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/8.3.0/firebase.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.3.0/firebase-firestore.js"></script>
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+
+
+<!-- axios -->
+
+<script>
+    // Your web app's Firebase configuration
+    var firebaseConfig = {
+        apiKey: "AIzaSyC1DlPU6BqCFXzWLBZ_6Y90KNLwYzfei3c",
+        authDomain: "tafengtravel-web.firebaseapp.com",
+        projectId: "tafengtravel-web",
+        storageBucket: "tafengtravel-web.appspot.com",
+        messagingSenderId: "971660802735",
+        appId: "1:971660802735:web:af7e22d11fe81ca63ab25a"
+    };
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+</script>
+
+
+<script src='https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.2/axios.min.js'></script>
+
+
+
+<script src="https://unpkg.com/vue-router@2.0.0/dist/vue-router.js"></script>
+
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-143702269-1"></script>
+
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+
+gtag('config', 'UA-143702269-1', {
+'linker': {
+    'domains': ['tafengtravel.github.io', 'tafeng66.com.tw']
+}
+});
+</script>
+
+<!-- Facebook Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '708390289347362');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=708390289347362&ev=PageView&noscript=1"
+/></noscript>
+<!-- End Facebook Pixel Code -->
+
+<!-- Facebook Event -->
+
+
+<!-- GA Event -->
+<script>
+window.addEventListener('load', function(event) {
+document.querySelectorAll("[href^='http://line.me']").forEach(function(item){
+    item.addEventListener('click', function(event){
+        gtag("event", "點擊", {event_category: "line客戶轉換"});
+    })
+})
+document.querySelectorAll("[href^='https://line.me']").forEach(function(item){
+    item.addEventListener('click', function(event){
+        gtag("event", "點擊", {event_category: "line客戶轉換"});
+    })
+})
+})  
+</script>
+
+<style>
+@media (min-width: 768px){
+    .sm-mint a, .sm-mint a:hover, .sm-mint a:focus, .sm-mint a:active, .sm-mint a.highlighted {
+    padding: 19px 20px;
+    border-radius: 4px 4px 0 0;
+    }
+    .sm-mint a.has-submenu {
+    padding-right: 34px;
+    }
+    .image-margin {
+        margin-bottom: -5px;
+    }.text-margin{
+        padding-left: 15px;
+    }.image-fit{
+        width:280px;
+    }
+    .back{
+        background-image: url("image/search1.jpg");
+    }
+    .slogan_title{
+        font-size: 40px;
+        font-weight: bold;
+    }
+    .slogan_sub_title{
+        font-size: 25px;
+        font-weight: bold;
+    }
+
+}
+@media (max-width: 768px) {
+    .table-sm td, .table-sm th{
+    padding: 1px;
+    } 
+    .image-fit{
+        width:100%;
+    }
+    .back{
+        background-image: url("image/search.jpg");
+    }
+    .slogan_title{
+        font-size: 25px;
+        font-weight: bold;
+    }
+    .slogan_sub_title{
+        font-size: 15px;
+        font-weight: bold;
+    }
+}
+.font{
+    white-space: pre-wrap;
+}
+
+.el-card{
+    margin-bottom:30px; 
+    min-height: 350px;
+}
+
+</style>
+
+   
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>單購在地行程｜大豐旅行社</title>   	
+
+<meta name="description" content="">
+<meta name="keywords" content=""> 
+<meta http-equiv="expires" content="0">
+<meta http-equiv="cache-control" content="no-cache">  
+<meta http-equiv="pragma" content="no-cache">
+<meta name="format-detection" content="telephone=no">
+
+
+
+</head>
+<body id="page_body" class="green-page">
+
+<div class="include" file="https://tafengtravel.github.io/tafengtravel/index/top"></div>
+
+<div id="pnl_wrapper" class="wrapper homepage green-page">
+    <div id="app"> 
+
+        <div class="el-col el-col-24 el-col-xs-24 el-col-sm-24 el-col-md-24 el-col-lg-24">
+            <el-row :gutter="20" class="back">
+                <br><br><br><br><br>
+
+                <el-col class ="el-col el-col-xs-22 el-col-xs-offset-1 el-col-sm-22 el-col-sm-offset-1 el-col-md-12 el-col-md-offset-6 el-col-lg-12 el-col-lg-offset-6" style="text-align: center;">
+                    <div class="slogan_title"><font color="white">網羅全球最適合您的行程體驗</font></div><br>
+                    <div class="slogan_sub_title"><font color="white">提供您最方便又有效率的訂購方式</font></div><br>
+                </el-col>
+
+                <br><br>
+                <el-col>
+                    
+                    <el-autocomplete
+                        v-model="search"
+                        :fetch-suggestions="querySearchAsync"
+                        placeholder="輸入目的地、景點、行程，搜尋全站旅遊體驗"
+                        class ="el-col el-col-xs-20 el-col-xs-offset-2 el-col-sm-20 el-col-sm-offset-2 el-col-md-12 el-col-md-offset-6 el-col-lg-8 el-col-lg-offset-8"
+                    >
+                        <el-button type="primary" icon="el-icon-search" @click="searchClick" slot="append">搜尋</el-button>
+                    </el-autocomplete>
+                    
+                </el-col>
+                <br><br><br><br><br><br><br><br>
+            </el-row>
+        </div>
+        
+        <div class ="el-col el-col-24 el-col-xs-20 el-col-xs-offset-2 el-col-sm-20 el-col-sm-offset-2 el-col-md-22 el-col-md-offset-1 el-col-lg-18 el-col-lg-offset-3">
+            <el-row :gutter="20">
+                <div v-for="item in data">
+                    
+                    <a :href ='"https://tafengtravel.github.io/tafengtravel/index/product/search.html?country="+item.title'>
+                        <el-col class ="el-col el-col-xs-12 el-col-sm-12 el-col-md-8 el-col-lg-4 ">
+                            <el-card class="box-card"  :body-style="{ padding: '0px' }" shadow="hover">
+                                <div class ="image-margin  el-col el-col-24 el-col-xs-24 el-col-sm-24 el-col-md-24 el-col-lg-24 ">
+                                    <el-image style="width:100% ;height: 130px" :src="item.coverUrlSmall":fit="fits">
+                                    </el-image>
+                                </div>
+
+                                <div  style="padding: 10px;" class ="text-margin el-col el-col-24 el-col-xs-24 el-col-sm-24 el-col-md-24 el-col-lg-24"> 
+                                    <span class="font"><font color="black">{{item.title}}</font></span>
+                                </div>
+
+                                <div  style="padding: 10px;" class ="text-margin el-col el-col-24 el-col-xs-24 el-col-sm-24 el-col-md-24 el-col-lg-24"> 
+                                    <font class="mini_font">{{item.features}}...</font>
+                                </div>
+
+                                <!-- <div  style="padding: 10px; text-align:right" class ="text-margin el-col el-col-24 el-col-xs-24 el-col-sm-24 el-col-md-24 el-col-lg-24"> 
+                                    <span class="font">$</span> 
+                                    <span class="sub_title"><font color="#FF6600">{{item.lowPrice}}</font></span>
+                                    <span class="font">起</span> 
+                                </div> -->
+
+                            </el-card>
+                        </el-col>
+                    </a>
+                </div>
+
+                <div v-for="item in dataSearch">
+                    
+                    <a :href ='"https://tafengtravel.github.io/tafengtravel/index/product/product.html?id="+item.id' target="_blank">
+                        <el-col class ="el-col el-col-24 el-col-xs-24 el-col-sm-24 el-col-md-8 el-col-lg-8 ">
+                            <el-card class="box-card"  :body-style="{ padding: '0px'}" style="min-height: 470px;" shadow="hover">
+                                <div class ="image-margin  el-col el-col-24 el-col-xs-24 el-col-sm-24 el-col-md-24 el-col-lg-24 ">
+                                    <el-image style="width:100% ;height: 260px" :src="item.coverUrlSmall":fit="fits">
+                                    </el-image>
+                                </div>
+
+                                <div  style="padding: 10px;" class ="text-margin el-col el-col-24 el-col-xs-24 el-col-sm-24 el-col-md-24 el-col-lg-24"> 
+                                    <span class="font"><font color="black">{{item.title}}</font></span>
+                                </div>
+
+                                <div  style="padding: 10px;" class ="text-margin el-col el-col-24 el-col-xs-24 el-col-sm-24 el-col-md-24 el-col-lg-24"> 
+                                    <font class="mini_font">{{item.features}}...</font>
+                                </div>
+
+                                <div  style="padding: 10px; text-align:right" class ="text-margin el-col el-col-24 el-col-xs-24 el-col-sm-24 el-col-md-24 el-col-lg-24"> 
+                                    <span class="font">$</span> 
+                                    <span class="sub_title"><font color="#FF6600">{{item.lowPrice}}</font></span>
+                                    <span class="font">起</span> 
+                                </div>
+
+                            </el-card>
+                        </el-col>
+                    </a>
+                </div>
+
+            </el-row>
+            <el-row>
+                
+                <div style="text-align:center" >
+                    <a href="#top">
+                        <el-pagination background
+                        layout="prev, pager, next"
+                        :total= "total"
+                        :page-size ="pageSize"
+                        @current-change="setPage">
+                        </el-pagination>
+                    </a>
+                </div>
+                
+            </el-row>
+            <el-row>
+                <el-backtop :bottom="100"></el-backtop>
+            </el-row>
+        </div>
+    </div>
+</div>
+
+
+
+
+<div class="text-center">
+
+    <div class="include" file="https://tafengtravel.github.io/tafengtravel/index/footer"></div>
+
+</div> 
+
+
+
+<a class="go-to-top" id="goTop" href="#"><i class="fa fa-caret-up"></i>top</a>
+
+    
+</body>
+
+<script type="text/javascript">
+
+//使用jQuery的load方法
+$(".include").each(function(){
+    if(!!$(this).attr("file")) {
+        var $includeObj = $(this);
+        $(this).load($(this).attr("file"), function(html){
+            $includeObj.after(html).remove();    //載入的檔案內容寫入到當前標籤後面並移除當前標籤
+        })
+    }
+});
+</script>
+
+<script src="https://unpkg.com/vue@2.6.12/dist/vue.js"></script>
+<!-- import JavaScript -->
+<script src="https://unpkg.com/element-ui@2.15.0/lib/index.js"></script>
+
+
+<script>
+    const urlParams = new URLSearchParams(window.location.search)
+    const paramsObj = Object.fromEntries(urlParams)
+    console.log(paramsObj)
+    let data = []
+
+    
+
+    var Main = {
+        data() {
+            return {
+                    total:0,
+                    dataSearch1:'',
+                    dataSearch:'',
+                    data1:'',
+                    search:'',
+                    searchSuggest: [],
+                    fits:'cover',
+                    data:[
+                    {
+                            title:'中國',
+                            coverUrlSmall:'image/china.jpg',
+                            lowPrice:'330',
+                            features:'香港、澳門、北京、上海、福建，逐步上架中，等你來訂購！',
+                        },{
+                            title:'日本',
+                            coverUrlSmall:'image/japan.jpg',
+                            lowPrice:'249',
+                            features:'東京、大阪、京都、沖繩，逐步上架中，等你來訂購！',
+                        },{
+                            title:'韓國',
+                            coverUrlSmall:'image/korea.jpg',
+                            lowPrice:'500',
+                            features:'首爾、釜山、和服體驗，逐步上架中，等你來訂購！',
+                        }
+                    ],
+                    pageSize:16
+                };
+                
+    
+            },methods: {
+                setPage(val){
+                    let dataSlice = this.data1 
+                    let dataSearchSlice = this.dataSearch1
+                    this.data = dataSlice.slice((val-1)*this.pageSize,val*this.pageSize)
+                    this.dataSearch = dataSearchSlice.slice((val-1)*this.pageSize,val*this.pageSize)
+                },
+                searchClick(){
+                    let db = firebase.firestore();
+                    ref = db.collection('list')
+                    this.search = (this.search).toUpperCase()
+                    let searchWord =  (this.search).trim().split(/\s+/)
+                    ref.where('keyword','array-contains-any',searchWord).get().then(querySnapshot => {
+                    let i=0
+                    data.length = 0
+                    this.data1.length = 0
+                    this.data.length = 0
+
+                        querySnapshot.forEach(doc => {  
+                            data[i] = doc.data()
+                            data[i].features = (doc.data().features).slice(0,40)
+                            i=i+1
+                            // console.log(doc.data())
+                        });  
+                        data.sort((a,b)=>{return a.lowPrice - b.lowPrice})
+                        this.total = data.length
+                        this.dataSearch1 = data
+                        this.dataSearch = this.dataSearch1.slice(0,6)
+                        this.pageSize = 6
+                    });
+                },
+                loadAll() {
+                let searchSuggest = [
+                        '水上活動','租車','BBQ','DIY','親子','SUP','獨木舟','風帆','沙灘車','飛行傘','拼板舟','夜間導覽','夜釣小管','七美','望安',
+                    ]
+                    let searchSuggest1 = [{}]
+                    for (i=0;i<searchSuggest.length;i++){
+                        searchSuggest1[i] = {"value":searchSuggest[i]}
+                    }
+
+                    return searchSuggest1;
+                },
+                querySearchAsync(queryString, cb) {
+                    let searchSuggest = this.searchSuggest;
+                    let results = queryString ? searchSuggest.filter(this.createStateFilter(queryString)) : searchSuggest;
+
+                    cb(results);
+                },
+                createStateFilter(queryString) {
+                    return (search) => {
+                    return (search.value.toLowerCase().indexOf(queryString.toLowerCase()) === 0);
+                    };
+                },
+            },mounted(){
+                this.searchSuggest = this.loadAll();
+                this.data1 = this.data
+                this.total = this.data.length
+                this.data = this.data1.slice(0,this.pageSize)
+            } 
+        
+     
+    };
+    let Today=new Date();
+    // console.log(Today.getFullYear()+'-'+ (Today.getMonth()+1) +'-'+ Today.getDate())
+
+    var Ctor = Vue.extend(Main)
+    new Ctor().$mount('#app')
+
+
+    // function buy(type){
+
+    //     let itinerary = document.getElementById('itinerary'+type).innerText
+
+    //     type2 = document.getElementById('radio'+type+'_'+radio1_1.__vue__.value).innerText
+
+
+    //     localStorage.setItem("dep_date", document.getElementById('dep_date').value);
+    //     localStorage.setItem("itinerary",itinerary);
+    //     localStorage.setItem("price",price_html[0].outerText);
+    //     localStorage.setItem("quantity", quantity1.__vue__.value+'位');
+    //     localStorage.setItem("time", document.getElementById('choice_time1').value);
+    //     localStorage.setItem("type", type2);
+    //     localStorage.setItem("guest", true);
+    //     document.location.href='https://tafengtravel.github.io/tafengtravel/index/book/book.html';
+
+    // }
+
+</script>
+
+</html>
