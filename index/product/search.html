@@ -320,7 +320,8 @@ $(".include").each(function(){
     let data = []
     let data1 = []
 
-    document.title= paramsObj.location+'單購在地行程｜大豐旅行社'
+    document.title= paramsObj[Object.keys(paramsObj)[0]]+'在地行程｜大豐旅行社'
+
 
 
     var Main = {
@@ -389,7 +390,7 @@ $(".include").each(function(){
                 let db = firebase.firestore();
                 ref = db.collection('list')
 
-                await ref.where('location','==',paramsObj.location).get().then(querySnapshot => {
+                await ref.where(Object.keys(paramsObj)[0],'==',paramsObj[Object.keys(paramsObj)[0]]).get().then(querySnapshot => {
                     let i=0
                     querySnapshot.forEach(doc => {  
                         if(doc.data().available == true){
