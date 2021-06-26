@@ -150,6 +150,9 @@ document.querySelectorAll("[href^='https://line.me']").forEach(function(item){
     .icon{
         font-size:25px;text-align: center; line-height: 50px;
     }
+    .price{
+        margin-top: 80px;
+    }
 
 }
 @media (max-width: 1130px) {
@@ -234,7 +237,7 @@ document.querySelectorAll("[href^='https://line.me']").forEach(function(item){
 
 <div class="include" file="https://tafengtravel.github.io/tafengtravel/index/top"  id ="top"></div>
 
-<div id="pnl_wrapper" class="wrapper homepage green-page">
+<div id="pnl_wrapper" class="wrapper homepage green-page" style="background-color:#F0F0F0;">
     
     <div id="app"> 
         
@@ -248,252 +251,266 @@ document.querySelectorAll("[href^='https://line.me']").forEach(function(item){
             </el-row>
         </div>
 
-        <div class="top el-col el-col-24 el-col-xs-20 el-col-xs-offset-2 el-col-sm-20 el-col-sm-offset-2 el-col-md-22 el-col-md-offset-1 el-col-lg-20 el-col-lg-offset-2"  style="margin-top: -70px;position: relative;">
-            <el-card class="box-card">
-                <template>
+        <div class="el-col el-col-24 el-col-xs-24 el-col-sm-24 el-col-md-24 el-col-lg-24" style="background-color:#F0F0F0;">
+            <div class="top el-col el-col-24 el-col-xs-20 el-col-xs-offset-2 el-col-sm-20 el-col-sm-offset-2 el-col-md-22 el-col-md-offset-1 el-col-lg-20 el-col-lg-offset-2"  style="margin-top: -70px;position: relative;">
+                <el-card class="box-card">
+                    <template>
 
-                    <el-tabs v-model="activeName">
+                        <el-tabs v-model="activeName">
 
-                        <el-tab-pane label="單程" name="first" class="font">
-                            <el-row :gutter="20">
-                                <el-col class ="el-col el-col-24 el-col-xs-24 el-col-sm-24 el-col-md-9 el-col-lg-9">
-                                    <!-- <el-card class="box-card" style="min-height: 80px;" shadow="never"> -->
-                                        <el-select v-model="originValue" filterable placeholder="出發地" class ="el-col el-col-24 el-col-xs-24 el-col-sm-24 el-col-md-10 el-col-lg-10">
-                                            <el-option-group
-                                                v-for="group in origin"
-                                                :key="group.label"
-                                                :label="group.label">
-                                                <el-option
-                                                    v-for="item in group.options"
-                                                    :key="item.value"
-                                                    :label="originLabel(item)"
-                                                    :value="item.value">
-                                                    <span style="float: left">{{ item.label }}</span>
-                                                </el-option>
-                                            </el-option-group>
-                                        </el-select>
+                            <el-tab-pane label="單程" name="first" class="font">
+                                <el-row :gutter="20">
+                                    <el-col class ="el-col el-col-24 el-col-xs-24 el-col-sm-24 el-col-md-9 el-col-lg-9">
+                                        <!-- <el-card class="box-card" style="min-height: 80px;" shadow="never"> -->
+                                            <el-select v-model="originValue" filterable placeholder="出發地" class ="el-col el-col-24 el-col-xs-24 el-col-sm-24 el-col-md-10 el-col-lg-10">
+                                                <el-option-group
+                                                    v-for="group in origin"
+                                                    :key="group.label"
+                                                    :label="group.label">
+                                                    <el-option
+                                                        v-for="item in group.options"
+                                                        :key="item.value"
+                                                        :label="originLabel(item)"
+                                                        :value="item.value">
+                                                        <span style="float: left">{{ item.label }}</span>
+                                                    </el-option>
+                                                </el-option-group>
+                                            </el-select>
 
-                                        <!-- <a href="#">
-                                            <i class="el-icon-refresh" @click="locationChange" style="position: absolute;"></i>
-                                        </a> -->
+                                            <!-- <a href="#">
+                                                <i class="el-icon-refresh" @click="locationChange" style="position: absolute;"></i>
+                                            </a> -->
 
-                                        <font class ="el-col el-col-24 el-col-xs-24 el-col-sm-24 el-col-md-2 el-col-lg-2 icon">
-                                            <a href="javascript:void(0);">
-                                                <i class="el-icon-refresh" @click="locationChange"></i>
-                                            </a>
-                                        </font>
+                                            <font class ="el-col el-col-24 el-col-xs-24 el-col-sm-24 el-col-md-2 el-col-lg-2 icon">
+                                                <a href="javascript:void(0);">
+                                                    <i class="el-icon-refresh" @click="locationChange"></i>
+                                                </a>
+                                            </font>
 
-                                        <el-select v-model="destinationValue" filterable placeholder="目的地" class ="el-col el-col-24 el-col-xs-24 el-col-sm-24 el-col-md-10 el-col-lg-10">
-                                            <el-option-group
-                                                v-for="group in destination"
-                                                :key="group.label"
-                                                :label="group.label">
-                                                <el-option
-                                                    v-for="item in group.options"
-                                                    :key="item.value"
-                                                    :label="destinationLabel(item)"
-                                                    :value="item.value">
-                                                    <span style="float: left">{{ item.label }}</span>
-                                                </el-option>
-                                            </el-option-group>
-                                        </el-select>
-                                    <!-- </el-card> -->
-                                </el-col>
-                                <el-col class ="el-col el-col-24 el-col-xs-24 el-col-sm-24 el-col-md-9 el-col-lg-9">
+                                            <el-select v-model="destinationValue" filterable placeholder="目的地" class ="el-col el-col-24 el-col-xs-24 el-col-sm-24 el-col-md-10 el-col-lg-10">
+                                                <el-option-group
+                                                    v-for="group in destination"
+                                                    :key="group.label"
+                                                    :label="group.label">
+                                                    <el-option
+                                                        v-for="item in group.options"
+                                                        :key="item.value"
+                                                        :label="destinationLabel(item)"
+                                                        :value="item.value">
+                                                        <span style="float: left">{{ item.label }}</span>
+                                                    </el-option>
+                                                </el-option-group>
+                                            </el-select>
+                                        <!-- </el-card> -->
+                                    </el-col>
+                                    <el-col class ="el-col el-col-24 el-col-xs-24 el-col-sm-24 el-col-md-9 el-col-lg-9">
 
-                                    <el-date-picker
-                                    class ="el-col el-col-24 el-col-xs-24 el-col-sm-24 el-col-md-12 el-col-lg-12 date-picker"
-                                    style ="width: 180px;"
-                                    v-model="departureDate"
-                                    type="date"
-                                    placeholder="出發日期"
-                                    :picker-options="pickerOptions">
-                                    </el-date-picker>
+                                        <el-date-picker
+                                        class ="el-col el-col-24 el-col-xs-24 el-col-sm-24 el-col-md-12 el-col-lg-12 date-picker"
+                                        style ="width: 180px;"
+                                        v-model="departureDate"
+                                        type="date"
+                                        placeholder="出發日期"
+                                        :picker-options="pickerOptions">
+                                        </el-date-picker>
 
-                                </el-col>
+                                    </el-col>
 
-                                <el-col class ="el-col el-col-24 el-col-xs-24 el-col-sm-24 el-col-md-5 el-col-lg-5">
-                                    <el-popover
-                                        placement="bottom"
-                                        width="380"
-                                        trigger="click">
-                                        <el-button slot="reference" style="font-size: 16px;font-weight: bold;height: 50px;" @click="popoverChange">{{amount}}</el-button>
+                                    <el-col class ="el-col el-col-24 el-col-xs-24 el-col-sm-24 el-col-md-5 el-col-lg-5">
+                                        <el-popover
+                                            placement="bottom"
+                                            width="380"
+                                            trigger="click">
+                                            <el-button slot="reference" style="font-size: 16px;font-weight: bold;height: 50px;" @click="popoverChange">{{amount}}</el-button>
+                                            
+                                                <el-col class ="el-col el-col-8 el-col-xs-8 el-col-sm-10 el-col-md-10 el-col-lg-10">
+                                                    <span class="font">大人(12+)</span>
+                                                </el-col>
+                                                <el-col class ="el-col el-col-16 el-col-xs-16 el-col-sm-14 el-col-md-14 el-col-lg-14">
+                                                    <el-input-number v-model="numAdult" :min="1" :max="9" @change="popoverChange"></el-input-number>
+                                                </el-col>
+                                            
+                                                <el-col class ="el-col el-col-8 el-col-xs-8 el-col-sm-10 el-col-md-10 el-col-lg-10">
+                                                    <span class="font">孩童(2-11)</span>
+                                                </el-col>
+                                                <el-col class ="el-col el-col-16 el-col-xs-16 el-col-sm-14 el-col-md-14 el-col-lg-14">
+                                                    <el-input-number v-model="numChild" :min="0" :max="9" @change="popoverChange"></el-input-number>
+                                                </el-col>
+                                                <el-col class ="el-col el-col-8 el-col-xs-8 el-col-sm-10 el-col-md-10 el-col-lg-10">
+                                                    <span class="font">嬰兒(0-2)</span>
+                                                </el-col>
+                                                <el-col class ="el-col el-col-16 el-col-xs-16 el-col-sm-14 el-col-md-14 el-col-lg-14">
+                                                    <el-input-number v-model="numInf" :min="0" :max="9" @change="popoverChange"></el-input-number>
+                                                </el-col>
+                                        </el-popover>
+                                        <el-button type="primary" style="height: 50px;width:100px;font-size: 16px;" @click="search" >查詢</el-button>
+                                    </el-col>
+
+                                </el-row>
+                            </el-tab-pane>
+                            <el-tab-pane label="來回" name="second" class="font">
+                                <el-row :gutter="20">
+                                    <el-col class ="el-col el-col-24 el-col-xs-24 el-col-sm-24 el-col-md-9 el-col-lg-9">
+                                        <!-- <el-card class="box-card" style="min-height: 80px;" shadow="never"> -->
+                                            <el-select v-model="originValue" filterable placeholder="出發地" class ="el-col el-col-24 el-col-xs-24 el-col-sm-24 el-col-md-10 el-col-lg-10">
+                                                <el-option-group
+                                                    v-for="group in origin"
+                                                    :key="group.label"
+                                                    :label="group.label">
+                                                    <el-option
+                                                        v-for="item in group.options"
+                                                        :key="item.value"
+                                                        :label="originLabel(item)"
+                                                        :value="item.value">
+                                                        <span style="float: left">{{ item.label }}</span>
+                                                    </el-option>
+                                                </el-option-group>
+                                            </el-select>
+
+                                            <!-- <a href="#">
+                                                <i class="el-icon-refresh" @click="locationChange" style="position: absolute;"></i>
+                                            </a> -->
+
+                                            <font class ="el-col el-col-24 el-col-xs-24 el-col-sm-24 el-col-md-2 el-col-lg-2 icon">
+                                                <a href="javascript:void(0);">
+                                                    <i class="el-icon-refresh" @click="locationChange"></i>
+                                                </a>
+                                            </font>
+
+                                            <el-select v-model="destinationValue" filterable placeholder="目的地" class ="el-col el-col-24 el-col-xs-24 el-col-sm-24 el-col-md-10 el-col-lg-10">
+                                                <el-option-group
+                                                    v-for="group in destination"
+                                                    :key="group.label"
+                                                    :label="group.label">
+                                                    <el-option
+                                                        v-for="item in group.options"
+                                                        :key="item.value"
+                                                        :label="destinationLabel(item)"
+                                                        :value="item.value">
+                                                        <span style="float: left">{{ item.label }}</span>
+                                                    </el-option>
+                                                </el-option-group>
+                                            </el-select>
+                                        <!-- </el-card> -->
+                                    </el-col>
+                                    <el-col class ="el-col el-col-24 el-col-xs-24 el-col-sm-24 el-col-md-9 el-col-lg-9 ">
+
+                                        <el-date-picker
+                                        class ="el-col el-col-24 el-col-xs-24 el-col-sm-24 el-col-md-12 el-col-lg-12 date-picker"
+                                        style ="width: 180px;"
+                                        v-model="departureDate"
+                                        type="date"
+                                        placeholder="出發日期"
+                                        :picker-options="pickerOptions">
                                         
-                                            <el-col class ="el-col el-col-8 el-col-xs-8 el-col-sm-10 el-col-md-10 el-col-lg-10">
-                                                <span class="font">大人(12+)</span>
-                                            </el-col>
-                                            <el-col class ="el-col el-col-16 el-col-xs-16 el-col-sm-14 el-col-md-14 el-col-lg-14">
-                                                <el-input-number v-model="numAdult" :min="1" :max="9" @change="popoverChange"></el-input-number>
-                                            </el-col>
-                                        
-                                            <el-col class ="el-col el-col-8 el-col-xs-8 el-col-sm-10 el-col-md-10 el-col-lg-10">
-                                                <span class="font">孩童(2-11)</span>
-                                            </el-col>
-                                            <el-col class ="el-col el-col-16 el-col-xs-16 el-col-sm-14 el-col-md-14 el-col-lg-14">
-                                                <el-input-number v-model="numChild" :min="0" :max="9" @change="popoverChange"></el-input-number>
-                                            </el-col>
-                                            <el-col class ="el-col el-col-8 el-col-xs-8 el-col-sm-10 el-col-md-10 el-col-lg-10">
-                                                <span class="font">嬰兒(0-2)</span>
-                                            </el-col>
-                                            <el-col class ="el-col el-col-16 el-col-xs-16 el-col-sm-14 el-col-md-14 el-col-lg-14">
-                                                <el-input-number v-model="numInf" :min="0" :max="9" @change="popoverChange"></el-input-number>
-                                            </el-col>
-                                    </el-popover>
-                                    <el-button type="primary" style="height: 50px;width:100px" @click="search">查詢</el-button>
-                                </el-col>
+                                        </el-date-picker>
 
-                            </el-row>
-                        </el-tab-pane>
-                        <el-tab-pane label="來回" name="second" class="font">
-                            <el-row :gutter="20">
-                                <el-col class ="el-col el-col-24 el-col-xs-24 el-col-sm-24 el-col-md-9 el-col-lg-9">
-                                    <!-- <el-card class="box-card" style="min-height: 80px;" shadow="never"> -->
-                                        <el-select v-model="originValue" filterable placeholder="出發地" class ="el-col el-col-24 el-col-xs-24 el-col-sm-24 el-col-md-10 el-col-lg-10">
-                                            <el-option-group
-                                                v-for="group in origin"
-                                                :key="group.label"
-                                                :label="group.label">
-                                                <el-option
-                                                    v-for="item in group.options"
-                                                    :key="item.value"
-                                                    :label="originLabel(item)"
-                                                    :value="item.value">
-                                                    <span style="float: left">{{ item.label }}</span>
-                                                </el-option>
-                                            </el-option-group>
-                                        </el-select>
+                                        <el-date-picker
+                                        class ="el-col el-col-24 el-col-xs-24 el-col-sm-24 el-col-md-12 el-col-lg-12 date-picker"
+                                        style ="width: 180px;"
+                                        v-model="returnDate"
+                                        type="date"
+                                        placeholder="回程日期"
+                                        :picker-options="pickerOptions1">
+                                        </el-date-picker>
 
-                                        <!-- <a href="#">
-                                            <i class="el-icon-refresh" @click="locationChange" style="position: absolute;"></i>
-                                        </a> -->
+                                    </el-col>
 
-                                        <font class ="el-col el-col-24 el-col-xs-24 el-col-sm-24 el-col-md-2 el-col-lg-2 icon">
-                                            <a href="javascript:void(0);">
-                                                <i class="el-icon-refresh" @click="locationChange"></i>
-                                            </a>
-                                        </font>
+                                    <el-col class ="el-col el-col-24 el-col-xs-24 el-col-sm-24 el-col-md-5 el-col-lg-5">
+                                        <el-popover
 
-                                        <el-select v-model="destinationValue" filterable placeholder="目的地" class ="el-col el-col-24 el-col-xs-24 el-col-sm-24 el-col-md-10 el-col-lg-10">
-                                            <el-option-group
-                                                v-for="group in destination"
-                                                :key="group.label"
-                                                :label="group.label">
-                                                <el-option
-                                                    v-for="item in group.options"
-                                                    :key="item.value"
-                                                    :label="destinationLabel(item)"
-                                                    :value="item.value">
-                                                    <span style="float: left">{{ item.label }}</span>
-                                                </el-option>
-                                            </el-option-group>
-                                        </el-select>
-                                    <!-- </el-card> -->
-                                </el-col>
-                                <el-col class ="el-col el-col-24 el-col-xs-24 el-col-sm-24 el-col-md-9 el-col-lg-9 ">
+                                            placement="bottom"
+                                            width="380"
+                                            trigger="click">
+                                            <el-button slot="reference" style="font-size: 16px;font-weight: bold;height: 50px;" @click="popoverChange">{{amount}}</el-button>
+                                            
+                                                <el-col class ="el-col el-col-8 el-col-xs-8 el-col-sm-10 el-col-md-10 el-col-lg-10">
+                                                    <span class="font">大人(12+)</span>
+                                                </el-col>
+                                                <el-col class ="el-col el-col-16 el-col-xs-16 el-col-sm-14 el-col-md-14 el-col-lg-14">
+                                                    <el-input-number v-model="numAdult" :min="1" :max="9" @change="popoverChange"></el-input-number>
+                                                </el-col>
+                                            
+                                                <el-col class ="el-col el-col-8 el-col-xs-8 el-col-sm-10 el-col-md-10 el-col-lg-10">
+                                                    <span class="font">孩童(2-11)</span>
+                                                </el-col>
+                                                <el-col class ="el-col el-col-16 el-col-xs-16 el-col-sm-14 el-col-md-14 el-col-lg-14">
+                                                    <el-input-number v-model="numChild" :min="0" :max="9" @change="popoverChange"></el-input-number>
+                                                </el-col>
+                                                <el-col class ="el-col el-col-8 el-col-xs-8 el-col-sm-10 el-col-md-10 el-col-lg-10">
+                                                    <span class="font">嬰兒(0-2)</span>
+                                                </el-col>
+                                                <el-col class ="el-col el-col-16 el-col-xs-16 el-col-sm-14 el-col-md-14 el-col-lg-14">
+                                                    <el-input-number v-model="numInf" :min="0" :max="9" @change="popoverChange"></el-input-number>
+                                                </el-col>
+                                        </el-popover>
+                                        <el-button type="primary" style="height: 50px;width:100px;font-size: 16px;" @click="search">查詢</el-button>
+                                    </el-col>
 
-                                    <el-date-picker
-                                    class ="el-col el-col-24 el-col-xs-24 el-col-sm-24 el-col-md-12 el-col-lg-12 date-picker"
-                                    style ="width: 180px;"
-                                    v-model="departureDate"
-                                    type="date"
-                                    placeholder="出發日期"
-                                    :picker-options="pickerOptions">
-                                    
-                                    </el-date-picker>
+                                </el-row>
+                        </el-tabs>
+                        
+                    </template>
+                </el-card>
 
-                                    <el-date-picker
-                                    class ="el-col el-col-24 el-col-xs-24 el-col-sm-24 el-col-md-12 el-col-lg-12 date-picker"
-                                    style ="width: 180px;"
-                                    v-model="returnDate"
-                                    type="date"
-                                    placeholder="回程日期"
-                                    :picker-options="pickerOptions1">
-                                    </el-date-picker>
+                <el-row :gutter="20">
+                    <el-col class="hidden-sm-and-down el-col el-col-24 el-col-xs-24 el-col-sm-24 el-col-md-6 el-col-lg-6">
+                        <el-card class="box-card" style="min-height: 1000px;">
 
-                                </el-col>
-
-                                <el-col class ="el-col el-col-24 el-col-xs-24 el-col-sm-24 el-col-md-5 el-col-lg-5">
-                                    <el-popover
-
-                                        placement="bottom"
-                                        width="380"
-                                        trigger="click">
-                                        <el-button slot="reference" style="font-size: 16px;font-weight: bold;height: 50px;" @click="popoverChange">{{amount}}</el-button>
-                                        
-                                            <el-col class ="el-col el-col-8 el-col-xs-8 el-col-sm-10 el-col-md-10 el-col-lg-10">
-                                                <span class="font">大人(12+)</span>
-                                            </el-col>
-                                            <el-col class ="el-col el-col-16 el-col-xs-16 el-col-sm-14 el-col-md-14 el-col-lg-14">
-                                                <el-input-number v-model="numAdult" :min="1" :max="9" @change="popoverChange"></el-input-number>
-                                            </el-col>
-                                        
-                                            <el-col class ="el-col el-col-8 el-col-xs-8 el-col-sm-10 el-col-md-10 el-col-lg-10">
-                                                <span class="font">孩童(2-11)</span>
-                                            </el-col>
-                                            <el-col class ="el-col el-col-16 el-col-xs-16 el-col-sm-14 el-col-md-14 el-col-lg-14">
-                                                <el-input-number v-model="numChild" :min="0" :max="9" @change="popoverChange"></el-input-number>
-                                            </el-col>
-                                            <el-col class ="el-col el-col-8 el-col-xs-8 el-col-sm-10 el-col-md-10 el-col-lg-10">
-                                                <span class="font">嬰兒(0-2)</span>
-                                            </el-col>
-                                            <el-col class ="el-col el-col-16 el-col-xs-16 el-col-sm-14 el-col-md-14 el-col-lg-14">
-                                                <el-input-number v-model="numInf" :min="0" :max="9" @change="popoverChange"></el-input-number>
-                                            </el-col>
-                                    </el-popover>
-                                    <el-button type="primary" style="height: 50px;width:100px" @click="search">查詢</el-button>
-                                </el-col>
-
-                            </el-row>
-                    </el-tabs>
-                    
-                </template>
-            </el-card>
-
-            <el-row :gutter="20">
-                <el-col class="hidden-sm-and-down el-col el-col-24 el-col-xs-24 el-col-sm-24 el-col-md-6 el-col-lg-6">
-                    <el-card class="box-card" style="min-height: 1000px;">
-
-                    </el-card>
-                </el-col>
-                <el-col class="el-col el-col-24 el-col-xs-24 el-col-sm-24 el-col-md-18 el-col-lg-18">
-                    <div v-for="item in flightData.data" >
-                        <el-card class="box-card" style="min-height: 300px;" shadow="never">
-                            <el-row :gutter="20">
-                                <span class ="mini_font">{{item.route[0].local_arrival_date}}</span>
-                            </el-row>
-                            <el-row :gutter="20">
-                                <el-col class="el-col el-col-24 el-col-xs-24 el-col-sm-24 el-col-md-4 el-col-lg-4">
-                                    <span class ="font">{{item.route[0].airline}}</span>
-                                </el-col>
-                                <el-col class="el-col el-col-xs-10 el-col-sm-10 el-col-md-5 el-col-lg-5" style = "text-align: center;">
-                                    <div class ="sub_title"><font color="#F60">{{item.route[0].flyFrom}}</font></div>
-                                    <el-row></el-row>
-                                    <div class ="font"><font color="#F60">{{item.route[0].local_departure_time}}</font></div>
-                                </el-col>
-                                <el-col class="el-col el-col-xs-4 el-col-sm-4 el-col-md-4 el-col-lg-4">
-                                    <i class="el-icon-right sub_title"></i>
-                                </el-col>
-
-                                
-                                <el-col class="el-col el-col-xs-10 el-col-sm-10 el-col-md-5 el-col-lg-5" style = "text-align: center;">
-                                    <div class ="sub_title"><font color="#F60">{{item.route[0].flyTo}}</font></div>
-                                    <el-row></el-row>
-                                    <div class ="font"><font color="#F60">{{item.route[0].local_arrival_time}}</font></div>
-                                </el-col>
-
-                                
-                            </el-row>
-                            
-                            
                         </el-card>
-                    </div>
-                    
-                </el-col>
-                <!-- new不出來 -->
-            </el-row>
+                    </el-col>
+                    <el-col class="el-col el-col-24 el-col-xs-24 el-col-sm-24 el-col-md-18 el-col-lg-18">
+                        <div v-for="item in flightData.data" >
+                            <el-card class="box-card" style="min-height: 100px;">
+                                <el-row :gutter="20" style="margin-left: -10px;margin-right: -10px;margin-bottom: -10px;margin-top: -10px;">
 
+                                        <div class="el-col el-col-24 el-col-xs-24 el-col-sm-24 el-col-md-18 el-col-lg-18" style = "text-align: center;margin-bottom: -35px;margin-top: 35px;">
+                                            <p v-for="item1 in item.route" >
+                                                <el-row :gutter="20">
+                                                    <el-col class="el-col el-col-24 el-col-xs-24 el-col-sm-24 el-col-md-6 el-col-lg-6" style = "text-align: center;">
+                                                        <el-col class="el-col el-col-xs-2 el-col-sm-2 el-col-md-24 el-col-lg-24">
+                                                            <el-image style="width:25px ;height: 25px" :src="item1.image":fit="fits"></el-image>
+                                                        </el-col>
+                                                        <el-col class="el-col el-col-xs-2 el-col-sm-2 el-col-md-24 el-col-lg-24">
+                                                            <span class ="font">{{item1.airline+item1.operating_flight_no}}</span>
+                                                        </el-col>
+                                                        <!-- <el-col class="el-col el-col-xs-20 el-col-sm-20 el-col-md-0 el-col-lg-0">
+                                                            &emsp;
+                                                        </el-col> -->
+                                                    </el-col>
+                                                    <el-col class="el-col el-col-xs-10 el-col-sm-10 el-col-md-6 el-col-lg-6" style = "text-align: center;">
+                                                        <el-col class="el-col-24 sub_title"><font color="#F60">{{item1.flyFrom}}</font></el-col>
+                                                        <el-col class="el-col-24 font" style = "text-align: center;">{{item1.local_departure_time}}</el-col>
+                                                    </el-col>
+                                                    <el-col class="el-col el-col-xs-4 el-col-sm-4 el-col-md-6 el-col-lg-6" style = "text-align: center;">
+                                                        <i class="el-icon-right sub_title"></i>
+                                                    </el-col>
+
+                                                    
+                                                    <el-col class="el-col el-col-xs-10 el-col-sm-10 el-col-md-6 el-col-lg-6" style = "text-align: center;">
+                                                        <el-col class="el-col-24 sub_title"><font color="#F60">{{item1.flyTo}}</font></el-col>
+                                                        <el-col class="el-col-24 font" style = "text-align: center;">{{item1.local_arrival_time}}</el-col>
+                                                    </el-col>
+                                                </el-row>
+                                            </p>
+                                        </div>
+
+                                        <div class="el-col el-col-24 el-col-xs-24 el-col-sm-24 el-col-md-6 el-col-lg-6 price" style = "text-align: center;">
+                                            <div class ="sub_title"><font color="#F60">${{item.price}}</font></div>
+                                            <el-row></el-row>
+                                            <el-button class="el-col el-col-xs-24 el-col-sm-24 el-col-md-24 el-col-lg-24" type="primary is-plain" style="width:100% ;margin:0px 0px 15px 0px" @click = 'buy()'>立即訂購</el-button>
+                                        </div>
+
+                                </el-row>
+                            </el-card>
+                        </div>
+                        
+                    </el-col>
+                    <!-- new不出來 -->
+                </el-row>
+
+            </div>
         </div>
-         
         
     
         
@@ -883,6 +900,7 @@ $(".include").each(function(){
                 numAdult:0,
                 numChild:0,
                 numInf:0,
+                fits:'fill',
             };
     
             },methods: {
@@ -945,8 +963,10 @@ $(".include").each(function(){
                             departureDate = this.flightData.data[i].route[j].local_departure.slice(0,10)
                             departureTime = this.flightData.data[i].route[j].local_departure.slice(11,16)
                             destinationTime = this.flightData.data[i].route[j].local_arrival.slice(11,16)
+                            this.flightData.data[i].price = parseInt(this.flightData.data[i].price/1.2)
                             this.flightData.data[i].route[j] = {...this.flightData.data[i].route[j],'local_arrival_date':departureDate
-                            ,'local_departure_time':departureTime,'local_arrival_time':destinationTime}
+                            ,'local_departure_time':departureTime,'local_arrival_time':destinationTime
+                            ,'image':'image/'+this.flightData.data[i].route[j].airline+'.gif'}
                         }
                     }                    
 
