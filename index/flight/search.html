@@ -1,0 +1,991 @@
+
+
+<!DOCTYPE html>
+<head>
+ 
+
+<link rel='stylesheet' href='https://tafengtravel.github.io/tafengtravel/index/css/smart.css' type='text/css'>
+<link href="https://tafengtravel.github.io/tafengtravel/index/index.css" rel="stylesheet" >
+
+<link rel="stylesheet" href="https://tafengtravel.github.io/tafengtravel/index/index.css">
+
+<link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+
+<link href='https://tafengtravel.github.io/tafengtravel/index/sm-css/sm-core-css.css' rel='stylesheet' type='text/css' />
+<!-- "sm-blue" menu theme (optional, you can use your own CSS, too) -->
+<link href='https://tafengtravel.github.io/tafengtravel/index/sm-css/sm-mint/sm-mint.css' rel='stylesheet' type='text/css' />
+<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.css">
+
+<script src="https://tafengtravel.github.io/tafengtravel/index/js/jquery.min.js.js"></script>     
+
+
+<script src="https://tafengtravel.github.io/tafengtravel/index/js/jquery.smartmenus.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+
+<link href="https://tafengtravel.github.io/tafengtravel/index/css/elementUI.css" rel="stylesheet" />
+<link href="https://tafengtravel.github.io/tafengtravel/index/css/common.css" rel="stylesheet" />
+<link href="https://tafengtravel.github.io/tafengtravel/index/css/swiper.min.css" rel="stylesheet" />
+
+<link href="https://tafengtravel.github.io/tafengtravel/index/css/book.css" rel="stylesheet" />
+
+
+
+
+<!--自家檔案-->
+
+<link rel="icon" href="https://tafengtravel.github.io/tafengtravel/index1/tafenglogo6.ico" type="image/x-icon" />
+<link rel="shortcut icon" href="https://tafengtravel.github.io/tafengtravel/index1/tafenglogo6.ico" type="image/x-icon" />
+
+<!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/8.3.0/firebase.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.3.0/firebase-firestore.js"></script>
+
+<!-- moment -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+
+<script>
+  // Your web app's Firebase configuration
+  var firebaseConfig = {
+    apiKey: "AIzaSyC1DlPU6BqCFXzWLBZ_6Y90KNLwYzfei3c",
+    authDomain: "tafengtravel-web.firebaseapp.com",
+    projectId: "tafengtravel-web",
+    storageBucket: "tafengtravel-web.appspot.com",
+    messagingSenderId: "971660802735",
+    appId: "1:971660802735:web:af7e22d11fe81ca63ab25a"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+</script>
+
+<!-- axios -->
+<script src='https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.2/axios.min.js'></script>
+
+
+
+<script src="https://unpkg.com/vue-router@2.0.0/dist/vue-router.js"></script>
+
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-143702269-1"></script>
+
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+
+gtag('config', 'UA-143702269-1', {
+'linker': {
+    'domains': ['tafengtravel.github.io', 'tafeng66.com.tw']
+}
+});
+</script>
+
+<!-- Facebook Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '708390289347362');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=708390289347362&ev=PageView&noscript=1"
+/></noscript>
+<!-- End Facebook Pixel Code -->
+
+<!-- Facebook Event -->
+
+
+<!-- GA Event -->
+<script>
+window.addEventListener('load', function(event) {
+document.querySelectorAll("[href^='http://line.me']").forEach(function(item){
+    item.addEventListener('click', function(event){
+        gtag("event", "點擊", {event_category: "line客戶轉換"});
+    })
+})
+document.querySelectorAll("[href^='https://line.me']").forEach(function(item){
+    item.addEventListener('click', function(event){
+        gtag("event", "點擊", {event_category: "line客戶轉換"});
+    })
+})
+})  
+</script>
+
+<style>
+@media (min-width: 768px){
+    .sm-mint a, .sm-mint a:hover, .sm-mint a:focus, .sm-mint a:active, .sm-mint a.highlighted {
+    padding: 19px 20px;
+    border-radius: 4px 4px 0 0;
+    }
+    .sm-mint a.has-submenu {
+    padding-right: 34px;
+    }
+    .image-margin {
+        margin-bottom: -5px;
+    }.text-margin{
+        padding-left: 15px;
+    }.image-fit{
+        width:280px;
+    }
+    .back{
+    background-image: url("image/search1.jpg");
+    }
+    .slogan_title{
+        font-size: 40px;
+        font-weight: bold;
+    }
+    .slogan_sub_title{
+        font-size: 25px;
+        font-weight: bold;
+    }
+    .icon{
+        font-size:25px;text-align: center; line-height: 50px;
+    }
+
+}
+@media (max-width: 1130px) {
+    .hidden-md-and-down{
+        display:none;
+    }
+}
+@media (max-width: 768px) {
+    .table-sm td, .table-sm th{
+    padding: 1px;
+    } 
+    .image-fit{
+        width:100%;
+    }
+    .back{
+    background-image: url("image/search.jpg");
+    }
+    .slogan_title{ 
+        font-size: 25px;
+        font-weight: bold;
+    }
+    .slogan_sub_title{
+        font-size: 15px;
+        font-weight: bold;
+    }
+    .icon{
+        font-size:25px;text-align: center;
+    }
+}
+.font{
+    white-space: pre-wrap;
+}
+
+.el-card{
+    margin-bottom:30px; 
+    min-height: 200px;
+}
+.el-tabs__item {
+    padding: 0 20px;
+    height: 40px;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    line-height: 40px;
+    display: inline-block;
+    list-style: none;
+    font-size: 18px;
+    color: #303133;
+    position: relative;
+    font-weight: bold;
+}
+.el-input__inner {
+    font-size: 16px;
+    font-weight: bold;
+    height: 50px;
+}
+
+.el-input-number__decrease, .el-input-number__increase {
+    height:48px
+}
+.el-col {
+    margin-bottom: 20px;
+}
+
+</style>
+
+   
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>機票｜大豐旅行社</title>   	
+
+<meta name="description" content="在找最便宜的機票嗎，全在大豐旅行社，不論是日本、韓國、中國、香港、澳門、新加坡、馬來西亞、美洲、歐洲，全部都有">
+<meta name="keywords" content=""> 
+<meta http-equiv="expires" content="0">
+<meta http-equiv="cache-control" content="no-cache">  
+<meta http-equiv="pragma" content="no-cache">
+<meta name="format-detection" content="telephone=no">
+
+
+
+</head>
+<body id="page_body" class="green-page">
+
+<div class="include" file="https://tafengtravel.github.io/tafengtravel/index/top"  id ="top"></div>
+
+<div id="pnl_wrapper" class="wrapper homepage green-page">
+    
+    <div id="app"> 
+        
+        <div class="el-col el-col-24 el-col-xs-24 el-col-sm-24 el-col-md-24 el-col-lg-24">
+            <el-row :gutter="20" class="back">
+                <br><br><br><br><br><br><br>
+
+                
+
+                <br><br><br><br><br><br><br><br>
+            </el-row>
+        </div>
+
+        <div class="top el-col el-col-24 el-col-xs-20 el-col-xs-offset-2 el-col-sm-20 el-col-sm-offset-2 el-col-md-22 el-col-md-offset-1 el-col-lg-20 el-col-lg-offset-2"  style="margin-top: -70px;position: relative;">
+            <el-card class="box-card">
+                <template>
+
+                    <el-tabs v-model="activeName">
+
+                        <el-tab-pane label="單程" name="first" class="font">
+                            <el-row :gutter="20">
+                                <el-col class ="el-col el-col-24 el-col-xs-24 el-col-sm-24 el-col-md-9 el-col-lg-9">
+                                    <!-- <el-card class="box-card" style="min-height: 80px;" shadow="never"> -->
+                                        <el-select v-model="originValue" filterable placeholder="出發地" class ="el-col el-col-24 el-col-xs-24 el-col-sm-24 el-col-md-10 el-col-lg-10">
+                                            <el-option-group
+                                                v-for="group in origin"
+                                                :key="group.label"
+                                                :label="group.label">
+                                                <el-option
+                                                    v-for="item in group.options"
+                                                    :key="item.value"
+                                                    :label="originLabel(item)"
+                                                    :value="item.value">
+                                                    <span style="float: left">{{ item.label }}</span>
+                                                </el-option>
+                                            </el-option-group>
+                                        </el-select>
+
+                                        <!-- <a href="#">
+                                            <i class="el-icon-refresh" @click="locationChange" style="position: absolute;"></i>
+                                        </a> -->
+
+                                        <font class ="el-col el-col-24 el-col-xs-24 el-col-sm-24 el-col-md-2 el-col-lg-2 icon">
+                                            <a href="javascript:void(0);">
+                                                <i class="el-icon-refresh" @click="locationChange"></i>
+                                            </a>
+                                        </font>
+
+                                        <el-select v-model="destinationValue" filterable placeholder="目的地" class ="el-col el-col-24 el-col-xs-24 el-col-sm-24 el-col-md-10 el-col-lg-10">
+                                            <el-option-group
+                                                v-for="group in destination"
+                                                :key="group.label"
+                                                :label="group.label">
+                                                <el-option
+                                                    v-for="item in group.options"
+                                                    :key="item.value"
+                                                    :label="destinationLabel(item)"
+                                                    :value="item.value">
+                                                    <span style="float: left">{{ item.label }}</span>
+                                                </el-option>
+                                            </el-option-group>
+                                        </el-select>
+                                    <!-- </el-card> -->
+                                </el-col>
+                                <el-col class ="el-col el-col-24 el-col-xs-24 el-col-sm-24 el-col-md-9 el-col-lg-9">
+
+                                    <el-date-picker
+                                    class ="el-col el-col-24 el-col-xs-24 el-col-sm-24 el-col-md-12 el-col-lg-12 date-picker"
+                                    style ="width: 180px;"
+                                    v-model="departureDate"
+                                    type="date"
+                                    placeholder="出發日期"
+                                    :picker-options="pickerOptions">
+                                    </el-date-picker>
+
+                                </el-col>
+
+                                <el-col class ="el-col el-col-24 el-col-xs-24 el-col-sm-24 el-col-md-5 el-col-lg-5">
+                                    <el-popover
+                                        placement="bottom"
+                                        width="380"
+                                        trigger="click">
+                                        <el-button slot="reference" style="font-size: 16px;font-weight: bold;height: 50px;" @click="popoverChange">{{amount}}</el-button>
+                                        
+                                            <el-col class ="el-col el-col-8 el-col-xs-8 el-col-sm-10 el-col-md-10 el-col-lg-10">
+                                                <span class="font">大人(12+)</span>
+                                            </el-col>
+                                            <el-col class ="el-col el-col-16 el-col-xs-16 el-col-sm-14 el-col-md-14 el-col-lg-14">
+                                                <el-input-number v-model="numAdult" :min="1" :max="9" @change="popoverChange"></el-input-number>
+                                            </el-col>
+                                        
+                                            <el-col class ="el-col el-col-8 el-col-xs-8 el-col-sm-10 el-col-md-10 el-col-lg-10">
+                                                <span class="font">孩童(2-11)</span>
+                                            </el-col>
+                                            <el-col class ="el-col el-col-16 el-col-xs-16 el-col-sm-14 el-col-md-14 el-col-lg-14">
+                                                <el-input-number v-model="numChild" :min="0" :max="9" @change="popoverChange"></el-input-number>
+                                            </el-col>
+                                            <el-col class ="el-col el-col-8 el-col-xs-8 el-col-sm-10 el-col-md-10 el-col-lg-10">
+                                                <span class="font">嬰兒(0-2)</span>
+                                            </el-col>
+                                            <el-col class ="el-col el-col-16 el-col-xs-16 el-col-sm-14 el-col-md-14 el-col-lg-14">
+                                                <el-input-number v-model="numInf" :min="0" :max="9" @change="popoverChange"></el-input-number>
+                                            </el-col>
+                                    </el-popover>
+                                    <el-button type="primary" style="height: 50px;width:100px" @click="search">查詢</el-button>
+                                </el-col>
+
+                            </el-row>
+                        </el-tab-pane>
+                        <el-tab-pane label="來回" name="second" class="font">
+                            <el-row :gutter="20">
+                                <el-col class ="el-col el-col-24 el-col-xs-24 el-col-sm-24 el-col-md-9 el-col-lg-9">
+                                    <!-- <el-card class="box-card" style="min-height: 80px;" shadow="never"> -->
+                                        <el-select v-model="originValue" filterable placeholder="出發地" class ="el-col el-col-24 el-col-xs-24 el-col-sm-24 el-col-md-10 el-col-lg-10">
+                                            <el-option-group
+                                                v-for="group in origin"
+                                                :key="group.label"
+                                                :label="group.label">
+                                                <el-option
+                                                    v-for="item in group.options"
+                                                    :key="item.value"
+                                                    :label="originLabel(item)"
+                                                    :value="item.value">
+                                                    <span style="float: left">{{ item.label }}</span>
+                                                </el-option>
+                                            </el-option-group>
+                                        </el-select>
+
+                                        <!-- <a href="#">
+                                            <i class="el-icon-refresh" @click="locationChange" style="position: absolute;"></i>
+                                        </a> -->
+
+                                        <font class ="el-col el-col-24 el-col-xs-24 el-col-sm-24 el-col-md-2 el-col-lg-2 icon">
+                                            <a href="javascript:void(0);">
+                                                <i class="el-icon-refresh" @click="locationChange"></i>
+                                            </a>
+                                        </font>
+
+                                        <el-select v-model="destinationValue" filterable placeholder="目的地" class ="el-col el-col-24 el-col-xs-24 el-col-sm-24 el-col-md-10 el-col-lg-10">
+                                            <el-option-group
+                                                v-for="group in destination"
+                                                :key="group.label"
+                                                :label="group.label">
+                                                <el-option
+                                                    v-for="item in group.options"
+                                                    :key="item.value"
+                                                    :label="destinationLabel(item)"
+                                                    :value="item.value">
+                                                    <span style="float: left">{{ item.label }}</span>
+                                                </el-option>
+                                            </el-option-group>
+                                        </el-select>
+                                    <!-- </el-card> -->
+                                </el-col>
+                                <el-col class ="el-col el-col-24 el-col-xs-24 el-col-sm-24 el-col-md-9 el-col-lg-9 ">
+
+                                    <el-date-picker
+                                    class ="el-col el-col-24 el-col-xs-24 el-col-sm-24 el-col-md-12 el-col-lg-12 date-picker"
+                                    style ="width: 180px;"
+                                    v-model="departureDate"
+                                    type="date"
+                                    placeholder="出發日期"
+                                    :picker-options="pickerOptions">
+                                    
+                                    </el-date-picker>
+
+                                    <el-date-picker
+                                    class ="el-col el-col-24 el-col-xs-24 el-col-sm-24 el-col-md-12 el-col-lg-12 date-picker"
+                                    style ="width: 180px;"
+                                    v-model="returnDate"
+                                    type="date"
+                                    placeholder="回程日期"
+                                    :picker-options="pickerOptions1">
+                                    </el-date-picker>
+
+                                </el-col>
+
+                                <el-col class ="el-col el-col-24 el-col-xs-24 el-col-sm-24 el-col-md-5 el-col-lg-5">
+                                    <el-popover
+
+                                        placement="bottom"
+                                        width="380"
+                                        trigger="click">
+                                        <el-button slot="reference" style="font-size: 16px;font-weight: bold;height: 50px;" @click="popoverChange">{{amount}}</el-button>
+                                        
+                                            <el-col class ="el-col el-col-8 el-col-xs-8 el-col-sm-10 el-col-md-10 el-col-lg-10">
+                                                <span class="font">大人(12+)</span>
+                                            </el-col>
+                                            <el-col class ="el-col el-col-16 el-col-xs-16 el-col-sm-14 el-col-md-14 el-col-lg-14">
+                                                <el-input-number v-model="numAdult" :min="1" :max="9" @change="popoverChange"></el-input-number>
+                                            </el-col>
+                                        
+                                            <el-col class ="el-col el-col-8 el-col-xs-8 el-col-sm-10 el-col-md-10 el-col-lg-10">
+                                                <span class="font">孩童(2-11)</span>
+                                            </el-col>
+                                            <el-col class ="el-col el-col-16 el-col-xs-16 el-col-sm-14 el-col-md-14 el-col-lg-14">
+                                                <el-input-number v-model="numChild" :min="0" :max="9" @change="popoverChange"></el-input-number>
+                                            </el-col>
+                                            <el-col class ="el-col el-col-8 el-col-xs-8 el-col-sm-10 el-col-md-10 el-col-lg-10">
+                                                <span class="font">嬰兒(0-2)</span>
+                                            </el-col>
+                                            <el-col class ="el-col el-col-16 el-col-xs-16 el-col-sm-14 el-col-md-14 el-col-lg-14">
+                                                <el-input-number v-model="numInf" :min="0" :max="9" @change="popoverChange"></el-input-number>
+                                            </el-col>
+                                    </el-popover>
+                                    <el-button type="primary" style="height: 50px;width:100px" @click="search">查詢</el-button>
+                                </el-col>
+
+                            </el-row>
+                    </el-tabs>
+                    
+                </template>
+            </el-card>
+
+            <el-row :gutter="20">
+                <el-col class="hidden-sm-and-down el-col el-col-24 el-col-xs-24 el-col-sm-24 el-col-md-6 el-col-lg-6">
+                    <el-card class="box-card" style="min-height: 1000px;">
+
+                    </el-card>
+                </el-col>
+                <el-col class="el-col el-col-24 el-col-xs-24 el-col-sm-24 el-col-md-18 el-col-lg-18">
+                    <div v-for="item in flightData.data" >
+                        <el-card class="box-card" style="min-height: 300px;" shadow="never">
+                            <el-row :gutter="20">
+                                <span class ="mini_font">{{item.route[0].local_arrival_date}}</span>
+                            </el-row>
+                            <el-row :gutter="20">
+                                <el-col class="el-col el-col-24 el-col-xs-24 el-col-sm-24 el-col-md-4 el-col-lg-4">
+                                    <span class ="font">{{item.route[0].airline}}</span>
+                                </el-col>
+                                <el-col class="el-col el-col-xs-10 el-col-sm-10 el-col-md-5 el-col-lg-5" style = "text-align: center;">
+                                    <div class ="sub_title"><font color="#F60">{{item.route[0].flyFrom}}</font></div>
+                                    <el-row></el-row>
+                                    <div class ="font"><font color="#F60">{{item.route[0].local_departure_time}}</font></div>
+                                </el-col>
+                                <el-col class="el-col el-col-xs-4 el-col-sm-4 el-col-md-4 el-col-lg-4">
+                                    <i class="el-icon-right sub_title"></i>
+                                </el-col>
+
+                                
+                                <el-col class="el-col el-col-xs-10 el-col-sm-10 el-col-md-5 el-col-lg-5" style = "text-align: center;">
+                                    <div class ="sub_title"><font color="#F60">{{item.route[0].flyTo}}</font></div>
+                                    <el-row></el-row>
+                                    <div class ="font"><font color="#F60">{{item.route[0].local_arrival_time}}</font></div>
+                                </el-col>
+
+                                
+                            </el-row>
+                            
+                            
+                        </el-card>
+                    </div>
+                    
+                </el-col>
+                <!-- new不出來 -->
+            </el-row>
+
+        </div>
+         
+        
+    
+        
+
+    </div>
+        
+    
+</div>
+
+
+
+
+<div class="text-center">
+
+    <div class="include" file="https://tafengtravel.github.io/tafengtravel/index/footer"></div>
+
+</div> 
+
+
+
+<a class="go-to-top" id="goTop" href="#"><i class="fa fa-caret-up"></i>top</a>
+
+    
+</body>
+
+<script type="text/javascript">
+
+//使用jQuery的load方法
+$(".include").each(function(){
+    if(!!$(this).attr("file")) {
+        var $includeObj = $(this);
+        $(this).load($(this).attr("file"), function(html){
+            $includeObj.after(html).remove();    //載入的檔案內容寫入到當前標籤後面並移除當前標籤
+        })
+    }
+});
+</script>
+
+<script src="https://unpkg.com/vue@2.6.12/dist/vue.js"></script>
+<!-- import JavaScript -->
+<script src="https://unpkg.com/element-ui@2.15.0/lib/index.js"></script>
+
+
+<script>
+    const urlParams = new URLSearchParams(window.location.search)
+    const paramsObj = Object.fromEntries(urlParams)
+    console.log(paramsObj)
+    let data = []
+    let data1 = []
+
+    var Main = {
+        data() {
+            return {
+                flightData:{},
+                destination:[],
+                pickerOptions: {
+                    disabledDate(time) {
+                        return time.getTime() < new Date().getTime()-24*60*60*1000
+                    }
+                },
+                pickerOptions1:{
+                    disabledDate(time) {
+                        return time.getTime() < new Date(this.departureDate).getTime() || time.getTime() < new Date().getTime()-24*60*60*1000
+                    }
+                },
+                origin: [{
+                    label: '台灣',
+                    options: [{
+                        label: '桃園 - TPE',
+                        value: 'TPE'
+                    },{
+                        label: '高雄 - KHH',
+                        value: 'KHH',
+
+                    }],
+                },{
+                    label: '大陸港澳',
+                    options: [{
+                        label: '香港 - HKG',
+                        value: 'HKG'
+                    },{
+                        label: '澳門 - MFM',
+                        value: 'MFM',
+
+                    },{
+                        label: '北京 - BJS',
+                        value: 'BJS',
+
+                    },{
+                        label: '上海 - SHA',
+                        value: 'SHA',
+
+                    },{
+                        label: '深圳 - SZX',
+                        value: 'SZX',
+
+                    },{
+                        label: '福州 - FOC',
+                        value: 'FOC',
+
+                    },{
+                        label: '廈門 - XMN',
+                        value: 'XMN',
+
+                    },{
+                        label: '廣州 - CAN',
+                        value: 'CAN',
+
+                    }],
+                },{
+                    label: '日本',
+                    options: [{
+                        label: '東京成田 - NRT',
+                        value: 'NRT'
+                    },{
+                        label: '東京羽田 - HND',
+                        value: 'HND'
+                    },{
+                        label: '大阪 - KIX',
+                        value: 'KIX'
+                    },{
+                        label: '新千歲 - CTS',
+                        value: 'CTS'
+                    },{
+                        label: '函館 - HKD',
+                        value: 'HKD'
+                    },{
+                        label: '名古屋 - NGO',
+                        value: 'NGO'
+                    },{
+                        label: '沖繩 - OKA',
+                        value: 'OKA'
+                    },{
+                        label: '福岡 - FUK',
+                        value: 'FUK'
+                    },{
+                        label: '廣島 - HIJ',
+                        value: 'HIJ'
+                    },{
+                        label: '高松 - SDJ',
+                        value: 'SDJ'
+                    },{
+                        label: '仙台 - TAK',
+                        value: 'TAK'
+                    },{
+                        label: '鹿兒島 - KOJ',
+                        value: 'KOJ'
+                    }],
+                },{
+                    label: '韓國',
+                    options: [{
+                        label: '首爾 - ICN',
+                        value: 'ICN'
+                    },{
+                        label: '釜山 - PUS',
+                        value: 'PUS'
+                    },{
+                        label: '濟州 - CJU',
+                        value: 'CJU'
+                    },{
+                        label: '大邱 - TAE',
+                        value: 'TAE'
+                    }],
+                },{
+                    label: '東南亞',
+                    options: [{
+                        label: '曼谷 - BKK',
+                        value: 'BKK'
+                    },{
+                        label: '吉隆坡 - KUL',
+                        value: 'KUL'
+                    },{
+                        label: '馬尼拉 - MNL',
+                        value: 'MNL'
+                    },{
+                        label: '沙巴 - BKI',
+                        value: 'BKI'
+                    },{
+                        label: '新加坡 - SIN',
+                        value: 'SIN'
+                    },{
+                        label: '雅加達 - CGK',
+                        value: 'CGK'
+                    },{
+                        label: '普吉島 - HKT',
+                        value: 'HKT'
+                    },{
+                        label: '胡志明市 - SGN',
+                        value: 'SGN'
+                    },{
+                        label: '清邁 - CNX',
+                        value: 'CNX'
+                    },{
+                        label: '檳城 - PEN',
+                        value: 'PEN'
+                    },{
+                        label: '長灘島 - KLO',
+                        value: 'KLO'
+                    },{
+                        label: '峇里島 - DPS',
+                        value: 'DPS'
+                    },{
+                        label: '河內 - HAN',
+                        value: 'HAN'
+                    },{
+                        label: '宿霧 - CEB',
+                        value: 'CEB'
+                    }],
+                },{
+                    label: '歐洲',
+                    options: [{
+                        label: '倫敦 - LON',
+                        value: 'LON'
+                    },{
+                        label: '巴黎 - PAR',
+                        value: 'PAR'
+                    },{
+                        label: '法蘭克福 - FRA',
+                        value: 'FRA'
+                    },{
+                        label: '阿姆斯特丹 - AMS',
+                        value: 'AMS'
+                    },{
+                        label: '布拉格 - PRG',
+                        value: 'PRG'
+                    },{
+                        label: '羅馬 - ROM',
+                        value: 'ROM'
+                    },{
+                        label: '馬德里 - MAD',
+                        value: 'MAD'
+                    },{
+                        label: '蘇黎世 - ZRH',
+                        value: 'ZRH'
+                    },{
+                        label: '維也納 - VIE',
+                        value: 'VIE'
+                    },{
+                        label: '巴塞隆納 - BCN',
+                        value: 'BCN'
+                    },{
+                        label: '米蘭 - MIL',
+                        value: 'MIL'
+                    },{
+                        label: '哥本哈根 - CPH',
+                        value: 'CPH'
+                    },{
+                        label: '柏林 - BER',
+                        value: 'BER'
+                    },{
+                        label: '慕尼黑 - MUC',
+                        value: 'MUC'
+                    },{
+                        label: '雷克雅維克 - REK',
+                        value: 'REK'
+                    },{
+                        label: '雅典 - ATH',
+                        value: 'ATH'
+                    },{
+                        label: '奧斯陸 - OSL',
+                        value: 'OSL'
+                    },{
+                        label: '布達佩斯 - BUD',
+                        value: 'BUD'
+                    },{
+                        label: '斯德哥爾摩 - STO',
+                        value: 'STO'
+                    },{
+                        label: '里斯本 - LIS',
+                        value: 'LIS'
+                    }]
+                },{
+                    label: '美洲',
+                    options: [{
+                        label: '洛杉磯 - LOS',
+                        value: 'LOS'
+                    },{
+                        label: '舊金山 - SAN',
+                        value: 'SAN'
+                    },{
+                        label: '紐約 - NYC',
+                        value: 'NYC'
+                    },{
+                        label: '溫哥華 - YVR',
+                        value: 'YVR'
+                    },{
+                        label: '安大略 - ONT',
+                        value: 'ONT'
+                    },{
+                        label: '西雅圖 - SEA',
+                        value: 'SEA'
+                    },{
+                        label: '芝加哥 - CHI',
+                        value: 'CHI'
+                    },{
+                        label: '多倫多 - YTO',
+                        value: 'YTO'
+                    },{
+                        label: '休士頓 - HOU',
+                        value: 'HOU'
+                    },{
+                        label: '華盛頓DC - WAS',
+                        value: 'WAS'
+                    },{
+                        label: '波士頓 - BOS',
+                        value: 'BOS'
+                    },{
+                        label: '蒙特婁 - YMQ',
+                        value: 'YMQ'
+                    },{
+                        label: '亞特蘭大 - ATL',
+                        value: 'ATL'
+                    },{
+                        label: '夏威夷 - HNL',
+                        value: 'HNL'
+                    },{
+                        label: '關島 - GUM',
+                        value: 'GUM'
+                    },{
+                        label: '卡加利 - YYC',
+                        value: 'YYC'
+                    },{
+                        label: '墨西哥 - MEX',
+                        value: 'MEX'
+                    },{
+                        label: '巴拿馬市 - PTY',
+                        value: 'PTY'
+                    },{
+                        label: '利馬 - LIM',
+                        value: 'LIM'
+                    },{
+                        label: '聖地牙哥(智利) - SCL',
+                        value: 'SCL'
+                    }],
+                },{
+                    label: '大洋洲',
+                    options: [{
+                        label: '雪梨 - SYD',
+                        value: 'SYD'
+                    },{
+                        label: '墨爾本 - MEL',
+                        value: 'MEL'
+                    },{
+                        label: '布里斯班 - BNE',
+                        value: 'BNE'
+                    },{
+                        label: '奧克蘭 - AKL',
+                        value: 'AKL'
+                    },{
+                        label: '基督城 - CHC',
+                        value: 'CHC'
+                    },{
+                        label: '柏斯 - PER',
+                        value: 'PER'
+                    },{
+                        label: '阿德雷德 - ADL',
+                        value: 'ADL'
+                    },{
+                        label: '黃金海岸 - OOL',
+                        value: 'OOL'
+                    },{
+                        label: '凱恩斯 - CNS',
+                        value: 'CNS'
+                    },{
+                        label: '科羅 - ROR',
+                        value: 'ROR'
+                    },{
+                        label: '皇后鎮 - ZQN',
+                        value: 'ZQN'
+                    },{
+                        label: '威靈頓 - WLG',
+                        value: 'WLG'
+                    },{
+                        label: '南地 - NAN',
+                        value: 'NAN'
+                    },{
+                        label: '坎培拉 - CBR',
+                        value: 'CBR'
+                    }],
+                }],
+                originValue:'',
+                destinationValue:'',
+                activeName: 'first',
+                departureDate:'',
+                returnDate:'',
+                amount:'選擇人數',
+                numAdult:0,
+                numChild:0,
+                numInf:0,
+            };
+    
+            },methods: {
+                originLabel(item) {
+                    return '出發地：' + item.label;
+                },
+                destinationLabel(item) {
+                    return '目的地：' + item.label;
+                },
+                locationChange(){
+                    let value
+                    value = this.destinationValue 
+                    this.destinationValue = this.originValue 
+                    this.originValue = value
+                    console.log(this.departureDate)
+                },
+                popoverChange(){
+                    let amountTotal
+                    amountTotal = this.numAdult + this.numChild + this.numInf
+                    this.amount = '總共'+amountTotal.toString()+'人'
+                },
+                async search(){
+                    let options = {
+                            method: 'GET',
+                            url: 'https://tequila-api.kiwi.com/v2/search?',
+                            headers: {
+                                'apikey': '6rq5G9_8fOJn972b_ewdIT6W3Ck6Fofo',
+                            }       
+                        };
+
+                        console.log(this.returnDate)
+
+                    let params
+                    if(this.returnDate == ''){
+                        params = 'fly_from='+this.originValue+'&fly_to='+this.destinationValue+'&dateFrom='+moment(this.departureDate).format('DD/MM/YYYY')
+                        +'&dateTo='+moment(this.departureDate).format('DD/MM/YYYY')+'&curr=TWD&max_stopovers=0'
+                    }else{
+                        params = 'fly_from='+this.originValue+'&fly_to='+this.destinationValue+'&dateFrom='+moment(this.departureDate).format('DD/MM/YYYY')
+                        +'&dateTo='+moment(this.departureDate).format('DD/MM/YYYY')+'&returnFrom='+moment(this.returnDate).format('DD/MM/YYYY')
+                        +'&returnTo='+moment(this.returnDate).format('DD/MM/YYYY')+'&curr=TWD&max_stopovers=0'
+                    }
+                    options.url = options.url + params
+                    
+                    await axios.request(options).then(function (response) {
+                        flightData = response.data
+                    }).catch(function (error) {
+                        console.error(error);
+                    });
+                    this.flightData = flightData
+                    console.log(this.flightData )
+                    console.log(JSON.stringify(this.flightData));
+                    this.dataSort()
+                },dataSort(){
+                    let departureDate = []
+                    let departureTime = []
+                    let destinationTime = []
+                    for(i=0;i<this.flightData.data.length;i++){
+                        for(j=0;j<this.flightData.data[i].route.length;j++){
+
+                            departureDate = this.flightData.data[i].route[j].local_departure.slice(0,10)
+                            departureTime = this.flightData.data[i].route[j].local_departure.slice(11,16)
+                            destinationTime = this.flightData.data[i].route[j].local_arrival.slice(11,16)
+                            this.flightData.data[i].route[j] = {...this.flightData.data[i].route[j],'local_arrival_date':departureDate
+                            ,'local_departure_time':departureTime,'local_arrival_time':destinationTime}
+                        }
+                    }                    
+
+
+
+                }
+                                
+            },async mounted(){
+                this.destination = this.origin
+            } 
+        
+     
+    };
+    let Today=new Date();
+    let flightData
+    // console.log(Today.getFullYear()+'-'+ (Today.getMonth()+1) +'-'+ Today.getDate())
+
+    var Ctor = Vue.extend(Main)
+    new Ctor().$mount('#app')
+
+
+    // function buy(type){
+
+    //     let itinerary = document.getElementById('itinerary'+type).innerText
+
+    //     type2 = document.getElementById('radio'+type+'_'+radio1_1.__vue__.value).innerText
+
+
+    //     localStorage.setItem("dep_date", document.getElementById('dep_date').value);
+    //     localStorage.setItem("itinerary",itinerary);
+    //     localStorage.setItem("price",price_html[0].outerText);
+    //     localStorage.setItem("quantity", quantity1.__vue__.value+'位');
+    //     localStorage.setItem("time", document.getElementById('choice_time1').value);
+    //     localStorage.setItem("type", type2);
+    //     localStorage.setItem("guest", true);
+    //     document.location.href='https://tafengtravel.github.io/tafengtravel/index/book/book.html';
+
+    // }
+
+</script>
+
+</html>
