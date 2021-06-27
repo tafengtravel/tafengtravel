@@ -483,7 +483,10 @@ document.querySelectorAll("[href^='https://line.me']").forEach(function(item){
                                                         </el-col> -->
                                                     </el-col>
                                                     <el-col class="el-col el-col-xs-10 el-col-sm-10 el-col-md-6 el-col-lg-6" style = "text-align: center;">
-                                                        <el-col class="el-col-24 sub_title"><font color="#F60">{{item1.flyFrom}}</font></el-col>
+                                                        <el-col class="el-col-24 sub_title">
+                                                            <font color="#F60">{{item1.flyFrom}}</font>
+                                                            <span class="font">{{item1.airportFrom}}</span>
+                                                        </el-col>
                                                         <el-col class="el-col-24 font" style = "text-align: center;">{{item1.local_departure_time}}</el-col>
                                                     </el-col>
                                                     <el-col class="el-col el-col-xs-4 el-col-sm-4 el-col-md-6 el-col-lg-6" style = "text-align: center;">
@@ -492,7 +495,10 @@ document.querySelectorAll("[href^='https://line.me']").forEach(function(item){
 
                                                     
                                                     <el-col class="el-col el-col-xs-10 el-col-sm-10 el-col-md-6 el-col-lg-6" style = "text-align: center;">
-                                                        <el-col class="el-col-24 sub_title"><font color="#F60">{{item1.flyTo}}</font></el-col>
+                                                        <el-col class="el-col-24 sub_title">
+                                                            <font color="#F60">{{item1.flyTo}}</font>
+                                                            <span class="font">{{item1.airportTo}}</span>
+                                                        </el-col>
                                                         <el-col class="el-col-24 font" style = "text-align: center;">{{item1.local_arrival_time}}</el-col>
                                                     </el-col>
                                                 </el-row>
@@ -945,11 +951,11 @@ $(".include").each(function(){
                     let params
                     if(this.activeName == 'first'){
                         params = 'fly_from='+this.originValue+'&fly_to='+this.destinationValue+'&dateFrom='+moment(this.departureDate).format('DD/MM/YYYY')
-                        +'&dateTo='+moment(this.departureDate).format('DD/MM/YYYY')+'&curr=TWD&max_stopovers=0'
+                        +'&dateTo='+moment(this.departureDate).format('DD/MM/YYYY')+'&curr=TWD&max_stopovers=1'
                     }else if(this.activeName == 'second'){
                         params = 'fly_from='+this.originValue+'&fly_to='+this.destinationValue+'&dateFrom='+moment(this.departureDate).format('DD/MM/YYYY')
                         +'&dateTo='+moment(this.departureDate).format('DD/MM/YYYY')+'&returnFrom='+moment(this.returnDate).format('DD/MM/YYYY')
-                        +'&returnTo='+moment(this.returnDate).format('DD/MM/YYYY')+'&curr=TWD&max_stopovers=0'
+                        +'&returnTo='+moment(this.returnDate).format('DD/MM/YYYY')+'&curr=TWD&max_stopovers=1'
                     }
                     options.url = options.url + params
                     
@@ -960,14 +966,28 @@ $(".include").each(function(){
                     });
                     this.flightData = flightData
                     console.log(this.flightData )
-                    console.log(JSON.stringify(this.flightData));
+                    // console.log(JSON.stringify(this.flightData));
                     this.dataSort()
                 },dataSort(){
                     let departureDate = []
                     let departureTime = []
                     let destinationTime = []
+                    let airportFrom
+                    let airportTo
                     for(i=0;i<this.flightData.data.length;i++){
                         for(j=0;j<this.flightData.data[i].route.length;j++){
+                            for(k=0;k<this.origin.length;k++){
+                                for(l=0;l<this.origin[k].options.length;l++){
+                                    if (this.flightData.data[i].route[j].flyFrom == this.origin[k].options[l].value){
+                                        airportFrom = this.origin[k].options[l].label.trim().split(/\s+/)
+                                        console.log(airportFrom[0])
+                                    }
+                                    if (this.flightData.data[i].route[j].flyTo == this.origin[k].options[l].value){
+                                        airportTo = this.origin[k].options[l].label.trim().split(/\s+/)
+                                        console.log(airportTo[0])
+                                    }
+                                }
+                            }
 
                             departureDate = this.flightData.data[i].route[j].local_departure.slice(0,10)
                             departureTime = this.flightData.data[i].route[j].local_departure.slice(11,16)
@@ -975,7 +995,7 @@ $(".include").each(function(){
                             this.flightData.data[i].price = parseInt(this.flightData.data[i].price/1.2)
                             this.flightData.data[i].route[j] = {...this.flightData.data[i].route[j],'local_arrival_date':departureDate
                             ,'local_departure_time':departureTime,'local_arrival_time':destinationTime
-                            ,'image':'image/'+this.flightData.data[i].route[j].airline+'.gif'}
+                            ,'image':'image/'+this.flightData.data[i].route[j].airline+'.gif','airportFrom':airportFrom[0],'airportTo':airportTo[0]}
                         }
                     }                    
 
