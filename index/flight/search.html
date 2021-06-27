@@ -150,13 +150,14 @@ document.querySelectorAll("[href^='https://line.me']").forEach(function(item){
     .icon{
         font-size:25px;text-align: center; line-height: 50px;
     }
-    .price{
-        margin-top: 80px;
-    }
+    
 
 }
 @media (max-width: 1130px) {
     .hidden-md-and-down{
+        display:none;
+    }
+    .price{
         display:none;
     }
 }
@@ -468,7 +469,7 @@ document.querySelectorAll("[href^='https://line.me']").forEach(function(item){
                                 <el-row :gutter="20" style="margin-left: -10px;margin-right: -10px;margin-bottom: -10px;margin-top: -10px;">
 
                                         <div class="el-col el-col-24 el-col-xs-24 el-col-sm-24 el-col-md-18 el-col-lg-18" style = "text-align: center;margin-bottom: -35px;margin-top: 35px;">
-                                            <p v-for="item1 in item.route" >
+                                            <p v-for="(item1,index) in item.route" >
                                                 <el-row :gutter="20">
                                                     <el-col class="el-col el-col-24 el-col-xs-24 el-col-sm-24 el-col-md-6 el-col-lg-6" style = "text-align: center;">
                                                         <el-col class="el-col el-col-xs-2 el-col-sm-2 el-col-md-24 el-col-lg-24">
@@ -498,10 +499,14 @@ document.querySelectorAll("[href^='https://line.me']").forEach(function(item){
                                             </p>
                                         </div>
 
-                                        <div class="el-col el-col-24 el-col-xs-24 el-col-sm-24 el-col-md-6 el-col-lg-6 price" style = "text-align: center;">
+                                        <div class="el-col el-col-24 el-col-xs-24 el-col-sm-24 el-col-md-6 el-col-lg-6" style = "text-align: center;">
+                                            <div v-for="item3 in item.route" class="price">
+                                                <el-row>&emsp;</el-row><el-row>&emsp;</el-row>
+                                            </div>
                                             <div class ="sub_title"><font color="#F60">${{item.price}}</font></div>
                                             <el-row></el-row>
                                             <el-button class="el-col el-col-xs-24 el-col-sm-24 el-col-md-24 el-col-lg-24" type="primary is-plain" style="width:100% ;margin:0px 0px 15px 0px" @click = 'buy()'>立即訂購</el-button>
+                                                
                                         </div>
 
                                 </el-row>
