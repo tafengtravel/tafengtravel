@@ -216,7 +216,12 @@ document.querySelectorAll("[href^='https://line.me']").forEach(function(item){
 .el-input-number__decrease, .el-input-number__increase {
     height:48px
 }
-
+.el-collapse-item__header{
+    background-color:#F0F0F0;
+}
+.el-collapse-item__wrap{
+    background-color:#F0F0F0;
+}
 </style>
 
    
@@ -280,6 +285,7 @@ document.querySelectorAll("[href^='https://line.me']").forEach(function(item){
                                                     </el-option>
                                                 </el-option-group>
                                             </el-select>
+                                            
 
                                             <!-- <a href="#">
                                                 <i class="el-icon-refresh" @click="locationChange" style="position: absolute;"></i>
@@ -347,7 +353,7 @@ document.querySelectorAll("[href^='https://line.me']").forEach(function(item){
                                                     <el-input-number v-model="numInf" :min="0" :max="9" @change="popoverChange"></el-input-number>
                                                 </el-col>
                                         </el-popover>
-                                        <el-button type="primary" style="height: 50px;font-size: 16px;width:48%" @click="search" >查詢</el-button>
+                                        <el-button type="primary" style="height: 50px;font-size: 16px;width:48%" @click="search" v-loading.fullscreen.lock="fullscreenLoading">查詢</el-button>
                                     </el-col>
 
                                 </el-row>
@@ -405,7 +411,8 @@ document.querySelectorAll("[href^='https://line.me']").forEach(function(item){
                                         v-model="departureDate"
                                         type="date"
                                         placeholder="出發日期"
-                                        :picker-options="pickerOptions">
+                                        :picker-options="pickerOptions"
+                                        @change="dateChoose">
                                         
                                         </el-date-picker>
 
@@ -458,32 +465,38 @@ document.querySelectorAll("[href^='https://line.me']").forEach(function(item){
                 </el-card>
 
                 <el-row :gutter="20">
-                    <el-col class="hidden-sm-and-down el-col el-col-24 el-col-xs-24 el-col-sm-24 el-col-md-6 el-col-lg-6">
-                        <el-card class="box-card" style="min-height: 1000px;">
+                    <el-col class="el-col el-col-24 el-col-xs-24 el-col-sm-24 el-col-md-6 el-col-lg-6">
+                        <el-collapse v-model="filter">
+                            <el-collapse-item name="1">
+                                <template slot="title">
+                                    <span class="font">篩選器</span>
+                                </template>
+                                
+                                <el-collapse v-model="stopoversNames">
+                                    <el-collapse-item name="1">
+                                        <template slot="title">
+                                            <span class="font">&emsp;停留</span>
+                                        </template>
+                                        
+                                        <template>
+                                            <el-radio-group v-model="stopovers" style="padding-left: 20px;">
+                                                <el-radio :label="0" class ="font el-col-24">不限</el-radio>
+                                                <el-radio :label="1" class ="font el-col-24">直達航班</el-radio>
+                                                <el-radio :label="2" class ="font el-col-24">停留一次</el-radio>
+                                                <el-radio :label="3" class ="font el-col-24">停留兩次</el-radio>
+                                            </el-radio-group>
+                                        </template>
 
-                            <el-collapse accordion>
-                                <el-collapse-item>
-                                    <template slot="title">
-                                        <span class="font">停留</span>
-                                    </template>
-                                  
-                                    <template>
-                                        <el-radio-group v-model="stopovers">
-                                            <el-radio :label="0" class ="font el-col-24">不限</el-radio>
-                                            <el-radio :label="1" class ="font el-col-24">直達航班</el-radio>
-                                            <el-radio :label="2" class ="font el-col-24">停留一次</el-radio>
-                                            <el-radio :label="3" class ="font el-col-24">停留兩次</el-radio>
-                                        </el-radio-group>
-                                    </template>
+                                    </el-collapse-item>
+                                    
+                                </el-collapse>
+                            </el-collapse-item>
+                        </el-collapse>
 
-                                </el-collapse-item>
-                            </el-collapse>
-
-                        </el-card>
                     </el-col>
                     <el-col class="el-col el-col-24 el-col-xs-24 el-col-sm-24 el-col-md-18 el-col-lg-18">
                         <div v-for="item in flightData.data" >
-                            <el-card class="box-card" style="min-height: 100px;">
+                            <el-card class="box-card" style="min-height: 100px;" v-if="stopovers == 0 || stopovers == item.stopCount">
                                 <el-row :gutter="20" style="margin-left: -10px;margin-right: -10px;margin-bottom: -10px;margin-top: -10px;">
 
                                         <div class="el-col el-col-24 el-col-xs-24 el-col-sm-24 el-col-md-18 el-col-lg-18" style = "text-align: center;margin-top: 20px;">
@@ -572,7 +585,7 @@ document.querySelectorAll("[href^='https://line.me']").forEach(function(item){
 
 
 <div class="text-center">
-
+    <br>
     <div class="include" file="https://tafengtravel.github.io/tafengtravel/index/footer"></div>
 
 </div> 
@@ -612,18 +625,21 @@ $(".include").each(function(){
     var Main = {
         data() {
             return {
-                stopovers:'0',
+                fullscreenLoading:false,
+                filter:[],
+                stopoversNames:[],
+                stopovers:0,
                 flightData:{},
                 destination:[],
                 pickerOptions: {
-                    disabledDate(time) {
+                    disabledDate:(time=> {
                         return time.getTime() < new Date().getTime()-24*60*60*1000
-                    }
+                    })
                 },
                 pickerOptions1:{
-                    disabledDate(time) {
+                    disabledDate:(time=>{
                         return time.getTime() < new Date(this.departureDate).getTime() || time.getTime() < new Date().getTime()-24*60*60*1000
-                    }
+                    })
                 },
                 origin: [{
                     label: '台灣',
@@ -956,6 +972,9 @@ $(".include").each(function(){
             };
     
             },methods: {
+                dateChoose(){
+                    this.returnDate = this.departureDate
+                },
                 originLabel(item) {
                     return '出發地：' + item.label;
                 },
@@ -975,6 +994,8 @@ $(".include").each(function(){
                     this.amount = '總共'+amountTotal.toString()+'人'
                 },
                 async search(){
+
+                    this.fullscreenLoading = true;
                     this.flightData= {}
                     let options = {
                             method: 'GET',
@@ -1004,7 +1025,7 @@ $(".include").each(function(){
                     });
                     this.flightData = flightData
                     console.log(this.flightData )
-                    console.log(JSON.stringify(this.flightData));
+                    // console.log(JSON.stringify(this.flightData));
                     this.dataSort()
                 },dataSort(){
                     let departureDate  
@@ -1015,6 +1036,9 @@ $(".include").each(function(){
                     let airportFromArr = []
                     let airportToArr = []
                     let airportChinese = this.origin
+
+                    let stopCount
+                    let stopCountReturn
                     airportChinese[0].options[2] = {label: '松山 - TSA',value: 'TSA'}
                     for(i=0;i<this.flightData.data.length;i++){
                         for(j=0;j<this.flightData.data[i].route.length;j++){
@@ -1033,20 +1057,34 @@ $(".include").each(function(){
                             departureDate = this.flightData.data[i].route[j].local_departure.slice(0,10)
                             departureTime = this.flightData.data[i].route[j].local_departure.slice(11,16)
                             destinationTime = this.flightData.data[i].route[j].local_arrival.slice(11,16)
-
+                            
                             this.flightData.data[i].route[j] = {...this.flightData.data[i].route[j],'local_departure_date':departureDate
                             ,'local_departure_time':departureTime,'local_arrival_time':destinationTime
                             ,'image':'image/'+this.flightData.data[i].route[j].airline+'.gif','airportFrom':airportFrom,'airportTo':airportTo}
 
                             airportFrom = ''
                             airportTo = ''
+
+                            if(this.destinationValue == this.flightData.data[i].route[j].flyTo){
+                                stopCount = j+1
+                                stopCountReturn = this.flightData.data[i].route.length - stopCount
+
+                                if(stopCountReturn > stopCount){
+                                    stopCount = stopCountReturn
+                                }
+                            }
                         }
+                        this.flightData.data[i] = {...this.flightData.data[i],'stopCount':stopCount}
+                        stopCount = 0
+                        stopCountReturn = 0
+
                         this.flightData.data[i].price = parseInt(this.flightData.data[i].price/1.2)
                     }      
                     flightData = this.flightData              
 
-
-
+                    this.stopoversNames = ['1']
+                    this.filter = ['1']
+                    this.fullscreenLoading = false;
                 }
                                 
             },async mounted(){
