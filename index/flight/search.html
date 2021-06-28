@@ -373,7 +373,7 @@ document.querySelectorAll("[href^='https://line.me']").forEach(function(item){
                                                     <el-input-number v-model="numInf" :min="0" :max="9" @change="popoverChange"></el-input-number>
                                                 </el-col>
                                         </el-popover>
-                                        <el-button type="primary" style="height: 50px;font-size: 16px;width:48%" @click="search" @click.prevent="click = true" v-loading.fullscreen.lock="fullscreenLoading">查詢</el-button>
+                                        <el-button type="primary" style="height: 50px;font-size: 16px;width:48%" @click="search();popoverChange()" @click.prevent="click = true" v-loading.fullscreen.lock="fullscreenLoading">查詢</el-button>
                                     </el-col>
 
                                 </el-row>
@@ -504,7 +504,7 @@ document.querySelectorAll("[href^='https://line.me']").forEach(function(item){
                                                     <el-input-number v-model="numInf" :min="0" :max="9" @change="popoverChange"></el-input-number>
                                                 </el-col>
                                         </el-popover>
-                                        <el-button type="primary" style="height: 50px;width:48%;font-size: 16px;" @click="search" @click.prevent="click = true">查詢</el-button>
+                                        <el-button type="primary" style="height: 50px;width:48%;font-size: 16px;" @click="search();popoverChange()" @click.prevent="click = true">查詢</el-button>
                                     </el-col>
 
                                 </el-row>
@@ -618,9 +618,13 @@ document.querySelectorAll("[href^='https://line.me']").forEach(function(item){
                     </el-col>
                     <!-- new不出來 -->
                 </el-row>
-
+                <el-backtop :bottom="100"></el-backtop>
             </div>
+            
+
         </div>
+
+        
         
     
         
