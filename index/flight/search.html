@@ -265,26 +265,34 @@ document.querySelectorAll("[href^='https://line.me']").forEach(function(item){
                 <el-card class="box-card">
                     <template>
 
-                        <el-tabs v-model="activeName">
+                        <el-tabs v-model="activeName" @tab-click="dateChoose">
 
                             <el-tab-pane label="單程" name="first" class="font">
                                 <el-row :gutter="20">
                                     <el-col class ="el-col el-col-24 el-col-xs-24 el-col-sm-24 el-col-md-9 el-col-lg-9">
                                         <!-- <el-card class="box-card" style="min-height: 80px;" shadow="never"> -->
-                                            <el-select v-model="originValue" filterable placeholder="出發地" class ="el-col el-col-24 el-col-xs-24 el-col-sm-24 el-col-md-10 el-col-lg-10" style="margin-bottom: 20px;">
-                                                <el-option-group
-                                                    v-for="group in origin"
-                                                    :key="group.label"
-                                                    :label="group.label">
-                                                    <el-option
-                                                        v-for="item in group.options"
-                                                        :key="item.value"
-                                                        :label="originLabel(item)"
-                                                        :value="item.value">
-                                                        <span style="float: left">{{ item.label }}</span>
-                                                    </el-option>
-                                                </el-option-group>
-                                            </el-select>
+                                            <div class ="el-col el-col-24 el-col-xs-24 el-col-sm-24 el-col-md-10 el-col-lg-10">
+
+                                                <el-select v-model="originValue" filterable placeholder="出發地" style="margin-bottom: 20px;" class ="el-col-24">
+                                                    <el-option-group
+                                                        v-for="group in origin"
+                                                        :key="group.label"
+                                                        :label="group.label">
+                                                        <el-option
+                                                            v-for="item in group.options"
+                                                            :key="item.value"
+                                                            :label="originLabel(item)"
+                                                            :value="item.value">
+                                                            <span style="float: left">{{ item.label }}</span>
+                                                        </el-option>
+                                                    </el-option-group>
+                                                    
+                                                </el-select>
+                                                <span class="mini_font el-col-24" v-if="originValue == '' && click == true">
+                                                    <font color='red'>*請選擇出發地</font>
+                                                </span>
+
+                                            </div>
                                             
 
                                             <!-- <a href="#">
@@ -297,32 +305,44 @@ document.querySelectorAll("[href^='https://line.me']").forEach(function(item){
                                                 </a>
                                             </font>
 
-                                            <el-select v-model="destinationValue" filterable placeholder="目的地" class ="el-col el-col-24 el-col-xs-24 el-col-sm-24 el-col-md-10 el-col-lg-10" style="margin-bottom: 20px;">
-                                                <el-option-group
-                                                    v-for="group in destination"
-                                                    :key="group.label"
-                                                    :label="group.label">
-                                                    <el-option
-                                                        v-for="item in group.options"
-                                                        :key="item.value"
-                                                        :label="destinationLabel(item)"
-                                                        :value="item.value">
-                                                        <span style="float: left">{{ item.label }}</span>
-                                                    </el-option>
-                                                </el-option-group>
-                                            </el-select>
+                                            <div class ="el-col el-col-24 el-col-xs-24 el-col-sm-24 el-col-md-10 el-col-lg-10">
+
+                                                <el-select v-model="destinationValue" filterable placeholder="目的地" class ="el-col-24" style="margin-bottom: 20px;">
+                                                    <el-option-group
+                                                        v-for="group in destination"
+                                                        :key="group.label"
+                                                        :label="group.label">
+                                                        <el-option
+                                                            v-for="item in group.options"
+                                                            :key="item.value"
+                                                            :label="destinationLabel(item)"
+                                                            :value="item.value">
+                                                            <span style="float: left">{{ item.label }}</span>
+                                                        </el-option>
+                                                    </el-option-group>
+                                                </el-select>
+                                                <span class="mini_font el-col-24" v-if="destinationValue == '' && click == true">
+                                                    <font color='red'>*請選擇目的地</font>
+                                                </span>
+
+                                            </div>
                                         <!-- </el-card> -->
                                     </el-col>
                                     <el-col class ="el-col el-col-24 el-col-xs-24 el-col-sm-24 el-col-md-8 el-col-lg-8" style="margin-bottom: 20px;">
 
                                         <el-date-picker
                                         class ="el-col el-col-24 el-col-xs-24 el-col-sm-24 el-col-md-12 el-col-lg-12 date-picker"
-                                        style="width:49%"
+                                        style="width:47%"
                                         v-model="departureDate"
                                         type="date"
                                         placeholder="出發日期"
                                         :picker-options="pickerOptions">
                                         </el-date-picker>
+
+                                        <span class="mini_font el-col-24" v-if="(departureDate == '' || departureDate == null) && click == true">
+                                            <el-row></el-row>
+                                            <font color='red'>*請選擇日期</font>
+                                        </span>
 
                                     </el-col>
 
@@ -353,7 +373,7 @@ document.querySelectorAll("[href^='https://line.me']").forEach(function(item){
                                                     <el-input-number v-model="numInf" :min="0" :max="9" @change="popoverChange"></el-input-number>
                                                 </el-col>
                                         </el-popover>
-                                        <el-button type="primary" style="height: 50px;font-size: 16px;width:48%" @click="search" v-loading.fullscreen.lock="fullscreenLoading">查詢</el-button>
+                                        <el-button type="primary" style="height: 50px;font-size: 16px;width:48%" @click="search" @click.prevent="click = true" v-loading.fullscreen.lock="fullscreenLoading">查詢</el-button>
                                     </el-col>
 
                                 </el-row>
@@ -362,20 +382,27 @@ document.querySelectorAll("[href^='https://line.me']").forEach(function(item){
                                 <el-row :gutter="20">
                                     <el-col class ="el-col el-col-24 el-col-xs-24 el-col-sm-24 el-col-md-9 el-col-lg-9">
                                         <!-- <el-card class="box-card" style="min-height: 80px;" shadow="never"> -->
-                                            <el-select v-model="originValue" filterable placeholder="出發地" class ="el-col el-col-24 el-col-xs-24 el-col-sm-24 el-col-md-10 el-col-lg-10" style="margin-bottom: 20px;">
-                                                <el-option-group
-                                                    v-for="group in origin"
-                                                    :key="group.label"
-                                                    :label="group.label">
-                                                    <el-option
-                                                        v-for="item in group.options"
-                                                        :key="item.value"
-                                                        :label="originLabel(item)"
-                                                        :value="item.value">
-                                                        <span style="float: left">{{ item.label }}</span>
-                                                    </el-option>
-                                                </el-option-group>
-                                            </el-select>
+                                            <div class ="el-col el-col-24 el-col-xs-24 el-col-sm-24 el-col-md-10 el-col-lg-10">
+                                            
+                                                <el-select v-model="originValue" filterable placeholder="出發地" class ="el-col-24" style="margin-bottom: 20px;">
+                                                    <el-option-group
+                                                        v-for="group in origin"
+                                                        :key="group.label"
+                                                        :label="group.label">
+                                                        <el-option
+                                                            v-for="item in group.options"
+                                                            :key="item.value"
+                                                            :label="originLabel(item)"
+                                                            :value="item.value">
+                                                            <span style="float: left">{{ item.label }}</span>
+                                                        </el-option>
+                                                    </el-option-group>
+                                                </el-select>
+                                                <span class="mini_font el-col-24" v-if="originValue == '' && click == true">
+                                                    <font color='red'>*請選擇出發地</font>
+                                                </span>
+
+                                            </div>
 
                                             <!-- <a href="#">
                                                 <i class="el-icon-refresh" @click="locationChange" style="position: absolute;"></i>
@@ -387,43 +414,65 @@ document.querySelectorAll("[href^='https://line.me']").forEach(function(item){
                                                 </a>
                                             </font>
 
-                                            <el-select v-model="destinationValue" filterable placeholder="目的地" class ="el-col el-col-24 el-col-xs-24 el-col-sm-24 el-col-md-10 el-col-lg-10" style="margin-bottom: 20px;">
-                                                <el-option-group
-                                                    v-for="group in destination"
-                                                    :key="group.label"
-                                                    :label="group.label">
-                                                    <el-option
-                                                        v-for="item in group.options"
-                                                        :key="item.value"
-                                                        :label="destinationLabel(item)"
-                                                        :value="item.value">
-                                                        <span style="float: left">{{ item.label }}</span>
-                                                    </el-option>
-                                                </el-option-group>
-                                            </el-select>
+                                            <div class ="el-col el-col-24 el-col-xs-24 el-col-sm-24 el-col-md-10 el-col-lg-10">
+                                                
+                                                <el-select v-model="destinationValue" filterable placeholder="目的地" class ="el-col-24" style="margin-bottom: 20px;">
+                                                    <el-option-group
+                                                        v-for="group in destination"
+                                                        :key="group.label"
+                                                        :label="group.label">
+                                                        <el-option
+                                                            v-for="item in group.options"
+                                                            :key="item.value"
+                                                            :label="destinationLabel(item)"
+                                                            :value="item.value">
+                                                            <span style="float: left">{{ item.label }}</span>
+                                                        </el-option>
+                                                    </el-option-group>
+                                                </el-select>
+                                                <span class="mini_font el-col-24" v-if="destinationValue == '' && click == true">
+                                                    <font color='red'>*請選擇目的地</font>
+                                                </span>
+
+                                            </div>
                                         <!-- </el-card> -->
                                     </el-col>
                                     <el-col class ="el-col el-col-24 el-col-xs-24 el-col-sm-24 el-col-md-8 el-col-lg-8" style="margin-bottom: 20px;">
 
-                                        <el-date-picker
-                                        class ="el-col el-col-24 el-col-xs-24 el-col-sm-24 el-col-md-12 el-col-lg-12"
-                                        style="width:49%"
-                                        v-model="departureDate"
-                                        type="date"
-                                        placeholder="出發日期"
-                                        :picker-options="pickerOptions"
-                                        @change="dateChoose">
-                                        
-                                        </el-date-picker>
+                                        <div class ="el-col-12">
 
-                                        <el-date-picker
-                                        class ="el-col el-col-24 el-col-xs-24 el-col-sm-24 el-col-md-12 el-col-lg-12"
-                                        style="width:49%"
-                                        v-model="returnDate"
-                                        type="date"
-                                        placeholder="回程日期"
-                                        :picker-options="pickerOptions1">
-                                        </el-date-picker>
+                                            <el-date-picker
+                                            class ="el-col-24"
+                                            style="width:94%"
+                                            v-model="departureDate"
+                                            type="date"
+                                            placeholder="出發日期"
+                                            :picker-options="pickerOptions"
+                                            @change="dateChoose">
+                                            </el-date-picker>
+                                            <span class="mini_font el-col-24" v-if="departureDate == '' && click == true">
+                                                <el-row></el-row>
+                                                <font color='red'>*請選擇日期</font>
+                                            </span>
+
+                                        </div>
+
+                                        <div class ="el-col-11">
+
+                                            <el-date-picker
+                                            class ="el-col-24"
+                                            style="width:100%"
+                                            v-model="returnDate"
+                                            type="date"
+                                            placeholder="回程日期"
+                                            :picker-options="pickerOptions1">
+                                            </el-date-picker>
+                                            <span class="mini_font el-col-24" v-if="returnDate == '' && click == true">
+                                                <el-row></el-row>
+                                                <font color='red'>*請選擇日期</font>
+                                            </span>
+
+                                        </div>
 
                                     </el-col>
 
@@ -455,7 +504,7 @@ document.querySelectorAll("[href^='https://line.me']").forEach(function(item){
                                                     <el-input-number v-model="numInf" :min="0" :max="9" @change="popoverChange"></el-input-number>
                                                 </el-col>
                                         </el-popover>
-                                        <el-button type="primary" style="height: 50px;width:48%;font-size: 16px;" @click="search">查詢</el-button>
+                                        <el-button type="primary" style="height: 50px;width:48%;font-size: 16px;" @click="search" @click.prevent="click = true">查詢</el-button>
                                     </el-col>
 
                                 </el-row>
@@ -552,9 +601,9 @@ document.querySelectorAll("[href^='https://line.me']").forEach(function(item){
 
                                         <div class="el-col el-col-24 el-col-xs-24 el-col-sm-24 el-col-md-6 el-col-lg-6" style = "text-align: center;">
                                             <span v-for="(item3,index3) in item.route" class="price">
-                                                <el-row style="margin-bottom: 26px"></el-row>
-                                                <el-row style="margin-bottom: 26px" v-if="index3 > 0"></el-row>
-                                                <el-row style="margin-bottom: 26px" v-if="index3 > 1"></el-row>
+                                                <el-row style="margin-bottom: 36px"></el-row>
+                                                <el-row style="margin-bottom: 20px" v-if="index3 > 0"></el-row>
+                                                <el-row style="margin-bottom: 20px" v-if="index3 > 1"></el-row>
                                             </span>
                                             <div class ="sub_title"><font color="#F60">${{item.price}}</font></div>
                                             <el-row></el-row>
@@ -625,6 +674,7 @@ $(".include").each(function(){
     var Main = {
         data() {
             return {
+                click:false,
                 fullscreenLoading:false,
                 filter:[],
                 stopoversNames:[],
@@ -994,6 +1044,18 @@ $(".include").each(function(){
                     this.amount = '總共'+amountTotal.toString()+'人'
                 },
                 async search(){
+                    console.log(this.departureDate)
+                    if(this.originValue == ''||this.destinationValue == ''){
+                        return 0
+                    }else{
+                        if(this.activeName == 'first' && this.departureDate == ''){
+                            return 0
+                        }else if(this.activeName == 'second' && this.returnDate == ''){
+                            return 0
+                        }
+                    }
+
+                    
 
                     this.fullscreenLoading = true;
                     this.flightData= {}
@@ -1085,6 +1147,8 @@ $(".include").each(function(){
                     this.stopoversNames = ['1']
                     this.filter = ['1']
                     this.fullscreenLoading = false;
+                },buy(){
+                    window.open('http://line.me/R/ti/p/%40zok5012a',target = "_blank")
                 }
                                 
             },async mounted(){
