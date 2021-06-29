@@ -273,15 +273,13 @@ document.querySelectorAll("[href^='https://line.me']").forEach(function(item){
                                         <!-- <el-card class="box-card" style="min-height: 80px;" shadow="never"> -->
                                             <div class ="el-col el-col-24 el-col-xs-24 el-col-sm-24 el-col-md-10 el-col-lg-10">
 
-                                                <el-select v-model="originValue" filterable placeholder="出發地"  style="margin-bottom: 20px;" class ="el-col-24">
+                                                <el-select v-model="originValue" filterable placeholder="出發地" multiple :multiple-limit="1" style="margin-bottom: 20px;" class ="el-col-24">
                                                     <el-option-group
                                                         v-for="group in origin"
                                                         :key="group.label"
                                                         :label="group.label"
                                                         >
                                                         <el-option
-                                                            multiple
-                                                            :multiple-limit="1"
                                                             v-for="item in group.options"
                                                             :key="item.value"
                                                             :label="originLabel(item)"
@@ -388,14 +386,12 @@ document.querySelectorAll("[href^='https://line.me']").forEach(function(item){
                                         <!-- <el-card class="box-card" style="min-height: 80px;" shadow="never"> -->
                                             <div class ="el-col el-col-24 el-col-xs-24 el-col-sm-24 el-col-md-10 el-col-lg-10">
                                             
-                                                <el-select v-model="originValue" filterable placeholder="出發地" class ="el-col-24" style="margin-bottom: 20px;">
+                                                <el-select v-model="originValue" filterable placeholder="出發地" multiple :multiple-limit="1" class ="el-col-24" style="margin-bottom: 20px;">
                                                     <el-option-group
                                                         v-for="group in origin"
                                                         :key="group.label"
                                                         :label="group.label">
                                                         <el-option
-                                                            multiple
-                                                            :multiple-limit="1"
                                                             v-for="item in group.options"
                                                             :key="item.value"
                                                             :label="originLabel(item)"
@@ -422,14 +418,12 @@ document.querySelectorAll("[href^='https://line.me']").forEach(function(item){
 
                                             <div class ="el-col el-col-24 el-col-xs-24 el-col-sm-24 el-col-md-10 el-col-lg-10">
                                                 
-                                                <el-select v-model="destinationValue" filterable placeholder="目的地" class ="el-col-24" style="margin-bottom: 20px;">
+                                                <el-select v-model="destinationValue" filterable placeholder="目的地" multiple :multiple-limit="1" class ="el-col-24" style="margin-bottom: 20px;">
                                                     <el-option-group
                                                         v-for="group in destination"
                                                         :key="group.label"
                                                         :label="group.label">
                                                         <el-option
-                                                            multiple
-                                                            :multiple-limit="1"
                                                             v-for="item in group.options"
                                                             :key="item.value"
                                                             :label="destinationLabel(item)"
