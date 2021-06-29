@@ -777,13 +777,7 @@
           'currentId': (this.idCount).toString()
         }
 
-        let ref = db.collection('product').doc('count');
-
-        //上傳至count
-        ref.update(objCurrentId).then(() => {
-          console.log('id update data successful');
-        });
-
+        let ref 
         //判斷有無小圖 如無則上傳空字串
         if(coverUrlSmall[0] === undefined){
           coverUrlSmallCheck = ''
@@ -801,11 +795,28 @@
 
           ref = db.collection('list').doc((this.idCount).toString());
           ref.set(objList).then(() => {
-            this.$message({
-              message: '修改成功',
-              type: 'success'
+            ref = db.collection('product').doc('count');
+
+            //上傳至count
+            ref.update(objCurrentId).then(() => {
+              console.log('id update data successful');
+
+              this.$message({
+                message: '修改成功，即將進行跳轉',
+                type: 'success'
+              });
+              setTimeout(time =>{ 
+                window.location.href='https://tafengtravel.github.io/tafengtravel/index5/edit.html?id='+this.idCount 
+              }, 2000);
+              
+
+            }).catch((error) => {
+              this.$message.error({
+                message: '修改失敗，錯誤原因：'+error,
+              });
+              console.log(error)
             });
-            console.log('update data successful');
+            
           }).catch((error) => {
             this.$message.error({
               message: '修改失敗，錯誤原因：'+error,
