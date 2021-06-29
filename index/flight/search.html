@@ -273,7 +273,7 @@ document.querySelectorAll("[href^='https://line.me']").forEach(function(item){
                                         <!-- <el-card class="box-card" style="min-height: 80px;" shadow="never"> -->
                                             <div class ="el-col el-col-24 el-col-xs-24 el-col-sm-24 el-col-md-10 el-col-lg-10">
 
-                                                <el-select v-model="originValue" filterable placeholder="出發地" style="margin-bottom: 20px;" class ="el-col-24">
+                                                <el-select v-model="originValue" filterable placeholder="出發地" multiple style="margin-bottom: 20px;" class ="el-col-24">
                                                     <el-option-group
                                                         v-for="group in origin"
                                                         :key="group.label"
@@ -282,7 +282,9 @@ document.querySelectorAll("[href^='https://line.me']").forEach(function(item){
                                                             v-for="item in group.options"
                                                             :key="item.value"
                                                             :label="originLabel(item)"
-                                                            :value="item.value">
+                                                            :value="item.value"
+                                                            :multiple-limit="1"
+                                                            >
                                                             <span style="float: left">{{ item.label }}</span>
                                                         </el-option>
                                                     </el-option-group>
