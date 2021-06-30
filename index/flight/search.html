@@ -148,7 +148,7 @@ document.querySelectorAll("[href^='https://line.me']").forEach(function(item){
         font-weight: bold;
     }
     .icon{
-        font-size:25px;text-align: center; line-height: 50px;
+        font-size:25px;text-align: center; line-height: 40px;
     }
     .hidden-md-and-up{
         display:none;
@@ -210,7 +210,7 @@ document.querySelectorAll("[href^='https://line.me']").forEach(function(item){
 .el-input__inner {
     font-size: 16px;
     font-weight: bold;
-    height: 50px;
+    height: 40px;
 }
 
 .el-input-number__decrease, .el-input-number__increase {
@@ -222,6 +222,7 @@ document.querySelectorAll("[href^='https://line.me']").forEach(function(item){
 .el-collapse-item__wrap{
     background-color:#F0F0F0;
 }
+
 </style>
 
    
@@ -269,7 +270,7 @@ document.querySelectorAll("[href^='https://line.me']").forEach(function(item){
 
                             <el-tab-pane label="單程" name="first" class="font">
                                 <el-row :gutter="20">
-                                    <el-col class ="el-col el-col-24 el-col-xs-24 el-col-sm-24 el-col-md-9 el-col-lg-9">
+                                    <el-col class ="el-col el-col-24 el-col-xs-24 el-col-sm-24 el-col-md-11 el-col-lg-11">
                                         <!-- <el-card class="box-card" style="min-height: 80px;" shadow="never"> -->
                                             <div class ="el-col el-col-24 el-col-xs-24 el-col-sm-24 el-col-md-10 el-col-lg-10">
 
@@ -330,7 +331,7 @@ document.querySelectorAll("[href^='https://line.me']").forEach(function(item){
                                             </div>
                                         <!-- </el-card> -->
                                     </el-col>
-                                    <el-col class ="el-col el-col-24 el-col-xs-24 el-col-sm-24 el-col-md-8 el-col-lg-8" style="margin-bottom: 20px;">
+                                    <el-col class ="el-col el-col-24 el-col-xs-24 el-col-sm-24 el-col-md-7 el-col-lg-7" style="margin-bottom: 20px;">
 
                                         <el-date-picker
                                         class ="el-col el-col-24 el-col-xs-24 el-col-sm-24 el-col-md-12 el-col-lg-12 date-picker"
@@ -348,12 +349,12 @@ document.querySelectorAll("[href^='https://line.me']").forEach(function(item){
 
                                     </el-col>
 
-                                    <el-col class ="el-col el-col-24 el-col-xs-24 el-col-sm-24 el-col-md-6 el-col-lg-6">
+                                    <el-col class ="el-col el-col-24 el-col-xs-24 el-col-sm-24 el-col-md-5 el-col-lg-5">
                                         <el-popover
                                             placement="bottom"
                                             width="380"
                                             trigger="click">
-                                            <el-button slot="reference" style="font-size: 16px;font-weight: bold;height: 50px;width:48%" @click="popoverChange">{{amount}}</el-button>
+                                            <el-button slot="reference" style="font-size: 16px;font-weight: bold;height: 40px;width:48%" @click="popoverChange">{{amount}}</el-button>
                                             
                                                 <el-col class ="el-col el-col-8 el-col-xs-8 el-col-sm-10 el-col-md-10 el-col-lg-10" style="margin-bottom: 20px;">
                                                     <span class="font">大人(12+)</span>
@@ -375,36 +376,40 @@ document.querySelectorAll("[href^='https://line.me']").forEach(function(item){
                                                     <el-input-number v-model="numInf" :min="0" :max="9" @change="popoverChange"></el-input-number>
                                                 </el-col>
                                         </el-popover>
-                                        <el-button type="primary" style="height: 50px;font-size: 16px;width:48%" @click="search();popoverChange()" @click.prevent="click = true" v-loading.fullscreen.lock="fullscreenLoading">查詢</el-button>
+                                        <el-button type="primary" style="height: 40px;font-size: 16px;width:48%" @click="search();popoverChange()" @click.prevent="click = true" v-loading.fullscreen.lock="fullscreenLoading">查詢</el-button>
                                     </el-col>
 
                                 </el-row>
                             </el-tab-pane>
                             <el-tab-pane label="來回" name="second" class="font">
                                 <el-row :gutter="20">
-                                    <el-col class ="el-col el-col-24 el-col-xs-24 el-col-sm-24 el-col-md-9 el-col-lg-9">
+                                    <el-col class ="el-col el-col-24 el-col-xs-24 el-col-sm-24 el-col-md-11 el-col-lg-11">
                                         <!-- <el-card class="box-card" style="min-height: 80px;" shadow="never"> -->
                                             <div class ="el-col el-col-24 el-col-xs-24 el-col-sm-24 el-col-md-10 el-col-lg-10">
-                                            
-                                                <el-select v-model="originValue" filterable placeholder="出發地" multiple :multiple-limit="1" class ="el-col-24" style="margin-bottom: 20px;">
+
+                                                <el-select v-model="originValue" filterable placeholder="出發地" multiple :multiple-limit="1" style="margin-bottom: 20px;" class ="el-col-24">
                                                     <el-option-group
                                                         v-for="group in origin"
                                                         :key="group.label"
-                                                        :label="group.label">
+                                                        :label="group.label"
+                                                        >
                                                         <el-option
                                                             v-for="item in group.options"
                                                             :key="item.value"
                                                             :label="originLabel(item)"
-                                                            :value="item.value">
+                                                            :value="item.value"
+                                                            >
                                                             <span style="float: left">{{ item.label }}</span>
                                                         </el-option>
                                                     </el-option-group>
+                                                    
                                                 </el-select>
                                                 <span class="mini_font el-col-24" v-if="originValue == '' && click == true">
                                                     <font color='red'>*請選擇出發地</font>
                                                 </span>
 
                                             </div>
+                                            
 
                                             <!-- <a href="#">
                                                 <i class="el-icon-refresh" @click="locationChange" style="position: absolute;"></i>
@@ -417,7 +422,7 @@ document.querySelectorAll("[href^='https://line.me']").forEach(function(item){
                                             </font>
 
                                             <div class ="el-col el-col-24 el-col-xs-24 el-col-sm-24 el-col-md-10 el-col-lg-10">
-                                                
+
                                                 <el-select v-model="destinationValue" filterable placeholder="目的地" multiple :multiple-limit="1" class ="el-col-24" style="margin-bottom: 20px;">
                                                     <el-option-group
                                                         v-for="group in destination"
@@ -429,7 +434,7 @@ document.querySelectorAll("[href^='https://line.me']").forEach(function(item){
                                                             :label="destinationLabel(item)"
                                                             :value="item.value">
                                                             <span style="float: left">{{ item.label }}</span>
-                                                        </el-option> 
+                                                        </el-option>
                                                     </el-option-group>
                                                 </el-select>
                                                 <span class="mini_font el-col-24" v-if="destinationValue == '' && click == true">
@@ -439,7 +444,7 @@ document.querySelectorAll("[href^='https://line.me']").forEach(function(item){
                                             </div>
                                         <!-- </el-card> -->
                                     </el-col>
-                                    <el-col class ="el-col el-col-24 el-col-xs-24 el-col-sm-24 el-col-md-8 el-col-lg-8" style="margin-bottom: 20px;">
+                                    <el-col class ="el-col el-col-24 el-col-xs-24 el-col-sm-24 el-col-md-7 el-col-lg-7" style="margin-bottom: 20px;">
 
                                         <div class ="el-col-12">
 
@@ -478,13 +483,13 @@ document.querySelectorAll("[href^='https://line.me']").forEach(function(item){
 
                                     </el-col>
 
-                                    <el-col class ="el-col el-col-24 el-col-xs-24 el-col-sm-24 el-col-md-6 el-col-lg-6">
+                                    <el-col class ="el-col el-col-24 el-col-xs-24 el-col-sm-24 el-col-md-5 el-col-lg-5">
                                         <el-popover
 
                                             placement="bottom"
                                             width="380"
                                             trigger="click">
-                                            <el-button slot="reference" style="font-size: 16px;font-weight: bold;height: 50px;width:48%" @click="popoverChange">{{amount}}</el-button>
+                                            <el-button slot="reference" style="font-size: 16px;font-weight: bold;height: 40px;width:48%" @click="popoverChange">{{amount}}</el-button>
                                             
                                                 <el-col class ="el-col el-col-8 el-col-xs-8 el-col-sm-10 el-col-md-10 el-col-lg-10" style="margin-bottom: 20px;">
                                                     <span class="font">大人(12+)</span>
@@ -506,7 +511,7 @@ document.querySelectorAll("[href^='https://line.me']").forEach(function(item){
                                                     <el-input-number v-model="numInf" :min="0" :max="9" @change="popoverChange"></el-input-number>
                                                 </el-col>
                                         </el-popover>
-                                        <el-button type="primary" style="height: 50px;width:48%;font-size: 16px;" @click="search();popoverChange()" @click.prevent="click = true">查詢</el-button>
+                                        <el-button type="primary" style="height: 40px;width:48%;font-size: 16px;" @click="search();popoverChange()" @click.prevent="click = true">查詢</el-button>
                                     </el-col>
 
                                 </el-row>
@@ -546,6 +551,12 @@ document.querySelectorAll("[href^='https://line.me']").forEach(function(item){
 
                     </el-col>
                     <el-col class="el-col el-col-24 el-col-xs-24 el-col-sm-24 el-col-md-18 el-col-lg-18">
+                        <div v-if="flightData.data == 0">
+                            <el-card class="box-card" style="min-height: 200px;">
+                                <el-row></el-row><el-row></el-row><el-row></el-row>
+                                <div class ="sub_title" style="text-align: center;"><font color ="#F60" >很抱歉，沒有任何航班符合</div>
+                            </el-card>
+                        </div>
                         <div v-for="item in flightData.data" >
                             <el-card class="box-card" style="min-height: 100px;" v-if="stopovers == 0 || stopovers == item.stopCount">
                                 <el-row :gutter="20" style="margin-left: -10px;margin-right: -10px;margin-bottom: -10px;margin-top: -10px;">
@@ -615,6 +626,7 @@ document.querySelectorAll("[href^='https://line.me']").forEach(function(item){
 
                                 </el-row>
                             </el-card>
+                            
                         </div>
                         
                     </el-col>
