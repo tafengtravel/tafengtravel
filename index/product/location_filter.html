@@ -414,14 +414,15 @@ $(".include").each(function(){
     let data = []
     let filterData 
     let checkedCities
+    let checkedCountryAll
     
 
     var Main = {
         data() {
             return {
-                checkedCountryAll:[false,false],
-                checkedCities: [[],[]],
-                isIndeterminate: [true,true],
+                checkedCountryAll:[true,true],
+                checkedCities: [['高雄','台北'],['日本']],
+                isIndeterminate: [false,false],
 
                 filterData:[{'台灣':['高雄','台北']},{'日本':['日本']}],
                 filter:['1'],
@@ -518,18 +519,27 @@ $(".include").each(function(){
                     }
                 },
                 handleCheckedCitiesChange(value) {
-                    
-                    let checkedCount
+
+                    let checkedCount = []
                     for(i=0;i<Object.keys(this.filterData).length;i++){
+                        checkedCount[i] = this.checkedCities[i].length
 
-                        checkedCount = this.checkedCities[i].length
-                        console.log('被選中城市:'+this.checkedCities[i])
-                        console.log('被選中城市長度:'+checkedCount)
-                        console.log('項目長度:'+this.filterData[i][Object.keys(this.filterData[i])[0]].length)
-                        console.log('---')
-                        this.checkedCountryAll[i] = checkedCount ===  this.filterData[i][Object.keys(this.filterData[i])[0]].length; //該項目長度(台灣)
-                        this.isIndeterminate[i] = checkedCount > 0 && checkedCount <  this.filterData[i][Object.keys(this.filterData[i])[0]].length; //該項目長度(台灣)
+                        if(checkedCount[i] == this.filterData[i][Object.keys(this.filterData[i])[0]].length){
+                            this.checkedCountryAll[i] = true
+                            this.isIndeterminate[i] = false
 
+                        }else if(checkedCount[i] == 0){
+                            this.checkedCountryAll[i] = false
+                            this.isIndeterminate[i] = false
+                        }else{
+                            this.checkedCountryAll[i] = false
+                            this.isIndeterminate[i] = true
+                        }
+
+                        this.checkedCountryAll.reverse()
+                        this.checkedCountryAll.reverse()
+                        this.isIndeterminate.reverse()
+                        this.isIndeterminate.reverse()
                     }
                 },
                 setPage(val){
@@ -594,6 +604,8 @@ $(".include").each(function(){
 
                 filterData = this.filterData
                 checkedCities = this.checkedCities
+
+                checkedCountryAll = this.checkedCountryAll
             } 
         
      
