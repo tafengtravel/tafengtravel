@@ -532,7 +532,7 @@ document.querySelectorAll("[href^='https://line.me']").forEach(function(item){
                                         </template>
                                         
                                         <template>
-                                            <el-radio-group v-model="stopovers" style="padding-left: 20px;">
+                                            <el-radio-group v-model="stopovers" style="padding-left: 40px;">
                                                 <el-radio :label="0" class ="font el-col-24">不限</el-radio>
                                                 <el-radio :label="1" class ="font el-col-24">直達航班</el-radio>
                                                 <el-radio :label="2" class ="font el-col-24">停留一次</el-radio>
@@ -548,8 +548,8 @@ document.querySelectorAll("[href^='https://line.me']").forEach(function(item){
                                         </template>
                                         
                                         <template>
-                                            <span class="mini_font" style="padding-left: 20px;">從{{time[0]}}至{{time[1]}}</span>
-                                            <el-slider v-model="sliderTime" :show-tooltip="false" :marks="marks" @change="timeTransfer" @input="timeTransfer" range :max="96" style="padding-left: 30px;padding-right: 20px;"></el-slider>
+                                            <span class="mini_font" style="padding-left: 40px;">從{{time[0]}}至{{time[1]}}</span>
+                                            <el-slider v-model="sliderTime" :show-tooltip="false" :marks="marks" @change="timeTransfer" @input="timeTransfer" range :max="96" style="padding-left: 50px;padding-right: 20px;"></el-slider>
                                         </template>
 
                                     </el-collapse-item>
