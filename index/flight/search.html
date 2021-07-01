@@ -213,9 +213,6 @@ document.querySelectorAll("[href^='https://line.me']").forEach(function(item){
     height: 40px;
 }
 
-.el-input-number__decrease, .el-input-number__increase {
-    height:48px
-}
 .el-collapse-item__header{
     background-color:#F0F0F0;
 }
@@ -544,6 +541,18 @@ document.querySelectorAll("[href^='https://line.me']").forEach(function(item){
                                         </template>
 
                                     </el-collapse-item>
+
+                                    <el-collapse-item name="2">
+                                        <template slot="title">
+                                            <span class="font">&emsp;起飛時間</span>
+                                        </template>
+                                        
+                                        <template>
+                                            <span class="mini_font" style="padding-left: 20px;">從{{time[0]}}至{{time[1]}}</span>
+                                            <el-slider v-model="sliderTime" :show-tooltip="false" :marks="marks" @change="timeTransfer" @input="timeTransfer" range :max="96" style="padding-left: 30px;padding-right: 20px;"></el-slider>
+                                        </template>
+
+                                    </el-collapse-item>
                                     
                                 </el-collapse>
                             </el-collapse-item>
@@ -558,7 +567,7 @@ document.querySelectorAll("[href^='https://line.me']").forEach(function(item){
                             </el-card>
                         </div>
                         <div v-for="item in flightData.data" >
-                            <el-card class="box-card" style="min-height: 100px;" v-if="stopovers == 0 || stopovers == item.stopCount">
+                            <el-card class="box-card" style="min-height: 100px;" v-if="(stopovers == 0 || stopovers == item.stopCount )&& item.route[0].local_departure_time > time[0]&& item.route[0].local_departure_time < time[1] ">
                                 <el-row :gutter="20" style="margin-left: -10px;margin-right: -10px;margin-bottom: -10px;margin-top: -10px;">
 
                                         <div class="el-col el-col-24 el-col-xs-24 el-col-sm-24 el-col-md-18 el-col-lg-18" style = "text-align: center;margin-top: 20px;">
@@ -638,11 +647,6 @@ document.querySelectorAll("[href^='https://line.me']").forEach(function(item){
 
         </div>
 
-        
-        
-    
-        
-
     </div>
         
     
@@ -692,6 +696,9 @@ $(".include").each(function(){
     var Main = {
         data() {
             return {
+                marks:{24:'06:00',48:'12:00',72:'18:00'},
+                time:['00:00','23:59'],
+                sliderTime:0,
                 click:false,
                 fullscreenLoading:false,
                 filter:[],
@@ -1044,6 +1051,33 @@ $(".include").each(function(){
             };
     
             },methods: {
+                timeTransfer(){
+                    let time
+                    time = this.sliderTime
+
+                    for(i=0;i<2;i++){
+                        let minute = (time[i]%4)*15
+                        let hour = Math.floor(time[i]/4)
+
+                        if(hour == 24){
+                            this.time[i] = moment('23:59',"HH:mm").format("HH:mm")
+                        }else{
+                            this.time[i] = moment(hour.toString()+':' +minute.toString(),"HH:mm").format("HH:mm")
+                        }
+                    }
+                },
+                formatTooltip(val){
+                    let minute = (val%4)*15
+                    let hour = Math.floor(val/4)
+                    let time
+                    if(hour == 24){
+                        time = moment('23:59',"HH:mm").format("HH:mm")
+                        console.log('23:59')
+                    }else{
+                        time = moment(hour.toString()+':' +minute.toString(),"HH:mm").format("HH:mm")
+                    }
+                    return time
+                },
                 dateChoose(){
                     this.returnDate = this.departureDate
                 },
@@ -1166,7 +1200,7 @@ $(".include").each(function(){
                     }      
                     flightData = this.flightData              
 
-                    this.stopoversNames = ['1']
+                    this.stopoversNames = ['1','2']
                     this.filter = ['1']
                     this.fullscreenLoading = false;
                 },buy(){
