@@ -280,38 +280,27 @@ document.querySelectorAll("[href^='https://line.me']").forEach(function(item){
 
                                         <el-collapse-item name="1">
                                             <template slot="title">
-                                                <span class="font">&emsp;地區</span>
+                                                <span class="font">&emsp;目的地</span>
                                             </template>
                                             
                                             <el-collapse v-model="filterCity">
-                                                <div v-for="(item,filterIndex) in filterData">
-                                                    <el-collapse-item name="filterIndex+1">
-                                                        <template slot="title">
-                                                            <el-checkbox :indeterminate="isIndeterminate[filterIndex]" v-model="checkedCountryAll[filterIndex]" @change="handleCheckAllChange" style="padding-left: 40px;">{{Object.keys(item)[0]}}</el-checkbox>
-                                                        </template>
-                                                        
-                                                        <template>
-                                                            <el-checkbox-group v-model="checkedCities[filterIndex]" @change="handleCheckedCitiesChange" style="padding-left: 60px;">
-                                                            <el-checkbox v-for="city in item[Object.keys(item)[0]] " :label="city" :key="city" class ="font el-col-24">{{city}}</el-checkbox>
-                                                            </el-checkbox-group>
-                                                        </template>
-                                                    </el-collapse-item>
-                                                </div>
+                                                
+                                                <el-collapse-item :name=filterIndex v-for="(item,filterIndex) in filterData">
+                                                    <template slot="title">
+                                                        <el-checkbox :indeterminate="isIndeterminate[filterIndex]" v-model="checkedCountryAll[filterIndex]" @change="handleCheckAllChange" style="padding-left: 40px;">{{Object.keys(item)[0]}}</el-checkbox>
+                                                    </template>
+                                                    
+                                                    <template>
+                                                        <el-checkbox-group v-model="checkedCities[filterIndex]" @change="handleCheckedCitiesChange" style="padding-left: 60px;">
+                                                        <el-checkbox v-for="city in item[Object.keys(item)[0]] " :label="city" :key="city" class ="font el-col-24">{{city}}</el-checkbox>
+                                                        </el-checkbox-group>
+                                                    </template>
+                                                </el-collapse-item>
+                                                
                                             </el-collapse>
 
                                         </el-collapse-item>
 
-                                        <el-collapse-item name="2">
-                                            <template slot="title">
-                                                <span class="font">&emsp;起飛時間</span>
-                                            </template>
-                                            
-                                            <template>
-                                                <span class="mini_font" style="padding-left: 20px;">從</span>
-                                            </template>
-
-                                        </el-collapse-item>
-                                        
                                     </el-collapse>
                                 </el-collapse-item>
                             </el-collapse>
@@ -319,11 +308,11 @@ document.querySelectorAll("[href^='https://line.me']").forEach(function(item){
                         </el-col>
                     </div>
                     <el-col class="el-col el-col-24 el-col-xs-24 el-col-sm-24 el-col-md-20 el-col-lg-20">
-                        <div v-for="item in dataSearch">
-                        
+                        <div v-for="item in dataSearch1"> 
+                            <!-- 有修改無setpage版本 原本該為dataSearch-->
                             <a :href ='"https://tafengtravel.github.io/tafengtravel/index/product/product.html?id="+item.id' target="_blank">
                                 <el-col class ="el-col el-col-24 el-col-xs-24 el-col-sm-24 el-col-md-8 el-col-lg-8 ">
-                                    <el-card class="box-card"  :body-style="{ padding: '0px'}" style="min-height: 470px;" shadow="hover">
+                                    <el-card class="box-card"  :body-style="{ padding: '0px'}" style="min-height: 470px;" shadow="hover" v-if="checkedCitiesShow.indexOf(item.location) != -1">
                                         <div class ="image-margin  el-col el-col-24 el-col-xs-24 el-col-sm-24 el-col-md-24 el-col-lg-24 ">
                                             <el-image style="width:100% ;height: 260px" :src="item.coverUrlSmall":fit="fits">
                                             </el-image>
@@ -352,7 +341,7 @@ document.querySelectorAll("[href^='https://line.me']").forEach(function(item){
                 </div>
 
             </el-row>
-            <el-row>
+            <!-- <el-row>
                 
                 <div style="text-align:center" >
                     <a href="#top">
@@ -365,7 +354,7 @@ document.querySelectorAll("[href^='https://line.me']").forEach(function(item){
                     </a>
                 </div>
                 
-            </el-row>
+            </el-row> -->
             <el-row>
                 <el-backtop :bottom="100"></el-backtop>
             </el-row>
@@ -420,14 +409,16 @@ $(".include").each(function(){
     var Main = {
         data() {
             return {
-                checkedCountryAll:[true,true],
-                checkedCities: [['高雄','台北'],['日本']],
-                isIndeterminate: [false,false],
+                checkedCountryAll:[],
+                checkedCities: [],
+                checkedCitiesShow: [], //被選中的城市
+                checkedShow:[],//要顯示出來的
+                isIndeterminate: [], 
 
-                filterData:[{'台灣':['高雄','台北']},{'日本':['日本']}],
+                filterData:[],
                 filter:['1'],
                 filterOption:['1','2'],
-                filterCity:['1'],
+                filterCity:['0'],
                 total:0,
                 dataSearch1:'',
                 dataSearch:'',
@@ -504,23 +495,28 @@ $(".include").each(function(){
     
             },methods: {
                 handleCheckAllChange(val) {
-
-                    console.log(val)
-                    console.log(Object.keys(this.filterData).length)
+                    this.checkedCitiesShow.length=0
                     for(i=0;i<Object.keys(this.filterData).length;i++){
-
-
                         cityOptions = this.filterData[i][Object.keys(this.filterData[i])]//該項目內容(台灣)
-                        console.log(cityOptions)
-                        console.log(this.checkedCities[i])
+                        
                         this.checkedCities[i] = this.checkedCountryAll[i] ? cityOptions : [];
                         this.isIndeterminate[i] = false;
 
+                        this.checkedCitiesShow = this.checkedCities[i].concat(this.checkedCitiesShow)
                     }
+                    console.log('選中的城市：'+this.checkedCitiesShow)
+
+                    // for(i=0;i<data.length;i++){
+                    //     if(this.checkedCitiesShow.indexOf(data[i].location) != -1)
+                    // }
+
+
+                    
                 },
                 handleCheckedCitiesChange(value) {
 
                     let checkedCount = []
+                    this.checkedCitiesShow.length=0
                     for(i=0;i<Object.keys(this.filterData).length;i++){
                         checkedCount[i] = this.checkedCities[i].length
 
@@ -540,7 +536,11 @@ $(".include").each(function(){
                         this.checkedCountryAll.reverse()
                         this.isIndeterminate.reverse()
                         this.isIndeterminate.reverse()
+
+                        this.checkedCitiesShow = this.checkedCities[i].concat(this.checkedCitiesShow)
+                        
                     }
+                    console.log('選中的城市：'+this.checkedCitiesShow)
                 },
                 setPage(val){
                     let dataSlice = this.data1 
@@ -553,11 +553,19 @@ $(".include").each(function(){
                     ref = db.collection('list')
                     this.search = (this.search).toUpperCase()
                     let searchWord =  (this.search).trim().split(/\s+/)
+                    let country = []
+                    let obj=[]
+
                     ref.where('keyword','array-contains-any',searchWord).get().then(querySnapshot => {
-                    let i=0
-                    data.length = 0
-                    this.data1.length = 0
-                    this.data.length = 0
+                        let i=0
+                        data.length = 0
+                        this.data1.length = 0
+                        this.data.length = 0
+
+                        //checkbox歸零
+                        this.checkedCities.length = 0
+                        this.checkedCountryAll.length = 0
+                        this.isIndeterminate.length = 0
 
                         querySnapshot.forEach(doc => {  
                             if(doc.data().available == true){
@@ -567,12 +575,38 @@ $(".include").each(function(){
                                 // console.log(doc.data())
                             }
                         });  
+                        
                         data.sort((a,b)=>{return a.lowPrice - b.lowPrice})
                         this.total = data.length
                         this.dataSearch1 = data
                         this.dataSearch = this.dataSearch1.slice(0,6)
                         this.pageSize = 6
+
+
+                        data.forEach(item => country.indexOf(item.country)===-1?country.push(item.country):null)
+                        country.forEach(item =>{
+
+                            let countryFliter = data.filter(data=>data.country === item)
+                            let arr = countryFliter.map(data=>data.location)
+                            let arr1=[]
+
+                            //checkbox分類
+                            arr.forEach(item => arr1.indexOf(item)===-1?arr1.push(item):null)
+                            obj.push({[item]:arr1})
+                            this.checkedCities.push(arr1)
+                            this.checkedCountryAll.push(true)
+                            this.isIndeterminate.push(false)
+                        })
+                        console.log(obj)
+                        console.log('勾選城市'+this.checkedCities)
+                        this.filterData = obj
+                        
+                        this.handleCheckAllChange()
+                        this.handleCheckedCitiesChange() // active filter
                     });
+
+
+
                 },
                 loadAll() {
                 let searchSuggest = [
