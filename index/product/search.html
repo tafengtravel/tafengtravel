@@ -174,6 +174,12 @@ document.querySelectorAll("[href^='https://line.me']").forEach(function(item){
     margin-bottom:30px; 
     min-height: 470px;
 }
+.el-collapse-item__header{
+    background-color:#F0F0F0;
+}
+.el-collapse-item__wrap{
+    background-color:#F0F0F0;
+}
 
 
 </style>
@@ -181,7 +187,7 @@ document.querySelectorAll("[href^='https://line.me']").forEach(function(item){
    
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<title></title>   	
+<title>在地行程搜尋｜大豐旅行社</title>   	
 
 <meta name="description" content="">
 <meta name="keywords" content=""> 
@@ -201,7 +207,7 @@ document.querySelectorAll("[href^='https://line.me']").forEach(function(item){
     
     <div id="app"> 
         
-        <div class="el-col el-col-24 el-col-xs-24 el-col-sm-24 el-col-md-24 el-col-lg-24">
+        <div class="el-col el-col-24 el-col-xs-24 el-col-sm-24 el-col-md-24 el-col-lg-24" style="background-color:#F0F0F0;"> 
             <el-row :gutter="20" class="back">
                 <br><br><br><br><br>
 
@@ -227,53 +233,102 @@ document.querySelectorAll("[href^='https://line.me']").forEach(function(item){
             </el-row>
         </div>
          
-        <div class="top el-col el-col-24 el-col-xs-20 el-col-xs-offset-2 el-col-sm-20 el-col-sm-offset-2 el-col-md-22 el-col-md-offset-1 el-col-lg-18 el-col-lg-offset-3">
-        <el-row></el-row>
-        <el-row :gutter="20">
-            <div v-for="item in data">
-                
-                <a :href ='"https://tafengtravel.github.io/tafengtravel/index/product/product.html?id="+item.id' target="_blank">
-                    <el-col class ="el-col el-col-24 el-col-xs-24 el-col-sm-24 el-col-md-8 el-col-lg-8 ">
-                        <el-card class="box-card"  :body-style="{ padding: '0px' }" shadow="hover">
-                            <div class ="image-margin  el-col el-col-24 el-col-xs-24 el-col-sm-24 el-col-md-24 el-col-lg-24 ">
-                                <el-image style="width:100% ;height: 260px" :src="item.coverUrlSmall":fit="fits">
-                                </el-image>
-                            </div>
+        <div class ="el-col-24" style="background-color:#F0F0F0;">
+            <el-row :gutter="20">
+                <div class ="el-col el-col-24 el-col-xs-20 el-col-xs-offset-2 el-col-sm-20 el-col-sm-offset-2 el-col-md-22 el-col-md-offset-1 el-col-lg-20 el-col-lg-offset-2">
+                    <div>
+                        <el-col class="el-col el-col-24 el-col-xs-24 el-col-sm-24 el-col-md-4 el-col-lg-4">
+                            
+                            <el-collapse v-model="filter">
+                                <el-collapse-item name="1">
+                                    <template slot="title">
+                                        <span class="font">篩選器</span>
+                                    </template>
+                                    
+                                    <el-collapse v-model="filterOption">
 
-                            <div  style="padding: 10px;" class ="text-margin el-col el-col-24 el-col-xs-24 el-col-sm-24 el-col-md-24 el-col-lg-24"> 
-                                <span class="font"><font color="black">{{item.title}}</font></span>
-                            </div>
+                                        <el-collapse-item name="1">
+                                            <template slot="title">
+                                                <span class="font">&emsp;目的地</span>
+                                            </template>
+                                            
+                                            <el-collapse v-model="filterCity">
+                                                
+                                                <el-collapse-item :name=filterIndex v-for="(item,filterIndex) in filterData">
+                                                    <template slot="title">
+                                                        <el-checkbox :indeterminate="isIndeterminate[filterIndex]" v-model="checkedCountryAll[filterIndex]" @change="handleCheckAllChange" style="padding-left: 40px;">{{Object.keys(item)[0]}}</el-checkbox>
+                                                    </template>
+                                                    
+                                                    <template>
+                                                        <el-checkbox-group v-model="checkedCities[filterIndex]" @change="handleCheckedCitiesChange" style="padding-left: 60px;">
+                                                        <el-checkbox v-for="city in item[Object.keys(item)[0]] " :label="city" :key="city" class ="font el-col-24">{{city}}</el-checkbox>
+                                                        </el-checkbox-group>
+                                                    </template>
+                                                </el-collapse-item>
+                                                
+                                            </el-collapse>
 
-                            <div  style="padding: 10px;" class ="text-margin el-col el-col-24 el-col-xs-24 el-col-sm-24 el-col-md-24 el-col-lg-24"> 
-                                <font class="mini_font">{{item.features}}...</font>
-                            </div>
+                                        </el-collapse-item>
 
-                            <div  style="padding: 10px; text-align:right" class ="text-margin el-col el-col-24 el-col-xs-24 el-col-sm-24 el-col-md-24 el-col-lg-24"> 
-                                <span class="font">$</span> 
-                                <span class="sub_title"><font color="#FF6600">{{item.lowPrice}}</font></span>
-                                <span class="font">起</span> 
-                            </div>
-                        </el-card>
+                                    </el-collapse>
+                                </el-collapse-item>
+                            </el-collapse>
+
+                        </el-col>
+                    </div>
+                    <el-col class="el-col el-col-24 el-col-xs-24 el-col-sm-24 el-col-md-20 el-col-lg-20">
+                        <div v-for="item in data"> 
+                            <!-- 有修改無setpage版本 原本該為dataSearch-->
+                            <a :href ='"https://tafengtravel.github.io/tafengtravel/index/product/product.html?id="+item.id' target="_blank">
+                                <el-col class ="el-col el-col-24 el-col-xs-24 el-col-sm-24 el-col-md-8 el-col-lg-8 ">
+                                    <el-card class="box-card"  :body-style="{ padding: '0px'}" style="min-height: 470px;" shadow="hover" >
+                                        <div class ="image-margin  el-col el-col-24 el-col-xs-24 el-col-sm-24 el-col-md-24 el-col-lg-24 ">
+                                            <el-image style="width:100% ;height: 260px" :src="item.coverUrlSmall":fit="fits">
+                                            </el-image>
+                                        </div>
+    
+                                        <div  style="padding: 10px;" class ="text-margin el-col el-col-24 el-col-xs-24 el-col-sm-24 el-col-md-24 el-col-lg-24"> 
+                                            <span class="font"><font color="black">{{item.title}}</font></span>
+                                        </div>
+    
+                                        <div  style="padding: 10px;" class ="text-margin el-col el-col-24 el-col-xs-24 el-col-sm-24 el-col-md-24 el-col-lg-24"> 
+                                            <font class="mini_font">{{item.features}}...</font>
+                                        </div>
+    
+                                        <div  style="padding: 10px; text-align:right" class ="text-margin el-col el-col-24 el-col-xs-24 el-col-sm-24 el-col-md-24 el-col-lg-24"> 
+                                            <span class="font">$</span> 
+                                            <span class="sub_title"><font color="#FF6600">{{item.lowPrice}}</font></span>
+                                            <span class="font">起</span> 
+                                        </div>
+    
+                                    </el-card>
+                                </el-col>
+                            </a>
+                        </div>
                     </el-col>
-                </a>
-            </div>
-        </el-row>
-        <el-row>
-            <div style="text-align:center" >
-                <a href="#top">
-                    <el-pagination background
-                    layout="prev, pager, next"
-                    :total= "this.data1.length"
-                    :page-size ="6"
-                    @current-change="setPage">
-                    </el-pagination>
-                </a>
-            </div>
-            
-        </el-row>
-        <el-row>
-            <el-backtop :bottom="100"></el-backtop>
-        </el-row>
+                    
+                </div>
+
+            </el-row>
+            <el-row>
+                
+                <div style="text-align:center" >
+                    <a href="#top">
+                        <el-pagination background
+                        layout="prev, pager, next"
+                        :total= "total"
+                        :page-size ="pageSize"
+                        @current-change="setPage">
+                        </el-pagination>
+                    </a>
+                </div>
+                
+            </el-row>
+            <el-row>
+                <el-backtop :bottom="100"></el-backtop>
+            </el-row>
+        </div>
+
     </div>
         
     </div>
@@ -284,6 +339,7 @@ document.querySelectorAll("[href^='https://line.me']").forEach(function(item){
 
 <div class="text-center">
 
+    <br>
     <div class="include" file="https://tafengtravel.github.io/tafengtravel/index/footer"></div>
 
 </div> 
@@ -316,49 +372,124 @@ $(".include").each(function(){
 <script>
     const urlParams = new URLSearchParams(window.location.search)
     const paramsObj = Object.fromEntries(urlParams)
-    console.log(paramsObj)
+    
     let data = []
     let data1 = []
 
-    document.title= paramsObj[Object.keys(paramsObj)[0]]+'在地行程｜大豐旅行社'
+    let itemSearch = []
+    let searchValue = []
+    
 
-
+    itemSearch = Object.keys(paramsObj)[0]
+    searchValue = paramsObj[Object.keys(paramsObj)[0]].split('@')
 
     var Main = {
         data() {
             return {
+                    total:0,
+                    pageSize:0,
                     data:'',
                     fits:'cover',
                     data1:'',
                     search:'',
                     searchSuggest: [],
+
+                    checkedCountryAll:[],
+                    checkedCities: [],
+                    checkedCitiesShow: [], //被選中的城市
+                    checkedShow:[],//要顯示出來的
+                    isIndeterminate: [], 
+                    dataSearchFilter:'',
+                    searchClickCount:0,
+
+                    filterData:[],
+                    filter:['1'],
+                    filterOption:['1','2'],
+                    filterCity:['0'],
                 };
     
             },methods: {
+                handleCheckAllChange(val) {
+                    this.checkedCitiesShow.length=0
+                    for(i=0;i<Object.keys(this.filterData).length;i++){
+                        cityOptions = this.filterData[i][Object.keys(this.filterData[i])]//該項目內容(台灣)
+                        
+                        this.checkedCities[i] = this.checkedCountryAll[i] ? cityOptions : [];
+                        this.isIndeterminate[i] = false;
+
+                        this.checkedCitiesShow = this.checkedCities[i].concat(this.checkedCitiesShow)
+                    }
+                    // console.log('選中的城市：'+this.checkedCitiesShow)
+                    
+                    let dataSearchFilter = [...this.data1]
+                    dataSearchFilter.forEach((item,index,arr)=>{
+                        if(this.checkedCitiesShow.indexOf(dataSearchFilter[index].location) == -1){
+                            delete arr[index]
+                        }
+                    })
+                    dataSearchFilter = dataSearchFilter.filter(item => item)
+                    this.total = dataSearchFilter.length
+                    this.data = dataSearchFilter.slice(0,6)
+                    this.pageSize = 6
+                    this.dataSearchFilter =  dataSearchFilter
+                },
+                handleCheckedCitiesChange(value) {
+
+                    let checkedCount = []
+                    this.checkedCitiesShow.length=0
+                    for(i=0;i<Object.keys(this.filterData).length;i++){
+                        checkedCount[i] = this.checkedCities[i].length
+
+                        if(checkedCount[i] == this.filterData[i][Object.keys(this.filterData[i])[0]].length){
+                            this.checkedCountryAll[i] = true
+                            this.isIndeterminate[i] = false
+
+                        }else if(checkedCount[i] == 0){
+                            this.checkedCountryAll[i] = false
+                            this.isIndeterminate[i] = false
+                        }else{
+                            this.checkedCountryAll[i] = false
+                            this.isIndeterminate[i] = true
+                        }
+
+                        this.checkedCountryAll.reverse()
+                        this.checkedCountryAll.reverse()
+                        this.isIndeterminate.reverse()
+                        this.isIndeterminate.reverse()
+
+                        this.checkedCitiesShow = this.checkedCities[i].concat(this.checkedCitiesShow)
+                        
+                    }
+                    // console.log('選中的城市：'+this.checkedCitiesShow)
+
+                    let dataSearchFilter = [...this.data1]
+                    dataSearchFilter.forEach((item,index,arr)=>{
+                        if(this.checkedCitiesShow.indexOf(dataSearchFilter[index].location) == -1){
+                            delete arr[index]
+                        }
+                    })
+                    dataSearchFilter = dataSearchFilter.filter(item => item)
+                    this.total = dataSearchFilter.length
+                    this.data = dataSearchFilter.slice(0,6)
+                    this.pageSize = 6
+                    this.dataSearchFilter =  dataSearchFilter
+                },
                 setPage(val){
-                    let dataSlice = this.data1 
+                    let dataSlice =this.dataSearchFilter
                     this.data = dataSlice.slice((val-1)*6,val*6)
                 },
                 searchClick(){
-                    let db = firebase.firestore();
-                    ref = db.collection('list')
+
                     this.search = (this.search).toUpperCase()
-                    let searchWord =  (this.search).trim().split(/\s+/)
-                    ref.where('keyword','array-contains-any',searchWord).get().then(querySnapshot => {
-                    let i=0
-                    data.length = 0
-                    this.data1.length = 0
-                    this.data.length = 0
-                        querySnapshot.forEach(doc => {  
-                            data[i] = doc.data()
-                            data[i].features = (doc.data().features).slice(0,40)
-                            i=i+1
-                            console.log(doc.data())
-                        });  
-                        data.sort((a,b)=>{return a.lowPrice - b.lowPrice})
-                        this.data1 = data
-                        this.data = this.data1.slice(0,6)
-                    });
+                    let searchWordArr =  (this.search).trim().split(/\s+/)
+                    let searchWord =''
+
+                    for(i=0;i<searchWordArr.length;i++){
+                        searchWord = searchWordArr[i] + '@'+ searchWord
+                    }
+
+                    console.log(searchWord)
+                    document.location.href="search.html?keyword="+searchWord
 
                 },
                 loadAll() {
@@ -390,7 +521,10 @@ $(".include").each(function(){
                 let db = firebase.firestore();
                 ref = db.collection('list')
 
-                await ref.where(Object.keys(paramsObj)[0],'==',paramsObj[Object.keys(paramsObj)[0]]).get().then(querySnapshot => {
+                let country = []
+                let obj=[]
+        
+                await ref.where(itemSearch,'in',searchValue).get().then(querySnapshot => {
                     let i=0
                     querySnapshot.forEach(doc => {  
                         if(doc.data().available == true){
@@ -400,14 +534,76 @@ $(".include").each(function(){
                             // console.log(doc.id)
                             
                         }
+                        // console.log('搜尋IN')
+                    });  
+                    data.sort((a,b)=>{return a.lowPrice - b.lowPrice})
+                    this.data1 = data
+                    
+                    country.length = 0
+                    obj.length = 0
+                    
+                    data.forEach(item => country.indexOf(item.country)===-1?country.push(item.country):null)
+                        country.forEach(item =>{
+
+                            let countryFliter = data.filter(data=>data.country === item)
+                            let arr = countryFliter.map(data=>data.location)
+                            let arr1=[]
+
+                            //checkbox分類
+                            arr.forEach(item => arr1.indexOf(item)===-1?arr1.push(item):null)
+                            obj.push({[item]:arr1})
+                            this.checkedCities.push(arr1)
+                            this.checkedCountryAll.push(true)
+                            this.isIndeterminate.push(false)
+                        })
+                        // console.log(obj)
+                        // console.log('勾選城市'+this.checkedCities)
+                    this.filterData = obj
+                    this.handleCheckAllChange()
+                    // console.log(this.data)
+                    
+                });
+
+                await ref.where(itemSearch,'array-contains-any',searchValue).get().then(querySnapshot => {
+                    let i=0
+                    querySnapshot.forEach(doc => {  
+                        if(doc.data().available == true){
+                            data[i] = doc.data()
+                            data[i].features = (doc.data().features).slice(0,40)
+                            i=i+1
+                            // console.log(doc.id)
+                            // console.log('搜尋ARR-CONTAINS')
+                        }
                         
                     });  
                     data.sort((a,b)=>{return a.lowPrice - b.lowPrice})
                     this.data1 = data
-                    this.data = this.data1.slice(0,6)
-                    // console.log(this.data)
-                });
+                    
+                    country.length = 0
+                    obj.length = 0
 
+                    data.forEach(item => country.indexOf(item.country)===-1?country.push(item.country):null)
+                        country.forEach(item =>{
+
+                            let countryFliter = data.filter(data=>data.country === item)
+                            let arr = countryFliter.map(data=>data.location)
+                            let arr1=[]
+
+                            //checkbox分類
+                            arr.forEach(item => arr1.indexOf(item)===-1?arr1.push(item):null)
+                            obj.push({[item]:arr1})
+                            this.checkedCities.push(arr1)
+                            this.checkedCountryAll.push(true)
+                            this.isIndeterminate.push(false)
+                        })
+                        // console.log(obj)
+                        // console.log('勾選城市'+this.checkedCities)
+                    this.filterData = obj
+                    this.handleCheckAllChange()
+                    // console.log(this.data)
+                    
+                });
+               
             } 
         
      
