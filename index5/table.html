@@ -214,14 +214,19 @@ firebase.auth().setPersistence(firebase.auth.Auth.Persistence.LOCAL)
       let ref = db.collection('list')
       let i = 0
 
-      ref.get().then(querySnapshot => {
+      ref.onSnapshot((querySnapshot => {
+        itemData.length = 0
         querySnapshot.forEach(doc => {  
+
           itemData[i] = doc.data()
           this.itemData = itemData
           i=i+1
-          });  
-          console.log(this.itemData)
-        });
+        });  
+        console.log(this.itemData)
+        this.itemData.reverse()
+        this.itemData.reverse()
+      }));
+      
      
     }
 };
