@@ -79,11 +79,11 @@ const $app = new Vue({
       const redirect = sessionStorage.redirect
       delete sessionStorage.redirect
       console.log(redirect)
-      console.log(this.$route.params)
+
       this.$router.push(redirect)
     }
   },mounted(){
-    id1 = this.$route.params
+    console.log(this.$route.params)
   }
 })
 
