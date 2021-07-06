@@ -28,7 +28,7 @@
       ]
     })
 
-    export default {
+    const $app = new Vue({
       router,
       template: `
         <div id="app">
@@ -42,6 +42,8 @@
           <router-view class="view"></router-view>
         </div>
       `
-    }
+    })
+
+    $app.$mount('#app')
   </script>
 </html>
