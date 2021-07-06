@@ -612,7 +612,7 @@ $(".include").each(function(){
 
     const ChildComponent = {
         name: 'child',
-        template: '<h1>Static-Page SPA : {{ $route.params }}</h1>'
+        template: ''
         ,
     }
 
@@ -627,7 +627,7 @@ $(".include").each(function(){
             name: 'home',
             component: {
                 name: 'home',
-                template: '<h1>Static-Page SPA : Home</h1>'
+                template: ''
             },
             },
             {
@@ -795,92 +795,94 @@ $(".include").each(function(){
         },async mounted(){
             console.log(this.$route.params)
 
-            // await ref.onSnapshot(doc => { 
-            //     if(typeof(doc.data()) == 'undefined'){
-            //         alert('錯誤');
-            //         return 0;
-            //     }
-            //     data = doc.data()
-            //     console.log(doc.data())
+            ref = db.collection('product').doc(this.$route.params.id);
 
-            //     document.title= data.title+'｜大豐旅行社'
+            await ref.onSnapshot(doc => { 
+                if(typeof(doc.data()) == 'undefined'){
+                    alert('錯誤');
+                    return 0;
+                }
+                data = doc.data()
+                console.log(doc.data())
+
+                document.title= data.title+'｜大豐旅行社'
                 
-            //     document.getElementById("canonical").href = "https://tafengtravel.github.io/tafengtravel/index/product/product.html?id="+ data.id
+                document.getElementById("canonical").href = "https://tafengtravel.github.io/tafengtravel/index/product/product.html?id="+ data.id
 
-            //     this.itemData = data
+                this.itemData = data
 
-            //     this.itemDetail = Object.keys(data.itemTitle).map(swag=>({title:data.itemTitle[swag],time:data.itemTime[swag]}))
-            //     console.log(this.itemDetail)
-            //     this.itemRadio = data.itemRadio
+                this.itemDetail = Object.keys(data.itemTitle).map(swag=>({title:data.itemTitle[swag],time:data.itemTime[swag]}))
+                console.log(this.itemDetail)
+                this.itemRadio = data.itemRadio
                 
-            //     // this.depOptions = Object.keys(data.itemDepTime).map(swag=>({time:data.itemDepTime[swag]}))
-            //     this.depOptions = data.itemDepTime
+                // this.depOptions = Object.keys(data.itemDepTime).map(swag=>({time:data.itemDepTime[swag]}))
+                this.depOptions = data.itemDepTime
 
-            //     let a = 0
+                let a = 0
 
-            //     for(i=0;i<Object.keys(data.itemPriceKid).length;i++){
-            //         if(data.itemPriceKid[i][0] != 0){
-            //             this.isShowKid[i] = true
-            //         }else{
-            //             this.isShowKid[i] = false
-            //         }
-            //     }
+                for(i=0;i<Object.keys(data.itemPriceKid).length;i++){
+                    if(data.itemPriceKid[i][0] != 0){
+                        this.isShowKid[i] = true
+                    }else{
+                        this.isShowKid[i] = false
+                    }
+                }
 
-            //     data.itemDepTime = this.dataArrange(data.itemDepTime)
-            //     data.itemRadio = this.dataArrange(data.itemRadio)
-            //     data.itemOtherAdult = this.dataArrange(data.itemOtherAdult)
-            //     this.itemData.itemDepTime = data.itemDepTime
-            //     this.itemData.itemRadio = data.itemRadio
+                data.itemDepTime = this.dataArrange(data.itemDepTime)
+                data.itemRadio = this.dataArrange(data.itemRadio)
+                data.itemOtherAdult = this.dataArrange(data.itemOtherAdult)
+                this.itemData.itemDepTime = data.itemDepTime
+                this.itemData.itemRadio = data.itemRadio
                 
-            //     this.coverCount = data.coverUrlBig.length
+                this.coverCount = data.coverUrlBig.length
 
-            //     for(i=0;i<data.imageUrl.length;i++){
-            //         this.srcList[i] = data.imageUrl[i].url
-            //     }
-            //     this.srcList.reverse()
-            //     this.srcList.reverse()
+                for(i=0;i<data.imageUrl.length;i++){
+                    this.srcList[i] = data.imageUrl[i].url
+                }
+                this.srcList.reverse()
+                this.srcList.reverse()
 
-            //     ref = db.collection('list')
+                ref = db.collection('list')
 
-            //     if(data.location != ''){
-            //         this.countryUrl = 'https://tafengtravel.github.io/tafengtravel/index/product/location.html'
+                if(data.location != ''){
+                    this.countryUrl = 'https://tafengtravel.github.io/tafengtravel/index/product/location.html'
 
-            //         ref.where('location','==',data.location).get().then(querySnapshot => {
-            //             let i=0
-            //             querySnapshot.forEach(doc => { 
-            //                 if(doc.data().available == true && doc.data().id != data.id){
-            //                     itemCarousel[i] = doc.data()
-            //                     itemCarousel[i].features = (doc.data().features).slice(0,20)
-            //                     i = i+1
-            //                 }
+                    ref.where('location','==',data.location).get().then(querySnapshot => {
+                        let i=0
+                        querySnapshot.forEach(doc => { 
+                            if(doc.data().available == true && doc.data().id != data.id){
+                                itemCarousel[i] = doc.data()
+                                itemCarousel[i].features = (doc.data().features).slice(0,20)
+                                i = i+1
+                            }
                             
-            //             });  
-            //             if (i<4){
-            //                 this.carouselLoop = false
-            //             }
-            //             this.itemCarousel = itemCarousel
-            //         });
-            //     }else{
-            //         this.countryUrl = ''
+                        });  
+                        if (i<4){
+                            this.carouselLoop = false
+                        }
+                        this.itemCarousel = itemCarousel
+                    });
+                }else{
+                    this.countryUrl = ''
 
-            //         ref.where('country','==',data.country).get().then(querySnapshot => {
-            //             let i=0
-            //             querySnapshot.forEach(doc => { 
-            //                 if(doc.data().available == true && doc.data().id != data.id){
-            //                     itemCarousel[i] = doc.data()
-            //                     itemCarousel[i].features = (doc.data().features).slice(0,20)
-            //                     i = i+1
-            //                 }
+                    ref.where('country','==',data.country).get().then(querySnapshot => {
+                        let i=0
+                        querySnapshot.forEach(doc => { 
+                            if(doc.data().available == true && doc.data().id != data.id){
+                                itemCarousel[i] = doc.data()
+                                itemCarousel[i].features = (doc.data().features).slice(0,20)
+                                i = i+1
+                            }
                             
-            //             });  
-            //             if (i<4){
-            //                 this.carouselLoop = false
-            //             }
-            //             this.itemCarousel = itemCarousel
-            //         });
+                        });  
+                        if (i<4){
+                            this.carouselLoop = false
+                        }
+                        this.itemCarousel = itemCarousel
+                    });
 
-            //     }
-            // });
+                }
+            });
 
         } 
         
