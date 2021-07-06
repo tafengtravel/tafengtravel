@@ -8,6 +8,8 @@ const ChildComponent = {
   template: '<h1>Static-Page SPA : {{ $route.meta.title }}</h1>'
 }
 
+let id1 = ''
+
 const router = new VueRouter({
   mode: 'history',
   base: '/tafengtravel/',
@@ -77,6 +79,8 @@ const $app = new Vue({
       console.log(redirect)
       this.$router.push(redirect)
     }
+  },mounted(){
+    id1 = this.$route.params
   }
 })
 
