@@ -12,7 +12,7 @@ const router = new VueRouter({
   mode: 'history',
   base: '/tafengtravel/',
   routes: [
-    {
+    { 
       path: '/index6',
       name: 'home',
       component: {
