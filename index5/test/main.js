@@ -10,7 +10,7 @@ const ChildComponent = {
 
 const router = new VueRouter({
   mode: 'history',
-  base: '/index5/',
+  base: '/tafengtravel/index5/test/',
   routes: [
     {
       path: '/',
