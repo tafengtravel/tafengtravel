@@ -17,7 +17,7 @@ const router = new VueRouter({
   base: '/tafengtravel/',
   routes: [
     {
-      path: '/index6/',
+      path: '/index6',
       name: 'home',
       component: {
         name: 'home',
@@ -83,7 +83,7 @@ const $app = new Vue({
       this.$router.push(redirect)
     }
   },mounted(){
-    console.log(this.$route.params)
+      console.log(this.$route.params)
   }
 })
 
