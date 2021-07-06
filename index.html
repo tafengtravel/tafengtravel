@@ -627,15 +627,6 @@ $(".include").each(function(){
             {
             path: '/',
             name: 'home',
-            beforeEnter: (to, from, next) => {
-                if (sessionStorage.getItem('redirect') !== null) {
-                const redirect = sessionStorage.redirect
-                delete sessionStorage.redirect
-                next(redirect)
-                } else {
-                next()
-                }
-            },
             component: {
                 name: 'home',
                 template: '' 
