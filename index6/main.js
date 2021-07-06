@@ -5,9 +5,8 @@ const ParentComponent = {
 
 const ChildComponent = {
   name: 'child',
-  template: `<h1>Static-Page SPA : {{ $route.meta.title }}</h1> 
-  <h1>Static-Page SPA : {{ $route.params }}</h1>
-  `,
+  template: '<h1>Static-Page SPA : {{ $route.params }}</h1>'
+  ,
   
 }
 
@@ -80,6 +79,7 @@ const $app = new Vue({
       const redirect = sessionStorage.redirect
       delete sessionStorage.redirect
       console.log(redirect)
+      console.log(this.$route.params)
       this.$router.push(redirect)
     }
   },mounted(){
