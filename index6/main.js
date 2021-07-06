@@ -5,7 +5,7 @@ const ParentComponent = {
 
 const ChildComponent = {
   name: 'child',
-  template: `<h1>Static-Page SPA : {{ $route.meta.title }}</h1>
+  template: `<h1>Static-Page SPA : {{ $route.meta.title }}</h1> 
   <h1>Static-Page SPA : {{ $route.params }}</h1>
   `,
   
