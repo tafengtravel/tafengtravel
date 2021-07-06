@@ -13,7 +13,7 @@ const router = new VueRouter({
   base: '/tafengtravel/index6/',
   routes: [
     {
-      path: '/',
+      path: '/:id',
       name: 'home',
       component: {
         name: 'home',
