@@ -13,7 +13,7 @@ const router = new VueRouter({
   base: '/tafengtravel/',
   routes: [
     {
-      path: '/index6',
+      path: '/index6/',
       name: 'home',
       component: {
         name: 'home',
@@ -21,7 +21,7 @@ const router = new VueRouter({
       },
     },
     {
-      path: '/index6/foo',
+      path: '/index6/id/:id',
       component: ParentComponent,
       children: [
         {
