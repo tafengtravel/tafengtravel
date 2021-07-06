@@ -179,7 +179,7 @@ document.querySelectorAll("[href^='https://line.me']").forEach(function(item){
       <!-- 使用 router-link 组件来导航. -->
       <!-- 通过传入 `to` 属性指定链接. -->
       <!-- <router-link> 默认会被渲染成一个 `<a>` 标签 -->
-        <a :href = "'file:///C:/Users/TAFENG/Desktop/Leo/%E6%94%B9%E7%89%88%E5%AE%98%E7%B6%B2/%E6%B8%AC%E8%A9%A6router/router.html#/id/'+this.id">123</a>
+        <router-link to="/bar">123</a>
       <router-link :to="{ path: '/id/',id:'this.id' }">Go to Foo</router-link>
       <router-link to="/bar">Go to Bar</router-link>
     </p>
@@ -231,15 +231,15 @@ $(".include").each(function(){
 // 或者，只是一个组件配置对象。
 // 我们晚点再讨论嵌套路由。
 const routes = [
-  { path: '/id/:id', component: Foo },
-  { path: '/bar', component: Bar }
+  { path: '/index5/test/id/:id', component: Foo },
+  { path: '/index5/test/bar', component: Bar }
 ]
 
 // 3. 创建 router 实例，然后传 `routes` 配置
 // 你还可以传别的配置参数, 不过先这么简单着吧。
 const router = new VueRouter({
     mode:'history',
-    base: '/tafengtravel/index5/test/',
+    base: '/tafengtravel/',
   routes // (缩写) 相当于 routes: routes
 })
 
