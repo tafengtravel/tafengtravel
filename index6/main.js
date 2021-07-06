@@ -10,10 +10,10 @@ const ChildComponent = {
 
 const router = new VueRouter({
   mode: 'history',
-  base: '/tafengtravel/index6/',
+  base: '/tafengtravel/',
   routes: [
     {
-      path: '/',
+      path: '/index6',
       name: 'home',
       component: {
         name: 'home',
@@ -74,6 +74,7 @@ const $app = new Vue({
     if (sessionStorage.redirect) {
       const redirect = sessionStorage.redirect
       delete sessionStorage.redirect
+      console.log(redirect)
       this.$router.push(redirect)
     }
   }
