@@ -21,7 +21,7 @@ const router = new VueRouter({
       },
     },
     {
-      path: '/foo',
+      path: '/index6/foo',
       component: ParentComponent,
       children: [
         {
