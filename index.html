@@ -612,7 +612,7 @@ $(".include").each(function(){
 
     const ChildComponent = {
         name: 'child',
-        template: '<h1>Static-Page SPA : {{ $route.meta.title }}</h1>'
+        template: '<h1>Static-Page SPA : {{ $route.params }}</h1>'
         ,
     }
 
@@ -631,7 +631,7 @@ $(".include").each(function(){
             },
             },
             {
-            path: '/foo',
+            path: '/product/:id',
             component: ParentComponent,
             children: [
                 {
@@ -642,28 +642,7 @@ $(".include").each(function(){
                     title: 'Foo'
                 }
                 },
-                {
-                path: 'bar',
-                component: ParentComponent,
-                children: [
-                    {
-                    path: '',
-                    name: 'bar',
-                    component: ChildComponent,
-                    meta: {
-                        title: 'Foo / Bar'
-                    }
-                    },
-                    {
-                    path: 'baz',
-                    name: 'baz',
-                    component: ChildComponent,
-                    meta: {
-                        title: 'Foo / Bar / Baz'
-                    }
-                    }
-                ]
-                }
+                
             ]
             },
             {
