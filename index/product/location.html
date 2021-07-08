@@ -182,7 +182,19 @@ document.querySelectorAll("[href^='https://line.me']").forEach(function(item){
 .el-collapse-item__wrap{
     background-color:#F0F0F0;
 }
-
+.el-tabs__item {
+    padding: 0 20px;
+    height: 40px;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    line-height: 40px;
+    display: inline-block;
+    list-style: none;
+    font-size: 18px;
+    color: #303133;
+    position: relative;
+    font-weight: bold;
+}
 </style>
 
    
@@ -234,57 +246,97 @@ document.querySelectorAll("[href^='https://line.me']").forEach(function(item){
         </div>
         
         <div class ="el-col-24" style="background-color:#F0F0F0;">
-            <el-row :gutter="20">
-                <div class ="el-col el-col-24 el-col-xs-20 el-col-xs-offset-2 el-col-sm-20 el-col-sm-offset-2 el-col-md-22 el-col-md-offset-1 el-col-lg-18 el-col-lg-offset-3">
-                    <div v-for="item in data">
-                        
-                        <a :href ='"https://tafengtravel.github.io/tafengtravel/index/product/search.html?location="+item.title'>
-                            <el-col class ="el-col el-col-xs-12 el-col-sm-12 el-col-md-8 el-col-lg-4 ">
-                                <el-card class="box-card"  :body-style="{ padding: '0px' }" shadow="hover">
-                                    <div class ="image-margin  el-col el-col-24 el-col-xs-24 el-col-sm-24 el-col-md-24 el-col-lg-24 ">
-                                        <el-image style="width:100% ;height: 130px" :src="item.coverUrlSmall":fit="fits">
-                                        </el-image>
-                                    </div>
+            <div class ="el-col el-col-24 el-col-xs-20 el-col-xs-offset-2 el-col-sm-20 el-col-sm-offset-2 el-col-md-22 el-col-md-offset-1 el-col-lg-18 el-col-lg-offset-3">
+                <el-tabs v-model="activeName" @tab-click="dateChoose">
+                    <el-tab-pane label="國內行程" name="first" class="font">
 
-                                    <div  style="padding: 10px;" class ="text-margin el-col el-col-24 el-col-xs-24 el-col-sm-24 el-col-md-24 el-col-lg-24"> 
-                                        <span class="font"><font color="black">{{item.title}}</font></span>
-                                    </div>
+                        <el-row :gutter="20">
+                            <div v-for="item in dataDomestic">
+                                <a :href ='"https://tafengtravel.github.io/tafengtravel/index/product/search.html?location="+item.title'>
+                                    <el-col class ="el-col el-col-xs-12 el-col-sm-12 el-col-md-8 el-col-lg-4 ">
+                                        <el-card class="box-card"  :body-style="{ padding: '0px' }" shadow="hover">
+                                            <div class ="image-margin  el-col el-col-24 el-col-xs-24 el-col-sm-24 el-col-md-24 el-col-lg-24 ">
+                                                <el-image style="width:100% ;height: 130px" :src="item.coverUrlSmall":fit="fits">
+                                                </el-image>
+                                            </div>
 
-                                    <div  style="padding: 10px;" class ="text-margin el-col el-col-24 el-col-xs-24 el-col-sm-24 el-col-md-24 el-col-lg-24"> 
-                                        <font class="mini_font">{{item.features}}...</font>
-                                    </div>
+                                            <div  style="padding: 10px;" class ="text-margin el-col el-col-24 el-col-xs-24 el-col-sm-24 el-col-md-24 el-col-lg-24"> 
+                                                <span class="font"><font color="black">{{item.title}}</font></span>
+                                            </div>
 
-                                    <!-- <div  style="padding: 10px; text-align:right" class ="text-margin el-col el-col-24 el-col-xs-24 el-col-sm-24 el-col-md-24 el-col-lg-24"> 
-                                        <span class="font">$</span> 
-                                        <span class="sub_title"><font color="#FF6600">{{item.lowPrice}}</font></span>
-                                        <span class="font">起</span> 
-                                    </div> -->
+                                            <div  style="padding: 10px;" class ="text-margin el-col el-col-24 el-col-xs-24 el-col-sm-24 el-col-md-24 el-col-lg-24"> 
+                                                <font class="mini_font">{{item.features}}...</font>
+                                            </div>
 
-                                </el-card>
-                            </el-col>
+                                            <!-- <div  style="padding: 10px; text-align:right" class ="text-margin el-col el-col-24 el-col-xs-24 el-col-sm-24 el-col-md-24 el-col-lg-24"> 
+                                                <span class="font">$</span> 
+                                                <span class="sub_title"><font color="#FF6600">{{item.lowPrice}}</font></span>
+                                                <span class="font">起</span> 
+                                            </div> -->
+
+                                        </el-card>
+                                    </el-col>
+                                </a>
+                            </div>
+                        </el-row>
+
+                    </el-tab-pane>
+                    <el-tab-pane label="國外行程" name="second" class="font">
+
+                        <el-row :gutter="20">
+                            <div v-for="item in dataForeign">
+                                <a :href ='"https://tafengtravel.github.io/tafengtravel/index/product/search.html?country="+item.title'>
+                                    <el-col class ="el-col el-col-xs-12 el-col-sm-12 el-col-md-8 el-col-lg-4 ">
+                                        <el-card class="box-card"  :body-style="{ padding: '0px' }" shadow="hover">
+                                            <div class ="image-margin  el-col el-col-24 el-col-xs-24 el-col-sm-24 el-col-md-24 el-col-lg-24 ">
+                                                <el-image style="width:100% ;height: 130px" :src="item.coverUrlSmall":fit="fits">
+                                                </el-image>
+                                            </div>
+
+                                            <div  style="padding: 10px;" class ="text-margin el-col el-col-24 el-col-xs-24 el-col-sm-24 el-col-md-24 el-col-lg-24"> 
+                                                <span class="font"><font color="black">{{item.title}}</font></span>
+                                            </div>
+
+                                            <div  style="padding: 10px;" class ="text-margin el-col el-col-24 el-col-xs-24 el-col-sm-24 el-col-md-24 el-col-lg-24"> 
+                                                <font class="mini_font">{{item.features}}...</font>
+                                            </div>
+
+                                            <!-- <div  style="padding: 10px; text-align:right" class ="text-margin el-col el-col-24 el-col-xs-24 el-col-sm-24 el-col-md-24 el-col-lg-24"> 
+                                                <span class="font">$</span> 
+                                                <span class="sub_title"><font color="#FF6600">{{item.lowPrice}}</font></span>
+                                                <span class="font">起</span> 
+                                            </div> -->
+
+                                        </el-card>
+                                    </el-col>
+                                </a>
+                            </div>
+                        </el-row>
+
+                    </el-tab-pane>
+                </el-tabs>
+
+                <!-- <el-row>
+                    
+                    <div style="text-align:center" >
+                        <a href="#top">
+                            <el-pagination background
+                            layout="prev, pager, next"
+                            :total= "total"
+                            :page-size ="pageSize"
+                            @current-change="setPage">
+                            </el-pagination>
                         </a>
                     </div>
-                </div>
+                    
+                </el-row> -->
 
-            </el-row>
-            <el-row>
-                
-                <div style="text-align:center" >
-                    <a href="#top">
-                        <el-pagination background
-                        layout="prev, pager, next"
-                        :total= "total"
-                        :page-size ="pageSize"
-                        @current-change="setPage">
-                        </el-pagination>
-                    </a>
-                </div>
-                
-            </el-row>
-            <el-row>
-                <el-backtop :bottom="100"></el-backtop>
-            </el-row>
+            </div>
+            
         </div>
+
+        <el-backtop :bottom="100"></el-backtop>
+        
     </div>
 </div>
 
@@ -337,6 +389,8 @@ $(".include").each(function(){
     var Main = {
         data() {
             return {
+                activeName: 'first',
+
                 total:0,
                 dataSearch1:'',
                 dataSearch:'',
@@ -344,7 +398,7 @@ $(".include").each(function(){
                 search:'',
                 searchSuggest: [],
                 fits:'cover',
-                data:[
+                dataDomestic:[
                     {
                         title:'澎湖',
                         coverUrlSmall:'image/penghu.jpg',
@@ -407,11 +461,33 @@ $(".include").each(function(){
                         features:'漁光島月牙灣SUP，等你來訂購！',
                     },
                 ],
+                dataForeign:[
+                {
+                        title:'中國',
+                        coverUrlSmall:'image/china.jpg',
+                        lowPrice:'330',
+                        features:'香港、澳門、北京、上海、福建，逐步上架中，等你來訂購！',
+                    },{
+                        title:'日本',
+                        coverUrlSmall:'image/japan.jpg',
+                        lowPrice:'249',
+                        features:'東京、大阪、京都、沖繩，逐步上架中，等你來訂購！',
+                    },{
+                        title:'韓國',
+                        coverUrlSmall:'image/korea.jpg',
+                        lowPrice:'500',
+                        features:'首爾、釜山、和服體驗，逐步上架中，等你來訂購！',
+                    }
+                ],
                 pageSize:16
             };
                 
     
             },methods: {
+                dateChoose(){
+                    
+                    // this.total = this.data.length
+                },
                 setPage(val){
                     let dataSlice = this.data1 
                     let dataSearchSlice = this.dataSearchFilter
@@ -455,8 +531,8 @@ $(".include").each(function(){
                 },
             },mounted(){
                 this.searchSuggest = this.loadAll();
-                this.data1 = this.data
-                this.total = this.data.length
+                this.data1 = this.dataDomestic
+                this.total = this.dataDomestic.length
                 this.data = this.data1.slice(0,this.pageSize)
             } 
         
