@@ -190,7 +190,7 @@ document.querySelectorAll("[href^='https://line.me']").forEach(function(item){
             <el-row :gutter="20">
                 <div v-for="item in data">
                     
-                    <a :href ='"https://tafengtravel.github.io/tafengtravel/index/product/product.html?id="+item.id' target="_blank">
+                    <a :href ='item.link'>
                         <el-col class ="el-col el-col-xs-24 el-col-sm-24 el-col-md-8 el-col-lg-6 ">
                             <el-card class="box-card"  :body-style="{ padding: '0px' }" shadow="hover">
                                 <div class ="image-margin  el-col el-col-24 el-col-xs-24 el-col-sm-24 el-col-md-24 el-col-lg-24 ">
@@ -279,16 +279,19 @@ $(".include").each(function(){
                             coverUrlSmall:'image/boardingpass.jpg',
                             lowPrice:'8000',
                             features:'世界各地航班查詢，最優惠機票盡在大豐',
+                            link:'https://tafengtravel.github.io/tafengtravel/index/flight/search.html'
                         },{
                             title:'美國專區',
                             coverUrlSmall:'image/sf.jpg',
                             lowPrice:'45900',
                             features:'美國各地自由行，應有盡有',
+                            link:'https://tafengtravel.github.io/tafengtravel/index/foreign_self/usa.html'
                         },{
                             title:'單購在地行程',
                             coverUrlSmall:'image/tour.jpg',
                             lowPrice:'500',
                             features:'單購世界各地在地行程',
+                            link:'https://tafengtravel.github.io/tafengtravel/index/product/location.html'
                         },
                     ],
                     
