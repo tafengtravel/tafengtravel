@@ -523,7 +523,8 @@ $(".include").each(function(){
                     let i=0
                     querySnapshot.forEach(doc => {  
                         console.log(doc.data())
-                        if(doc.data().available == true){
+                        if(doc.data().available == true && doc.data().location == ''){
+
                             data[i] = doc.data()
                             data[i].features = (doc.data().features).slice(0,40)
                             i=i+1
