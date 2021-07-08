@@ -248,7 +248,7 @@ document.querySelectorAll("[href^='https://line.me']").forEach(function(item){
         <div class ="el-col-24" style="background-color:#F0F0F0;">
             <div class ="el-col el-col-24 el-col-xs-20 el-col-xs-offset-2 el-col-sm-20 el-col-sm-offset-2 el-col-md-22 el-col-md-offset-1 el-col-lg-18 el-col-lg-offset-3">
                 <el-tabs v-model="activeName" @tab-click="dateChoose">
-                    <el-tab-pane label="國內行程" name="first" class="font">
+                    <el-tab-pane label="國內行程" name="domestic" class="font">
 
                         <el-row :gutter="20">
                             <div v-for="item in dataDomestic">
@@ -281,7 +281,7 @@ document.querySelectorAll("[href^='https://line.me']").forEach(function(item){
                         </el-row>
 
                     </el-tab-pane>
-                    <el-tab-pane label="國外行程" name="second" class="font">
+                    <el-tab-pane label="國外行程" name="foreign" class="font">
 
                         <el-row :gutter="20">
                             <div v-for="item in dataForeign">
@@ -389,7 +389,7 @@ $(".include").each(function(){
     var Main = {
         data() {
             return {
-                activeName: 'first',
+                activeName: 'domestic',
 
                 total:0,
                 dataSearch1:'',
@@ -531,9 +531,13 @@ $(".include").each(function(){
                 },
             },mounted(){
                 this.searchSuggest = this.loadAll();
-                this.data1 = this.dataDomestic
-                this.total = this.dataDomestic.length
-                this.data = this.data1.slice(0,this.pageSize)
+
+                if(paramsObj.choose != undefined){
+                    this.activeName = paramsObj.choose
+                }
+                // this.data1 = this.dataDomestic
+                // this.total = this.dataDomestic.length
+                // this.data = this.data1.slice(0,this.pageSize)
             } 
         
      
