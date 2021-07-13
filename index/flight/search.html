@@ -289,7 +289,16 @@ document.querySelectorAll("[href^='https://line.me']").forEach(function(item){
                                                     
                                                 </el-select> -->
 
-                                                <el-cascader v-model="originValue" placeholder="出發地" :options="origin" :show-all-levels="false" @change='aa' clearable filterable style="margin-bottom: 20px;" class ="el-col-24"></el-cascader>
+                                                <el-cascader v-model="originValue" 
+                                                    placeholder="出發地" 
+                                                    :options="origin" 
+                                                    :show-all-levels="false"                                                
+                                                    clearable 
+                                                    filterable 
+                                                    style="margin-bottom: 20px;" 
+                                                    class ="el-col-24"
+                                                    :filter-method = "filterOption">
+                                                </el-cascader>
 
                                                 <span class="mini_font el-col-24" v-if="originValue.length != 2 && click == true">
                                                     <font color='red'>*請選擇出發地</font>
@@ -325,7 +334,16 @@ document.querySelectorAll("[href^='https://line.me']").forEach(function(item){
                                                     </el-option-group>
                                                 </el-select> -->
                                                 
-                                                <el-cascader v-model="destinationValue" placeholder="目的地" :options="destination" :show-all-levels="false" @change='aa' clearable filterable style="margin-bottom: 20px;" class ="el-col-24"></el-cascader>
+                                                <el-cascader v-model="destinationValue" 
+                                                    placeholder="目的地" 
+                                                    :options="destination" 
+                                                    :show-all-levels="false" 
+                                                    clearable 
+                                                    filterable 
+                                                    style="margin-bottom: 20px;" 
+                                                    class ="el-col-24"
+                                                    :filter-method = "filterOption">
+                                                </el-cascader>
 
                                                 <span class="mini_font el-col-24" v-if="destinationValue.length != 2 && click == true">
                                                     <font color='red'>*請選擇目的地</font>
@@ -408,7 +426,15 @@ document.querySelectorAll("[href^='https://line.me']").forEach(function(item){
                                                     
                                                 </el-select> -->
 
-                                                <el-cascader v-model="originValue" placeholder="出發地" :options="origin" :show-all-levels="false" @change='aa' clearable filterable style="margin-bottom: 20px;" class ="el-col-24"></el-cascader>
+                                                <el-cascader v-model="originValue" 
+                                                    placeholder="出發地" 
+                                                    :options="origin" 
+                                                    :show-all-levels="false" 
+                                                    clearable filterable 
+                                                    style="margin-bottom: 20px;" 
+                                                    class ="el-col-24"
+                                                    :filter-method = "filterOption">
+                                                </el-cascader>
 
                                                 <span class="mini_font el-col-24" v-if="originValue.length != 2 && click == true">
                                                     <font color='red'>*請選擇出發地</font>
@@ -444,7 +470,15 @@ document.querySelectorAll("[href^='https://line.me']").forEach(function(item){
                                                     </el-option-group>
                                                 </el-select> -->
 
-                                                <el-cascader v-model="destinationValue" placeholder="目的地" :options="destination" :show-all-levels="false" @change='aa' clearable filterable style="margin-bottom: 20px;" class ="el-col-24"></el-cascader>
+                                                <el-cascader v-model="destinationValue" 
+                                                    placeholder="目的地" 
+                                                    :options="destination" 
+                                                    :show-all-levels="false" 
+                                                    clearable filterable 
+                                                    style="margin-bottom: 20px;" 
+                                                    class ="el-col-24"
+                                                    :filter-method = "filterOption">
+                                                </el-cascader>
 
                                                 <span class="mini_font el-col-24" v-if="destinationValue.length != 2 && click == true">
                                                     <font color='red'>*請選擇目的地</font>
@@ -1071,8 +1105,8 @@ $(".include").each(function(){
             };
     
             },methods: {
-                aa(){
-                    console.log(this.originValue)
+                filterOption(node, keyword){
+                    return node.text.toUpperCase().includes(keyword.toUpperCase())
                 },
                 timeTransfer(){
                     let time
