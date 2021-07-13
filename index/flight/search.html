@@ -271,7 +271,7 @@ document.querySelectorAll("[href^='https://line.me']").forEach(function(item){
                                         <!-- <el-card class="box-card" style="min-height: 80px;" shadow="never"> -->
                                             <div class ="el-col el-col-24 el-col-xs-24 el-col-sm-24 el-col-md-10 el-col-lg-10">
 
-                                                <el-select v-model="originValue" filterable placeholder="出發地" multiple :multiple-limit="1" style="margin-bottom: 20px;" class ="el-col-24">
+                                                <!-- <el-select v-model="originValue" filterable placeholder="出發地" multiple :multiple-limit="1" style="margin-bottom: 20px;" class ="el-col-24">
                                                     <el-option-group
                                                         v-for="group in origin"
                                                         :key="group.label"
@@ -287,8 +287,11 @@ document.querySelectorAll("[href^='https://line.me']").forEach(function(item){
                                                         </el-option>
                                                     </el-option-group>
                                                     
-                                                </el-select>
-                                                <span class="mini_font el-col-24" v-if="originValue == '' && click == true">
+                                                </el-select> -->
+
+                                                <el-cascader v-model="originValue" :options="origin" :show-all-levels="false" @change='aa' clearable filterable style="margin-bottom: 20px;" class ="el-col-24"></el-cascader>
+
+                                                <span class="mini_font el-col-24" v-if="originValue.length != 2 && click == true">
                                                     <font color='red'>*請選擇出發地</font>
                                                 </span>
 
@@ -307,7 +310,7 @@ document.querySelectorAll("[href^='https://line.me']").forEach(function(item){
 
                                             <div class ="el-col el-col-24 el-col-xs-24 el-col-sm-24 el-col-md-10 el-col-lg-10">
 
-                                                <el-select v-model="destinationValue" filterable placeholder="目的地" multiple :multiple-limit="1" class ="el-col-24" style="margin-bottom: 20px;">
+                                                <!-- <el-select v-model="destinationValue" filterable placeholder="目的地" multiple :multiple-limit="1" class ="el-col-24" style="margin-bottom: 20px;">
                                                     <el-option-group
                                                         v-for="group in destination"
                                                         :key="group.label"
@@ -320,8 +323,11 @@ document.querySelectorAll("[href^='https://line.me']").forEach(function(item){
                                                             <span style="float: left">{{ item.label }}</span>
                                                         </el-option>
                                                     </el-option-group>
-                                                </el-select>
-                                                <span class="mini_font el-col-24" v-if="destinationValue == '' && click == true">
+                                                </el-select> -->
+                                                
+                                                <el-cascader v-model="destinationValue" :options="destination" :show-all-levels="false" @change='aa' clearable filterable style="margin-bottom: 20px;" class ="el-col-24"></el-cascader>
+
+                                                <span class="mini_font el-col-24" v-if="destinationValue.length != 2 && click == true">
                                                     <font color='red'>*請選擇目的地</font>
                                                 </span>
 
@@ -384,7 +390,7 @@ document.querySelectorAll("[href^='https://line.me']").forEach(function(item){
                                         <!-- <el-card class="box-card" style="min-height: 80px;" shadow="never"> -->
                                             <div class ="el-col el-col-24 el-col-xs-24 el-col-sm-24 el-col-md-10 el-col-lg-10">
 
-                                                <el-select v-model="originValue" filterable placeholder="出發地" multiple :multiple-limit="1" style="margin-bottom: 20px;" class ="el-col-24">
+                                                <!-- <el-select v-model="originValue" filterable placeholder="出發地" multiple :multiple-limit="1" style="margin-bottom: 20px;" class ="el-col-24">
                                                     <el-option-group
                                                         v-for="group in origin"
                                                         :key="group.label"
@@ -400,8 +406,11 @@ document.querySelectorAll("[href^='https://line.me']").forEach(function(item){
                                                         </el-option>
                                                     </el-option-group>
                                                     
-                                                </el-select>
-                                                <span class="mini_font el-col-24" v-if="originValue == '' && click == true">
+                                                </el-select> -->
+
+                                                <el-cascader v-model="originValue" :options="origin" :show-all-levels="false" @change='aa' clearable filterable style="margin-bottom: 20px;" class ="el-col-24"></el-cascader>
+
+                                                <span class="mini_font el-col-24" v-if="originValue.length != 2 && click == true">
                                                     <font color='red'>*請選擇出發地</font>
                                                 </span>
 
@@ -420,7 +429,7 @@ document.querySelectorAll("[href^='https://line.me']").forEach(function(item){
 
                                             <div class ="el-col el-col-24 el-col-xs-24 el-col-sm-24 el-col-md-10 el-col-lg-10">
 
-                                                <el-select v-model="destinationValue" filterable placeholder="目的地" multiple :multiple-limit="1" class ="el-col-24" style="margin-bottom: 20px;">
+                                                <!-- <el-select v-model="destinationValue" filterable placeholder="目的地" multiple :multiple-limit="1" class ="el-col-24" style="margin-bottom: 20px;">
                                                     <el-option-group
                                                         v-for="group in destination"
                                                         :key="group.label"
@@ -433,8 +442,11 @@ document.querySelectorAll("[href^='https://line.me']").forEach(function(item){
                                                             <span style="float: left">{{ item.label }}</span>
                                                         </el-option>
                                                     </el-option-group>
-                                                </el-select>
-                                                <span class="mini_font el-col-24" v-if="destinationValue == '' && click == true">
+                                                </el-select> -->
+
+                                                <el-cascader v-model="destinationValue" :options="destination" :show-all-levels="false" @change='aa' clearable filterable style="margin-bottom: 20px;" class ="el-col-24"></el-cascader>
+
+                                                <span class="mini_font el-col-24" v-if="destinationValue.length != 2 && click == true">
                                                     <font color='red'>*請選擇目的地</font>
                                                 </span>
 
@@ -616,7 +628,7 @@ document.querySelectorAll("[href^='https://line.me']").forEach(function(item){
                                                     </el-col>
                                                     
                                                 </el-row>
-                                                <span v-if="item1.flyTo == destinationValue && activeName == 'second'" ><el-divider></el-divider></span>
+                                                <span v-if="item1.flyTo == destinationValue[1] && activeName == 'second'" ><el-divider></el-divider></span>
                                             </p>
                                             
                                         </div>
@@ -718,7 +730,8 @@ $(".include").each(function(){
                 },
                 origin: [{
                     label: '台灣',
-                    options: [{
+                    value:'1',
+                    children: [{
                         label: '桃園 - TPE',
                         value: 'TPE'
                     },{
@@ -728,7 +741,8 @@ $(".include").each(function(){
                     }],
                 },{
                     label: '大陸港澳',
-                    options: [{
+                    value:'2',
+                    children: [{
                         label: '香港 - HKG',
                         value: 'HKG'
                     },{
@@ -766,7 +780,8 @@ $(".include").each(function(){
                     }],
                 },{
                     label: '日本',
-                    options: [{
+                    value:'3',
+                    children: [{
                         label: '東京成田 - NRT',
                         value: 'NRT'
                     },{
@@ -805,7 +820,8 @@ $(".include").each(function(){
                     }],
                 },{
                     label: '韓國',
-                    options: [{
+                    value:'4',
+                    children: [{
                         label: '首爾 - ICN',
                         value: 'ICN'
                     },{
@@ -820,7 +836,8 @@ $(".include").each(function(){
                     }],
                 },{
                     label: '東南亞',
-                    options: [{
+                    value:'5',
+                    children: [{
                         label: '曼谷 - BKK',//th
                         value: 'BKK'
                     },{
@@ -865,7 +882,8 @@ $(".include").each(function(){
                     }],
                 },{
                     label: '歐洲',
-                    options: [{
+                    value:'6',
+                    children: [{
                         label: '倫敦 - LON',
                         value: 'LON'
                     },{
@@ -928,7 +946,8 @@ $(".include").each(function(){
                     }]
                 },{
                     label: '美洲',
-                    options: [{
+                    value:'7',
+                    children: [{
                         label: '洛杉磯 - LOS',
                         value: 'LOS'
                     },{
@@ -994,7 +1013,8 @@ $(".include").each(function(){
                     }],
                 },{
                     label: '大洋洲',
-                    options: [{
+                    value:'8',
+                    children: [{
                         label: '雪梨 - SYD',
                         value: 'SYD'
                     },{
@@ -1051,6 +1071,9 @@ $(".include").each(function(){
             };
     
             },methods: {
+                aa(){
+                    console.log(this.originValue)
+                },
                 timeTransfer(){
                     let time
                     time = this.sliderTime
@@ -1101,7 +1124,7 @@ $(".include").each(function(){
                 },
                 async search(){
                     console.log(this.departureDate)
-                    if(this.originValue == ''||this.destinationValue == ''){
+                    if(this.originValue[1] == ''||this.destinationValue[1] == ''){
                         return 0
                     }else{
                         if(this.activeName == 'first' && this.departureDate == ''){
@@ -1127,10 +1150,10 @@ $(".include").each(function(){
 
                     let params
                     if(this.activeName == 'first'){
-                        params = 'fly_from='+this.originValue+'&fly_to='+this.destinationValue+'&dateFrom='+moment(this.departureDate).format('DD/MM/YYYY')
+                        params = 'fly_from='+this.originValue[1]+'&fly_to='+this.destinationValue[1]+'&dateFrom='+moment(this.departureDate).format('DD/MM/YYYY')
                         +'&dateTo='+moment(this.departureDate).format('DD/MM/YYYY')+'&curr=TWD&max_stopovers=2'
                     }else if(this.activeName == 'second'){
-                        params = 'fly_from='+this.originValue+'&fly_to='+this.destinationValue+'&dateFrom='+moment(this.departureDate).format('DD/MM/YYYY')
+                        params = 'fly_from='+this.originValue[1]+'&fly_to='+this.destinationValue[1]+'&dateFrom='+moment(this.departureDate).format('DD/MM/YYYY')
                         +'&dateTo='+moment(this.departureDate).format('DD/MM/YYYY')+'&returnFrom='+moment(this.returnDate).format('DD/MM/YYYY')
                         +'&returnTo='+moment(this.returnDate).format('DD/MM/YYYY')+'&curr=TWD&max_stopovers=2'
                     }
@@ -1157,17 +1180,17 @@ $(".include").each(function(){
 
                     let stopCount
                     let stopCountReturn
-                    airportChinese[0].options[2] = {label: '松山 - TSA',value: 'TSA'}
+                    airportChinese[0].children[2] = {label: '松山 - TSA',value: 'TSA'}
                     for(i=0;i<this.flightData.data.length;i++){
                         for(j=0;j<this.flightData.data[i].route.length;j++){
                             for(k=0;k<this.origin.length;k++){
-                                for(l=0;l<this.origin[k].options.length;l++){
-                                    if (this.flightData.data[i].route[j].flyFrom == this.origin[k].options[l].value){
-                                        airportFromArr = this.origin[k].options[l].label.trim().split(/\s+/)
+                                for(l=0;l<this.origin[k].children.length;l++){
+                                    if (this.flightData.data[i].route[j].flyFrom == this.origin[k].children[l].value){
+                                        airportFromArr = this.origin[k].children[l].label.trim().split(/\s+/)
                                         airportFrom = airportFromArr[0]
                                     }else{}
-                                    if (this.flightData.data[i].route[j].flyTo == this.origin[k].options[l].value){
-                                        airportToArr = this.origin[k].options[l].label.trim().split(/\s+/)
+                                    if (this.flightData.data[i].route[j].flyTo == this.origin[k].children[l].value){
+                                        airportToArr = this.origin[k].children[l].label.trim().split(/\s+/)
                                         airportTo = airportToArr[0]
                                     }
                                 }
@@ -1183,7 +1206,7 @@ $(".include").each(function(){
                             airportFrom = ''
                             airportTo = ''
 
-                            if(this.destinationValue == this.flightData.data[i].route[j].flyTo){
+                            if(this.destinationValue[1] == this.flightData.data[i].route[j].flyTo){
                                 stopCount = j+1
                                 stopCountReturn = this.flightData.data[i].route.length - stopCount
 
