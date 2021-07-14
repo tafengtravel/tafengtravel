@@ -381,20 +381,20 @@ document.querySelectorAll("[href^='https://line.me']").forEach(function(item){
                                                     <span class="font">大人(12+)</span>
                                                 </el-col>
                                                 <el-col class ="el-col el-col-16 el-col-xs-16 el-col-sm-14 el-col-md-14 el-col-lg-14" style="margin-bottom: 20px;">
-                                                    <el-input-number v-model="numAdult" :min="1" :max="9" @change="popoverChange"></el-input-number>
+                                                    <el-input-number v-model="numAdult" :min="1" :max="8" @change="popoverChange"></el-input-number>
                                                 </el-col>
                                             
                                                 <el-col class ="el-col el-col-8 el-col-xs-8 el-col-sm-10 el-col-md-10 el-col-lg-10" style="margin-bottom: 20px;">
                                                     <span class="font">孩童(2-11)</span>
                                                 </el-col>
                                                 <el-col class ="el-col el-col-16 el-col-xs-16 el-col-sm-14 el-col-md-14 el-col-lg-14"style="margin-bottom: 20px;">
-                                                    <el-input-number v-model="numChild" :min="0" :max="9" @change="popoverChange"></el-input-number>
+                                                    <el-input-number v-model="numChild" :min="0" :max="8" @change="popoverChange"></el-input-number>
                                                 </el-col>
                                                 <el-col class ="el-col el-col-8 el-col-xs-8 el-col-sm-10 el-col-md-10 el-col-lg-10" style="margin-bottom: 20px;">
                                                     <span class="font">嬰兒(0-2)</span>
                                                 </el-col>
                                                 <el-col class ="el-col el-col-16 el-col-xs-16 el-col-sm-14 el-col-md-14 el-col-lg-14" style="margin-bottom: 20px;">
-                                                    <el-input-number v-model="numInf" :min="0" :max="9" @change="popoverChange"></el-input-number>
+                                                    <el-input-number v-model="numInf" :min="0" :max="8" @change="popoverChange"></el-input-number>
                                                 </el-col>
                                         </el-popover>
                                         <el-button type="primary" style="height: 40px;font-size: 16px;width:48%" @click="search();popoverChange()" @click.prevent="click = true" v-loading.fullscreen.lock="fullscreenLoading">查詢</el-button>
@@ -1097,7 +1097,9 @@ $(".include").each(function(){
                 activeName: 'first',
                 departureDate:'',
                 returnDate:'',
+
                 amount:'選擇人數',
+                
                 numAdult:0,
                 numChild:0,
                 numInf:0,
@@ -1185,11 +1187,11 @@ $(".include").each(function(){
                     let params
                     if(this.activeName == 'first'){
                         params = 'fly_from='+this.originValue[1]+'&fly_to='+this.destinationValue[1]+'&dateFrom='+moment(this.departureDate).format('DD/MM/YYYY')
-                        +'&dateTo='+moment(this.departureDate).format('DD/MM/YYYY')+'&curr=TWD&max_stopovers=2'
+                        +'&dateTo='+moment(this.departureDate).format('DD/MM/YYYY')+'&curr=TWD&max_stopovers=2'+'&adults='+this.numAdult+'&children='+this.numChild+'&infants='+this.numInf
                     }else if(this.activeName == 'second'){
                         params = 'fly_from='+this.originValue[1]+'&fly_to='+this.destinationValue[1]+'&dateFrom='+moment(this.departureDate).format('DD/MM/YYYY')
                         +'&dateTo='+moment(this.departureDate).format('DD/MM/YYYY')+'&returnFrom='+moment(this.returnDate).format('DD/MM/YYYY')
-                        +'&returnTo='+moment(this.returnDate).format('DD/MM/YYYY')+'&curr=TWD&max_stopovers=2'
+                        +'&returnTo='+moment(this.returnDate).format('DD/MM/YYYY')+'&curr=TWD&max_stopovers=2'+'&adults='+this.numAdult+'&children='+this.numChild+'&infants='+this.numInf
                     }
                     options.url = options.url + params
                     
