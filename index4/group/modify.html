@@ -3122,39 +3122,6 @@ function show(data){
       document.getElementById('inpeople' + i).disabled=false;
       document.getElementById('intotal' + i).disabled=false;
     }
-
-  //----------抓資料轉移-------------
-
-  const urlParams = new URLSearchParams(window.location.search)
-  const paramsObj = Object.fromEntries(urlParams)
-  let paramsCount
-
-  console.log(paramsObj)
-
-  if(paramsObj.count == undefined){
-    return 0
-  }else{
-
-    let checkTransfer = confirm('確定要進行資料轉移');
-    if(checkTransfer){
-      
-      for(i=parseInt(paramsObj.transferStart);i<parseInt(paramsObj.count)+parseInt(paramsObj.transferStart);i++){
-        paramsCount = i-parseInt(paramsObj.transferStart)+1
-        
-        document.getElementById('moneydate'+i).value = paramsObj['moneydate'+paramsCount];
-        document.getElementById('moneyname'+i).value = paramsObj['moneyname'+paramsCount];
-        document.getElementById('money'+i).value = paramsObj['money'+paramsCount];
-        document.getElementById('moneytype'+i).value = paramsObj['moneytype'+paramsCount];
-        document.getElementById('card'+i).value = paramsObj['card'+paramsCount];
-        document.getElementById('rmoneydate'+i).value = paramsObj['rmoneydate'+paramsCount];
-        document.getElementById('moneyprove'+i).value = paramsObj['moneyprove'+paramsCount];
-        document.getElementById('moneyother'+i).value = paramsObj['moneyother'+paramsCount];
-      }
-
-    }
-    
-  }
-  //--------------------------------
 }
 
 
@@ -3163,8 +3130,6 @@ function show(data){
 </script>
 
 <script>
-
-
 
 let name;
 let oldfile1 ; 
