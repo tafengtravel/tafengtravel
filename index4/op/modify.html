@@ -201,7 +201,7 @@
 
 <div class="r3">
   <br><br>
-  <span class="lable2" >收入</span>
+  <span class="lable2" >收入</span>&emsp;<button onclick="transfer()">轉移</button>
   <br><br>
   <span class="lable" ><label>(1)報帳日期：</label></span>  <input type="date" id="moneydate1" style="font-size:20px">
   <span class="lable" ><label>品&emsp;&emsp;項：</label></span>  <input type="text" id="moneyname1" style="font-size:20px">
@@ -2676,11 +2676,11 @@ function show(data){
   if(document.getElementById("lock").value == 'True'){
 
     document.getElementById('contractother').disabled=true;
-    // document.getElementById('outcollectpay').disabled=true;
+    document.getElementById('outcollectpay').disabled=true;
     document.getElementById('other').disabled=true;
     document.getElementById('contractdownpay').disabled=true;
     document.getElementById('contracttype').disabled=true;
-    // document.getElementById('incollectpay').disabled=true;
+    document.getElementById('incollectpay').disabled=true;
     document.getElementById('contract_button').disabled=true;
 
     for(i=1;i<6;i++){
@@ -3033,7 +3033,58 @@ document.getElementById("tax").value=tax;
 
 }
 
-//-----------------------------------
+//-------------資料轉移----------------------
+function transfer(){
+
+  let depdate = document.getElementById("depdate").value; 
+
+  let url = 'https://tafengtravel.github.io/tafengtravel/index4/group/modify.html?'
+  let urlParams
+
+  let start = prompt('請輸入要複製的起始編號');
+  if(start != null && start != ''){
+    let end = prompt('請輸入要複製的結尾編號');
+    if(end != null && end != ''){
+      let transferId = prompt('請輸入要轉移的團號');
+      if(transferId != null && transferId != ''){
+        let transferStart = prompt('請輸入 '+transferId+' 起始編號');
+
+        if(transferStart != null && transferStart != ''){
+
+          urlParams = {...urlParams,
+            'count':parseInt(end)+1,
+            'transferStart':transferStart,
+          }
+          
+          for(i=parseInt(start);i<parseInt(end)+1;i++){
+            urlParams = {...urlParams,
+              ['moneydate'+i]:document.getElementById("moneydate" + i).value || '',
+              ['moneyname'+i]:  document.getElementById("moneyname" + i).value || '',
+              ['money'+i]: document.getElementById("money" + i).value || '',
+              ['moneytype'+i]: document.getElementById("moneytype" + i).value || '',
+              ['card'+i]: document.getElementById("card" + i).value || '',
+              ['rmoneydate'+i]: document.getElementById("rmoneydate" + i).value || '',
+              ['moneyprove'+i]: document.getElementById("moneyprove" + i).value || '',
+              ['moneyother'+i]: document.getElementById("moneyother" + i).value || '',
+            }
+          }
+          localStorage.setItem("oldnumber", transferId);
+          localStorage.setItem("depdate", depdate);
+
+          console.log(urlParams)
+          urlParams = new URLSearchParams(urlParams).toString()
+          url = url + urlParams
+
+          console.log(url)
+          window.open(url);
+        }
+      }
+    }
+  }
+
+
+}
+//-------------------------------
 
 function send(){
 count();
