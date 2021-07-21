@@ -3135,8 +3135,8 @@ function show(data){
     return 0
   }else{
 
-    let deleted_check_1 = confirm('確定要進行資料轉移');
-    if(deleted_check_1){
+    let checkTransfer = confirm('確定要進行資料轉移');
+    if(checkTransfer){
       
       for(i=parseInt(paramsObj.transferStart);i<parseInt(paramsObj.count)+parseInt(paramsObj.transferStart);i++){
         paramsCount = i-parseInt(paramsObj.transferStart)+1
