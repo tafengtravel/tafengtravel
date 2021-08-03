@@ -108,7 +108,7 @@ async function search(){
   let parse;
   let a=1;
   let opcheck=0;let moneycheck=0;
-  let money_times=18
+  let money_times=13
 
 
   //判斷是否為0即刪除
@@ -149,7 +149,7 @@ async function search(){
     let ref = db.collection(year.toString()+'-0'+month.toString());   
   }
 
-  for(j=0;j<12;j++){
+  for(j=0;j<18;j++){
     if(month > 9){
       ref = db.collection(year.toString()+'-'+month.toString());
     }else if(month<10){
