@@ -173,6 +173,19 @@
       <el-col class ="el-col el-col-24 el-col-xs-24 el-col-sm-24 el-col-lg-24">
         <font class ="font"><span>產品名稱</span></font>
         <el-input v-model="itemData.title" placeholder="" style="width:450px" ></el-input>
+
+        <font class ="font"><span>類型</span></font>
+        <template>
+          <el-select v-model="itemData.type" placeholder="請選擇">
+            <el-option
+              v-for="item in type"
+              :key="item.value"
+              :label="item.label"
+              :value="item.value">
+            </el-option>
+          </el-select>
+        </template>
+
       </el-col>
 
     </el-row>
@@ -512,6 +525,14 @@
     vuetify: new Vuetify(),
     data() {
       return {
+        type:[{
+          value: 'tour',
+          label: '在地行程'
+        },{
+          value: 'hotel',
+          label: '飯店'
+        }],
+
         readCheck:false,
         index1:0,
         totalPrice:[[]],
@@ -945,7 +966,7 @@
         }
 
         objList={"title":itemData.title,"coverUrlSmall":coverUrlSmallCheck,"features":itemData.features,"lowPrice":itemData.lowPrice,"location":itemData.location,"available":itemData.available,
-                  "id":itemData.id,'keyword':itemData.keyword,'country':itemData.country
+                  "id":itemData.id,'keyword':itemData.keyword,'country':itemData.country,'type':itemData.type
                 }
 
         let ref = db.collection('product').doc((this.idCount).toString());
