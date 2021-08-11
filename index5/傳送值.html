@@ -135,7 +135,7 @@ firebase.auth().setPersistence(firebase.auth.Auth.Persistence.LOCAL)
   
   let coverUrlSmallCheck
 
-  let obj = {type:'hotel'}
+  let obj = {type:'tour'}
 
   var Main = {
     data() {
@@ -172,9 +172,17 @@ firebase.auth().setPersistence(firebase.auth.Auth.Persistence.LOCAL)
           ref = db.collection("product").doc((data[i].id).toString());
 
           ref.update(obj).then(() => {
-            console.log('update data successful');
-            alert('新增成功');
-            window.location.reload("");
+            console.log('update product data successful');
+          });
+
+        }
+
+        for(i=0;i<data.length;i++){
+          
+          ref = db.collection("list").doc((data[i].id).toString());
+
+          ref.update(obj).then(() => {
+            console.log('update list data successful');
           });
 
         }
