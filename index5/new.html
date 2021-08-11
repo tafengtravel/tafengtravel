@@ -185,7 +185,7 @@
         <font class ="font"><span>是否上架</span></font>
         
         <template>
-          <el-select v-model="itemData.available" placeholder="">
+          <el-select v-model="itemData.available" placeholder="請選擇">
             <el-option
               v-for="item in options1"
               :key="item.value"
@@ -204,6 +204,20 @@
       <el-col class ="el-col el-col-24 el-col-xs-24 el-col-sm-24 el-col-lg-24">
         <font class ="font"><span>產品名稱</span></font>
         <el-input v-model="itemData.title" placeholder="" style="width:450px" ></el-input>
+
+        <font class ="font"><span>類型</span></font>
+        
+        <template>
+          <el-select v-model="itemData.type" placeholder="請選擇">
+            <el-option
+              v-for="item in type"
+              :key="item.value"
+              :label="item.label"
+              :value="item.value">
+            </el-option>
+          </el-select>
+        </template>
+
       </el-col>
 
     </el-row>
@@ -554,6 +568,14 @@
     vuetify: new Vuetify(),
     data() {
       return {
+        type:[{
+          value: 'tour',
+          label: '在地行程'
+        },{
+          value: 'hotel',
+          label: '飯店'
+        }],
+
         index1:0,
         totalPrice:[[]],
         itemData:{keyword:[]},
@@ -861,7 +883,6 @@
             label: '帛琉'
           }]
         }],
-
         options1: [{
           value: true,
           label: '是'
