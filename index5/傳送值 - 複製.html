@@ -154,12 +154,14 @@ firebase.auth().setPersistence(firebase.auth.Auth.Persistence.LOCAL)
 
         ref.get().then(doc => { 
           data = doc.data()
+
+          ref = db.collection('product').doc('344');
+          ref.set(data).then(() => {
+            console.log('success')
+          });
         });
 
-        ref = db.collection('product').doc('344');
-        ref.set(data).then(() => {
-          console.log('success')
-        });
+        
         
 
       }
