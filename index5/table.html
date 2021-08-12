@@ -102,9 +102,10 @@
     
     <el-table :data="itemData" height="730px" style="width: 100%" height="250" :row-class-name="tableRowClassName" :default-sort = "{prop: 'id', order: 'ascending'}" empty-text="沒有資料">
       <el-table-column prop="id" label="編號" width='75%' fixed sortable :sort-method = "(a,b)=>{return a.id - b.id}"></el-table-column>
-      <el-table-column prop="country" label="國家" width='100%' sortable :sort-method="(a,b) => a.country.localeCompare(b.country)"></el-table-column>
-      <el-table-column prop="location" label="地區" width='100%' sortable :sort-method="(a,b) => a.location.localeCompare(b.location)"></el-table-column>
-      <el-table-column prop="type" label="類型" width='100%' sortable :sort-method="(a,b)=>{return a.type - b.type}"></el-table-column>
+      <el-table-column prop="country" label="國家" width='90%' sortable :sort-method="(a,b) => a.country.localeCompare(b.country)"></el-table-column>
+      <el-table-column prop="location" label="地區" width='90%' sortable :sort-method="(a,b) => a.location.localeCompare(b.location)"></el-table-column>
+      <el-table-column prop="type" label="類型" width='100%' sortable :sort-method="(a,b)=>{return a.type - b.type}" :formatter="type"></el-table-column>
+      <el-table-column prop="available" label="上架" width='90%' sortable :sort-method="(a,b)=>{return a.available - b.available}" :formatter="available"></el-table-column>
       <el-table-column prop="title" label="產品名稱" sortable :sort-method = "(a,b)=>{return a.title - b.title}"></el-table-column>
       <el-table-column fixed="right" label="操作" width="100">
         <template slot-scope="scope">
@@ -189,6 +190,20 @@ firebase.auth().setPersistence(firebase.auth.Auth.Persistence.LOCAL)
         }
         return '';
       },
+      available(row, column){
+        if(row.available == true){
+          return '✔️'
+        }else if(row.available == false){
+          return '❌'
+        }
+      },
+      type(row, column){
+        if(row.type == 'tour'){
+          return '在地行程'
+        }else if(row.type == 'hotel'){
+          return '飯店'
+        }
+      }
 
     },mounted(){
       
