@@ -276,6 +276,7 @@ document.querySelectorAll("[href^='https://line.me']").forEach(function(item){
                         :show-header='false'
                         font-size="2px"
                         empty-text="持續上架中"
+                        v-loading="loading"
                         >
                         <el-table-column prop="people" label="成形" width="90%">
                             <template slot-scope="scope">
@@ -318,6 +319,7 @@ document.querySelectorAll("[href^='https://line.me']").forEach(function(item){
                         :show-header='false'
                         font-size="2px"
                         empty-text="持續上架中"
+                        v-loading="loading"
                         >
                         <el-table-column prop="people" label="成形" width="90%">
                             <template slot-scope="scope">
@@ -360,6 +362,7 @@ document.querySelectorAll("[href^='https://line.me']").forEach(function(item){
                         :show-header='false'
                         font-size="2px"
                         empty-text="持續上架中"
+                        v-loading="loading"
                         >
                         <el-table-column prop="people" label="成形" width="90%">
                             <template slot-scope="scope">
@@ -402,6 +405,7 @@ document.querySelectorAll("[href^='https://line.me']").forEach(function(item){
                         :show-header='false'
                         font-size="2px"
                         empty-text="持續上架中"
+                        v-loading="loading"
                         >
                         <el-table-column prop="people" label="成形" width="90%">
                             <template slot-scope="scope">
@@ -489,7 +493,7 @@ $(".include").each(function(){
                 centralHotel:[],
                 southHotel:[],
                 eastHotel:[],
-
+                loading:false,
             };
                 
     
@@ -503,6 +507,7 @@ $(".include").each(function(){
                 let southCity = ['嘉義','台南','高雄','屏東',]
                 let eastCity = ['花蓮','台東',]
             
+                this.loading = true;
                 ref = db.collection('list')
 
                 await ref.where('type','==','hotel').where("available", "==", true).get().then(querySnapshot => {
@@ -535,7 +540,7 @@ $(".include").each(function(){
                         continue
                     }
                 }
-
+                this.loading = false;
             } 
         
      
