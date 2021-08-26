@@ -13,7 +13,8 @@
     To: 'tafengtravel@gmail.com',
     From: "itinerary.order@gmail.com",
     Subject: "加購訂單",
-    Body: 
+    Body:
+    ruleForm.title+'<br>'+
     ruleForm.itinerary+'<br>'+
     '訂購人數：'+ruleForm.amount+'<br>'+
     '訂購日期：'+ruleForm.dep_date+'<br>'+
