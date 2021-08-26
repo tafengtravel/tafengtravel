@@ -223,6 +223,8 @@ $(".include").each(function(){
 <script src="imguri3.js"></script>
 <script src="imguri4.js"></script>
 <script src="imguri5.js"></script>
+<script src="imguri6.js"></script>
+<script src="imguri7.js"></script>
 <script>
 
 
@@ -306,6 +308,27 @@ function show(data){
   var doc = new jsPDF();  
   doc.setFont('BiauKai')
 
+  //----------自動排版----------
+  let newContractother = contractother.split(/\n/)
+  let stringLength
+  let str = ''
+  for(i=0;i<newContractother.length;i++){
+    stringLength = newContractother[i].length
+    if(stringLength > 28){
+      for(j=0;j<parseInt(stringLength/28)+1;j++){
+        if(j == parseInt(stringLength/28)){
+          str = str + newContractother[i].substring(j*28,j*28+28)
+        }else{
+          str = str + newContractother[i].substring(j*28,j*28+28) + '\n'
+        }
+      }
+      newContractother[i] = str
+      str = ''
+    }
+  }
+  contractother = newContractother.join('\n')
+  //----------自動排版----------
+
 
   if(type == '國內個別'){
     doc.setFontSize(10);
@@ -319,7 +342,7 @@ function show(data){
 
     doc.addPage();     
     doc.addImage(img1, "JPEG", 5, 5, 200, 280);
-    doc.text(contractother, 113, 17);
+    doc.text(contractother, 108, 17);
     doc.text(date, 141, 261);
 
     doc.save(number+'_'+people+'_'+name+'.pdf');
@@ -341,7 +364,7 @@ function show(data){
 
     doc.addPage();     
     doc.addImage(img3, "JPEG", 5, 5, 200, 280);
-    doc.text(contractother, 114, 79);
+    doc.text(contractother, 108, 79);
     doc.text(date, 122, 243.5);
     
 
@@ -370,12 +393,30 @@ function show(data){
     doc.text(price, 46, 93.5);   
     doc.text(contractdownpay, 22, 119.5);   
     doc.text((parseInt(price)-parseInt(contractdownpay)).toString(), 65.5, 119.5);  
-    doc.text(contractother, 110, 196);   
+    doc.text(contractother, 108, 196);   
     
     doc.addPage();    
     doc.addImage(img5, "JPEG", 5, 5, 200, 280); 
     doc.text(date, 45, 94.5); 
 
+    doc.save(number+'_'+people+'_'+name+'.pdf');
+
+  }else if(type == '國外個別'){
+
+    doc.setFontSize(10);
+    date = (parseInt(year)-1911).toString() +"       "+month+"      "+day;
+
+    doc.addImage(img6, "JPEG", 5, 5, 200, 280);    
+    doc.text(people+'共'+howmanypeople+'人', 31, 44);      
+    doc.text(depdate, 39, 148.5);
+    doc.text(pricedetail, 12, 191);
+    doc.text('定金$'+contractdownpay, 32, 210.5);
+
+    doc.addPage();     
+    doc.addImage(img7, "JPEG", 5, 5, 200, 280);
+
+    doc.text(date, 143, 268);
+    doc.text(contractother, 108, 100);
     doc.save(number+'_'+people+'_'+name+'.pdf');
   }
 
