@@ -325,11 +325,14 @@ document.querySelectorAll("[href^='https://line.me']").forEach(function(item){
                                     </el-row>
 
                                     <el-row>
+                                        
                                         <font class ="font"><span>數量：</span></font> 
                                         <template>
-                                            <el-input-number v-model="quantity0" :min="1" :max="10" @change="per_price()"></el-input-number>
+                                            <el-input-number v-model="quantity0" :min="1" :max="10" @change="per_price()" ></el-input-number>
                                         </template>
-                                        <font class ="mini_font">{{itemData.itemOtherAdult[index][0]}}</font>
+                                        <span class="sm-display"><br></span>
+                                        <font class ="mini_font">{{itemData.itemOtherAdult[index][radioChooseY]}}</font>
+                                    
                                     </el-row>
 
                                     <el-row v-if="isShowKid[index]">
@@ -337,7 +340,8 @@ document.querySelectorAll("[href^='https://line.me']").forEach(function(item){
                                         <template>
                                             <el-input-number v-model="quantity1" :min="0" :max="10" @change="per_price()"></el-input-number>
                                         </template>
-                                        <font class ="mini_font">{{itemData.itemOtherKid[index][0]}}</font>
+                                        <span class="sm-display"><br></span>
+                                        <font class ="mini_font">{{itemData.itemOtherKid[index][radioChooseY]}}</font>
                                     </el-row>
 
                                     <el-row>
@@ -556,6 +560,9 @@ $(".include").each(function(){
         margin-bottom: -30px;
         position: absolute;
     }
+    .sm-display{
+        display:none
+    }
 
 }
 @media (max-width: 768px) {
@@ -567,6 +574,7 @@ $(".include").each(function(){
         margin-bottom: -50px;
         position: absolute;
     }
+
 }
     .VueCarousel-slide {
   color:#FFF;
@@ -582,6 +590,7 @@ $(".include").each(function(){
 .el-radio.is-bordered+.el-radio.is-bordered {
     margin-left: 0px;
 }
+
 </style>
 
 <script>
@@ -665,6 +674,7 @@ $(".include").each(function(){
             carouselLoop:true,
 
             countryUrl:'',
+            radioChooseY:1,
             };
  
         },methods: {
@@ -681,6 +691,7 @@ $(".include").each(function(){
                         if(this.radio == data.itemRadio[i][j]){
                             x=i
                             y=j
+                            this.radioChooseY = j
                             break;
                         }
                     }
