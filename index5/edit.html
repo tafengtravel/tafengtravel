@@ -1293,8 +1293,12 @@
         let formatDate
         for(i=1;i<days+1;i++){
             formatDate = new Date(currentMonth +'-'+ i.toString())
-            this.itemData.dates.push(moment(formatDate).format('YYYY-MM-DD'))
+
+            if(this.itemData.dates.indexOf(moment(formatDate).format('YYYY-MM-DD')) === -1){
+              this.itemData.dates.push(moment(formatDate).format('YYYY-MM-DD'))
+            }
         }
+        this.itemData.dates.sort((a, b) => (a).localeCompare(b));
         console.log(this.itemData.dates)
       },
       disableAll(date){
@@ -1305,7 +1309,9 @@
         for(i=1;i<days+1;i++){
             formatDate = new Date(currentMonth +'-'+ i.toString())
             index = this.itemData.dates.indexOf(moment(formatDate).format('YYYY-MM-DD'));
-            this.itemData.dates.splice(index, 1);
+            if(index != -1){
+              this.itemData.dates.splice(index, 1);
+            }
         }
         console.log(this.itemData.dates)
       },
