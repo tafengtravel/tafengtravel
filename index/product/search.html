@@ -466,7 +466,7 @@ $(".include").each(function(){
 
                     let dataSearchFilter = [...this.data1]
                     dataSearchFilter.forEach((item,index,arr)=>{
-                        if(this.checkedCitiesShow.indexOf(dataSearchFilter[index].location) == -1){
+                        if(this.checkedCitiesShow.indexOf(dataSearchFilter[index].location) === -1){
                             delete arr[index]
                         }
                     })
