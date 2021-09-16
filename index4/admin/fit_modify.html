@@ -265,7 +265,8 @@
     <option value="現金">現金</option>
     <option value="支票">支票</option>
     <option value="其他">其他</option>
-    <option value="三倍券">三倍券</option>
+    <option value="五倍券">五倍券</option>
+    <option. value="linepay">linepay</option>
   </select>
   <span class="lable" ><label>國旅卡：</label></span>  
   <select id="card1" style="font-size:20px">
@@ -299,7 +300,8 @@
     <option value="現金">現金</option>
     <option value="支票">支票</option>
     <option value="其他">其他</option>
-    <option value="三倍券">三倍券</option>
+    <option value="五倍券">五倍券</option>
+    <option. value="linepay">linepay</option>
   </select>
   <span class="lable" ><label>國旅卡：</label></span>  
   <select id="card2" style="font-size:20px">
@@ -333,7 +335,8 @@
     <option value="現金">現金</option>
     <option value="支票">支票</option>
     <option value="其他">其他</option>
-    <option value="三倍券">三倍券</option>
+    <option value="五倍券">五倍券</option>
+    <option. value="linepay">linepay</option>
   </select>
   <span class="lable" ><label>國旅卡：</label></span>  
   <select id="card3" style="font-size:20px">
@@ -367,7 +370,8 @@
     <option value="現金">現金</option>
     <option value="支票">支票</option>
     <option value="其他">其他</option>
-    <option value="三倍券">三倍券</option>
+    <option value="五倍券">五倍券</option>
+    <option. value="linepay">linepay</option>
   </select>
   <span class="lable" ><label>國旅卡：</label></span>  
   <select id="card4" style="font-size:20px">
@@ -401,7 +405,8 @@
     <option value="現金">現金</option>
     <option value="支票">支票</option>
     <option value="其他">其他</option>
-    <option value="三倍券">三倍券</option>
+    <option value="五倍券">五倍券</option>
+    <option. value="linepay">linepay</option>
   </select>
   <span class="lable" ><label>國旅卡：</label></span>  
   <select id="card5" style="font-size:20px">
@@ -435,7 +440,8 @@
     <option value="現金">現金</option>
     <option value="支票">支票</option>
     <option value="其他">其他</option>
-    <option value="三倍券">三倍券</option>
+    <option value="五倍券">五倍券</option>
+    <option. value="linepay">linepay</option>
   </select>
   <span class="lable" ><label>國旅卡：</label></span>  
   <select id="card6" style="font-size:20px">
@@ -469,7 +475,8 @@
     <option value="現金">現金</option>
     <option value="支票">支票</option>
     <option value="其他">其他</option>
-    <option value="三倍券">三倍券</option>
+    <option value="五倍券">五倍券</option>
+    <option. value="linepay">linepay</option>
   </select>
   <span class="lable" ><label>國旅卡：</label></span>  
   <select id="card7" style="font-size:20px">
@@ -503,7 +510,8 @@
     <option value="現金">現金</option>
     <option value="支票">支票</option>
     <option value="其他">其他</option>
-    <option value="三倍券">三倍券</option>
+    <option value="五倍券">五倍券</option>
+    <option. value="linepay">linepay</option>
   </select>
   <span class="lable" ><label>國旅卡：</label></span>  
   <select id="card8" style="font-size:20px">
@@ -537,7 +545,8 @@
     <option value="現金">現金</option>
     <option value="支票">支票</option>
     <option value="其他">其他</option>
-    <option value="三倍券">三倍券</option>
+    <option value="五倍券">五倍券</option>
+    <option. value="linepay">linepay</option>
   </select>
   <span class="lable" ><label>國旅卡：</label></span>  
   <select id="card9" style="font-size:20px">
@@ -571,7 +580,8 @@
     <option value="現金">現金</option>
     <option value="支票">支票</option>
     <option value="其他">其他</option>
-    <option value="三倍券">三倍券</option>
+    <option value="五倍券">五倍券</option>
+    <option. value="linepay">linepay</option>
   </select>
   <span class="lable" ><label>國旅卡：</label></span>  
   <select id="card10" style="font-size:20px">
@@ -605,7 +615,8 @@
     <option value="現金">現金</option>
     <option value="支票">支票</option>
     <option value="其他">其他</option>
-    <option value="三倍券">三倍券</option>
+    <option value="五倍券">五倍券</option>
+    <option. value="linepay">linepay</option>
   </select>
   <span class="lable" ><label>國旅卡：</label></span>  
   <select id="card11" style="font-size:20px">
@@ -639,7 +650,8 @@
     <option value="現金">現金</option>
     <option value="支票">支票</option>
     <option value="其他">其他</option>
-    <option value="三倍券">三倍券</option>
+    <option value="五倍券">五倍券</option>
+    <option. value="linepay">linepay</option>
   </select>
   <span class="lable" ><label>國旅卡：</label></span>  
   <select id="card12" style="font-size:20px">
@@ -2667,6 +2679,7 @@ var profit = 0;
 var cardtotal = 0;
 var moneytotal = 0;
 let tax = 0;
+let linepayTotal = 0;
 
 var intotal1,intotal2;
 var inmoney = [];
@@ -2812,11 +2825,16 @@ for(i=1;i<money_times;i++){
   if(moneytype[i] == '刷卡'){
     cardtotal = money[i] + cardtotal;
   }
+
+  if(moneytype[i] == 'linepay'){
+    linepayTotal = money[i] + linepayTotal;
+  }
 }
 console.log(cardtotal);
 cardtotal = cardtotal*0.02;
+linepayTotal = linepayTotal*0.0231;
 console.log(cardtotal);
-net = cardtotal+net;
+net = cardtotal+ net + linepayTotal;
 net = net.toFixed(0);
 //-------------總計算---------------//
 profit = price-net;
