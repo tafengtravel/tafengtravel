@@ -128,7 +128,9 @@
   <option value="刷卡">刷卡</option>
   <option value="現金">現金</option>
   <option value="支票">支票</option>
-  <option value="其他">其他</option>
+  <option value="其他">其他</option>  
+  <option value="五倍券">五倍券</option>
+  <option value="linepay">linepay</option>
 </select>
 <span class="lable" ><label>國旅卡：</label></span>  
 <select id="card1" style="font-size:20px">
@@ -161,7 +163,9 @@
   <option value="刷卡">刷卡</option>
   <option value="現金">現金</option>
   <option value="支票">支票</option>
-  <option value="其他">其他</option>
+  <option value="其他">其他</option>  
+  <option value="五倍券">五倍券</option>
+  <option value="linepay">linepay</option>
 </select>
 <span class="lable" ><label>國旅卡：</label></span>  
 <select id="card2" style="font-size:20px">
@@ -194,7 +198,9 @@
   <option value="刷卡">刷卡</option>
   <option value="現金">現金</option>
   <option value="支票">支票</option>
-  <option value="其他">其他</option>
+  <option value="其他">其他</option>  
+  <option value="五倍券">五倍券</option>
+  <option value="linepay">linepay</option>
 </select>
 <span class="lable" ><label>國旅卡：</label></span>  
 <select id="card3" style="font-size:20px">
@@ -227,7 +233,9 @@
   <option value="刷卡">刷卡</option>
   <option value="現金">現金</option>
   <option value="支票">支票</option>
-  <option value="其他">其他</option>
+  <option value="其他">其他</option>  
+  <option value="五倍券">五倍券</option>
+  <option value="linepay">linepay</option>
 </select>
 <span class="lable" ><label>國旅卡：</label></span>  
 <select id="card4" style="font-size:20px">
@@ -260,7 +268,9 @@
   <option value="刷卡">刷卡</option>
   <option value="現金">現金</option>
   <option value="支票">支票</option>
-  <option value="其他">其他</option>
+  <option value="其他">其他</option>  
+  <option value="五倍券">五倍券</option>
+  <option value="linepay">linepay</option>
 </select>
 <span class="lable" ><label>國旅卡：</label></span>  
 <select id="card5" style="font-size:20px">
@@ -295,7 +305,9 @@
   <option value="刷卡">刷卡</option>
   <option value="現金">現金</option>
   <option value="支票">支票</option>
-  <option value="其他">其他</option>
+  <option value="其他">其他</option>  
+  <option value="五倍券">五倍券</option>
+  <option value="linepay">linepay</option>
 </select>
 <span class="lable" ><label>國旅卡：</label></span>  
 <select id="card6" style="font-size:20px">
@@ -328,7 +340,9 @@
   <option value="刷卡">刷卡</option>
   <option value="現金">現金</option>
   <option value="支票">支票</option>
-  <option value="其他">其他</option>
+  <option value="其他">其他</option>  
+  <option value="五倍券">五倍券</option>
+  <option value="linepay">linepay</option>
 </select>
 <span class="lable" ><label>國旅卡：</label></span>  
 <select id="card7" style="font-size:20px">
@@ -361,7 +375,9 @@
   <option value="刷卡">刷卡</option>
   <option value="現金">現金</option>
   <option value="支票">支票</option>
-  <option value="其他">其他</option>
+  <option value="其他">其他</option>  
+  <option value="五倍券">五倍券</option>
+  <option value="linepay">linepay</option>
 </select>
 <span class="lable" ><label>國旅卡：</label></span>  
 <select id="card8" style="font-size:20px">
@@ -3004,6 +3020,7 @@ var profit = 0;
 var cardtotal = 0;
 var moneytotal = 0;
 let tax = 0;
+let linepayTotal = 0;
 
 var intotal1,intotal2;
 var inmoney = [];
@@ -3077,7 +3094,7 @@ console.log(refund_card_total)
 refund_card_total = refund_card_total*0.02;
 net = net - refund_card_total
 //-------------抓出刷卡2%---------------//
-for(i=1;i<9;i++){
+for(i=1;i<money_times;i++){
   money[i]= document.getElementById("money"+i).value;
   moneytype[i]= document.getElementById("moneytype"+i).value;
 
@@ -3091,11 +3108,16 @@ for(i=1;i<9;i++){
   if(moneytype[i] == '刷卡'){
     cardtotal = money[i] + cardtotal;
   }
+
+  if(moneytype[i] == 'linepay'){
+    linepayTotal = money[i] + linepayTotal;
+  }
 }
 console.log(cardtotal);
 cardtotal = cardtotal*0.02;
+linepayTotal = linepayTotal*0.0231;
 console.log(cardtotal);
-net = cardtotal+net;
+net = cardtotal+ net + linepayTotal;
 net = net.toFixed(0);
 //-------------總計算---------------//
 profit = price-net;
