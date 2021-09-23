@@ -267,9 +267,8 @@ document.querySelectorAll("[href^='https://line.me']").forEach(function(item){
                             v-model="datevalue1"
                             type="date"
                             placeholder="選擇日期"
-                            id = 'dep_date'
+                            id = 'dateFocus'
                             :picker-options="pickerOptions"
-                            
                             >
                             </el-date-picker>
                         </div>
@@ -350,7 +349,8 @@ document.querySelectorAll("[href^='https://line.me']").forEach(function(item){
                                     
                                 </div>
                                 <div class="el-col el-col-24 el-col-xs-24 el-col-xs-offset-0 el-col-sm-4 el-col-sm-offset-0" >
-                                    <el-button type="primary is-plain" style="width:100% ;margin:0px 0px 15px 0px" @click = 'buy()'>立即訂購</el-button>
+                                    <el-button type="primary is-plain" style="width:100% ;margin:0px 0px 15px 0px" @click = 'dateFocus()' v-if="datevalue1 == '' || datevalue1 == null">選擇日期</el-button>
+                                    <el-button type="primary is-plain" style="width:100% ;margin:0px 0px 15px 0px" @click = 'buy()' v-else="datevalue1 != '' || datevalue1 != null">立即訂購</el-button>
                                 </div>  
                             </el-card>
 
@@ -642,7 +642,7 @@ $(".include").each(function(){
                     return disableDateTrue || time.getTime() < new Date().getTime()+24*60*60*1000
                 }
             },
-            datevalue1: new Date().getTime() + 48*60*60*1000,
+            datevalue1: '',
             depValue: '',
             depOptions: [],
             quantity0: 1,
@@ -678,6 +678,10 @@ $(".include").each(function(){
             };
  
         },methods: {
+            dateFocus(){
+                let inputelement=document.getElementById('dateFocus')
+                inputelement.focus()
+            },
             choose(){
                 this.radio = data.itemRadio[this.isShow-1][0]
                 this.depValue = this.depOptions[this.isShow-1][0]
