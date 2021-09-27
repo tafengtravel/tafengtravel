@@ -718,7 +718,7 @@ $(".include").each(function(){
                 }, {
                     amount:'20',
                     name: '七股潟湖《竹筏游潟湖》延平老街１日遊',
-                    price: '750',
+                    price: '800',
                     link: 'http://www.tafeng66.com.tw/webobj/travelteam/showselect.asp?Product_id=12353&promo=m&depID=215&rp_dt_id=',
                     other: '10/23促銷 $530'
                 }, {
@@ -757,7 +757,6 @@ $(".include").each(function(){
                     name: '奧萬大【賞楓去】１日遊',
                     price: '1300',
                     link: 'http://www.tafeng66.com.tw/webobj/travelteam/showselect.asp?Product_id=29434&promo=m&depID=215&rp_dt_id=',
-                    other: '最新上架'
                 }, {
                     amount:'20',
                     name: '赤科山《金針花海》賞花趣１日遊  ',
@@ -792,8 +791,9 @@ $(".include").each(function(){
                 }, {
                     amount:'20',
                     name: '北埔古蹟＋內灣老街１日遊',
-                    price: '750',
-                    link: 'http://www.tafeng66.com.tw/webobj/travelteam/showselect.asp?Product_id=12317&promo=m&depID=215&rp_dt_id='
+                    price: '850',
+                    link: 'http://www.tafeng66.com.tw/webobj/travelteam/showselect.asp?Product_id=12317&promo=m&depID=215&rp_dt_id=',
+                    other: '10/23促銷 $630'
                 }, {
                     amount:'20',
                     name: '阿里山森林浴＋奮起湖老街１日遊',
@@ -802,7 +802,7 @@ $(".include").each(function(){
                 }, {
                     amount:'20',
                     name: '十分瀑布(老街)＋正濱彩虹屋１日遊',
-                    price: '750',
+                    price: '800',
                     link: 'http://www.tafeng66.com.tw/webobj/travelteam/showselect.asp?Product_id=41335&promo=m&depID=215&rp_dt_id=',
                     other: '10/23促銷 $590'
                 }, {
@@ -860,7 +860,7 @@ $(".include").each(function(){
                 }, {
                     amount:'20',
                     name: '北埔古蹟＋內灣老街１日遊',
-                    price: '750',
+                    price: '850',
                     link: 'http://www.tafeng66.com.tw/webobj/travelteam/showselect.asp?Product_id=12317&promo=m&depID=215&rp_dt_id=',
                     other: '10/23促銷 $630'
                 }, {
@@ -888,7 +888,6 @@ $(".include").each(function(){
                     name: '奧萬大【賞楓去】１日遊',
                     price: '1300',
                     link: 'http://www.tafeng66.com.tw/webobj/travelteam/showselect.asp?Product_id=12309&promo=m&depID=215&rp_dt_id=',
-                    other: '最新上架'
                 }, {
                     amount:'20',
                     name: '太麻里《金針花》賞花趣１日遊  ',
@@ -1112,7 +1111,15 @@ $(".include").each(function(){
     
             },methods: {
             },mounted(){
-                
+                this.oneNorth = this.oneNorth.sort((a, b) => (a.price - b.price));
+                this.oneSouth = this.oneSouth.sort((a, b) => (a.price - b.price));
+                this.oneCentral = this.oneCentral.sort((a, b) => (a.price - b.price));
+                this.twoNorth = this.twoNorth.sort((a, b) => (a.price - b.price));
+                this.twoSouth = this.twoSouth.sort((a, b) => (a.price - b.price));
+                this.twoCentral = this.twoCentral.sort((a, b) => (a.price - b.price));
+                this.threeNorth = this.threeNorth.sort((a, b) => (a.price - b.price));
+                this.threeSouth = this.threeSouth.sort((a, b) => (a.price - b.price));
+                this.threeCentral = this.threeCentral.sort((a, b) => (a.price - b.price));
             } 
         
      
