@@ -540,6 +540,10 @@ $(".include").each(function(){
                         continue
                     }
                 }
+                this.northHotel = this.northHotel.sort((a, b) => (a.lowPrice - b.lowPrice));
+                this.centralHotel = this.centralHotel.sort((a, b) => (a.lowPrice - b.lowPrice));
+                this.southHotel = this.southHotel.sort((a, b) => (a.lowPrice - b.lowPrice));
+                this.eastHotel = this.eastHotel.sort((a, b) => (a.lowPrice - b.lowPrice));
                 this.loading = false;
             } 
         
