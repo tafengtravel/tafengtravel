@@ -412,7 +412,7 @@ firebase.auth().setPersistence(firebase.auth.Auth.Persistence.LOCAL)
 
         for(i=0;i<data.length;i++){
           console.log('start')
-          if(data.type == 'tour'){
+          if(data[i].type == 'tour'){
             ref = db.collection("product").doc((data[i].id).toString());
 
             ref.update(obj).then(() => {
