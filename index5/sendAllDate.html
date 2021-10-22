@@ -385,6 +385,7 @@ firebase.auth().setPersistence(firebase.auth.Auth.Persistence.LOCAL)
         }
 
       },async sendPenghu(){
+        var db = firebase.firestore();
         var ref = db.collection("product")
 
         await ref.where('location','==','澎湖').get().then(querySnapshot => {
