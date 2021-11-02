@@ -121,6 +121,10 @@ document.querySelectorAll("[href^='https://line.me']").forEach(function(item){
 </script>
 
 <style>
+@import url(https://fonts.googleapis.com/css?family=Roboto+Slab:400,700|Noto+Sans+TC:300,400,500,700|Noto+Serif+TC:300,400,500,600,700,900&display=swap);
+body{
+font-family: 'Noto Sans TC', sans-serif;
+}
 @media (min-width: 539px){
     .sm-mint a, .sm-mint a:hover, .sm-mint a:focus, .sm-mint a:active, .sm-mint a.highlighted {
     padding: 19px 20px;
@@ -265,19 +269,19 @@ document.querySelectorAll("[href^='https://line.me']").forEach(function(item){
                 <el-row></el-row>
                 <div v-for="(item,index) in island">
                     <el-row>
-                    <a :href="island[index].link">
+                    <a :href="item.link">
 
                         <el-col class ="el-col el-col-xs-20 el-col-xs-offset-1 el-col-sm-14 el-col-sm-offset-1 el-col-md-14 el-col-md-offset-1 el-col-lg-14 el-col-lg-offset-1" style="margin-top: 10px;" v-if="(index%2)===0 && isShowSmall">
                         
                             <span class="title" ><font color="#2c2b2b" style="font-family:Noto Serif TC">{{item.location}}</font></span>
                             <el-row></el-row>
-                            <span class="font" ><font color="#2c2b2b" style="letter-spacing: 0.2em;">{{item.detail}}</font></span>
+                            <span class="font" ><font color="#2c2b2b" style="font-family:Noto Serif TC;letter-spacing: 0.2em;">{{item.detail}}</font></span>
 
                         </el-col>
 
                         <el-col class ="el-col el-col-xs-22 el-col-xs-offset-1 el-col-sm-8 el-col-md-8 el-col-lg-7">
                         
-                            <el-image style="width:100% ;border-radius: 15px;order:2" :src="item.imageUrl":fit="fits">
+                            <el-image style="width:100% ;border-radius: 20px;" :src="item.imageUrl":fit="fits">
 
                             </el-image>
 
@@ -288,7 +292,7 @@ document.querySelectorAll("[href^='https://line.me']").forEach(function(item){
                         
                             <span class="title" ><font color="#2c2b2b" style="font-family:Noto Serif TC">{{item.location}}</font></span>
                             <el-row></el-row>
-                            <span class="font" ><font color="#2c2b2b" style="letter-spacing: 0.2em;">{{item.detail}}</font></span>
+                            <span class="font" ><font color="#2c2b2b" style="font-family:Noto Serif TC;letter-spacing: 0.2em;">{{item.detail}}</font></span>
 
                         </el-col>
                     </a>
@@ -1313,6 +1317,7 @@ $(".include").each(function(){
                     }else{
                         this.isShowSmall = true
                     }
+
                 };
 
                 this.oneNorth = this.oneNorth.sort((a, b) => (a.price - b.price));
