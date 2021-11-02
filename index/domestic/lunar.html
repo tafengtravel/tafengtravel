@@ -1,0 +1,1340 @@
+
+
+<!DOCTYPE html>
+<head>
+ 
+
+<link rel='stylesheet' href='https://tafengtravel.github.io/tafengtravel/index/css/smart.css' type='text/css'>
+<link href="https://tafengtravel.github.io/tafengtravel/index/index.css" rel="stylesheet" >
+
+<link rel="stylesheet" href="https://tafengtravel.github.io/tafengtravel/index/index.css">
+
+<link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+
+<link href='https://tafengtravel.github.io/tafengtravel/index/sm-css/sm-core-css.css' rel='stylesheet' type='text/css' />
+<!-- "sm-blue" menu theme (optional, you can use your own CSS, too) -->
+<link href='https://tafengtravel.github.io/tafengtravel/index/sm-css/sm-mint/sm-mint.css' rel='stylesheet' type='text/css' />
+<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.css">
+
+<script src="https://tafengtravel.github.io/tafengtravel/index/js/jquery.min.js.js"></script>     
+
+
+<script src="https://tafengtravel.github.io/tafengtravel/index/js/jquery.smartmenus.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+
+<link href="https://tafengtravel.github.io/tafengtravel/index/css/elementUI.css" rel="stylesheet" />
+<link href="https://tafengtravel.github.io/tafengtravel/index/css/common.css" rel="stylesheet" />
+<link href="https://tafengtravel.github.io/tafengtravel/index/css/swiper.min.css" rel="stylesheet" />
+
+<link href="https://tafengtravel.github.io/tafengtravel/index/css/book.css" rel="stylesheet" />
+
+
+
+
+<!--自家檔案-->
+
+<link rel="icon" href="https://tafengtravel.github.io/tafengtravel/index1/tafenglogo6.ico" type="image/x-icon" />
+<link rel="shortcut icon" href="https://tafengtravel.github.io/tafengtravel/index1/tafenglogo6.ico" type="image/x-icon" />
+
+<!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/8.3.0/firebase.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.3.0/firebase-firestore.js"></script>
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+
+
+<!-- axios -->
+
+<script>
+    // Your web app's Firebase configuration
+    var firebaseConfig = {
+        apiKey: "AIzaSyC1DlPU6BqCFXzWLBZ_6Y90KNLwYzfei3c",
+        authDomain: "tafengtravel-web.firebaseapp.com",
+        projectId: "tafengtravel-web",
+        storageBucket: "tafengtravel-web.appspot.com",
+        messagingSenderId: "971660802735",
+        appId: "1:971660802735:web:af7e22d11fe81ca63ab25a"
+    };
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+</script>
+
+
+<script src='https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.2/axios.min.js'></script>
+
+
+
+<script src="https://unpkg.com/vue-router@2.0.0/dist/vue-router.js"></script>
+
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-143702269-1"></script>
+
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+
+gtag('config', 'UA-143702269-1', {
+'linker': {
+    'domains': ['tafengtravel.github.io', 'tafeng66.com.tw']
+}
+});
+</script>
+
+<!-- Facebook Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '708390289347362');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=708390289347362&ev=PageView&noscript=1"
+/></noscript>
+<!-- End Facebook Pixel Code -->
+
+<!-- Facebook Event -->
+
+
+<!-- GA Event -->
+<script>
+window.addEventListener('load', function(event) {
+document.querySelectorAll("[href^='http://line.me']").forEach(function(item){
+    item.addEventListener('click', function(event){
+        gtag("event", "點擊", {event_category: "line客戶轉換"});
+    })
+})
+document.querySelectorAll("[href^='https://line.me']").forEach(function(item){
+    item.addEventListener('click', function(event){
+        gtag("event", "點擊", {event_category: "line客戶轉換"});
+    })
+})
+})  
+</script>
+
+<style>
+@media (min-width: 539px){
+    .sm-mint a, .sm-mint a:hover, .sm-mint a:focus, .sm-mint a:active, .sm-mint a.highlighted {
+    padding: 19px 20px;
+    border-radius: 4px 4px 0 0;
+    }
+    .sm-mint a.has-submenu {
+    padding-right: 34px;
+    }
+    .image-margin {
+        margin-bottom: -5px;
+    }.text-margin{
+        padding-left: 15px;
+    }.image-fit{
+        width:280px;
+    }
+    .back{
+        background-image: url("lunar1.jpg");
+    }
+    .slogan_title{
+        font-size: 40px;
+        font-weight: bold;
+    }
+    .slogan_sub_title{
+        font-size: 25px;
+        font-weight: bold;
+    }
+
+}
+@media (max-width: 539px) {
+    .table-sm td, .table-sm th{
+    padding: 1px;
+    } 
+    .image-fit{
+        width:100%;
+    }
+    .back{
+        background-image: url("lunar1.jpg");
+    }
+    .slogan_title{
+        font-size: 25px;
+        font-weight: bold;
+    }
+    .slogan_sub_title{
+        font-size: 15px;
+        font-weight: bold;
+    }
+}
+.font{
+    white-space: pre-wrap;
+}
+
+.el-card{
+    margin-bottom:30px; 
+    min-height: 350px;
+}
+.el-collapse-item__header{
+    background-color:#F0F0F0;
+}
+.el-collapse-item__wrap{
+    background-color:#F0F0F0;
+}
+.el-tabs__item {
+    padding: 0 20px;
+    height: 40px;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    line-height: 40px;
+    display: inline-block;
+    list-style: none;
+    font-size: 18px;
+    color: #303133;
+    position: relative;
+    font-weight: bold;
+}
+.backPng1{
+    background-image: url("back.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    text-align: center;
+    background-position: center
+}
+.backPng2{
+    background-image: url("back1.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    text-align: center;
+    background-position: center
+}
+.backPng3{
+    background-image: url("back2.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    text-align: center;
+    background-position: center
+}
+.el-table {
+    font-size: 16px;
+    color: #606266;
+    font-family: Microsoft JhengHei;
+    font-weight: bold;
+}
+.backgroud{
+    /* background-image: url("https://www.colatour.com.tw/webDM/taiwan/theme/minitwtrip/style/images/all_bk.jpg"); */
+    background-color: #ffefd8;
+}
+.el-tabs__nav {
+    background-color: white;
+}
+</style>
+  
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>精選國旅｜大豐旅行社</title>   	
+
+<meta name="description" content="精選特色國旅，一至三日遊，北中南出發，8人小團制即可成行">
+<meta name="keywords" content=""> 
+<meta http-equiv="expires" content="0">
+<meta http-equiv="cache-control" content="no-cache">  
+<meta http-equiv="pragma" content="no-cache">
+<meta name="format-detection" content="telephone=no">
+
+
+
+</head>
+<body id="page_body" class="green-page">
+
+<div class="include" file="https://tafengtravel.github.io/tafengtravel/index/top"></div>
+
+<div id="pnl_wrapper" class="wrapper homepage green-page">
+    <div id="app"> 
+
+        <div class="el-col el-col-24 el-col-xs-24 el-col-sm-24 el-col-md-24 el-col-lg-24" style="background-color:#ffefd8;">
+            <el-row :gutter="20" class="back">
+                <br><br><br><br><br><br><br><br><br><br><br>
+                <br><br><br><br>
+            </el-row>
+        </div>
+        
+        <div class ="el-col-24 backgroud" style="margin-top: -20px;background-color:#ffefd8;">
+
+            <div class ="el-col el-col-24 el-col-xs-22 el-col-xs-offset-1 el-col-sm-20 el-col-sm-offset-2 el-col-md-18 el-col-md-offset-3 el-col-lg-16 el-col-lg-offset-4">
+                <el-row></el-row>
+                <div v-for="(item,index) in island">
+                    <el-row>
+                    <a :href="island[index].link">
+
+                        <el-col class ="el-col el-col-xs-20 el-col-xs-offset-1 el-col-sm-14 el-col-sm-offset-1 el-col-md-14 el-col-md-offset-1 el-col-lg-14 el-col-lg-offset-1" style="margin-top: 10px;" v-if="(index%2)===0 && isShowSmall">
+                        
+                            <span class="title" ><font color="#2c2b2b" style="font-family:Noto Serif TC">{{item.location}}</font></span>
+                            <el-row></el-row>
+                            <span class="font" ><font color="#2c2b2b" style="letter-spacing: 0.2em;">{{item.detail}}</font></span>
+
+                        </el-col>
+
+                        <el-col class ="el-col el-col-xs-22 el-col-xs-offset-1 el-col-sm-8 el-col-md-8 el-col-lg-7">
+                        
+                            <el-image style="width:100% ;border-radius: 15px;order:2" :src="item.imageUrl":fit="fits">
+
+                            </el-image>
+
+                        </el-col>
+
+
+                        <el-col class ="el-col el-col-xs-20 el-col-xs-offset-1 el-col-sm-14 el-col-sm-offset-1 el-col-md-14 el-col-md-offset-1 el-col-lg-14 el-col-lg-offset-1" style="margin-top: 10px;" v-if="(index%2)!=0 || isShowSmall == false ">
+                        
+                            <span class="title" ><font color="#2c2b2b" style="font-family:Noto Serif TC">{{item.location}}</font></span>
+                            <el-row></el-row>
+                            <span class="font" ><font color="#2c2b2b" style="letter-spacing: 0.2em;">{{item.detail}}</font></span>
+
+                        </el-col>
+                    </a>
+                </el-row>
+                </div>
+            </div>
+
+            <div class ="el-col el-col-24 el-col-xs-22 el-col-xs-offset-1 el-col-sm-20 el-col-sm-offset-2 el-col-md-16 el-col-md-offset-4 el-col-lg-12 el-col-lg-offset-6">
+                
+                
+                <!-- <el-col class ="el-col el-col-xs-24 el-col-sm-24 el-col-md-14 el-col-lg-14 " style="margin-top: 10px;">
+                
+                    <span class="title" ><font color="#2c2b2b">澎 湖</font></span>
+                    <el-row></el-row>
+                    <span class="font" ><font color="#2c2b2b">澎湖群島遍布玄武岩地質景觀，大自然鬼斧神工的多樣雕琢，令地質學者觀後為之驚嘆，讚譽為「上帝的石雕公園」。清澈的澎湖灣以及澎湖冬天的風，更使澎湖成為國際風帆船選手年度巡迴必經之地，比美加勒比海與西班牙南部海域。春夏花火節火樹銀花綻放熱情和浪漫，秋冬菊島海鮮節的生鮮美饌品嚐澎湖海洋的頂級美味，碧海藍天與柔白細緻沙灘的雙重享受，各式各樣的沙灘水上遊樂設施，讓你盡情的享受水上世界，還有歎為觀止的海洋生態，成串的美景肯定會贏得您連聲的讚嘆！</font></span>
+
+                </el-col>
+
+                <el-col class ="el-col el-col-xs-24 el-col-sm-24 el-col-md-8 el-col-md-offset-1 el-col-lg-8 el-col-lg-offset-1">
+                
+                    <el-image style="width:100% ;border-radius: 15px;" src="https://tafengtravel.github.io/tafengtravel/index/domestic_island/penghu.jpg":fit="fits">
+
+                    </el-image>
+
+                </el-col> -->
+
+                
+
+                
+
+                
+
+                <el-row></el-row>
+                <el-tabs v-model="activeName" type="card" stretch >
+                    <el-tab-pane label="一日遊" name="one" class="font">
+
+                        <el-row :gutter="20" class="el-col-24 slogan_title backPng1" style="text-align: center;color:white ; height: 62px; padding: 15px 0px 0px 5px;" >北部出發</el-row>
+                
+                        <template>
+                            <el-table
+                            :data="oneNorth"
+                            style="width: 100%"
+                            :show-header='false'
+                            font-size="2px"
+                            >
+                            <el-table-column prop="people" label="成形" width="90%">
+                                <template slot-scope="scope">
+                                    <a :href="scope.row.link">
+                                        <div slot="reference" class="name-wrapper">
+                                            <el-tag size="medium">{{scope.row.amount}}人成行</el-tag>
+                                        </div>
+                                    </a>
+                                </template>
+                            </el-table-column>
+                            <el-table-column prop="name" label="團名" >
+                                <template slot-scope="scope">
+                                    <a :href="scope.row.link">
+                                        <div slot="reference" class="name-wrapper">
+                                            {{ scope.row.name }}&emsp;<font color="red" style="font-size: 13px;">{{scope.row.other}}</font>
+                                        </div>                            
+                                    </a>
+                                </template>
+                            </el-table-column>
+                            <el-table-column prop="price" label="金額" width="110%">
+                                <template slot-scope="scope">
+                                    <a :href="scope.row.link">
+                                        <div slot="reference" class="name-wrapper">
+                                            <font color="#ff5d5d" style="font-family: verdana,'微軟正黑體';">每人${{ scope.row.price }}</font>
+                                        </div>
+                                    </a>
+                                </template>
+                            </el-table-column>
+                            </el-table>
+                        </template>
+
+                        <el-row></el-row>
+
+                        <el-row :gutter="20" class="el-col-24 slogan_title backPng2" style="text-align: center;color:white ; height: 62px; padding: 15px 0px 0px 5px;" >中部出發</el-row>
+                
+                        <template>
+                            <el-table
+                            :data="oneCentral"
+                            style="width: 100%"
+                            :show-header='false'
+                            font-size="2px"
+                            >
+                            <el-table-column prop="people" label="成形" width="90%">
+                                <template slot-scope="scope">
+                                    <a :href="scope.row.link">
+                                        <div slot="reference" class="name-wrapper">
+                                            <el-tag size="medium">{{scope.row.amount}}人成行</el-tag>
+                                        </div>
+                                    </a>
+                                </template>
+                            </el-table-column>
+                            <el-table-column prop="name" label="團名" >
+                                <template slot-scope="scope">
+                                    <a :href="scope.row.link">
+                                        <div slot="reference" class="name-wrapper">
+                                            {{ scope.row.name }}&emsp;<font color="red" style="font-size: 13px;">{{scope.row.other}}</font>
+                                        </div>                            
+                                    </a>
+                                </template>
+                            </el-table-column>
+                            <el-table-column prop="price" label="金額" width="110%">
+                                <template slot-scope="scope">
+                                    <a :href="scope.row.link">
+                                        <div slot="reference" class="name-wrapper">
+                                            <font color="#ff5d5d" style="font-family: verdana,'微軟正黑體';">每人${{ scope.row.price }}</font>
+                                        </div>
+                                    </a>
+                                </template>
+                            </el-table-column>
+                            </el-table>
+                        </template>
+
+                        <el-row></el-row>
+
+                        <el-row :gutter="20" class="el-col-24 slogan_title backPng3" style="text-align: center;color:white ; height: 62px; padding: 15px 0px 0px 5px;" >南部出發</el-row>
+                
+                        <template>
+                            <el-table
+                            :data="oneSouth"
+                            style="width: 100%"
+                            :show-header='false'
+                            font-size="2px"
+                            >
+                            <el-table-column prop="people" label="成形" width="90%">
+                                <template slot-scope="scope">
+                                    <a :href="scope.row.link">
+                                        <div slot="reference" class="name-wrapper">
+                                            <el-tag size="medium">{{scope.row.amount}}人成行</el-tag>
+                                        </div>
+                                    </a>
+                                </template>
+                            </el-table-column>
+                            <el-table-column prop="name" label="團名" >
+                                <template slot-scope="scope">
+                                    <a :href="scope.row.link">
+                                        <div slot="reference" class="name-wrapper">
+                                            {{ scope.row.name }}&emsp;<font color="red" style="font-size: 13px;">{{scope.row.other}}</font>
+                                        </div>                            
+                                    </a>
+                                </template>
+                            </el-table-column>
+                            <el-table-column prop="price" label="金額" width="110%">
+                                <template slot-scope="scope">
+                                    <a :href="scope.row.link">
+                                        <div slot="reference" class="name-wrapper">
+                                            <font color="#ff5d5d" style="font-family: verdana,'微軟正黑體';">每人${{ scope.row.price }}</font>
+                                        </div>
+                                    </a>
+                                </template>
+                            </el-table-column>
+                            </el-table>
+                        </template>
+
+                    </el-tab-pane>
+                    <el-tab-pane label="二日遊" name="two" class="font">
+
+                        <el-row :gutter="20" class="el-col-24 slogan_title backPng1" style="text-align: center;color:white ; height: 62px; padding: 15px 0px 0px 5px;" >北部出發</el-row>
+                
+                        <template>
+                            <el-table
+                            :data="twoNorth"
+                            style="width: 100%"
+                            :show-header='false'
+                            font-size="2px"
+                            >
+                            <el-table-column prop="people" label="成形" width="90%">
+                                <template slot-scope="scope">
+                                    <a :href="scope.row.link">
+                                        <div slot="reference" class="name-wrapper">
+                                            <el-tag size="medium">8人成行</el-tag>
+                                        </div>
+                                    </a>
+                                </template>
+                            </el-table-column>
+                            <el-table-column prop="name" label="團名" >
+                                <template slot-scope="scope">
+                                    <a :href="scope.row.link">
+                                        <div slot="reference" class="name-wrapper">
+                                            {{ scope.row.name }}&emsp;<font color="red" style="font-size: 13px;">{{scope.row.other}}</font>
+                                        </div>                            
+                                    </a>
+                                </template>
+                            </el-table-column>
+                            <el-table-column prop="price" label="金額" width="110%">
+                                <template slot-scope="scope">
+                                    <a :href="scope.row.link">
+                                        <div slot="reference" class="name-wrapper">
+                                            <font color="#ff5d5d" style="font-family: verdana,'微軟正黑體';">每人${{ scope.row.price }}</font>
+                                        </div>
+                                    </a>
+                                </template>
+                            </el-table-column>
+                            </el-table>
+                        </template>
+
+                        <el-row></el-row>
+
+                        <el-row :gutter="20" class="el-col-24 slogan_title backPng2" style="text-align: center;color:white ; height: 62px; padding: 15px 0px 0px 5px;" >中部出發</el-row>
+                
+                        <template>
+                            <el-table
+                            :data="twoCentral"
+                            style="width: 100%"
+                            :show-header='false'
+                            font-size="2px"
+                            >
+                            <el-table-column prop="people" label="成形" width="90%">
+                                <template slot-scope="scope">
+                                    <a :href="scope.row.link">
+                                        <div slot="reference" class="name-wrapper">
+                                            <el-tag size="medium">8人成行</el-tag>
+                                        </div>
+                                    </a>
+                                </template>
+                            </el-table-column>
+                            <el-table-column prop="name" label="團名" >
+                                <template slot-scope="scope">
+                                    <a :href="scope.row.link">
+                                        <div slot="reference" class="name-wrapper">
+                                            {{ scope.row.name }}&emsp;<font color="red" style="font-size: 13px;">{{scope.row.other}}</font>
+                                        </div>                            
+                                    </a>
+                                </template>
+                            </el-table-column>
+                            <el-table-column prop="price" label="金額" width="110%">
+                                <template slot-scope="scope">
+                                    <a :href="scope.row.link">
+                                        <div slot="reference" class="name-wrapper">
+                                            <font color="#ff5d5d" style="font-family: verdana,'微軟正黑體';">每人${{ scope.row.price }}</font>
+                                        </div>
+                                    </a>
+                                </template>
+                            </el-table-column>
+                            </el-table>
+                        </template>
+
+                        <el-row></el-row>
+
+                        <el-row :gutter="20" class="el-col-24 slogan_title backPng3" style="text-align: center;color:white ; height: 62px; padding: 15px 0px 0px 5px;" >南部出發</el-row>
+                
+                        <template>
+                            <el-table
+                            :data="twoSouth"
+                            style="width: 100%"
+                            :show-header='false'
+                            font-size="2px"
+                            >
+                            <el-table-column prop="people" label="成形" width="90%">
+                                <template slot-scope="scope">
+                                    <a :href="scope.row.link">
+                                        <div slot="reference" class="name-wrapper">
+                                            <el-tag size="medium">8人成行</el-tag>
+                                        </div>
+                                    </a>
+                                </template>
+                            </el-table-column>
+                            <el-table-column prop="name" label="團名" >
+                                <template slot-scope="scope">
+                                    <a :href="scope.row.link">
+                                        <div slot="reference" class="name-wrapper">
+                                            {{ scope.row.name }}&emsp;<font color="red" style="font-size: 13px;">{{scope.row.other}}</font>
+                                        </div>                            
+                                    </a>
+                                </template>
+                            </el-table-column>
+                            <el-table-column prop="price" label="金額" width="110%">
+                                <template slot-scope="scope">
+                                    <a :href="scope.row.link">
+                                        <div slot="reference" class="name-wrapper">
+                                            <font color="#ff5d5d" style="font-family: verdana,'微軟正黑體';">每人${{ scope.row.price }}</font>
+                                        </div>
+                                    </a>
+                                </template>
+                            </el-table-column>
+                            </el-table>
+                        </template>
+
+                    </el-tab-pane>
+                    <el-tab-pane label="三日遊" name="three" class="font">
+
+                        <el-row :gutter="20" class="el-col-24 slogan_title backPng1" style="text-align: center;color:white ; height: 62px; padding: 15px 0px 0px 5px;" >北部出發</el-row>
+                
+                        <template>
+                            <el-table
+                            :data="threeNorth"
+                            style="width: 100%"
+                            :show-header='false'
+                            font-size="2px"
+                            >
+                            <el-table-column prop="people" label="成形" width="90%">
+                                <template slot-scope="scope">
+                                    <a :href="scope.row.link">
+                                        <div slot="reference" class="name-wrapper">
+                                            <el-tag size="medium">8人成行</el-tag>
+                                        </div>
+                                    </a>
+                                </template>
+                            </el-table-column>
+                            <el-table-column prop="name" label="團名" >
+                                <template slot-scope="scope">
+                                    <a :href="scope.row.link">
+                                        <div slot="reference" class="name-wrapper">
+                                            {{ scope.row.name }}&emsp;<font color="red" style="font-size: 13px;">{{scope.row.other}}</font>
+                                        </div>
+                                    </a>
+                                </template>
+                            </el-table-column>
+                            <el-table-column prop="price" label="金額" width="110%">
+                                <template slot-scope="scope">
+                                    <a :href="scope.row.link">
+                                        <div slot="reference" class="name-wrapper">
+                                            <font color="#ff5d5d" style="font-family: verdana,'微軟正黑體';">每人${{ scope.row.price }}</font>
+                                        </div>
+                                    </a>
+                                </template>
+                            </el-table-column>
+                            </el-table>
+                        </template>
+
+                        <el-row></el-row>
+
+                        <el-row :gutter="20" class="el-col-24 slogan_title backPng2" style="text-align: center;color:white ; height: 62px; padding: 15px 0px 0px 5px;" >中部出發</el-row>
+                
+                        <template>
+                            <el-table
+                            :data="threeCentral"
+                            style="width: 100%"
+                            :show-header='false'
+                            font-size="2px"
+                            >
+                            <el-table-column prop="people" label="成形" width="90%">
+                                <template slot-scope="scope">
+                                    <a :href="scope.row.link">
+                                        <div slot="reference" class="name-wrapper">
+                                            <el-tag size="medium">8人成行</el-tag>
+                                        </div>
+                                    </a>
+                                </template>
+                            </el-table-column>
+                            <el-table-column prop="name" label="團名" >
+                                <template slot-scope="scope">
+                                    <a :href="scope.row.link">
+                                        <div slot="reference" class="name-wrapper">
+                                            {{ scope.row.name }}&emsp;<font color="red" style="font-size: 13px;">{{scope.row.other}}</font>
+                                        </div>                            
+                                    </a>
+                                </template>
+                            </el-table-column>
+                            <el-table-column prop="price" label="金額" width="110%">
+                                <template slot-scope="scope">
+                                    <a :href="scope.row.link">
+                                        <div slot="reference" class="name-wrapper">
+                                            <font color="#ff5d5d" style="font-family: verdana,'微軟正黑體';">每人${{ scope.row.price }}</font>
+                                        </div>
+                                    </a>
+                                </template>
+                            </el-table-column>
+                            </el-table>
+                        </template>
+
+                        <el-row></el-row>
+
+                        <el-row :gutter="20" class="el-col-24 slogan_title backPng3" style="text-align: center;color:white ; height: 62px; padding: 15px 0px 0px 5px;" >南部出發</el-row>
+                
+                        <template>
+                            <el-table
+                            :data="threeSouth"
+                            style="width: 100%"
+                            :show-header='false'
+                            font-size="2px"
+                            >
+                            <el-table-column prop="people" label="成形" width="90%">
+                                <template slot-scope="scope">
+                                    <a :href="scope.row.link">
+                                        <div slot="reference" class="name-wrapper">
+                                            <el-tag size="medium">8人成行</el-tag>
+                                        </div>
+                                    </a>
+                                </template>
+                            </el-table-column>
+                            <el-table-column prop="name" label="團名" >
+                                <template slot-scope="scope">
+                                    <a :href="scope.row.link">
+                                        <div slot="reference" class="name-wrapper">
+                                            {{ scope.row.name }}&emsp;<font color="red" style="font-size: 13px;">{{scope.row.other}}</font>
+                                        </div>                            
+                                    </a>
+                                </template>
+                            </el-table-column>
+                            <el-table-column prop="price" label="金額" width="110%">
+                                <template slot-scope="scope">
+                                    <a :href="scope.row.link">
+                                        <div slot="reference" class="name-wrapper">
+                                            <font color="#ff5d5d" style="font-family: verdana,'微軟正黑體';">每人${{ scope.row.price }}</font>
+                                        </div>
+                                    </a>
+                                </template>
+                            </el-table-column>
+                            </el-table>
+                        </template>
+                        
+                    </el-tab-pane>
+                </el-tabs>
+
+                <el-row></el-row>
+
+            </div>
+            
+        </div>
+
+        <el-backtop :bottom="100"></el-backtop>
+        
+    </div>
+</div>
+
+
+
+
+<div class="text-center">
+
+    <br>
+    <div class="include" file="https://tafengtravel.github.io/tafengtravel/index/footer"></div>
+
+</div> 
+
+  
+
+
+
+<a class="go-to-top" id="goTop" href="#"><i class="fa fa-caret-up"></i>top</a>
+
+    
+</body>
+
+<script type="text/javascript">
+//使用jQuery的load方法
+$(".include").each(function(){
+    if(!!$(this).attr("file")) {
+        var $includeObj = $(this);
+        $(this).load($(this).attr("file"), function(html){
+            $includeObj.after(html).remove();    //載入的檔案內容寫入到當前標籤後面並移除當前標籤
+        })
+    }
+});
+</script>
+
+<script src="https://unpkg.com/vue@2.6.12/dist/vue.js"></script>
+<!-- import JavaScript -->
+<script src="https://unpkg.com/element-ui@2.15.0/lib/index.js"></script>
+
+
+<script>
+
+    var Main = {
+        data() {
+            return {
+                isShowSmall:true,
+                fullWidth: 0,
+                fits:'cover',
+                oneNorth: [{
+                    amount:'20',
+                    name: '王功搭牛車、摸蛤蜊１日遊',
+                    price: '600',
+                    link: 'http://www.tafeng66.com.tw/webobj/travelteam/showselect.asp?Product_id=12285&promo=m&depID=215&rp_dt_id=',
+                }, {
+                    amount:'20',
+                    name: '忘憂森林＋妖怪村１日遊',
+                    price: '650',
+                    link: 'http://www.tafeng66.com.tw/webobj/travelteam/showselect.asp?Product_id=34206&promo=m&depID=215&rp_dt_id='
+                }, {
+                    amount:'20',
+                    name: '薑麻園採果＋勝興車站１日遊',
+                    price: '700',
+                    link: 'http://www.tafeng66.com.tw/webobj/travelteam/showselect.asp?Product_id=41327&promo=m&depID=215&rp_dt_id='
+                }, {
+                    amount:'20',
+                    name: '溪頭森林浴＋妖怪村１日遊',
+                    price: '700',
+                    link: 'http://www.tafeng66.com.tw/webobj/travelteam/showselect.asp?Product_id=23649&promo=m&depID=215&rp_dt_id='
+                }, {
+                    amount:'20',
+                    name: '秀覽賞楓尖石＋內灣１日遊',
+                    price: '750',
+                    link: 'http://www.tafeng66.com.tw/webobj/travelteam/showselect.asp?Product_id=41346&promo=m&depID=215&rp_dt_id='
+                }, {
+                    amount:'20',
+                    name: '東豐綠廊＋台灣玻璃館１日遊',
+                    price: '750',
+                    link: 'http://www.tafeng66.com.tw/webobj/travelteam/showselect.asp?Product_id=22004&promo=m&depID=215&rp_dt_id='
+                }, {
+                    amount:'20',
+                    name: '七股潟湖《竹筏游潟湖》延平老街１日遊',
+                    price: '800',
+                    link: 'http://www.tafeng66.com.tw/webobj/travelteam/showselect.asp?Product_id=12353&promo=m&depID=215&rp_dt_id=',
+                    other: ''
+                }, {
+                    amount:'20',
+                    name: '杉林溪《賞花去》七里香玫瑰森林１日遊',
+                    price: '750',
+                    link: 'http://www.tafeng66.com.tw/webobj/travelteam/showselect.asp?Product_id=19351&promo=m&depID=215&rp_dt_id='
+                }, {
+                    amount:'20',
+                    name: '小半天風景區＋妖怪村１日遊',
+                    price: '750',
+                    link: 'http://www.tafeng66.com.tw/webobj/travelteam/showselect.asp?Product_id=14780&promo=m&depID=215&rp_dt_id='
+                }, {
+                    amount:'20',
+                    name: '台版合掌村＋奮起湖１日遊',
+                    price: '750',
+                    link: 'http://www.tafeng66.com.tw/webobj/travelteam/showselect.asp?Product_id=41597&promo=m&depID=215&rp_dt_id='
+                }, {
+                    amount:'20',
+                    name: '惠蓀林場＋香草植物館１日遊',
+                    price: '750',
+                    link: 'http://www.tafeng66.com.tw/webobj/travelteam/showselect.asp?Product_id=41407&promo=m&depID=215&rp_dt_id='
+                }, {
+                    amount:'20',
+                    name: '清境農場【天空步道＋羊咩咩脫衣秀】１日遊',
+                    price: '790',
+                    link: 'http://www.tafeng66.com.tw/webobj/travelteam/showselect.asp?Product_id=41409&promo=m&depID=215&rp_dt_id='
+                }, {
+                    amount:'8',
+                    name: '司馬庫斯~上帝的部落１日遊',
+                    price: '1280',
+                    link: 'http://www.tafeng66.com.tw/webobj/travelteam/showselect.asp?Product_id=41186&promo=m&depID=215&rp_dt_id=',
+
+                }, {
+                    amount:'20',
+                    name: '奧萬大【賞楓去】１日遊',
+                    price: '1350',
+                    link: 'http://www.tafeng66.com.tw/webobj/travelteam/showselect.asp?Product_id=29434&promo=m&depID=215&rp_dt_id=',
+                }, {
+                    amount:'20',
+                    name: '赤科山《金針花海》賞花趣１日遊  ',
+                    price: '1400',
+                    link: 'http://www.tafeng66.com.tw/webobj/travelteam/showselect.asp?Product_id=41868&promo=m&depID=215&rp_dt_id='
+                }, {
+                    amount:'20',
+                    name: '杉林溪【賞楓去】妖怪村１日遊',
+                    price: '750',
+                    link: 'http://www.tafeng66.com.tw/webobj/travelteam/showselect.asp?Product_id=30968&promo=m&depID=215&rp_dt_id='
+                }, {
+                    amount:'20',
+                    name: '阿里山【賞楓去】１日遊  ',
+                    price: '950',
+                    link: 'http://www.tafeng66.com.tw/webobj/travelteam/showselect.asp?Product_id=41945&promo=m&depID=215&rp_dt_id= ',
+                    other:'11/27促銷團 $890'
+                }],
+                oneCentral: [{
+                    amount:'20',
+                    name: '七股游潟湖＋奇美博物館＋藍晒圖１日遊',
+                    price: '600',
+                    link: 'http://www.tafeng66.com.tw/webobj/travelteam/showselect.asp?Product_id=41404&promo=m&depID=215&rp_dt_id='
+                }, {
+                    amount:'20',
+                    name: '王功搭牛車、摸蛤蜊１日遊',
+                    price: '600',
+                    link: 'http://www.tafeng66.com.tw/webobj/travelteam/showselect.asp?Product_id=12285&promo=m&depID=215&rp_dt_id='
+                }, {
+                    amount:'20',
+                    name: '台版合掌村＋奮起湖１日遊',
+                    price: '650',
+                    link: 'http://www.tafeng66.com.tw/webobj/travelteam/showselect.asp?Product_id=41471&promo=m&depID=215&rp_dt_id='
+                }, {
+                    amount:'20',
+                    name: '忘憂森林＋妖怪村１日遊',
+                    price: '650',
+                    link: 'http://www.tafeng66.com.tw/webobj/travelteam/showselect.asp?Product_id=34206&promo=m&depID=215&rp_dt_id='
+                }, {
+                    amount:'20',
+                    name: '七股潟湖《竹筏游潟湖》延平老街１日遊',
+                    price: '750',
+                    link: 'http://www.tafeng66.com.tw/webobj/travelteam/showselect.asp?Product_id=12353&promo=m&depID=215&rp_dt_id='
+                }, {
+                    amount:'20',
+                    name: '北埔古蹟＋內灣老街１日遊',
+                    price: '850',
+                    link: 'http://www.tafeng66.com.tw/webobj/travelteam/showselect.asp?Product_id=12317&promo=m&depID=215&rp_dt_id=',
+                    // other: '10/23促銷 $630'
+                }, {
+                    amount:'20',
+                    name: '阿里山森林浴＋奮起湖老街１日遊',
+                    price: '750',
+                    link: 'http://www.tafeng66.com.tw/webobj/travelteam/showselect.asp?Product_id=38000&promo=m&depID=215&rp_dt_id='
+                }, {
+                    amount:'20',
+                    name: '十分瀑布(老街)＋正濱彩虹屋１日遊',
+                    price: '800',
+                    link: 'http://www.tafeng66.com.tw/webobj/travelteam/showselect.asp?Product_id=41335&promo=m&depID=215&rp_dt_id=',
+                    other: ''
+                }, {
+                    amount:'20',
+                    name: '藤枝森林祕境１日遊',
+                    price: '1450',
+                    link: 'http://www.tafeng66.com.tw/webobj/travelteam/showselect.asp?Product_id=41791&promo=m&depID=215&rp_dt_id='
+                }, {
+                    amount:'8',
+                    name: '司馬庫斯~上帝的部落１日遊',
+                    price: '1480',
+                    link: 'http://www.tafeng66.com.tw/webobj/travelteam/showselect.asp?Product_id=41187&promo=m&depID=215&rp_dt_id=',
+
+                }, {
+                    amount:'20',
+                    name: '薑麻園採果＋勝興車站１日遊',
+                    price: '700',
+                    link: 'http://www.tafeng66.com.tw/webobj/travelteam/showselect.asp?Product_id=41929&promo=m&depID=215&rp_dt_id='
+                }, {
+                    amount:'20',
+                    name: '井仔腳鹽田＋安平老街１日遊',
+                    price: '750',
+                    link: 'http://www.tafeng66.com.tw/webobj/travelteam/showselect.asp?Product_id=41932&promo=m&depID=215&rp_dt_id='
+                }, {
+                    amount:'20',
+                    name: '衛武迷迷村＋勝利星村１日遊  ',
+                    price: '750',
+                    link: 'http://www.tafeng66.com.tw/webobj/travelteam/showselect.asp?Product_id=41934&promo=m&depID=215&rp_dt_id='
+                }, {
+                    amount:'20',
+                    name: '阿里山【賞楓去】１日遊  ',
+                    price: '950',
+                    link: 'http://www.tafeng66.com.tw/webobj/travelteam/showselect.asp?Product_id=41944&promo=m&depID=215&rp_dt_id=',
+                    other:'11/27促銷團 $750'
+                }],
+                oneSouth: [{
+                    amount:'20',
+                    name: '台南鹽田＋安平老街１日遊',
+                    price: '450',
+                    link: 'http://www.tafeng66.com.tw/webobj/travelteam/showselect.asp?Product_id=34206&promo=m&depID=215&rp_dt_id='
+                }, {
+                    amount:'20',
+                    name: '府城美食文青風遊趣１日遊',
+                    price: '550',
+                    link: 'http://www.tafeng66.com.tw/webobj/travelteam/showselect.asp?Product_id=41330&promo=m&depID=215&rp_dt_id='
+                }, {
+                    amount:'20',
+                    name: '王功搭牛車、摸蛤蜊１日遊',
+                    price: '600',
+                    link: 'http://www.tafeng66.com.tw/webobj/travelteam/showselect.asp?Product_id=22137&promo=m&depID=215&rp_dt_id='
+                }, {
+                    amount:'20',
+                    name: '台版合掌村＋奮起湖１日遊',
+                    price: '650',
+                    link: 'http://www.tafeng66.com.tw/webobj/travelteam/showselect.asp?Product_id=41472&promo=m&depID=215&rp_dt_id='
+                }, {
+                    amount:'20',
+                    name: '忘憂森林＋妖怪村１日遊',
+                    price: '650',
+                    link: 'http://www.tafeng66.com.tw/webobj/travelteam/showselect.asp?Product_id=34205&promo=m&depID=215&rp_dt_id='
+                }, {
+                    amount:'20',
+                    name: '惠蓀林場＋峇里海岸１日遊',
+                    price: '700',
+                    link: 'http://www.tafeng66.com.tw/webobj/travelteam/showselect.asp?Product_id=41406&promo=m&depID=215&rp_dt_id='
+                }, {
+                    amount:'20',
+                    name: '台中文創聚落＋高美濕地１日遊',
+                    price: '700',
+                    link: 'http://www.tafeng66.com.tw/webobj/travelteam/showselect.asp?Product_id=41334&promo=m&depID=215&rp_dt_id=',
+                }, {
+                    amount:'20',
+                    name: '溪頭森林浴＋妖怪村１日遊',
+                    price: '700',
+                    link: 'http://www.tafeng66.com.tw/webobj/travelteam/showselect.asp?Product_id=23635&promo=m&depID=215&rp_dt_id='
+                }, {
+                    amount:'20',
+                    name: '北埔古蹟＋內灣老街１日遊',
+                    price: '850',
+                    link: 'http://www.tafeng66.com.tw/webobj/travelteam/showselect.asp?Product_id=12317&promo=m&depID=215&rp_dt_id=',
+                    other: ''
+                }, {
+                    amount:'20',
+                    name: '杉林溪《賞花去》檜意森活村１日遊',
+                    price: '750',
+                    link: 'http://www.tafeng66.com.tw/webobj/travelteam/showselect.asp?Product_id=12316&promo=m&depID=215&rp_dt_id='
+                }, {
+                    amount:'20',
+                    name: '小半天風景區＋妖怪村１日遊',
+                    price: '750',
+                    link: 'http://www.tafeng66.com.tw/webobj/travelteam/showselect.asp?Product_id=12283&promo=m&depID=215&rp_dt_id='
+                }, {
+                    amount:'20',
+                    name: '清境農場【天空步道＋羊咩咩脫衣秀】１日遊',
+                    price: '750',
+                    link: 'http://www.tafeng66.com.tw/webobj/travelteam/showselect.asp?Product_id=41408&promo=m&depID=215&rp_dt_id='
+                }, {
+                    amount:'20',
+                    name: '阿里山森林浴＋奮起湖老街１日遊',
+                    price: '750',
+                    link: 'http://www.tafeng66.com.tw/webobj/travelteam/showselect.asp?Product_id=23376&promo=m&depID=215&rp_dt_id='
+                }, {
+                    amount:'20',
+                    name: '奧萬大【賞楓去】１日遊',
+                    price: '1050',
+                    link: 'http://www.tafeng66.com.tw/webobj/travelteam/showselect.asp?Product_id=12309&promo=m&depID=215&rp_dt_id=',
+                }, {
+                    amount:'20',
+                    name: '太麻里《金針花》賞花趣１日遊  ',
+                    price: '1300',
+                    link: 'http://www.tafeng66.com.tw/webobj/travelteam/showselect.asp?Product_id=12319&promo=m&depID=215&rp_dt_id='
+                }, {
+                    amount:'20',
+                    name: '藤枝森林祕境１日遊',
+                    price: '1450',
+                    link: 'http://www.tafeng66.com.tw/webobj/travelteam/showselect.asp?Product_id=41791&promo=m&depID=215&rp_dt_id='
+                }, {
+                    amount:'20',
+                    name: '薑麻園採果＋勝興車站１日遊',
+                    price: '800',
+                    link: 'http://www.tafeng66.com.tw/webobj/travelteam/showselect.asp?Product_id=41930&promo=m&depID=215&rp_dt_id='
+                }, {
+                    amount:'20',
+                    name: '杉林溪【賞楓去】妖怪村１日遊',
+                    price: '750',
+                    link: 'http://www.tafeng66.com.tw/webobj/travelteam/showselect.asp?Product_id=26057&promo=m&depID=215&rp_dt_id='
+                }, {
+                    amount:'20',
+                    name: '阿里山【賞楓去】１日遊  ',
+                    price: '950',
+                    link: 'http://www.tafeng66.com.tw/webobj/travelteam/showselect.asp?Product_id=41943&promo=m&depID=215&rp_dt_id=',
+                    other:'11/27促銷團 $750'
+                }], 
+
+                twoNorth: [{
+                    name: '宜蘭+羅東２日遊',
+                    price: '2700',
+                    link: 'http://www.tafeng66.com.tw/webobj/travelteam/showselect.asp?Product_id=25725&promo=m&depID=215&rp_dt_id=',
+                    other: '即將成團'
+                }, {
+                    name: '奧萬大＋台版合掌村２日遊',
+                    price: '3000',
+                    link: 'http://www.tafeng66.com.tw/webobj/travelteam/showselect.asp?Product_id=41747&promo=m&depID=215&rp_dt_id=',
+                    other: '即將成團'
+                }, {
+                    name: '鹿港古鎮＋田尾花園＋清境天空步道２日遊',
+                    price: '3000',
+                    link: 'http://www.tafeng66.com.tw/webobj/travelteam/showselect.asp?Product_id=36143&promo=m&depID=215&rp_dt_id=',
+                    other: '即將成團'
+                }, {
+                    name: '小琉球＋山川琉璃吊橋＋大樹舊鐵橋濕地２日遊',
+                    price: '3200',
+                    link: 'http://www.tafeng66.com.tw/webobj/travelteam/showselect.asp?Product_id=18899&promo=m&depID=215&rp_dt_id=',
+                    other: '即將成團'
+                }, {
+                    name: '惠蓀林場＋炭雕博物館＋安平樹屋＋台江游湖２日遊',
+                    price: '3300',
+                    link: 'http://www.tafeng66.com.tw/webobj/travelteam/showselect.asp?Product_id=36145&promo=m&depID=215&rp_dt_id='
+                }, {
+                    name: '阿里山＋故宮南院＋秋紅谷廣場＋宮原眼科２日遊',
+                    price: '3300',
+                    link: 'http://www.tafeng66.com.tw/webobj/travelteam/showselect.asp?Product_id=34192&promo=m&depID=215&rp_dt_id=',
+                    other: '即將成團'
+                }, {
+                    name: '藤枝祕境＋台南風情２日遊',
+                    price: '3700',
+                    link: 'http://www.tafeng66.com.tw/webobj/travelteam/showselect.asp?Product_id=25726&promo=m&depID=215&rp_dt_id='
+                }, {
+                    name: '花蓮＋台東《鐵路玩家》２日遊',
+                    price: '3900',
+                    link: 'http://www.tafeng66.com.tw/webobj/travelteam/showselect.asp?Product_id=34279&promo=m&depID=215&rp_dt_id=',
+                    other: '即將成團'
+                }, {
+                    name: '山上人家＋峨嵋湖＋細茅埔吊橋＋內灣老街２日遊',
+                    price: '4000',
+                    link: 'http://www.tafeng66.com.tw/webobj/travelteam/showselect.asp?Product_id=36717&promo=m&depID=215&rp_dt_id='
+                }, {
+                    name: '小琉球＋駁二藝術特區＋台江游湖２日遊',
+                    price: '4100',
+                    link: 'http://www.tafeng66.com.tw/webobj/travelteam/showselect.asp?Product_id=38350&promo=m&depID=215&rp_dt_id='
+                }, {
+                    name: '司馬庫斯~上帝的部落＋內灣老街２日遊',
+                    price: '4400',
+                    link: 'http://www.tafeng66.com.tw/webobj/travelteam/showselect.asp?Product_id=31355&promo=m&depID=215&rp_dt_id='
+                }, {
+                    name: '忘憂森林＋妖怪村＋草坪頭賞櫻＋青蛙石天空步道２日遊  ',
+                    price: '4900',
+                    link: 'http://www.tafeng66.com.tw/webobj/travelteam/showselect.asp?Product_id=38352&promo=m&depID=215&rp_dt_id='
+                },{
+                    name: '奧萬大＋武界２日遊',
+                    price: '5400',
+                    link: 'http://www.tafeng66.com.tw/webobj/travelteam/showselect.asp?Product_id=41207&promo=m&depID=215&rp_dt_id='
+                }],
+                twoCentral: [{
+                    name: '奧萬大＋台版合掌村２日遊',
+                    price: '3000',
+                    link: 'http://www.tafeng66.com.tw/webobj/travelteam/showselect.asp?Product_id=41747&promo=m&depID=215&rp_dt_id='
+                }, {
+                    name: '小琉球＋山川琉璃吊橋＋大樹舊鐵橋濕地２日遊',
+                    price: '3200',
+                    link: 'http://www.tafeng66.com.tw/webobj/travelteam/showselect.asp?Product_id=18899&promo=m&depID=215&rp_dt_id='
+                }, {
+                    name: '石碇千島湖＋八卦茶園＋九份老街２日遊',
+                    price: '3400',
+                    link: 'http://www.tafeng66.com.tw/webobj/travelteam/showselect.asp?Product_id=41198&promo=m&depID=215&rp_dt_id='
+                }, {
+                    name: '綠世界農場＋深坑豆腐街＋十分瀑布２日遊',
+                    price: '3500',
+                    link: 'http://www.tafeng66.com.tw/webobj/travelteam/showselect.asp?Product_id=41237&promo=m&depID=215&rp_dt_id=',
+                    other: '即將成團'
+                }, {
+                    name: '藤枝祕境＋台南風情２日遊',
+                    price: '3700',
+                    link: 'http://www.tafeng66.com.tw/webobj/travelteam/showselect.asp?Product_id=25726&promo=m&depID=215&rp_dt_id='
+                }, {
+                    name: '花蓮＋台東《鐵路玩家》２日遊',
+                    price: '3900',
+                    link: 'http://www.tafeng66.com.tw/webobj/travelteam/showselect.asp?Product_id=34279&promo=m&depID=215&rp_dt_id='
+                }, {
+                    name: '小琉球＋駁二藝術特區＋台江游湖２日遊',
+                    price: '4100',
+                    link: 'http://www.tafeng66.com.tw/webobj/travelteam/showselect.asp?Product_id=38350&promo=m&depID=215&rp_dt_id='
+                }, {
+                    name: '山上人家＋南庄老街＋張學良故居２日遊',
+                    price: '4400',
+                    link: 'http://www.tafeng66.com.tw/webobj/travelteam/showselect.asp?Product_id=36716&promo=m&depID=215&rp_dt_id='
+                }, {
+                    name: '司馬庫斯~上帝的部落＋內灣老街２日遊 ',
+                    price: '4500',
+                    link: 'http://www.tafeng66.com.tw/webobj/travelteam/showselect.asp?Product_id=41621&promo=m&depID=215&rp_dt_id='
+                },{
+                    name: '奧萬大＋武界２日遊',
+                    price: '5400',
+                    link: 'http://www.tafeng66.com.tw/webobj/travelteam/showselect.asp?Product_id=41207&promo=m&depID=215&rp_dt_id='
+                }],
+                twoSouth: [{
+                    name: '奧萬大＋台版合掌村２日遊',
+                    price: '2800',
+                    link: 'http://www.tafeng66.com.tw/webobj/travelteam/showselect.asp?Product_id=29432&promo=m&depID=215&rp_dt_id='
+                },{
+                    name: '奧萬大＋武界２日遊',
+                    price: '5400',
+                    link: 'http://www.tafeng66.com.tw/webobj/travelteam/showselect.asp?Product_id=41959&promo=m&depID=215&rp_dt_id='
+                },{
+                    name: '鹿港古鎮＋田尾花園＋清境天空步道２日遊',
+                    price: '3000',
+                    link: 'http://www.tafeng66.com.tw/webobj/travelteam/showselect.asp?Product_id=36146&promo=m&depID=215&rp_dt_id=',
+                    other: '即將成團'
+                }, {
+                    name: '石碇千島湖＋八卦茶園＋九份老街２日遊',
+                    price: '3400',
+                    link: 'http://www.tafeng66.com.tw/webobj/travelteam/showselect.asp?Product_id=41198&promo=m&depID=215&rp_dt_id='
+                }, {
+                    name: '十分瀑布＋平溪＋勝興車站（鐵道自行車）２日遊',
+                    price: '3400',
+                    link: 'http://www.tafeng66.com.tw/webobj/travelteam/showselect.asp?Product_id=36141&promo=m&depID=215&rp_dt_id='
+                }, {
+                    name: '綠世界農場＋深坑豆腐街＋十分瀑布２日遊',
+                    price: '3500',
+                    link: 'http://www.tafeng66.com.tw/webobj/travelteam/showselect.asp?Product_id=41237&promo=m&depID=215&rp_dt_id='
+                }, {
+                    name: '花蓮＋台東《鐵路玩家》２日遊',
+                    price: '3700',
+                    link: 'http://www.tafeng66.com.tw/webobj/travelteam/showselect.asp?Product_id=34268&promo=m&depID=215&rp_dt_id='
+                }, {
+                    name: '山上人家＋南庄老街＋張學良故居２日遊',
+                    price: '4400',
+                    link: 'http://www.tafeng66.com.tw/webobj/travelteam/showselect.asp?Product_id=36716&promo=m&depID=215&rp_dt_id='
+                }, {
+                    name: '司馬庫斯~上帝的部落＋內灣老街２天２夜遊',
+                    price: '5800',
+                    link: 'http://www.tafeng66.com.tw/webobj/travelteam/showselect.asp?Product_id=31368&promo=m&depID=215&rp_dt_id='
+                }],
+                //3日
+                threeNorth: [{
+                    name: '達娜伊谷＋天空步道＋后豐鐵馬知性3日遊 ',
+                    price: '4900',
+                    link: 'http://www.tafeng66.com.tw/webobj/travelteam/showselect.asp?Product_id=37138&promo=m&depID=215&rp_dt_id='
+                }, {
+                    name: '棲蘭國家公園＋馬告神木群３日遊',
+                    price: '5000',
+                    link: 'http://www.tafeng66.com.tw/webobj/travelteam/showselect.asp?Product_id=36138&promo=m&depID=215&rp_dt_id='
+                }, {
+                    name: '日新島+忘憂森林＋山川琉璃吊橋＋故宮南院３日遊',
+                    price: '5400',
+                    link: 'http://www.tafeng66.com.tw/webobj/travelteam/showselect.asp?Product_id=24270&promo=m&depID=215&rp_dt_id='
+                }, {
+                    name: '武陵農場＋宜蘭深度３日遊',
+                    price: '5400',
+                    link: 'http://www.tafeng66.com.tw/webobj/travelteam/showselect.asp?Product_id=36136&promo=m&depID=215&rp_dt_id='
+                }, {
+                    name: '義大世界＋旗津老街＋駁二藝術特區＋鵝鑾鼻燈塔３日遊',
+                    price: '5400',
+                    link: 'http://www.tafeng66.com.tw/webobj/travelteam/showselect.asp?Product_id=20109&promo=m&depID=215&rp_dt_id='
+                }, {
+                    name: '杉林溪＋小半天＋十鼓文化村＋澄清湖＋佛陀紀念館３日遊',
+                    price: '5700',
+                    link: 'http://www.tafeng66.com.tw/webobj/travelteam/showselect.asp?Product_id=29189&promo=m&depID=215&rp_dt_id='
+                }, {
+                    name: '南台灣《全新景點》深度３日遊',
+                    price: '5700',
+                    link: 'http://www.tafeng66.com.tw/webobj/travelteam/showselect.asp?Product_id=38335&promo=m&depID=215&rp_dt_id='
+                }, {
+                    name: '花蓮海洋公園＋大坡池＋伯朗大道＋夢幻湖＋阿美麻糬３日遊',
+                    price: '5800',
+                    link: 'http://www.tafeng66.com.tw/webobj/travelteam/showselect.asp?Product_id=36142&promo=m&depID=215&rp_dt_id='
+                }, {
+                    name: '花蓮《縱谷＋海岸》全覽３日遊',
+                    price: '8900',
+                    link: 'http://www.tafeng66.com.tw/webobj/travelteam/showselect.asp?Product_id=16325&promo=m&depID=215&rp_dt_id='
+                }, {
+                    name: '杉林溪＋小半天＋十鼓文化村＋澄清湖＋佛陀紀念館３日遊',
+                    price: '5800',
+                    link: 'http://www.tafeng66.com.tw/webobj/travelteam/showselect.asp?Product_id=29189&promo=m&depID=215&rp_dt_id='
+                }, {
+                    name: '阿里山＋奇美博物館＋安平老街＋美好里３D彩繪村３日遊',
+                    price: '4700',
+                    link: 'http://www.tafeng66.com.tw/webobj/travelteam/showselect.asp?Product_id=31012&promo=m&depID=215&rp_dt_id='
+                }],
+                threeCentral: [{
+                    name: '杉林溪＋小半天＋十鼓文化村＋澄清湖＋佛陀紀念館３日遊',
+                    price: '5800',
+                    link: 'http://www.tafeng66.com.tw/webobj/travelteam/showselect.asp?Product_id=29189&promo=m&depID=215&rp_dt_id='
+                },{
+                    name: '花蓮《縱谷＋海岸》全覽３日遊',
+                    price: '8900',
+                    link: 'http://www.tafeng66.com.tw/webobj/travelteam/showselect.asp?Product_id=16325&promo=m&depID=215&rp_dt_id='
+                },{
+                    name: '棲蘭國家公園＋馬告神木群３日遊',
+                    price: '5000',
+                    link: 'http://www.tafeng66.com.tw/webobj/travelteam/showselect.asp?Product_id=36138&promo=m&depID=215&rp_dt_id='
+                }, {
+                    name: '武陵農場＋宜蘭深度３日遊',
+                    price: '5400',
+                    link: 'http://www.tafeng66.com.tw/webobj/travelteam/showselect.asp?Product_id=36136&promo=m&depID=215&rp_dt_id='
+                }, {
+                    name: '義大世界＋旗津老街＋駁二藝術特區＋鵝鑾鼻燈塔３日遊',
+                    price: '5400',
+                    link: 'http://www.tafeng66.com.tw/webobj/travelteam/showselect.asp?Product_id=20109&promo=m&depID=215&rp_dt_id='
+                }, {
+                    name: '南台灣《全新景點》深度３日遊',
+                    price: '5700',
+                    link: 'http://www.tafeng66.com.tw/webobj/travelteam/showselect.asp?Product_id=38335&promo=m&depID=215&rp_dt_id='
+                }, {
+                    name: '千島湖＋平溪老街＋烏來＋皇后鎮森林３日遊',
+                    price: '5600',
+                    link: 'http://www.tafeng66.com.tw/webobj/travelteam/showselect.asp?Product_id=30996&promo=m&depID=215&rp_dt_id='
+                }, {
+                    name: '阿里山＋奇美博物館＋安平老街＋美好里３D彩繪村３日遊',
+                    price: '4700',
+                    link: 'http://www.tafeng66.com.tw/webobj/travelteam/showselect.asp?Product_id=31012&promo=m&depID=215&rp_dt_id='
+                }],
+                threeSouth: [{
+                    name: '九份＋木柵＋忘憂森林＋妖怪村＋青蛙石天空步道３日遊',
+                    price: '4900',
+                    link: 'http://www.tafeng66.com.tw/webobj/travelteam/showselect.asp?Product_id=29014&promo=m&depID=215&rp_dt_id='
+                }, {
+                    name: '棲蘭國家公園＋馬告神木群３日遊',
+                    price: '5000',
+                    link: 'http://www.tafeng66.com.tw/webobj/travelteam/showselect.asp?Product_id=36137&promo=m&depID=215&rp_dt_id='
+                }, {
+                    name: '十分瀑布＋平溪老街＋傳藝中心＋蘭陽博物館＋落羽松森林３日遊',
+                    price: '5100',
+                    link: 'http://www.tafeng66.com.tw/webobj/travelteam/showselect.asp?Product_id=35027&promo=m&depID=215&rp_dt_id='
+                }, {
+                    name: '武陵農場＋宜蘭深度３日遊',
+                    price: '5400',
+                    link: 'http://www.tafeng66.com.tw/webobj/travelteam/showselect.asp?Product_id=36135&promo=m&depID=215&rp_dt_id='
+                }, {
+                    name: '千島湖＋平溪老街＋烏來＋皇后鎮森林３日遊',
+                    price: '5500',
+                    link: 'http://www.tafeng66.com.tw/webobj/travelteam/showselect.asp?Product_id=30996&promo=m&depID=215&rp_dt_id='
+                }, {
+                    name: '花蓮海洋公園＋富山復漁區＋鐵道藝術村＋夢幻湖＋多良車站３日遊',
+                    price: '5800',
+                    link: 'http://www.tafeng66.com.tw/webobj/travelteam/showselect.asp?Product_id=36140&promo=m&depID=215&rp_dt_id=',
+                    other: '即將成團'
+                }, {
+                    name: '花東《縱谷＋海岸》全覽３日遊',
+                    price: '8600',
+                    link: 'http://www.tafeng66.com.tw/webobj/travelteam/showselect.asp?Product_id=12321&promo=m&depID=215&rp_dt_id='
+                }],
+                activeName: 'one',
+                island:[{
+                    imageUrl:"https://tafengtravel.github.io/tafengtravel/index/image/holiday_penghu.webp",
+                    location:"澎 湖",
+                    detail:"最閃耀的明珠、最壯觀的玄武岩",
+                    link:'https://tafengtravel.github.io/tafengtravel/index/domestic_island/penghu/tafeng_penghu.html'
+                },{
+                    imageUrl:"https://tafengtravel.github.io/tafengtravel/index/image/holiday_kinmen.webp",
+                    location:"金 門",
+                    detail:"戰地風雲，鋼刀、貢糖、高粱酒",
+                    link:'https://tafengtravel.github.io/tafengtravel/index/domestic_island/kinmen/tafeng_kinmen.html'
+                },{
+                    imageUrl:"https://tafengtravel.github.io/tafengtravel/index/image/holiday_matsu.webp",
+                    location:"馬 祖",
+                    detail:"戰地風雲、海防據點、坑道、人生必看藍眼淚",
+                    link:'https://tafengtravel.github.io/tafengtravel/index/domestic_island/matsu/tafeng_matsu.html'
+                },{
+                    imageUrl:"https://tafengtravel.github.io/tafengtravel/index/image/holiday_green.webp",
+                    location:"綠 島",
+                    detail:"火燒島、自然風情、監獄、潛水天堂",
+                    link:'https://tafengtravel.github.io/tafengtravel/index/domestic_island/green/tafeng_green.html'
+                },{
+                    imageUrl:"https://tafengtravel.github.io/tafengtravel/index/image/holiday_lanyu.webp",
+                    location:"蘭 嶼",
+                    detail:"飛魚、拼板舟、地下屋、自然風情、潛水天堂",
+                    link:'https://tafengtravel.github.io/tafengtravel/index/domestic_island/lanyu/tafeng_lanyu.html'
+                }]
+            };
+                
+    
+            },methods: {
+            },mounted(){
+
+                const vm = this;
+                vm.fullWidth = window.innerWidth;
+                if( vm.fullWidth < '750'){
+                    this.isShowSmall = false
+                    
+                }else{
+                    this.isShowSmall = true
+                }
+
+                window.onresize = () => {
+                    vm.fullWidth = window.innerWidth;
+                    if( vm.fullWidth < '750'){
+                        this.isShowSmall = false
+                        
+                    }else{
+                        this.isShowSmall = true
+                    }
+                };
+
+                this.oneNorth = this.oneNorth.sort((a, b) => (a.price - b.price));
+                this.oneSouth = this.oneSouth.sort((a, b) => (a.price - b.price));
+                this.oneCentral = this.oneCentral.sort((a, b) => (a.price - b.price));
+                this.twoNorth = this.twoNorth.sort((a, b) => (a.price - b.price));
+                this.twoSouth = this.twoSouth.sort((a, b) => (a.price - b.price));
+                this.twoCentral = this.twoCentral.sort((a, b) => (a.price - b.price));
+                this.threeNorth = this.threeNorth.sort((a, b) => (a.price - b.price));
+                this.threeSouth = this.threeSouth.sort((a, b) => (a.price - b.price));
+                this.threeCentral = this.threeCentral.sort((a, b) => (a.price - b.price));
+            } 
+        
+     
+    };
+    let Today=new Date();
+    // console.log(Today.getFullYear()+'-'+ (Today.getMonth()+1) +'-'+ Today.getDate())
+
+    var Ctor = Vue.extend(Main)
+    new Ctor().$mount('#app')
+
+
+</script>
+
+</html>
