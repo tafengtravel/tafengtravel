@@ -476,6 +476,12 @@ $(".include").each(function(){
                     price: '6000',
                     link: 'http://www.tafeng66.com.tw/webobj/travelteam/showselect.asp?Product_id=41971&promo=m&depID=215&rp_dt_id=',
                     other: ''
+                }, {
+                    amount:'八人成行',
+                    name: '南臺灣跨年２天１夜遊',
+                    price: '3600',
+                    link: 'http://www.tafeng66.com.tw/webobj/travelteam/showselect.asp?Product_id=41977&promo=m&depID=215&rp_dt_id=',
+                    other: ''
                 }],
                 oneCentral: [{
                     amount:'兩人折100',
@@ -519,6 +525,18 @@ $(".include").each(function(){
                     price: '6100',
                     link: 'http://www.tafeng66.com.tw/webobj/travelteam/showselect.asp?Product_id=41972&promo=m&depID=215&rp_dt_id=',
                     other: ''
+                }, {
+                    amount:'八人成行',
+                    name: '墾丁跨年２天１夜遊',
+                    price: '4100',
+                    link: 'http://www.tafeng66.com.tw/webobj/travelteam/showselect.asp?Product_id=41984&promo=m&depID=215&rp_dt_id=',
+                    other: ''
+                }, {
+                    amount:'八人成行',
+                    name: '南臺灣跨年２天１夜遊',
+                    price: '3600',
+                    link: 'http://www.tafeng66.com.tw/webobj/travelteam/showselect.asp?Product_id=41977&promo=m&depID=215&rp_dt_id=',
+                    other: ''
                 }],
                 oneSouth: [{
                     amount:'兩人折100',
@@ -550,6 +568,12 @@ $(".include").each(function(){
                     price: '2250',
                     link: 'http://www.tafeng66.com.tw/webobj/travelteam/showselect.asp?Product_id=40922&promo=m&depID=215&rp_dt_id=',
                     other: '限量搶購'
+                }, {
+                    amount:'八人成行',
+                    name: '台東跨年２天１夜遊',
+                    price: '4300',
+                    link: 'http://www.tafeng66.com.tw/webobj/travelteam/showselect.asp?Product_id=41986&promo=m&depID=215&rp_dt_id=',
+                    other: ''
                 }], 
                 
                 
@@ -559,7 +583,9 @@ $(".include").each(function(){
     
             },methods: {
             },mounted(){
-                
+                this.oneNorth = this.oneNorth.sort((a, b) => (a.price - b.price));
+                this.oneCentral = this.oneCentral.sort((a, b) => (a.price - b.price));
+                this.oneSouth = this.oneSouth.sort((a, b) => (a.price - b.price));
             } 
         
      
