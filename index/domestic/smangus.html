@@ -121,6 +121,10 @@ document.querySelectorAll("[href^='https://line.me']").forEach(function(item){
 </script>
 
 <style>
+@import url(https://fonts.googleapis.com/css?family=Roboto+Slab:400,700|Noto+Sans+TC:300,400,500,700|Noto+Serif+TC:300,400,500,600,700,900&display=swap);
+body{
+    font-family: 'Noto Sans TC', sans-serif;
+}
 @media (min-width: 539px){
     .sm-mint a, .sm-mint a:hover, .sm-mint a:focus, .sm-mint a:active, .sm-mint a.highlighted {
     padding: 19px 20px;
@@ -285,7 +289,7 @@ document.querySelectorAll("[href^='https://line.me']").forEach(function(item){
                         <el-table-column prop="name" label="團名" >
                             <template slot-scope="scope">
                                 <a :href="scope.row.link">
-                                    <div slot="reference" class="name-wrapper">
+                                    <div slot="reference" class="name-wrapper" style="font-family:Noto Serif TC">
                                         {{ scope.row.name }}&emsp;<font color="red" style="font-size: 13px;">{{scope.row.other}}</font>
                                     </div>                            
                                 </a>
@@ -294,7 +298,7 @@ document.querySelectorAll("[href^='https://line.me']").forEach(function(item){
                         <el-table-column prop="price" label="金額" width="110%">
                             <template slot-scope="scope">
                                 <a :href="scope.row.link">
-                                    <div slot="reference" class="name-wrapper">
+                                    <div slot="reference" class="name-wrapper" >
                                         <font color="#ff5d5d" style="font-family: verdana,'微軟正黑體';">每人${{ scope.row.price }}</font>
                                     </div>
                                 </a>
