@@ -321,7 +321,7 @@
 
       
 
-      <el-row :gutter="20" >
+      <el-row :gutter="20" style="display:flex;flex-wrap:wrap">
 
         <el-col class ="el-col el-col-24 el-col-xs-24 el-col-sm-24 el-col-lg-24">
           <font class ="font"><span style="color:	#FF5151">新增行程</span></font>
@@ -347,113 +347,115 @@
           </el-col>
 
           <!-- BOX開始 -->
+          <el-row :gutter="20" style="display:flex;flex-wrap:wrap">
 
-          <el-col class ="el-col el-col-24 el-col-xs-24 el-col-sm-24 el-col-lg-8">
-            <el-card class="box-card" style="min-height: 250px;" >
-              <el-col class ="el-col el-col-24 el-col-xs-24 el-col-sm-24 el-col-lg-24">
+            <el-col class ="el-col el-col-24 el-col-xs-24 el-col-sm-24 el-col-lg-8">
+              <el-card class="box-card" style="min-height: 250px;" >
+                <el-col class ="el-col el-col-24 el-col-xs-24 el-col-sm-24 el-col-lg-24">
 
-                <span v-for="(field,index) in itemRadio">
-                  <br><font class ="font"><span style="color:	#FF5151">第{{index+1}}選項活動</span></font><br>
-                  <font class ="font"><span>名稱</span></font>
+                  <span v-for="(field,index) in itemRadio">
+                    <br><font class ="font"><span style="color:	#FF5151">第{{index+1}}選項活動</span></font><br>
+                    <font class ="font"><span>名稱</span></font>
 
+                      <el-input v-model="field[index1]" placeholder="" style="width:150px"></el-input><label>&nbsp;</label>
+                                          
+                  </span>
+
+                  <el-button type="primary" icon="el-icon-circle-plus-outline" @click="itemRadioAdd"></el-button>
+                  <el-button type="danger" icon="el-icon-remove-outline" @click="itemRadioRemove"></el-button>
+
+                </el-col>
+              </el-col>
+            </el-card>
+
+            <el-col class ="el-col el-col-24 el-col-xs-24 el-col-sm-24 el-col-lg-8">
+              <el-card class="box-card" style="min-height: 250px;" >
+                <el-col class ="el-col el-col-24 el-col-xs-24 el-col-sm-24 el-col-lg-24">
+
+                  <span v-for="(field,index) in itemPrice">
+                    <br><font class ="font"><span style="color:	#FF5151">第{{index+1}}選項</span></font><br>
+                    <font class ="font"><span>成人費用</span></font>
+
+                      <el-input v-model="field[index1]" placeholder="" style="width:150px"></el-input><label>&nbsp;</label>
+                  </span>
+
+                  <el-button type="primary" icon="el-icon-circle-plus-outline" @click="itemOptionAdultAdd"></el-button>
+                  <el-button type="danger" icon="el-icon-remove-outline" @click="itemOptionAdultRemove"></el-button>
+
+                </el-col>
+              </el-col>
+            </el-card>
+
+            <el-col class ="el-col el-col-24 el-col-xs-24 el-col-sm-24 el-col-lg-8">
+              <el-card class="box-card" style="min-height: 250px;" >
+                <el-col class ="el-col el-col-24 el-col-xs-24 el-col-sm-24 el-col-lg-24">
+
+                  <span v-for="(field,index) in itemOtherAdult">
+                    <br><font class ="font"><span style="color:	#FF5151">第{{index+1}}選項</span></font><br>
+                    <font class ="font"><span>成人備註</span></font>
+
+                      <el-input v-model="field[index1]" placeholder="" style="width:150px"></el-input><label>&nbsp;</label>
+                  </span>
+
+                  <el-button type="primary" icon="el-icon-circle-plus-outline" @click="itemOptionOtherAdultAdd"></el-button>
+                  <el-button type="danger" icon="el-icon-remove-outline" @click="itemOptionOtherAdultRemove"></el-button>
+
+                </el-col>
+              </el-col>
+            </el-card>
+
+            <el-col class ="el-col el-col-24 el-col-xs-24 el-col-sm-24 el-col-lg-8">
+              <el-card class="box-card" style="min-height: 250px;" >
+                <el-col class ="el-col el-col-24 el-col-xs-24 el-col-sm-24 el-col-lg-24">
+
+                  <font class ="font"><span>活動出發時間</span></font>
+                  <span v-for="(field,index3) in itemDepTime">
+                    <br><font class ="font"><span>{{index3+1}}.</span></font>
                     <el-input v-model="field[index1]" placeholder="" style="width:150px"></el-input><label>&nbsp;</label>
-                                        
-                </span>
+                  </span>
 
-                <el-button type="primary" icon="el-icon-circle-plus-outline" @click="itemRadioAdd"></el-button>
-                <el-button type="danger" icon="el-icon-remove-outline" @click="itemRadioRemove"></el-button>
+                  <el-button type="primary" icon="el-icon-circle-plus-outline" @click="itemOptionDepTimeAdd"></el-button>    
+                  <el-button type="danger" icon="el-icon-remove-outline" @click="itemOptionDepTimeRemove"></el-button>
 
+                </el-col>
               </el-col>
-            </el-col>
-          </el-card>
+            </el-card>
 
-          <el-col class ="el-col el-col-24 el-col-xs-24 el-col-sm-24 el-col-lg-8">
-            <el-card class="box-card" style="min-height: 250px;" >
-              <el-col class ="el-col el-col-24 el-col-xs-24 el-col-sm-24 el-col-lg-24">
+            <el-col class ="el-col el-col-24 el-col-xs-24 el-col-sm-24 el-col-lg-8">
+              <el-card class="box-card" style="min-height: 250px;" >
+                <el-col class ="el-col el-col-24 el-col-xs-24 el-col-sm-24 el-col-lg-24">
 
-                <span v-for="(field,index) in itemPrice">
-                  <br><font class ="font"><span style="color:	#FF5151">第{{index+1}}選項</span></font><br>
-                  <font class ="font"><span>成人費用</span></font>
+                  <span v-for="(field,index3) in itemPriceKid">
+                    <br><font class ="font"><span style="color:	#FF5151">第{{index3+1}}選項</span></font><br>
+                    <font class ="font"><span>兒童費用</span></font>
 
-                    <el-input v-model="field[index1]" placeholder="" style="width:150px"></el-input><label>&nbsp;</label>
-                </span>
+                      <el-input v-model="field[index1]" placeholder="" style="width:150px"></el-input><label>&nbsp;</label>
+                  </span>
+                  <el-button type="primary" icon="el-icon-circle-plus-outline" @click="itemOptionKidAdd"></el-button>    
+                  <el-button type="danger" icon="el-icon-remove-outline" @click="itemOptionKidRemove"></el-button>
 
-                <el-button type="primary" icon="el-icon-circle-plus-outline" @click="itemOptionAdultAdd"></el-button>
-                <el-button type="danger" icon="el-icon-remove-outline" @click="itemOptionAdultRemove"></el-button>
-
+                </el-col>
               </el-col>
-            </el-col>
-          </el-card>
+            </el-card>
 
-          <el-col class ="el-col el-col-24 el-col-xs-24 el-col-sm-24 el-col-lg-8">
-            <el-card class="box-card" style="min-height: 250px;" >
-              <el-col class ="el-col el-col-24 el-col-xs-24 el-col-sm-24 el-col-lg-24">
+            <el-col class ="el-col el-col-24 el-col-xs-24 el-col-sm-24 el-col-lg-8">
+              <el-card class="box-card" style="min-height: 250px;" >
+                <el-col class ="el-col el-col-24 el-col-xs-24 el-col-sm-24 el-col-lg-24">
 
-                <span v-for="(field,index) in itemOtherAdult">
-                  <br><font class ="font"><span style="color:	#FF5151">第{{index+1}}選項</span></font><br>
-                  <font class ="font"><span>成人備註</span></font>
+                  <span v-for="(field,index) in itemOtherKid">
+                    <br><font class ="font"><span style="color:	#FF5151">第{{index+1}}選項</span></font><br>
+                    <font class ="font"><span>兒童備註</span></font>
 
-                    <el-input v-model="field[index1]" placeholder="" style="width:150px"></el-input><label>&nbsp;</label>
-                </span>
+                      <el-input v-model="field[index1]" placeholder="" style="width:150px"></el-input><label>&nbsp;</label>
+                  </span>
 
-                <el-button type="primary" icon="el-icon-circle-plus-outline" @click="itemOptionOtherAdultAdd"></el-button>
-                <el-button type="danger" icon="el-icon-remove-outline" @click="itemOptionOtherAdultRemove"></el-button>
+                  <el-button type="primary" icon="el-icon-circle-plus-outline" @click="itemOptionOtherKidAdd"></el-button>
+                  <el-button type="danger" icon="el-icon-remove-outline" @click="itemOptionOtherKidRemove"></el-button>
 
+                </el-col>
               </el-col>
-            </el-col>
-          </el-card>
-
-          <el-col class ="el-col el-col-24 el-col-xs-24 el-col-sm-24 el-col-lg-8">
-            <el-card class="box-card" style="min-height: 250px;" >
-              <el-col class ="el-col el-col-24 el-col-xs-24 el-col-sm-24 el-col-lg-24">
-
-                <font class ="font"><span>活動出發時間</span></font>
-                <span v-for="(field,index3) in itemDepTime">
-                  <br><font class ="font"><span>{{index3+1}}.</span></font>
-                  <el-input v-model="field[index1]" placeholder="" style="width:150px"></el-input><label>&nbsp;</label>
-                </span>
-
-                <el-button type="primary" icon="el-icon-circle-plus-outline" @click="itemOptionDepTimeAdd"></el-button>    
-                <el-button type="danger" icon="el-icon-remove-outline" @click="itemOptionDepTimeRemove"></el-button>
-
-              </el-col>
-            </el-col>
-          </el-card>
-
-          <el-col class ="el-col el-col-24 el-col-xs-24 el-col-sm-24 el-col-lg-8">
-            <el-card class="box-card" style="min-height: 250px;" >
-              <el-col class ="el-col el-col-24 el-col-xs-24 el-col-sm-24 el-col-lg-24">
-
-                <span v-for="(field,index3) in itemPriceKid">
-                  <br><font class ="font"><span style="color:	#FF5151">第{{index3+1}}選項</span></font><br>
-                  <font class ="font"><span>兒童費用</span></font>
-
-                    <el-input v-model="field[index1]" placeholder="" style="width:150px"></el-input><label>&nbsp;</label>
-                </span>
-                <el-button type="primary" icon="el-icon-circle-plus-outline" @click="itemOptionKidAdd"></el-button>    
-                <el-button type="danger" icon="el-icon-remove-outline" @click="itemOptionKidRemove"></el-button>
-
-              </el-col>
-            </el-col>
-          </el-card>
-
-          <el-col class ="el-col el-col-24 el-col-xs-24 el-col-sm-24 el-col-lg-8">
-            <el-card class="box-card" style="min-height: 250px;" >
-              <el-col class ="el-col el-col-24 el-col-xs-24 el-col-sm-24 el-col-lg-24">
-
-                <span v-for="(field,index) in itemOtherKid">
-                  <br><font class ="font"><span style="color:	#FF5151">第{{index+1}}選項</span></font><br>
-                  <font class ="font"><span>兒童備註</span></font>
-
-                    <el-input v-model="field[index1]" placeholder="" style="width:150px"></el-input><label>&nbsp;</label>
-                </span>
-
-                <el-button type="primary" icon="el-icon-circle-plus-outline" @click="itemOptionOtherKidAdd"></el-button>
-                <el-button type="danger" icon="el-icon-remove-outline" @click="itemOptionOtherKidRemove"></el-button>
-
-              </el-col>
-            </el-col>
-          </el-card>
+            </el-card>
+          </el-row>
           
         </span>
 
