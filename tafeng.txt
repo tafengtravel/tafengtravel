@@ -29,6 +29,7 @@ function gaScreenView (vcard) {
 
 {
   "type": "bubble",
+  "size": "giga",
   "body": {
     "type": "box",
     "layout": "vertical",
@@ -65,12 +66,12 @@ function gaScreenView (vcard) {
                 "size": "20px",
                 "weight": "bold",
                 "position": "relative",
-                "offsetTop": "3px"
+                "offsetTop": "8px"
               },
               {
                 "type": "text",
                 "text": "行銷部經理",
-                "offsetTop": "1px",
+                "offsetTop": "3px",
                 "size": "10px",
                 "weight": "bold"
               },
@@ -84,40 +85,40 @@ function gaScreenView (vcard) {
               {
                 "type": "text",
                 "text": "大豐旅行社有限公司",
-                "offsetTop": "3px",
+                "offsetTop": "5px",
                 "weight": "bold"
               },
               {
                 "type": "text",
                 "text": "高雄總公司",
-                "offsetTop": "1px",
-                "size": "5px",
+                "offsetTop": "5px",
+                "size": "10px",
                 "weight": "bold"
               },
               {
                 "type": "text",
                 "text": "台中分公司",
-                "offsetTop": "1px",
-                "size": "5px",
+                "offsetTop": "3px",
+                "size": "10px",
                 "weight": "bold"
               },
               {
                 "type": "text",
                 "text": "台北分公司",
-                "offsetTop": "1px",
-                "size": "5px",
+                "offsetTop": "3px",
+                "size": "10px",
                 "weight": "bold"
               },
               {
                 "type": "text",
                 "text": "tafengtravel@gmail.com",
-                "size": "1px",
+                "size": "10px",
                 "weight": "bold"
               },
               {
                 "type": "text",
                 "text": "統編：23651335",
-                "size": "1px",
+                "size": "10px",
                 "weight": "bold"
               }
             ],
