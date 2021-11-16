@@ -37,7 +37,7 @@ function gaScreenView (vcard) {
       {
         "type": "image",
         "size": "1040px",
-        "url": "https://drive.google.com/uc?export=view&id=1lnxSOYY8nrqbroWsIjNKyvEubJf8jrOL",
+        "url": "https://tafengtravel.github.io/tafengtravel/linecard/sunrise.jpg",
         "action": {
           "type": "uri",
           "label": "action",
