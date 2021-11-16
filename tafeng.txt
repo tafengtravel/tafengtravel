@@ -41,19 +41,20 @@ function gaScreenView (vcard) {
           {
             "type": "image",
             "url": "https://drive.google.com/uc?export=view&id=1JUeFHN70iAwDMJDWUfTF2KwkJHjnBnIE",
-            "size": "lg",
-            "aspectMode": "fit",
+            "size": "md",
+            "aspectMode": "cover",
             "flex": 1,
-            "margin": "md",
+            "margin": "none",
             "position": "relative",
             "aspectRatio": "150:196",
             "align": "start",
-            "offsetTop": "20px",
+            "offsetTop": "30px",
             "action": {
               "type": "uri",
               "label": "action",
               "uri": "http://tafeng66.com.tw/"
-            }
+            },
+            "offsetStart": "30px"
           },
           {
             "type": "box",
