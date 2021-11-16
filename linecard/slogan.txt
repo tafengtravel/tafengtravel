@@ -111,7 +111,12 @@ function gaScreenView (vcard) {
             "url": "https://tafengtravel.github.io/tafengtravel/linecard/sakura.jpg",
             "size": "full",
             "aspectMode": "cover", 
-            "aspectRatio": "1:1"
+            "aspectRatio": "1:1",
+	          "action": {
+              "type": "uri",
+              "label": "action",
+              "uri": "https://reurl.cc/oxANDD"
+            }
           }
         ],
         "paddingAll": "0px"
