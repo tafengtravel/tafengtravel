@@ -3,7 +3,7 @@ const FRUIT_NAME = {
   Apple: '蘋果',
   Cherry: '櫻桃',
   Orange: '橘子',
-  Peach: '桃子',
+  Peach: '桃子', 
   Pear: '梨子',
 }
 function vcardUuid (vcard, secret) {
