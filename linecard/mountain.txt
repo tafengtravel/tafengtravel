@@ -240,7 +240,7 @@ function gaScreenView (vcard) {
             ],
             "position": "absolute",
             "cornerRadius": "20px",
-            "offsetTop": "18px",
+            "offsetTop": "18px", 
             "backgroundColor": "#ff334b",
             "offsetStart": "18px",
             "height": "25px",
