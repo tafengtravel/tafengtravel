@@ -52,16 +52,7 @@ function gaScreenView (vcard) {
           {
             "type": "box",
             "layout": "vertical",
-            "contents": [
-              {
-                "type": "text",
-                "text": "SALE",
-                "color": "#ffffff",
-                "align": "center",
-                "size": "xs",
-                "offsetTop": "3px"
-              }
-            ],
+
             "position": "absolute",
             "cornerRadius": "20px",
             "offsetTop": "18px",
@@ -96,16 +87,7 @@ function gaScreenView (vcard) {
           {
             "type": "box",
             "layout": "vertical",
-            "contents": [
-              {
-                "type": "text",
-                "text": "SALE",
-                "color": "#ffffff",
-                "align": "center",
-                "size": "xs",
-                "offsetTop": "3px"
-              }
-            ],
+
             "position": "absolute",
             "cornerRadius": "20px",
             "offsetTop": "18px",
@@ -140,16 +122,7 @@ function gaScreenView (vcard) {
           {
             "type": "box",
             "layout": "vertical",
-            "contents": [
-              {
-                "type": "text",
-                "text": "SALE",
-                "color": "#ffffff",
-                "align": "center",
-                "size": "xs",
-                "offsetTop": "3px"
-              }
-            ],
+
             "position": "absolute",
             "cornerRadius": "20px",
             "offsetTop": "18px",
@@ -179,16 +152,7 @@ function gaScreenView (vcard) {
           {
             "type": "box",
             "layout": "vertical",
-            "contents": [
-              {
-                "type": "text",
-                "text": "SALE",
-                "color": "#ffffff",
-                "align": "center",
-                "size": "xs",
-                "offsetTop": "3px"
-              }
-            ],
+
             "position": "absolute",
             "cornerRadius": "20px",
             "offsetTop": "18px",
