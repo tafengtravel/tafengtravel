@@ -108,7 +108,7 @@ function gaScreenView (vcard) {
         "contents": [
           {
             "type": "image",
-            "url": "https://tafengtravel.github.io/tafengtravel/linecard/sakura.jpg",
+            "url": "https://tafengtravel.github.io/tafengtravel/linecard/sakura1.jpg",
             "size": "full",
             "aspectMode": "cover", 
             "aspectRatio": "1:1",
