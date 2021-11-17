@@ -28,102 +28,47 @@ function gaScreenView (vcard) {
 %>
 
 {
-  "type": "bubble",
-  "size": "giga",
-  "body": {
-    "type": "box",
-    "layout": "vertical",
-    "contents": [
-      {
-        "type": "image",
-        "url": "https://tafengtravel.github.io/tafengtravel/linecard/kevin1.jpg",
-        "size": "full",
-        "aspectMode": "cover",
-        "aspectRatio": "1:1.3",
-        "gravity": "center"
-      },
-      {
+  "type": "carousel",
+  "contents": [
+    {
+      "type": "bubble",
+      "size": "giga",
+      "body": {
         "type": "box",
         "layout": "vertical",
-        "contents": [],
-        "position": "absolute",
-        "background": {
-          "type": "linearGradient",
-          "angle": "0deg",
-          "endColor": "#00000000",
-          "startColor": "#00000099"
-        },
-        "width": "100%",
-        "height": "40%",
-        "offsetBottom": "0px",
-        "offsetStart": "0px",
-        "offsetEnd": "0px"
-      },
-      {
-        "type": "box",
-        "layout": "horizontal",
         "contents": [
+          {
+            "type": "image",
+            "url": "https://tafengtravel.github.io/tafengtravel/linecard/forfun/kevin1.jpg",
+            "size": "full",
+            "aspectMode": "cover",
+            "aspectRatio": "1:1.3",
+            "gravity": "center"
+          },
           {
             "type": "box",
             "layout": "vertical",
+            "contents": [],
+            "position": "absolute",
+            "background": {
+              "type": "linearGradient",
+              "angle": "0deg",
+              "endColor": "#00000000",
+              "startColor": "#00000099"
+            },
+            "width": "100%",
+            "height": "40%",
+            "offsetBottom": "0px",
+            "offsetStart": "0px",
+            "offsetEnd": "0px"
+          },
+          {
+            "type": "box",
+            "layout": "horizontal",
             "contents": [
               {
                 "type": "box",
-                "layout": "baseline",
-                "contents": [
-                  {
-                    "type": "text",
-                    "text": "阿毅哥哥",
-                    "size": "xxl",
-                    "color": "#ffffff",
-                    "align": "end",
-                    "flex": 0
-                  },
-                  {
-                    "type": "text",
-                    "text": "24",
-                    "color": "#ffffff",
-                    "size": "xl",
-                    "align": "start"
-                  }
-                ],
-                "flex": 0
-              },
-              {
-                "type": "box",
-                "layout": "baseline",
-                "contents": [
-                  {
-                    "type": "icon",
-                    "url": "https://scdn.line-apps.com/n/channel_devcenter/img/fx/review_gold_star_28.png"
-                  },
-                  {
-                    "type": "icon",
-                    "url": "https://scdn.line-apps.com/n/channel_devcenter/img/fx/review_gold_star_28.png"
-                  },
-                  {
-                    "type": "icon",
-                    "url": "https://scdn.line-apps.com/n/channel_devcenter/img/fx/review_gold_star_28.png"
-                  },
-                  {
-                    "type": "icon",
-                    "url": "https://scdn.line-apps.com/n/channel_devcenter/img/fx/review_gold_star_28.png"
-                  },
-                  {
-                    "type": "icon",
-                    "url": "https://scdn.line-apps.com/n/channel_devcenter/img/fx/review_gold_star_28.png"
-                  },
-                  {
-                    "type": "text",
-                    "text": "5.0",
-                    "color": "#a9a9a9"
-                  }
-                ],
-                "spacing": "xs"
-              },
-              {
-                "type": "box",
-                "layout": "horizontal",
+                "layout": "vertical",
                 "contents": [
                   {
                     "type": "box",
@@ -131,37 +76,649 @@ function gaScreenView (vcard) {
                     "contents": [
                       {
                         "type": "text",
-                        "text": "$2,000",
+                        "text": "阿毅哥哥",
+                        "size": "xxl",
                         "color": "#ffffff",
-                        "size": "md",
-                        "flex": 0,
-                        "align": "end"
+                        "align": "end",
+                        "flex": 0
                       },
                       {
                         "type": "text",
-                        "text": "$3,000",
-                        "color": "#a9a9a9",
-                        "decoration": "line-through",
-                        "size": "sm",
-                        "align": "end"
+                        "text": "24",
+                        "color": "#ffffff",
+                        "size": "xl",
+                        "align": "start"
                       }
                     ],
-                    "flex": 0,
-                    "spacing": "lg"
+                    "flex": 0
+                  },
+                  {
+                    "type": "box",
+                    "layout": "baseline",
+                    "contents": [
+                      {
+                        "type": "icon",
+                        "url": "https://scdn.line-apps.com/n/channel_devcenter/img/fx/review_gold_star_28.png"
+                      },
+                      {
+                        "type": "icon",
+                        "url": "https://scdn.line-apps.com/n/channel_devcenter/img/fx/review_gold_star_28.png"
+                      },
+                      {
+                        "type": "icon",
+                        "url": "https://scdn.line-apps.com/n/channel_devcenter/img/fx/review_gold_star_28.png"
+                      },
+                      {
+                        "type": "icon",
+                        "url": "https://scdn.line-apps.com/n/channel_devcenter/img/fx/review_gold_star_28.png"
+                      },
+                      {
+                        "type": "icon",
+                        "url": "https://scdn.line-apps.com/n/channel_devcenter/img/fx/review_gold_star_28.png"
+                      },
+                      {
+                        "type": "text",
+                        "text": "5.0",
+                        "color": "#a9a9a9"
+                      }
+                    ],
+                    "spacing": "xs"
+                  },
+                  {
+                    "type": "box",
+                    "layout": "horizontal",
+                    "contents": [
+                      {
+                        "type": "box",
+                        "layout": "baseline",
+                        "contents": [
+                          {
+                            "type": "text",
+                            "text": "$2,000",
+                            "color": "#ffffff",
+                            "size": "md",
+                            "flex": 0,
+                            "align": "end"
+                          },
+                          {
+                            "type": "text",
+                            "text": "$3,000",
+                            "color": "#a9a9a9",
+                            "decoration": "line-through",
+                            "size": "sm",
+                            "align": "end"
+                          }
+                        ],
+                        "flex": 0,
+                        "spacing": "lg"
+                      }
+                    ]
                   }
-                ]
+                ],
+                "spacing": "xs"
               }
             ],
-            "spacing": "xs"
+            "position": "absolute",
+            "offsetBottom": "0px",
+            "offsetStart": "0px",
+            "offsetEnd": "0px",
+            "paddingAll": "20px"
           }
         ],
-        "position": "absolute",
-        "offsetBottom": "0px",
-        "offsetStart": "0px",
-        "offsetEnd": "0px",
-        "paddingAll": "20px"
+        "paddingAll": "0px"
       }
-    ],
-    "paddingAll": "0px"
-  }
+    },
+    {
+      "type": "bubble",
+      "size": "giga",
+      "body": {
+        "type": "box",
+        "layout": "vertical",
+        "contents": [
+          {
+            "type": "image",
+            "url": "https://tafengtravel.github.io/tafengtravel/linecard/forfun/ziqing.png",
+            "size": "full",
+            "aspectMode": "cover",
+            "aspectRatio": "1:1.3",
+            "gravity": "center"
+          },
+          {
+            "type": "box",
+            "layout": "vertical",
+            "contents": [],
+            "position": "absolute",
+            "background": {
+              "type": "linearGradient",
+              "angle": "0deg",
+              "endColor": "#00000000",
+              "startColor": "#00000099"
+            },
+            "width": "100%",
+            "height": "40%",
+            "offsetBottom": "0px",
+            "offsetStart": "0px",
+            "offsetEnd": "0px"
+          },
+          {
+            "type": "box",
+            "layout": "horizontal",
+            "contents": [
+              {
+                "type": "box",
+                "layout": "vertical",
+                "contents": [
+                  {
+                    "type": "box",
+                    "layout": "baseline",
+                    "contents": [
+                      {
+                        "type": "text",
+                        "text": "慶哥",
+                        "size": "xxl",
+                        "color": "#ffffff",
+                        "align": "end",
+                        "flex": 0
+                      },
+                      {
+                        "type": "text",
+                        "text": "24",
+                        "color": "#ffffff",
+                        "size": "xl",
+                        "align": "start"
+                      }
+                    ],
+                    "flex": 0
+                  },
+                  {
+                    "type": "box",
+                    "layout": "baseline",
+                    "contents": [
+                      {
+                        "type": "icon",
+                        "url": "https://scdn.line-apps.com/n/channel_devcenter/img/fx/review_gold_star_28.png"
+                      },
+                      {
+                        "type": "icon",
+                        "url": "https://scdn.line-apps.com/n/channel_devcenter/img/fx/review_gray_star_28.png"
+                      },
+                      {
+                        "type": "icon",
+                        "url": "https://scdn.line-apps.com/n/channel_devcenter/img/fx/review_gray_star_28.png"
+                      },
+                      {
+                        "type": "icon",
+                        "url": "https://scdn.line-apps.com/n/channel_devcenter/img/fx/review_gray_star_28.png"
+                      },
+                      {
+                        "type": "icon",
+                        "url": "https://scdn.line-apps.com/n/channel_devcenter/img/fx/review_gray_star_28.png"
+                      },
+                      {
+                        "type": "text",
+                        "text": "1.0",
+                        "color": "#a9a9a9"
+                      }
+                    ],
+                    "spacing": "xs"
+                  },
+                  {
+                    "type": "box",
+                    "layout": "horizontal",
+                    "contents": [
+                      {
+                        "type": "box",
+                        "layout": "baseline",
+                        "contents": [
+                          {
+                            "type": "text",
+                            "text": "$2,00",
+                            "color": "#ffffff",
+                            "size": "md",
+                            "flex": 0,
+                            "align": "end"
+                          },
+                          {
+                            "type": "text",
+                            "text": "$3,00",
+                            "color": "#a9a9a9",
+                            "decoration": "line-through",
+                            "size": "sm",
+                            "align": "end"
+                          }
+                        ],
+                        "flex": 0,
+                        "spacing": "lg"
+                      }
+                    ]
+                  }
+                ],
+                "spacing": "xs"
+              }
+            ],
+            "position": "absolute",
+            "offsetBottom": "0px",
+            "offsetStart": "0px",
+            "offsetEnd": "0px",
+            "paddingAll": "20px"
+          }
+        ],
+        "paddingAll": "0px"
+      }
+    },
+    {
+      "type": "bubble",
+      "size": "giga",
+      "body": {
+        "type": "box",
+        "layout": "vertical",
+        "contents": [
+          {
+            "type": "image",
+            "url": "https://tafengtravel.github.io/tafengtravel/linecard/forfun/wang.png",
+            "size": "full",
+            "aspectMode": "cover",
+            "aspectRatio": "1:1.3",
+            "gravity": "center"
+          },
+          {
+            "type": "box",
+            "layout": "vertical",
+            "contents": [],
+            "position": "absolute",
+            "background": {
+              "type": "linearGradient",
+              "angle": "0deg",
+              "endColor": "#00000000",
+              "startColor": "#00000099"
+            },
+            "width": "100%",
+            "height": "40%",
+            "offsetBottom": "0px",
+            "offsetStart": "0px",
+            "offsetEnd": "0px"
+          },
+          {
+            "type": "box",
+            "layout": "horizontal",
+            "contents": [
+              {
+                "type": "box",
+                "layout": "vertical",
+                "contents": [
+                  {
+                    "type": "box",
+                    "layout": "baseline",
+                    "contents": [
+                      {
+                        "type": "text",
+                        "text": "慶哥",
+                        "size": "xxl",
+                        "color": "#ffffff",
+                        "align": "end",
+                        "flex": 0
+                      },
+                      {
+                        "type": "text",
+                        "text": "24",
+                        "color": "#ffffff",
+                        "size": "xl",
+                        "align": "start"
+                      }
+                    ],
+                    "flex": 0
+                  },
+                  {
+                    "type": "box",
+                    "layout": "baseline",
+                    "contents": [
+                      {
+                        "type": "icon",
+                        "url": "https://scdn.line-apps.com/n/channel_devcenter/img/fx/review_gold_star_28.png"
+                      },
+                      {
+                        "type": "icon",
+                        "url": "https://scdn.line-apps.com/n/channel_devcenter/img/fx/review_gold_star_28.png"
+                      },
+                      {
+                        "type": "icon",
+                        "url": "https://scdn.line-apps.com/n/channel_devcenter/img/fx/review_gold_star_28.png"
+                      },
+                      {
+                        "type": "icon",
+                        "url": "https://scdn.line-apps.com/n/channel_devcenter/img/fx/review_gold_star_28.png"
+                      },
+                      {
+                        "type": "icon",
+                        "url": "https://scdn.line-apps.com/n/channel_devcenter/img/fx/review_gold_star_28.png"
+                      },
+                      {
+                        "type": "text",
+                        "text": "5.0",
+                        "color": "#a9a9a9"
+                      }
+                    ],
+                    "spacing": "xs"
+                  },
+                  {
+                    "type": "box",
+                    "layout": "horizontal",
+                    "contents": [
+                      {
+                        "type": "box",
+                        "layout": "baseline",
+                        "contents": [
+                          {
+                            "type": "text",
+                            "text": "$2,000",
+                            "color": "#ffffff",
+                            "size": "md",
+                            "flex": 0,
+                            "align": "end"
+                          },
+                          {
+                            "type": "text",
+                            "text": "$3,000",
+                            "color": "#a9a9a9",
+                            "decoration": "line-through",
+                            "size": "sm",
+                            "align": "end"
+                          }
+                        ],
+                        "flex": 0,
+                        "spacing": "lg"
+                      }
+                    ]
+                  }
+                ],
+                "spacing": "xs"
+              }
+            ],
+            "position": "absolute",
+            "offsetBottom": "0px",
+            "offsetStart": "0px",
+            "offsetEnd": "0px",
+            "paddingAll": "20px"
+          }
+        ],
+        "paddingAll": "0px"
+      }
+    },
+    {
+      "type": "bubble",
+      "size": "giga",
+      "body": {
+        "type": "box",
+        "layout": "vertical",
+        "contents": [
+          {
+            "type": "image",
+            "url": "https://tafengtravel.github.io/tafengtravel/linecard/forfun/hung.png",
+            "size": "full",
+            "aspectMode": "cover",
+            "aspectRatio": "1:1.3",
+            "gravity": "center"
+          },
+          {
+            "type": "box",
+            "layout": "vertical",
+            "contents": [],
+            "position": "absolute",
+            "background": {
+              "type": "linearGradient",
+              "angle": "0deg",
+              "endColor": "#00000000",
+              "startColor": "#00000099"
+            },
+            "width": "100%",
+            "height": "40%",
+            "offsetBottom": "0px",
+            "offsetStart": "0px",
+            "offsetEnd": "0px"
+          },
+          {
+            "type": "box",
+            "layout": "horizontal",
+            "contents": [
+              {
+                "type": "box",
+                "layout": "vertical",
+                "contents": [
+                  {
+                    "type": "box",
+                    "layout": "baseline",
+                    "contents": [
+                      {
+                        "type": "text",
+                        "text": "慶哥",
+                        "size": "xxl",
+                        "color": "#ffffff",
+                        "align": "end",
+                        "flex": 0
+                      },
+                      {
+                        "type": "text",
+                        "text": "24",
+                        "color": "#ffffff",
+                        "size": "xl",
+                        "align": "start"
+                      }
+                    ],
+                    "flex": 0
+                  },
+                  {
+                    "type": "box",
+                    "layout": "baseline",
+                    "contents": [
+                      {
+                        "type": "icon",
+                        "url": "https://scdn.line-apps.com/n/channel_devcenter/img/fx/review_gold_star_28.png"
+                      },
+                      {
+                        "type": "icon",
+                        "url": "https://scdn.line-apps.com/n/channel_devcenter/img/fx/review_gray_star_28.png"
+                      },
+                      {
+                        "type": "icon",
+                        "url": "https://scdn.line-apps.com/n/channel_devcenter/img/fx/review_gray_star_28.png"
+                      },
+                      {
+                        "type": "icon",
+                        "url": "https://scdn.line-apps.com/n/channel_devcenter/img/fx/review_gray_star_28.png"
+                      },
+                      {
+                        "type": "icon",
+                        "url": "https://scdn.line-apps.com/n/channel_devcenter/img/fx/review_gray_star_28.png"
+                      },
+                      {
+                        "type": "text",
+                        "text": "1.0",
+                        "color": "#a9a9a9"
+                      }
+                    ],
+                    "spacing": "xs"
+                  },
+                  {
+                    "type": "box",
+                    "layout": "horizontal",
+                    "contents": [
+                      {
+                        "type": "box",
+                        "layout": "baseline",
+                        "contents": [
+                          {
+                            "type": "text",
+                            "text": "$2,00",
+                            "color": "#ffffff",
+                            "size": "md",
+                            "flex": 0,
+                            "align": "end"
+                          },
+                          {
+                            "type": "text",
+                            "text": "$3,00",
+                            "color": "#a9a9a9",
+                            "decoration": "line-through",
+                            "size": "sm",
+                            "align": "end"
+                          }
+                        ],
+                        "flex": 0,
+                        "spacing": "lg"
+                      }
+                    ]
+                  }
+                ],
+                "spacing": "xs"
+              }
+            ],
+            "position": "absolute",
+            "offsetBottom": "0px",
+            "offsetStart": "0px",
+            "offsetEnd": "0px",
+            "paddingAll": "20px"
+          }
+        ],
+        "paddingAll": "0px"
+      }
+    },
+    {
+      "type": "bubble",
+      "size": "giga",
+      "body": {
+        "type": "box",
+        "layout": "vertical",
+        "contents": [
+          {
+            "type": "image",
+            "url": "https://tafengtravel.github.io/tafengtravel/linecard/forfun/liang.png",
+            "size": "full",
+            "aspectMode": "cover",
+            "aspectRatio": "1:1.3",
+            "gravity": "center"
+          },
+          {
+            "type": "box",
+            "layout": "vertical",
+            "contents": [],
+            "position": "absolute",
+            "background": {
+              "type": "linearGradient",
+              "angle": "0deg",
+              "endColor": "#00000000",
+              "startColor": "#00000099"
+            },
+            "width": "100%",
+            "height": "40%",
+            "offsetBottom": "0px",
+            "offsetStart": "0px",
+            "offsetEnd": "0px"
+          },
+          {
+            "type": "box",
+            "layout": "horizontal",
+            "contents": [
+              {
+                "type": "box",
+                "layout": "vertical",
+                "contents": [
+                  {
+                    "type": "box",
+                    "layout": "baseline",
+                    "contents": [
+                      {
+                        "type": "text",
+                        "text": "慶哥",
+                        "size": "xxl",
+                        "color": "#ffffff",
+                        "align": "end",
+                        "flex": 0
+                      },
+                      {
+                        "type": "text",
+                        "text": "24",
+                        "color": "#ffffff",
+                        "size": "xl",
+                        "align": "start"
+                      }
+                    ],
+                    "flex": 0
+                  },
+                  {
+                    "type": "box",
+                    "layout": "baseline",
+                    "contents": [
+                      {
+                        "type": "icon",
+                        "url": "https://scdn.line-apps.com/n/channel_devcenter/img/fx/review_gold_star_28.png"
+                      },
+                      {
+                        "type": "icon",
+                        "url": "https://scdn.line-apps.com/n/channel_devcenter/img/fx/review_gray_star_28.png"
+                      },
+                      {
+                        "type": "icon",
+                        "url": "https://scdn.line-apps.com/n/channel_devcenter/img/fx/review_gray_star_28.png"
+                      },
+                      {
+                        "type": "icon",
+                        "url": "https://scdn.line-apps.com/n/channel_devcenter/img/fx/review_gray_star_28.png"
+                      },
+                      {
+                        "type": "icon",
+                        "url": "https://scdn.line-apps.com/n/channel_devcenter/img/fx/review_gray_star_28.png"
+                      },
+                      {
+                        "type": "text",
+                        "text": "1.0",
+                        "color": "#a9a9a9"
+                      }
+                    ],
+                    "spacing": "xs"
+                  },
+                  {
+                    "type": "box",
+                    "layout": "horizontal",
+                    "contents": [
+                      {
+                        "type": "box",
+                        "layout": "baseline",
+                        "contents": [
+                          {
+                            "type": "text",
+                            "text": "$0",
+                            "color": "#ffffff",
+                            "size": "md",
+                            "flex": 0,
+                            "align": "end"
+                          },
+                          {
+                            "type": "text",
+                            "text": "$3,00",
+                            "color": "#a9a9a9",
+                            "decoration": "line-through",
+                            "size": "sm",
+                            "align": "end"
+                          }
+                        ],
+                        "flex": 0,
+                        "spacing": "lg"
+                      }
+                    ]
+                  }
+                ],
+                "spacing": "xs"
+              }
+            ],
+            "position": "absolute",
+            "offsetBottom": "0px",
+            "offsetStart": "0px",
+            "offsetEnd": "0px",
+            "paddingAll": "20px"
+          }
+        ],
+        "paddingAll": "0px"
+      }
+    }
+  ]
 }
