@@ -10,7 +10,7 @@ function vcardUuid (vcard, secret) {
   const hash = CryptoJS.HmacMD5(JSON.stringify(vcard), secret)
   const hex = CryptoJS.enc.Hex.stringify(hash)
   return hex.replace(/^(.{8})(.{4})(.{4})(.{4})(.{12})$/, '$1-$2-$3-$4-$5')
-}
+} 
 function gaScreenView (vcard) {
   const CARD_NAME = '動物森友會護照-2020/07/17'
   return `https://www.google-analytics.com/collect?${Qs.stringify({
