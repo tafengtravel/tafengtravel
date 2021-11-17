@@ -69,23 +69,25 @@ function gaScreenView (vcard) {
             "contents": [
               {
                 "type": "box",
-                "layout": "horizontal",
+                "layout": "baseline",
                 "contents": [
                   {
                     "type": "text",
                     "text": "阿毅哥哥",
                     "size": "xxl",
-                    "color": "#ffffff"
+                    "color": "#ffffff",
+                    "align": "end",
+                    "flex": 0
                   },
                   {
                     "type": "text",
                     "text": "24",
                     "color": "#ffffff",
-                    "offsetStart": "-50px",
-                    "offsetTop": "5px",
-                    "size": "xl"
+                    "size": "xl",
+                    "align": "start"
                   }
-                ]
+                ],
+                "flex": 0
               },
               {
                 "type": "box",
