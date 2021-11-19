@@ -110,12 +110,35 @@ function gaScreenView (vcard) {
             "type": "image",
             "url": "https://tafengtravel.github.io/tafengtravel/linecard/sakura1.jpg",
             "size": "full",
-            "aspectMode": "cover", 
+            "aspectMode": "cover",
             "aspectRatio": "1:1",
-	          "action": {
+            "action": {
               "type": "uri",
               "label": "action",
               "uri": "https://reurl.cc/oxANDD"
+            }
+          }
+        ],
+        "paddingAll": "0px"
+      }
+    },
+    {
+      "type": "bubble",
+      "size": "giga",
+      "body": {
+        "type": "box",
+        "layout": "vertical",
+        "contents": [
+          {
+            "type": "image",
+            "url": "https://tafengtravel.github.io/tafengtravel/linecard/boat.jpg",
+            "size": "full",
+            "aspectMode": "cover",
+            "aspectRatio": "1:1",
+            "action": {
+              "type": "uri",
+              "label": "action",
+              "uri": "http://www.tafeng66.com.tw/webobj/travelteam/showselect.asp?Product_id=42026&promo=m&depID=215&rp_dt_id="
             }
           }
         ],
