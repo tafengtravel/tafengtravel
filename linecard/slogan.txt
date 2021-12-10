@@ -131,14 +131,14 @@ function gaScreenView (vcard) {
         "contents": [
           {
             "type": "image",
-            "url": "https://tafengtravel.github.io/tafengtravel/linecard/boat.jpg",
+            "url": "https://tafengtravel.github.io/tafengtravel/linecard/japan.jpg",
             "size": "full",
             "aspectMode": "cover",
             "aspectRatio": "1:1",
             "action": {
               "type": "uri",
               "label": "action",
-              "uri": "http://www.tafeng66.com.tw/webobj/travelteam/showselect.asp?Product_id=42026&promo=m&depID=215&rp_dt_id="
+              "uri": "https://tafengtravel.github.io/tafengtravel/index/foreign_self/japan/tafeng_foreign_self_JP.html"
             }
           }
         ],
