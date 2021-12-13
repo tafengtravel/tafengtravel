@@ -1195,6 +1195,7 @@
             const storageRef = firebase.storage().ref('product/'+(this.idCount).toString()+'/'+path);
 
             const task =await storageRef.put(this.$refs.UploadCoverBig.uploadFiles[oldCountCoverBig+i].raw);
+            console.log(task)
             this.coverUrlBig[oldCountCoverBig+i] = {'name':path,'url':task.downloadURL}
             console.log(this.coverUrlBig)
           }
