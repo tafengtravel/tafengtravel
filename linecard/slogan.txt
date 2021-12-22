@@ -57,6 +57,29 @@ function gaScreenView (vcard) {
         "contents": [
           {
             "type": "image",
+            "url": "https://tafengtravel.github.io/tafengtravel/linecard/kinmenjpg",
+            "size": "full",
+            "aspectMode": "cover",
+            "aspectRatio": "1:1",
+            "action": {
+              "type": "uri",
+              "label": "action",
+              "uri": "https://tafengtravel.github.io/tafengtravel/index2/sale"
+            }
+          }
+        ],
+        "paddingAll": "0px"
+      }
+    },
+    {
+      "type": "bubble",
+      "size": "giga",
+      "body": {
+        "type": "box",
+        "layout": "vertical",
+        "contents": [
+          {
+            "type": "image",
             "url": "https://tafengtravel.github.io/tafengtravel/linecard/islandsale.jpg",
             "size": "full",
             "aspectMode": "cover",
@@ -103,7 +126,7 @@ function gaScreenView (vcard) {
         "contents": [
           {
             "type": "image",
-            "url": "https://tafengtravel.github.io/tafengtravel/linecard/sakura1.jpg",
+            "url": "https://tafengtravel.github.io/tafengtravel/linecard/sakura2.jpg",
             "size": "full",
             "aspectMode": "cover",
             "aspectRatio": "1:1",
@@ -134,6 +157,52 @@ function gaScreenView (vcard) {
               "type": "uri",
               "label": "action",
               "uri": "https://tafengtravel.github.io/tafengtravel/index/foreign_self/japan/tafeng_foreign_self_JP.html"
+            }
+          }
+        ],
+        "paddingAll": "0px"
+      }
+    },
+    {
+      "type": "bubble",
+      "size": "giga",
+      "body": {
+        "type": "box",
+        "layout": "vertical",
+        "contents": [
+          {
+            "type": "image",
+            "url": "https://tafengtravel.github.io/tafengtravel/linecard/fireworks.jpg",
+            "size": "full",
+            "aspectMode": "cover",
+            "aspectRatio": "1:1",
+            "action": {
+              "type": "uri",
+              "label": "action",
+              "uri": "http://www.tafeng66.com.tw/webobj/travelteam/showgroup.asp?keyword=&trArea=8K&trDest=4651&startDay=2021/10/30&overDay=2022/03/28&depID=215&trDay=1,40&budget=&product_type=&orderbyc=2&Airline=&strasc=&departure=&page=1&"
+            }
+          }
+        ],
+        "paddingAll": "0px"
+      }
+    },
+    {
+      "type": "bubble",
+      "size": "giga",
+      "body": {
+        "type": "box",
+        "layout": "vertical",
+        "contents": [
+          {
+            "type": "image",
+            "url": "https://tafengtravel.github.io/tafengtravel/linecard/lunar.jpg",
+            "size": "full",
+            "aspectMode": "cover",
+            "aspectRatio": "1:1",
+            "action": {
+              "type": "uri",
+              "label": "action",
+              "uri": "https://tafengtravel.github.io/tafengtravel/index/domestic/lunar.html"
             }
           }
         ],
