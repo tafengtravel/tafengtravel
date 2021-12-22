@@ -21,6 +21,7 @@ function gaScreenView (vcard) {
     v: 1, // api version
   })}`
 }
+%>
 
 {
   "type": "carousel",
