@@ -7,10 +7,6 @@ function vcardUuid (vcard, secret) {
   const hex = CryptoJS.enc.Hex.stringify(hash)
   return hex.replace(/^(.{8})(.{4})(.{4})(.{4})(.{12})$/, '$1-$2-$3-$4-$5')
 }
-function gaScreenView (vcard) {
-  const CARD_NAME = '山上漫遊系列'
-}
-%>
 
 {
   "type": "carousel",
