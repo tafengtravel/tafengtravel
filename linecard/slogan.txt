@@ -12,7 +12,7 @@ function vcardUuid (vcard, secret) {
   "type": "carousel",
   "contents": [
     {
-      "type": "bubble",
+      "type": "bubble", 
       "size": "giga",
       "body": {
         "type": "box",
