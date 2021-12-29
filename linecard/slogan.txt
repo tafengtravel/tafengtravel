@@ -35,14 +35,14 @@ function gaScreenView (vcard) {
         "contents": [
           {
             "type": "image",
-            "url": "https://tafengtravel.github.io/tafengtravel/linecard/sunrise.jpg",
+            "url": "https://tafengtravel.github.io/tafengtravel/linecard/sakura1.jpg",
             "size": "full",
             "aspectMode": "cover",
             "aspectRatio": "1:1",
             "action": {
               "type": "uri",
               "label": "action",
-              "uri": "https://tafengtravel.github.io/tafengtravel/index/domestic/new/sunrise.html"
+              "uri": "http://www.tafeng66.com.tw/webobj/travelteam/showgroup.asp?Airline=&budget=&depID=215&departure=&keyword=&orderbyc=2&overDay=2022%2F04%2F15&page=1&product_type=&startDay=2021%2F11%2F17&strasc=&trArea=8K&trDay=1%2C40&trDest=5190"
             }
           }
         ],
@@ -66,29 +66,6 @@ function gaScreenView (vcard) {
               "type": "uri",
               "label": "action",
               "uri": "https://tafengtravel.github.io/tafengtravel/index/domestic/lunar.html"
-            }
-          }
-        ],
-        "paddingAll": "0px"
-      }
-    },
-    {
-      "type": "bubble",
-      "size": "giga",
-      "body": {
-        "type": "box",
-        "layout": "vertical",
-        "contents": [
-          {
-            "type": "image",
-            "url": "https://tafengtravel.github.io/tafengtravel/linecard/sakura1.jpg",
-            "size": "full",
-            "aspectMode": "cover",
-            "aspectRatio": "1:1",
-            "action": {
-              "type": "uri",
-              "label": "action",
-              "uri": "http://www.tafeng66.com.tw/webobj/travelteam/showgroup.asp?Airline=&budget=&depID=215&departure=&keyword=&orderbyc=2&overDay=2022%2F04%2F15&page=1&product_type=&startDay=2021%2F11%2F17&strasc=&trArea=8K&trDay=1%2C40&trDest=5190"
             }
           }
         ],
