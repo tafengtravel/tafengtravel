@@ -272,7 +272,7 @@ function show(data){
   let name = data.name;
   let depdate = data.depDate;
   let enddate = data.endDate;
-  let price = data.price;
+  let price = (data.price).toString();
   let contractdownpay = data.contractDownPayment;
   let contractother = data.contractOther;
   let pricedetail;
@@ -376,7 +376,6 @@ function show(data){
     let a = new Date(depdate);
     let b = new Date(enddate);
     let days = (parseInt(Math.abs(b - a)/1000/60/60/24)+1).toString();
-
     doc.setFontSize(9);
     date = (parseInt(year)-1911).toString()+"        "+month+"       "+day;
     
