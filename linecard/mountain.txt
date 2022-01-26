@@ -34,7 +34,7 @@ function gaScreenView (vcard) {
         "contents": [
           {
             "type": "image",
-            "url": "https://tafengtravel.github.io/tafengtravel/linecard/mountain5.jpg",
+            "url": "https://tafengtravel.github.io/tafengtravel/linecard/mountain6.jpg",
             "size": "full",
             "aspectMode": "cover",
             "aspectRatio": "1:1",
