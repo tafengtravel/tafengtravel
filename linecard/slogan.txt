@@ -81,6 +81,29 @@ function gaScreenView (vcard) {
         "contents": [
           {
             "type": "image",
+            "url": "https://tafengtravel.github.io/tafengtravel/linecard/kinmen1.jpg",
+            "size": "full",
+            "aspectMode": "cover",
+            "aspectRatio": "1:1",
+            "action": {
+              "type": "uri",
+              "label": "action",
+              "uri": "https://tafengtravel.github.io/tafengtravel/index/domestic_island/kinmen/tafeng_kinmen.html"
+            }
+          }
+        ],
+        "paddingAll": "0px"
+      }
+    },
+    {
+      "type": "bubble",
+      "size": "giga",
+      "body": {
+        "type": "box",
+        "layout": "vertical",
+        "contents": [
+          {
+            "type": "image",
             "url": "https://tafengtravel.github.io/tafengtravel/linecard/boat1.jpg",
             "size": "full",
             "aspectMode": "cover",
