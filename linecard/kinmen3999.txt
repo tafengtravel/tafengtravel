@@ -43,7 +43,7 @@ function gaScreenView (vcard) {
               "label": "action",
               "uri": "https://tafengtravel.github.io/tafengtravel/index/domestic_island/kinmen/tafeng_kinmen.html"
             },
-            "url": "https://tafengtravel.github.io/tafengtravel/linecard/kinmen3999_1.jpg"
+            "url": "https://tafengtravel.github.io/tafengtravel/linecard/kinmen3999_2.jpg"
           }
         ],
         "paddingAll": "0px"
