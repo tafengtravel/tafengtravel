@@ -43,7 +43,7 @@ function gaScreenView (vcard) {
               "label": "action",
               "uri": "https://tafengtravel.github.io/tafengtravel/index/domestic_island/tafeng_domestic_island.html"
             },
-            "url": "https://tafengtravel.github.io/tafengtravel/linecard/islandTable.jpg"
+            "url": "https://tafengtravel.github.io/tafengtravel/linecard/islandTable1.jpg"
           }
         ],
         "paddingAll": "0px"
