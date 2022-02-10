@@ -60,7 +60,7 @@ function gaScreenView (vcard) {
             "size": "full",
             "aspectMode": "cover",
             "aspectRatio": "1:1.3",
-            "action": {
+            "action": { 
               "type": "uri",
               "label": "action",
               "uri": "https://tafengtravel.github.io/tafengtravel/index/domestic_island/matsu/tafeng_matsu.html"
