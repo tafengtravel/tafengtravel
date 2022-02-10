@@ -22,7 +22,6 @@ function gaScreenView (vcard) {
   })}`
 }
 %>
-
 {
   "type": "carousel",
   "contents": [
@@ -44,6 +43,29 @@ function gaScreenView (vcard) {
               "uri": "https://tafengtravel.github.io/tafengtravel/index/domestic_island/kinmen/tafeng_kinmen.html"
             },
             "url": "https://tafengtravel.github.io/tafengtravel/linecard/kinmen3999_2.jpg"
+          }
+        ],
+        "paddingAll": "0px"
+      }
+    },
+    {
+      "type": "bubble",
+      "size": "giga",
+      "body": {
+        "type": "box",
+        "layout": "vertical",
+        "contents": [
+          {
+            "type": "image",
+            "size": "full",
+            "aspectMode": "cover",
+            "aspectRatio": "1:1.3",
+            "action": {
+              "type": "uri",
+              "label": "action",
+              "uri": "https://tafengtravel.github.io/tafengtravel/index/domestic_island/matsu/tafeng_matsu.html"
+            },
+            "url": "https://tafengtravel.github.io/tafengtravel/linecard/matsu.jpg"
           }
         ],
         "paddingAll": "0px"
