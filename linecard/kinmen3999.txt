@@ -88,7 +88,7 @@ function gaScreenView (vcard) {
               "label": "action",
               "uri": "https://tafengtravel.github.io/tafengtravel/index/domestic_island/matsu/tafeng_matsu.html"
             },
-            "url": "https://tafengtravel.github.io/tafengtravel/linecard/matsu1.jpg"
+            "url": "https://tafengtravel.github.io/tafengtravel/linecard/matsu2.jpg"
           }
         ],
         "paddingAll": "0px"
