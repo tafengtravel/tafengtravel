@@ -511,12 +511,8 @@ $(".include").each(function(){
                 ref = db.collection('list')
 
                 await ref.where('type','==','hotel').where("available", "==", true).get().then(querySnapshot => {
-                    let i=0
                     querySnapshot.forEach(doc => {  
-                          
-                        hotel[i] = doc.data()
-                        i = i+1
-
+                        hotel.push(doc.data())
                     });  
                     console.log(hotel)
                 });
