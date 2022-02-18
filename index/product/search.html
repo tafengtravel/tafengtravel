@@ -528,18 +528,13 @@ $(".include").each(function(){
                 let country = []
                 let obj=[]
         
-                await ref.where(itemSearch,'in',searchValue).get().then(querySnapshot => {
+                await ref.where(itemSearch,'in',searchValue).where('available','==',true).where('type','==','tour').get().then(querySnapshot => {
                     let i=0
                     querySnapshot.forEach(doc => {  
-                        if(doc.data().available == true && doc.data().type == 'tour'){
-                            data[i] = doc.data()
-                            data[i].features = (doc.data().features).slice(0,32)
-                            i=i+1
-                            // console.log(doc.id)
-                            
-                        }
+                        data[i] = doc.data()
+                        data[i].features = (doc.data().features).slice(0,32)
+                        i=i+1
                         // console.log('搜尋IN')
-                        
                     });  
                     data.sort((a,b)=>{return a.lowPrice - b.lowPrice})
                     this.data1 = data
@@ -569,17 +564,12 @@ $(".include").each(function(){
                     
                 });
 
-                await ref.where(itemSearch,'array-contains-any',searchValue).get().then(querySnapshot => {
+                await ref.where(itemSearch,'array-contains-any',searchValue).where('available','==',true).where('type','==','tour').get().then(querySnapshot => {
                     let i=0
                     querySnapshot.forEach(doc => {  
-                        if(doc.data().available == true && doc.data().type == 'tour'){
-                            data[i] = doc.data()
-                            data[i].features = (doc.data().features).slice(0,32)
-                            i=i+1
-                            // console.log(doc.id)
-                            // console.log('搜尋ARR-CONTAINS')
-                        }
-                        
+                        data[i] = doc.data()
+                        data[i].features = (doc.data().features).slice(0,32)
+                        i=i+1
                     });  
                     data.sort((a,b)=>{return a.lowPrice - b.lowPrice})
                     this.data1 = data
