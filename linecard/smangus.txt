@@ -43,7 +43,7 @@ function gaScreenView (vcard) {
               "label": "action",
               "uri": "https://tafengtravel.github.io/tafengtravel/index/domestic/smangus.html"
             },
-            "url": "https://tafengtravel.github.io/tafengtravel/linecard/smangus.jpg"
+            "url": "https://tafengtravel.github.io/tafengtravel/linecard/smangus1.jpg"
           }
         ],
         "paddingAll": "0px"
