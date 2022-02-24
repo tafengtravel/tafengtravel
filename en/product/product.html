@@ -167,7 +167,7 @@ document.querySelectorAll("[href^='https://line.me']").forEach(function(item){
 </head>
 <body id="page_body" class="green-page">
 
-<div class="include" file="https://tafengtravel.github.io/tafengtravel/index/top"></div>
+<div class="include" file="https://tafengtravel.github.io/tafengtravel/en/top"></div>
     
 <div id="pnl_wrapper" class="wrapper homepage green-page">
  
@@ -196,27 +196,27 @@ document.querySelectorAll("[href^='https://line.me']").forEach(function(item){
             <div class="el-row">
                 <div class="el-col el-col-24 el-col-xs-24 el-col-xs-offset-0 el-col-sm-24 el-col-sm-offset-0 el-col-lg-16 el-col-lg-offset-0" style="padding-left:12px;padding-right:12px;">
                     <el-row>
-                        <font class ="title" style ="line-height: 35px;">{{itemData.title}}</font>
+                        <font class ="title" style ="line-height: 35px;">{{itemData.enTitle}}</font>
                     </el-row>
                     <el-row>
                         <el-breadcrumb separator-class="el-icon-arrow-right">
                             <el-breadcrumb-item>
                                 <font class ="mini_font">
-                                    <a :href = "countryUrl">{{itemData.country}}</a>
+                                    <a :href = "countryUrl">{{itemData.enCountry}}</a>
                                 </font>
                             </el-breadcrumb-item>
                             <el-breadcrumb-item>
                                 <font class ="mini_font">
-                                    <a :href = '"https://tafengtravel.github.io/tafengtravel/index/product/search.html?location="+ itemData.location'>{{itemData.location}}</a>
+                                    <a :href = '"https://tafengtravel.github.io/tafengtravel/index/product/search.html?location="+ itemData.location'>{{itemData.enLocation}}</a>
                                 </font>
                             </el-breadcrumb-item>
                         </el-breadcrumb>
                     </el-row>
                     <el-row>
-                        <font class ="sub_title">行程特色</font>
+                        <font class ="sub_title">Highlights</font>
                     </el-row>
                     <el-row>
-                        <font class ="font">{{itemData.features}}</font>
+                        <font class ="font">{{itemData.enFeatures}}</font>
                     </el-row>
                     
                 </div>
@@ -227,7 +227,7 @@ document.querySelectorAll("[href^='https://line.me']").forEach(function(item){
                             <font class ="font"><i class="el-icon-date"></i></font>
                         </span>            
                         <span class= "el-col-21">
-                            <font class ="font">可預訂日期：{{itemData.day}}</font>
+                            <font class ="font">Available Date：{{itemData.enDay}}</font>
                         </span> 
                     </el-row>
                     <el-row>
@@ -235,7 +235,7 @@ document.querySelectorAll("[href^='https://line.me']").forEach(function(item){
                             <font class ="font"><i class="el-icon-time"></i></font>
                         </span>           
                         <span class= "el-col-21">
-                            <font class ="font">出發時間：{{itemData.depTime}}</font>
+                            <font class ="font">Departure Time：{{itemData.enDepTime}}</font>
                         </span>
                     </el-row>
                     <el-row>
@@ -243,7 +243,7 @@ document.querySelectorAll("[href^='https://line.me']").forEach(function(item){
                             <font class ="font"><i class="el-icon-s-custom"></i></font>
                         </span>            
                         <span class= "el-col-21">
-                            <font class ="font">最少預定數：{{itemData.minAmount}}人</font>
+                            <font class ="font">Minimum Booking Number：{{itemData.enMinAmount}} pax</font>
                         </span>   
                     </el-row>
                 </div>
@@ -257,16 +257,16 @@ document.querySelectorAll("[href^='https://line.me']").forEach(function(item){
                 <div class="el-col el-col-24 el-col-xs-24 el-col-xs-offset-0 el-col-sm-24 el-col-sm-offset-0 el-col-lg-16 el-col-lg-offset-0" style="padding-left:12px;padding-right:12px;">
                     <el-divider></el-divider>
                     <el-row>
-                        <font class ="sub_title" id ="choose_link">方案選擇</font>
+                        <font class ="sub_title" id ="choose_link">Package options</font>
                     </el-row>
 
                     <el-row>
-                        <font class ="font">行程日期</font>
+                        <font class ="font">Tour Date</font>
                         <div class="block">
                             <el-date-picker
                             v-model="datevalue1"
                             type="date"
-                            placeholder="選擇日期"
+                            placeholder="Select Date"
                             id = 'dateFocus'
                             :picker-options="pickerOptions"
                             >
@@ -285,11 +285,11 @@ document.querySelectorAll("[href^='https://line.me']").forEach(function(item){
                             <el-card class="box-card">
                                 <div class="el-col el-col-24 el-col-xs-24 el-col-xs-offset-0 el-col-sm-20 el-col-sm-offset-0" id="box-card" style="padding-left:8px;padding-right:8px;">
                                     <font class ="font">{{item.title}}</font><br>
-                                    <font class ="mini_font"><i class="el-icon-time"></i><span>&emsp;行程總長：{{item.time}} 小時</span></font><br>
+                                    <font class ="mini_font"><i class="el-icon-time"></i><span>&emsp;Duration：{{item.time}} hrs</span></font><br>
 
                                 </div>
                                 <div class="el-col el-col-24 el-col-xs-24 el-col-xs-offset-0 el-col-sm-4 el-col-sm-offset-0" >
-                                    <el-button type="primary is-plain" style="width:100% ;margin:0px 0px 15px 0px" @click="isShow = index+1 ;choose()">選擇</el-button>
+                                    <el-button type="primary is-plain" style="width:100% ;margin:0px 0px 15px 0px" @click="isShow = index+1 ;choose()">Select</el-button>
                                 </div>  
                             </el-card>            
 
@@ -309,9 +309,9 @@ document.querySelectorAll("[href^='https://line.me']").forEach(function(item){
                                     </el-row>
 
                                     <el-row>
-                                        <font class ="font"><span>場次：</span></font>
+                                        <font class ="font"><span>Time：</span></font>
                                         <template>
-                                            <el-select v-model="depValue" placeholder="請選擇場次" >
+                                            <el-select v-model="depValue" placeholder="Select Time" >
                                             <el-option 
                                                 v-for="item in depOptions[index]"
                                                 :key="item"
@@ -325,7 +325,7 @@ document.querySelectorAll("[href^='https://line.me']").forEach(function(item){
 
                                     <el-row>
                                         
-                                        <font class ="font"><span>數量：</span></font> 
+                                        <font class ="font"><span>Quantity：</span></font> 
                                         <template>
                                             <el-input-number v-model="quantity0" :min="1" :max="10" @change="per_price()" ></el-input-number>
                                         </template>
@@ -335,7 +335,7 @@ document.querySelectorAll("[href^='https://line.me']").forEach(function(item){
                                     </el-row>
 
                                     <el-row v-if="isShowKid[index]">
-                                        <font class ="font"><span>數量：</span></font> 
+                                        <font class ="font"><span>Quantity：</span></font> 
                                         <template>
                                             <el-input-number v-model="quantity1" :min="0" :max="10" @change="per_price()"></el-input-number>
                                         </template>
@@ -344,7 +344,7 @@ document.querySelectorAll("[href^='https://line.me']").forEach(function(item){
                                     </el-row>
 
                                     <el-row>
-                                            <font class ="font"><span>費用：${{price}}</span></font>                             
+                                            <font class ="font"><span>Price：USD{{price}}</span></font>                             
                                     </el-row>                
                                     
                                 </div>
@@ -363,7 +363,7 @@ document.querySelectorAll("[href^='https://line.me']").forEach(function(item){
 
                     <el-divider></el-divider>
                     <el-row>
-                        <font class ="sub_title">行程介紹</font>
+                        <font class ="sub_title">What to expect</font>
                     </el-row>
 
                     <el-row>
@@ -373,7 +373,7 @@ document.querySelectorAll("[href^='https://line.me']").forEach(function(item){
                     <el-divider></el-divider>
 
                     <el-row>
-                        <font class ="sub_title">活動照片</font>
+                        <font class ="sub_title">Photos</font>
                     </el-row>
 
                     <div class="el-row">
@@ -387,7 +387,7 @@ document.querySelectorAll("[href^='https://line.me']").forEach(function(item){
                                 </el-image>
                             </el-row> 
                             <el-row>
-                                <font class ="font">點擊即可查看更多</font>
+                                <font class ="font">See more</font>
                             </el-row>       
                         </div>
                     </div>
@@ -405,7 +405,7 @@ document.querySelectorAll("[href^='https://line.me']").forEach(function(item){
                     -->         
 
                     <el-row>
-                        <font class ="sub_title">集合地點</font>
+                        <font class ="sub_title">Location of Experience</font>
                     </el-row>
                     <el-row>
                         <font class ="font">{{itemData.pickup}}</font>
@@ -413,7 +413,7 @@ document.querySelectorAll("[href^='https://line.me']").forEach(function(item){
 
                     <el-divider></el-divider>
                     <el-row>
-                        <font class ="sub_title">注意事項</font>
+                        <font class ="sub_title">Purchasing Notice</font>
                     </el-row>
                     <el-row>
                         <font class ="font"><p v-html ="itemData.announce"></p></font> 
@@ -422,7 +422,7 @@ document.querySelectorAll("[href^='https://line.me']").forEach(function(item){
                     <el-divider></el-divider>
 
                     <el-row>
-                        <font class ="sub_title">取消規定</font>
+                        <font class ="sub_title">Cancellation Policy</font>
                     </el-row>
                     <el-row>
                         <font class ="font"><p v-html ="itemData.cancel"></p></font> 
@@ -435,10 +435,13 @@ document.querySelectorAll("[href^='https://line.me']").forEach(function(item){
                     <div class = "position" id="position" style="position: sticky;top: 120px;">
                         <el-card class="box-card" id="cart" style="width: 400px;">
 
-                            <font class ="font"><span>最低售價</span></font>
-                            <font class ="box_sub_title" style="margin-left: 140px;">${{itemData.lowPrice}}起</font><br><br>
-                            <font class ="mini_font"><span>訂購完成後須等待空位確認，專員會於1個工作天內回覆您預定結果，並將付款連結寄至您的信箱，訂單將於付款後正式成立。</span></font><br>
-                            <a href="#choose_link"><el-button type="primary" style="width:100% ;margin-top: 6px;" @click="isShow = index+1 ;choose()" >選擇方案</el-button></a><br>
+                            <font class ="font"><span>Lowest Price</span></font>
+                            <font class ="box_sub_title" style="margin-left: 100px;">
+                                <span class="font">USD</span> 
+                                {{itemData.lowPrice}}
+                            </font><br><br>
+                            <font class ="mini_font"><span>To be confirmed within 1 working day after you booked the experiences, we will send you a mail, after finished payment the order will be confirmed</span></font><br>
+                            <a href="#choose_link"><el-button type="primary" style="width:100% ;margin-top: 6px;" @click="isShow = index+1 ;choose()" >Select</el-button></a><br>
 
                         </el-card>
                     </div>
@@ -448,8 +451,9 @@ document.querySelectorAll("[href^='https://line.me']").forEach(function(item){
 
                 <div class='hidden-sm-up'>
                     <div class="el-col el-col-xs-18 el-col-xs-offset-0 el-col-sm-18 el-col-sm-offset-0" style="padding-left:8px;padding-right:8px;">
-                        <font class ="font"><span>最低售價</span></font><br>
-                        <font class ="box_sub_title">${{itemData.lowPrice}}起</font>
+                        <font class ="font"><span>Lowest Price</span></font><br>
+                        <span class="font">USD</span> 
+                        <font class ="box_sub_title">{{itemData.lowPrice}}起</font>
                     </div>
                     <div class="el-col el-col-xs-6 el-col-xs-offset-0 el-col-sm-6 el-col-sm-offset-0" >
                         <a href="#choose_link"><el-button type="primary" style="width: 100%;margin: 6px 0px 6px -10px;" @click="isShow = index+1 ;choose()">選擇方案</el-button></a>
@@ -467,7 +471,7 @@ document.querySelectorAll("[href^='https://line.me']").forEach(function(item){
 
                 <div class="el-row">
                     <br>
-                    <div class="sub_title" style="text-align:center">更多行程</div>
+                    <div class="sub_title" style="text-align:center">You might also like...</div>
                     <br>
                     <el-row :gutter="20">
                         <carousel v-bind:autoplay="true" v-bind:loop="carouselLoop" :per-page-custom=[[480,2],[780,4]] :pagination-enabled='false' >
@@ -496,9 +500,8 @@ document.querySelectorAll("[href^='https://line.me']").forEach(function(item){
                                             </div> -->
         
                                             <div  style="padding: 10px; text-align:right" class ="text-margin el-col el-col-24 el-col-xs-24 el-col-sm-24 el-col-md-24 el-col-lg-24"> 
-                                                <span class="font">$</span> 
+                                                <span class="font">USD</span> 
                                                 <span class="sub_title"><font color="#FF6600">{{item.lowPrice}}</font></span>
-                                                <span class="font">起</span> 
                                             </div>
         
                                         </el-card>
