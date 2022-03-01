@@ -895,7 +895,7 @@
         readCheck:false,
         index1:0,
         totalPrice:[[]],
-        itemData:{keyword:[],enKeyword:[],},
+        itemData:{keyword:[],enKeyword:[]},
         idCount:'',
         fields:[],
         counts: 0,
@@ -1590,7 +1590,10 @@
 
           console.log(doc.data())
 
-          itemData = doc.data()
+          itemData = {
+            itemPrice:[],itemPriceKid:[],itemOtherAdult:[],itemOtherKid:[],itemDepTime:[],itemRadio:[],itemTitle:[],
+            enItemPrice:[],enItemPriceKid:[],enItemOtherAdult:[],enItemOtherKid:[],enItemDepTime:[],enItemRadio:[],enItemTitle:[],
+            ...doc.data(),}
 
           this.itemData = {...this.itemData,...itemData}
           // 中文
