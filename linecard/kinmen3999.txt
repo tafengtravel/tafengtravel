@@ -42,7 +42,7 @@ function gaScreenView (vcard) {
               "label": "action",
               "uri": "http://www.tafeng66.com.tw/webobj/travelteam/showselect.asp?Product_id=42026&promo=m&depID=215&rp_dt_id=&"
             },
-            "url": "https://tafengtravel.github.io/tafengtravel/linecard/penghu2.jpg"
+            "url": "https://tafengtravel.github.io/tafengtravel/linecard/penghu3.jpg"
           }
         ],
         "paddingAll": "0px"
