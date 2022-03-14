@@ -43,7 +43,7 @@ function gaScreenView (vcard) {
               "label": "action",
               "uri": "https://tafengtravel.github.io/tafengtravel/index/foreign_self/tafeng_foreign_self.html"
             },
-            "url": "https://tafengtravel.github.io/tafengtravel/linecard/announcement.jpg"
+            "url": "https://tafengtravel.github.io/tafengtravel/linecard/announcement1.jpg"
           }
         ],
         "paddingAll": "0px"
