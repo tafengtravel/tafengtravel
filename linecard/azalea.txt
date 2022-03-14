@@ -37,7 +37,7 @@ function gaScreenView (vcard) {
             "type": "image",
             "size": "full",
             "aspectMode": "cover",
-            "aspectRatio": "1:1.3",
+            "aspectRatio": "1:1.333",
             "action": {
               "type": "uri",
               "label": "action",
