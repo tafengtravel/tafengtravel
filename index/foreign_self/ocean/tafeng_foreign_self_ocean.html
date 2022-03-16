@@ -1,181 +1,158 @@
-<html>
-   <head>
-   
-<!-- SmartMenus core CSS (required) -->
+
+
+<!DOCTYPE html>
+<head>
+ 
+
+<link rel='stylesheet' href='https://tafengtravel.github.io/tafengtravel/index/css/smart.css' type='text/css'>
+<link href="https://tafengtravel.github.io/tafengtravel/index/index.css" rel="stylesheet" >
+<link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
 <link href='https://tafengtravel.github.io/tafengtravel/index/sm-css/sm-core-css.css' rel='stylesheet' type='text/css' />
 <!-- "sm-blue" menu theme (optional, you can use your own CSS, too) -->
 <link href='https://tafengtravel.github.io/tafengtravel/index/sm-css/sm-mint/sm-mint.css' rel='stylesheet' type='text/css' />
-<link href='https://tafengtravel.github.io/tafengtravel/index/css/smart.css'  rel='stylesheet' type='text/css'>
-<link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.css">
+<script src="https://tafengtravel.github.io/tafengtravel/index/js/jquery.min.js.js"></script>     
+<script src="https://tafengtravel.github.io/tafengtravel/index/js/jquery.smartmenus.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
 <link href="https://tafengtravel.github.io/tafengtravel/index/css/elementUI.css" rel="stylesheet" />
-   
-		<!-- Global site tag (gtag.js) - Google Analytics -->
-	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-143702269-1"></script>
-	<script>
- 	 window.dataLayer = window.dataLayer || [];
- 	 function gtag(){dataLayer.push(arguments);}
- 	 gtag('js', new Date());
+<link href="https://tafengtravel.github.io/tafengtravel/index/css/common.css" rel="stylesheet" />
+<link href="https://tafengtravel.github.io/tafengtravel/index/css/swiper.min.css" rel="stylesheet" />
+<link href="https://tafengtravel.github.io/tafengtravel/index/css/book.css" rel="stylesheet" />
+<!--自家檔案-->
+<link rel="icon" href="https://tafengtravel.github.io/tafengtravel/index1/tafenglogo6.ico" type="image/x-icon" />
+<link rel="shortcut icon" href="https://tafengtravel.github.io/tafengtravel/index1/tafenglogo6.ico" type="image/x-icon" />
 
-	 gtag('config', 'UA-143702269-1', {
-	  'linker': {
-		'domains': ['tafengtravel.github.io', 'tafeng66.com.tw']
-	  }
-	});
-	</script>
-	
-	<!-- Facebook Pixel Code -->
-	<script>
-	  !function(f,b,e,v,n,t,s)
-	  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-	  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-	  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-	  n.queue=[];t=b.createElement(e);t.async=!0;
-	  t.src=v;s=b.getElementsByTagName(e)[0];
-	  s.parentNode.insertBefore(t,s)}(window, document,'script',
-	  'https://connect.facebook.net/en_US/fbevents.js');
-	  fbq('init', '708390289347362');
-	  fbq('track', 'PageView');
-	</script>
-	<noscript><img height="1" width="1" style="display:none"
-	  src="https://www.facebook.com/tr?id=708390289347362&ev=PageView&noscript=1"
-	/></noscript>
-	<!-- End Facebook Pixel Code -->
-	
-	
-	<!-- GA Event -->
-	<script>
-	window.addEventListener('load', function(event) {
-	document.querySelectorAll("[href^='http://line.me']").forEach(function(item){
-	    item.addEventListener('click', function(event){
-			gtag("event", "點擊", {event_category: "line客戶轉換"});
-	    })
-	})
-	document.querySelectorAll("[href^='https://line.me']").forEach(function(item){
-	    item.addEventListener('click', function(event){
-			gtag("event", "點擊", {event_category: "line客戶轉換"});
-	    })
-	})
-	})  
-	</script>
-   
-     <meta charset="utf-8">
-      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-      <title>大豐旅行社｜海島系列｜國外自由行｜國內外旅遊專家</title>   	
- 	  
-      <meta name="description" content="大豐旅行社 國內外旅遊專家">
-      <meta name="keywords" content="大豐旅行社,國內旅遊,國外自由行" /> 
-      <meta http-equiv="cache-control" content="no-cache">  
-      <meta http-equiv="pragma" content="no-cache">
-      <meta http-equiv="expires" content="0">
-	  <meta name="format-detection" content="telephone=no">
-      
-	  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
-      <link rel="icon" href="https://tafengtravel.github.io/tafengtravel/index1/tafenglogo6.ico" type="image/x-icon" />
-      <link rel="shortcut icon" href="https://tafengtravel.github.io/tafengtravel/index1/tafenglogo6.ico" type="image/x-icon" />
-	  
-<style>  
-.table {
-  font-size: 22px;
-}
 
-@media(max-width:768px) {
-.table {
-    font-size: 10px;
-  }
-}
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-143702269-1"></script>
 
-body {
-  margin: 8px;
-  background: #fff;
-  color: #000000;
-  font: 18px/1.5em 'Helvetica Neue',Microsoft JhengHei;;
-}
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
 
-.demo-text {
-  margin: 3em 22px;
+gtag('config', 'UA-143702269-1', {
+'linker': {
+    'domains': ['tafengtravel.github.io', 'tafeng66.com.tw']
 }
+});
+</script>
 
-.demo-text p {
-  margin-bottom: 1em;
-}
+<!-- Facebook Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '708390289347362');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=708390289347362&ev=PageView&noscript=1"
+/></noscript>
+<!-- End Facebook Pixel Code -->
 
-.demo-text a {
-  color: #999;
-}
-</style> 
-   
+<!-- Facebook Event -->
+
+
+<!-- GA Event -->
+<script>
+window.addEventListener('load', function(event) {
+document.querySelectorAll("[href^='http://line.me']").forEach(function(item){
+    item.addEventListener('click', function(event){
+        gtag("event", "點擊", {event_category: "line客戶轉換"});
+    })
+})
+document.querySelectorAll("[href^='https://line.me']").forEach(function(item){
+    item.addEventListener('click', function(event){
+        gtag("event", "點擊", {event_category: "line客戶轉換"});
+    })
+})
+})  
+</script>
+
+  
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>海島自由行｜大豐旅行社</title>   	
+
+<meta name="description" content="海島、長灘島、宿霧、巴拉望、沙巴、峇里島、馬爾地夫，
+想出國玩卻不想跟團嗎？找大豐就對了，各式客制化自由行套裝！讓您玩得開心！
+海島機加酒自由行、長灘島加酒自由行、宿霧機加酒自由行、巴拉望機加酒自由行、沙巴機加酒自由行、峇里島機加酒自由行、馬爾地夫機加酒自由行、
+海島自由行、長灘島自由行、宿霧自由行、巴拉望自由行、沙巴自由行、峇里島自由行、馬爾地夫自由行">
+<meta name="keywords" content=""> 
+<meta http-equiv="expires" content="0">
+<meta http-equiv="cache-control" content="no-cache">  
+<meta http-equiv="pragma" content="no-cache">
+<meta name="format-detection" content="telephone=no">
+
 <style>
-	.title { color:#000000; font-size:28px;text-align:left;font-family:微軟正黑體;font-weight: bold;}
-	.red{color:red; font-size:22px;text-align:left;letter-spacing: 3px;font-family:微軟正黑體;font-weight: bold;　}
-	.gray{color:#676767; font-size:22px;text-align:left;letter-spacing: 3px;font-family:微軟正黑體;font-weight: bold;　}
-</style> 
+.font{
+    white-space: pre-wrap;
+}
+</style>
 
 </head>
-
-<body  bgcolor="WHITE" >
-
-
-  <script src="https://tafengtravel.github.io/tafengtravel/index/js/jquery.min.js.js"></script>     
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
-
-<script src="https://tafengtravel.github.io/tafengtravel/index/js/jquery.smartmenus.js"></script>
+<body id="page_body" class="green-page">
 
 <div class="include" file="https://tafengtravel.github.io/tafengtravel/index/top"></div>
 
-<br> 
-<div class="container">
-<div class="row justify-content-start">
-    <div class="col-12 col-md-4 col-xl-4"><a href ="http://www.tafeng66.com.tw/webobj/
-travelteam/showselect.asp?Product_id=37818&promo=m&depID=215&rp_dt_id="><img class=" img-fluid rounded"  src="sabah.jpg"></a>
-    <span class="title" ><br><br>【沙巴】機＋酒自由行<br></span>
-	<span class="red" >三天兩夜$4388起，再送WIFI！</span></div>
-	
-    <div class="col-12 col-md-4 col-xl-4"><a href ="http://www.tafeng66.com.tw/webobj/
-travelteam/showselect.asp?Product_id=38041&promo=m&depID=215&rp_dt_id="><img class=" img-fluid rounded"  src="boracay.jpg"></a>
-    <span class="title" ><br><br>【長灘島】機＋酒自由行<br></span>
-	<span class="red" >三天兩夜$5888起，再送WIFI！</span></div>
-	
-	<div class="col-12 col-md-4 col-xl-4"><a href ="http://www.tafeng66.com.tw/webobj/
-	travelteam/showselect.asp?Product_id=38042&promo=m&depID=215&rp_dt_id="><img class=" img-fluid rounded"  src="palawan.jpg"></a>
-    <span class="title" ><br><br>【巴拉望】機＋酒自由行<br></span>
-	<span class="red" >三天兩夜$4988起，再送WIFI！</span></div>
-	
-	<div class="col-12 col-md-4 col-xl-4"><a href ="http://www.tafeng66.com.tw/webobj/
-travelteam/showselect.asp?Product_id=39267&promo=m&depID=215&rp_dt_id="><img class=" img-fluid rounded"  src="cebu.jpg"></a>
-    <span class="title" ><br><br>【宿霧】機＋酒自由行<br></span>
-	<span class="red" >三天兩夜$3888起，再送WIFI！</span></div>
-	
-	<div class="col-12 col-md-4 col-xl-4"><a href ="http://www.tafeng66.com.tw/webobj/
-travelteam/showselect.asp?Product_id=39410&promo=m&depID=215&rp_dt_id="><img class=" img-fluid rounded"  src="bali.jpg"></a>
-    <span class="title" ><br><br>【峇里島】機＋酒自由行<br></span>
-	<span class="red" >三天兩夜$7688起，再送WIFI！</span></div>
-	
-	<div class="col-12 col-md-4 col-xl-4"><a href ="http://www.tafeng66.com.tw/webobj/
-travelteam/showselect.asp?Product_id=39569&promo=m&depID=215&rp_dt_id="><img class=" img-fluid rounded"  src="maldives.jpg"></a>
-    <span class="title" ><br><br>【馬爾地夫】機＋酒自由行<br></span>
-	<span class="red" >三天兩夜$16888起，再送機場小島接駁！</span></div>
-		
-  </div>
+<div id="pnl_wrapper" class="wrapper homepage green-page">
+    <div id="app"> 
+
+        <!-- <div class="el-col el-col-24 el-col-xs-24 el-col-sm-24 el-col-md-24 el-col-lg-24" style="background-color:#ffefd8;">
+            <el-row :gutter="20" class="back">
+                <br><br><br><br><br><br><br><br><br><br><br>
+                <br><br><br><br>
+            </el-row>
+        </div> -->
+
+        <div class ="el-col-24 backgroud" style="background-color:rgb(240, 240, 240)">
+
+            <div class ="el-col el-col-24 el-col-xs-22 el-col-xs-offset-1 el-col-sm-20 el-col-sm-offset-2 el-col-md-20 el-col-md-offset-2 el-col-lg-16 el-col-lg-offset-4">
+				<el-row></el-row>
+                <el-row :gutter="20" style="display:flex;flex-wrap:wrap;margin-bottom: 20px;">
+					<el-col class ="el-col el-col-xs-22 el-col-xs-offset-1 el-col-sm-8 el-col-md-8 el-col-lg-8" v-for="(item,index) in island" style="margin-bottom: 20px;">
+
+						<a :href="item.link">
+
+							<el-image style="width:100% ;border-radius: 20px;" :src="item.imageUrl":fit="fits">
+							</el-image>
+							<el-row></el-row>
+							<span class="sub_title" ><font color="#2c2b2b" style="font-family:Noto Serif TC">{{item.location}}</font></span>
+							<el-row></el-row>
+                            <span class="font" ><font color="red" style="font-family:Noto Serif TC;letter-spacing: 0.2em;">{{item.detailRed}}</font>
+							<span class="font" ><font color="#2c2b2b" style="font-family:Noto Serif TC;letter-spacing: 0.2em;">{{item.detail}}</font></span>
+
+						</a>
+					</el-col>
+				</el-row>
+                
+            </div>
+            
+        </div>
+
+        <el-backtop :bottom="100"></el-backtop>
+        
+    </div>
 </div>
 
-<br><br> 
-<div class="text-center"> 
 
-  <div class="include" file="https://tafengtravel.github.io/tafengtravel/index/footer"></div>
+<div class="text-center">
 
-</div>
+    <br>
+    <div class="include" file="https://tafengtravel.github.io/tafengtravel/index/footer"></div>
 
-<!-- Facebook Event -->
-<script>
-document.getElementById('contact').addEventListener('click', function() {
-fbq('track', 'Contact');
-}, false);
-</script>
+</div> 
 
+    
+</body>
 
 <script type="text/javascript">
-
 //使用jQuery的load方法
 $(".include").each(function(){
     if(!!$(this).attr("file")) {
@@ -187,7 +164,71 @@ $(".include").each(function(){
 });
 </script>
 
+<script src="https://unpkg.com/vue@2.6.12/dist/vue.js"></script>
+<!-- import JavaScript -->
+<script src="https://unpkg.com/element-ui@2.15.0/lib/index.js"></script>
 
-<!--<font color="blue" size="5"><a href = "http://www.tafeng66.com.tw/webeip/HT00215/">電腦版網頁</a></font>-->
-</body>
+
+<script>
+
+    var Main = {
+        data() {
+            return {
+                fits:'cover',
+                island:[{
+                    imageUrl:"boracay.jpg",
+                    location:"【長灘島】機＋酒自由行",
+					detail:"三天兩夜$5888起，再送WIFI！",
+                    detailRed:'《加入 line 即時回答》\n',
+                    link:'http://www.tafeng66.com.tw/webobj/travelteam/showselect.asp?Product_id=38041&promo=m&depID=215&rp_dt_id='
+                },{
+                    imageUrl:"cebu.jpg",
+                    location:"【宿霧】機＋酒自由行",
+					detail:"三天兩夜$3888起，再送WIFI！",
+                    detailRed:'《加入 line 即時回答》\n',
+                    link:'http://www.tafeng66.com.tw/webobj/travelteam/showselect.asp?Product_id=39267&promo=m&depID=215&rp_dt_id='
+                },{
+                    imageUrl:"palawan.jpg",
+                    location:"【巴拉望】機＋酒自由行",
+					detail:"三天兩夜$4988起，再送WIFI！",
+                    detailRed:'《加入 line 即時回答》\n',
+                    link:'http://www.tafeng66.com.tw/webobj/travelteam/showselect.asp?Product_id=38042&promo=m&depID=215&rp_dt_id='
+                },{
+                    imageUrl:"sabah.jpg",
+                    location:"【沙巴】機＋酒自由行",
+					detail:"三天兩夜$4388起，再送WIFI！",
+                    detailRed:'《加入 line 即時回答》\n',
+                    link:'http://www.tafeng66.com.tw/webobj/travelteam/showselect.asp?Product_id=37818&promo=m&depID=215&rp_dt_id='
+                },{
+                    imageUrl:"bali.jpg",
+                    location:"【峇里島】機＋酒自由行",
+					detail:"三天兩夜$7688起，再送WIFI！",
+                    detailRed:'《加入 line 即時回答》\n',
+                    link:'http://www.tafeng66.com.tw/webobj/travelteam/showselect.asp?Product_id=39410&promo=m&depID=215&rp_dt_id='
+                },{
+                    imageUrl:"maldives.jpg",
+                    location:"【馬爾地夫】機＋酒自由行",
+					detail:"三天兩夜$16888起，再送機場小島接駁！",
+                    detailRed:'《加入 line 即時回答》\n',
+                    link:'http://www.tafeng66.com.tw/webobj/travelteam/showselect.asp?Product_id=39569&promo=m&depID=215&rp_dt_id='
+                }]
+            };
+                
+    
+            },methods: {
+            },mounted(){
+
+            } 
+        
+     
+    };
+    let Today=new Date();
+    // console.log(Today.getFullYear()+'-'+ (Today.getMonth()+1) +'-'+ Today.getDate())
+
+    var Ctor = Vue.extend(Main)
+    new Ctor().$mount('#app')
+
+
+</script>
+
 </html>
