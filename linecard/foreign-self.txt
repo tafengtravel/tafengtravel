@@ -117,6 +117,29 @@ function gaScreenView (vcard) {
         ],
         "paddingAll": "0px"
       }
+    },
+    {
+      "type": "bubble",
+      "size": "giga",
+      "body": {
+        "type": "box",
+        "layout": "vertical",
+        "contents": [
+          {
+            "type": "image",
+            "url": "https://tafengtravel.github.io/tafengtravel/linecard/announcement2.jpg",
+            "size": "full",
+            "aspectMode": "cover",
+            "aspectRatio": "1:1.333",
+            "action": {
+              "type": "uri",
+              "label": "action",
+              "uri": "https://tafengtravel.github.io/tafengtravel/index/foreign_self/SE/tafeng_foreign_self_SE.html"
+            }
+          }
+        ],
+        "paddingAll": "0px"
+      }
     }
   ]
 }
