@@ -35,7 +35,7 @@ function gaScreenView (vcard) {
         "contents": [
           {
             "type": "image",
-            "url": "https://tafengtravel.github.io/tafengtravel/linecard/island1.jpg",
+            "url": "https://tafengtravel.github.io/tafengtravel/linecard/island7.jpg",
             "size": "full",
             "aspectMode": "cover",
             "aspectRatio": "1:1",
@@ -58,7 +58,7 @@ function gaScreenView (vcard) {
         "contents": [
           {
             "type": "image",
-            "url": "https://tafengtravel.github.io/tafengtravel/linecard/island2.jpg",
+            "url": "https://tafengtravel.github.io/tafengtravel/linecard/island8.jpg",
             "size": "full",
             "aspectMode": "cover",
             "aspectRatio": "1:1",
