@@ -35,7 +35,7 @@ function gaScreenView (vcard) {
         "contents": [
           {
             "type": "image",
-            "url": "https://tafengtravel.github.io/tafengtravel/linecard/island7.jpg",
+            "url": "https://tafengtravel.github.io/tafengtravel/linecard/island-penghu1.jpg",
             "size": "full",
             "aspectMode": "cover",
             "aspectRatio": "1:1",
@@ -58,7 +58,7 @@ function gaScreenView (vcard) {
         "contents": [
           {
             "type": "image",
-            "url": "https://tafengtravel.github.io/tafengtravel/linecard/island8.jpg",
+            "url": "https://tafengtravel.github.io/tafengtravel/linecard/island-kinmen1.jpg",
             "size": "full",
             "aspectMode": "cover",
             "aspectRatio": "1:1",
@@ -81,7 +81,7 @@ function gaScreenView (vcard) {
         "contents": [
           {
             "type": "image",
-            "url": "https://tafengtravel.github.io/tafengtravel/linecard/island3.jpg",
+            "url": "https://tafengtravel.github.io/tafengtravel/linecard/island-matsu1.jpg",
             "size": "full",
             "aspectMode": "cover",
             "aspectRatio": "1:1",
@@ -104,7 +104,7 @@ function gaScreenView (vcard) {
         "contents": [
           {
             "type": "image",
-            "url": "https://tafengtravel.github.io/tafengtravel/linecard/island4.jpg",
+            "url": "https://tafengtravel.github.io/tafengtravel/linecard/island-green1.jpg",
             "size": "full",
             "aspectMode": "cover",
             "aspectRatio": "1:1",
@@ -127,7 +127,7 @@ function gaScreenView (vcard) {
         "contents": [
           {
             "type": "image",
-            "url": "https://tafengtravel.github.io/tafengtravel/linecard/island5.jpg",
+            "url": "https://tafengtravel.github.io/tafengtravel/linecard/island-lanyu1.jpg",
             "size": "full",
             "aspectMode": "cover",
             "aspectRatio": "1:1",
@@ -150,10 +150,15 @@ function gaScreenView (vcard) {
         "contents": [
           {
             "type": "image",
-            "url": "https://tafengtravel.github.io/tafengtravel/linecard/island6.jpg",
+            "url": "https://tafengtravel.github.io/tafengtravel/linecard/island-liuqiu1.jpg",
             "size": "full",
             "aspectMode": "cover",
-            "aspectRatio": "1:1"
+            "aspectRatio": "1:1",
+            "action": {
+              "type": "uri",
+              "label": "action",
+              "uri": "https://tafengtravel.github.io/tafengtravel/index/domestic_island/liuqiu/liuqiu.html"
+            }
           }
         ],
         "paddingAll": "0px"
