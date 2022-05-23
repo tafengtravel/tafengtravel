@@ -35,6 +35,29 @@ function gaScreenView (vcard) {
         "contents": [
           {
             "type": "image",
+            "url": "https://tafengtravel.github.io/tafengtravel/linecard/foreign_self-self.jpg",
+            "size": "full",
+            "aspectMode": "cover",
+            "aspectRatio": "1:1",
+            "action": {
+              "type": "uri",
+              "label": "action",
+              "uri": "https://tafengtravel.github.io/tafengtravel/index/foreign_self/tafeng_foreign_self.html"
+            }
+          }
+        ],
+        "paddingAll": "0px"
+      }
+    },
+    {
+      "type": "bubble",
+      "size": "giga",
+      "body": {
+        "type": "box",
+        "layout": "vertical",
+        "contents": [
+          {
+            "type": "image",
             "url": "https://tafengtravel.github.io/tafengtravel/linecard/jp-self.jpg",
             "size": "full",
             "aspectMode": "cover",
