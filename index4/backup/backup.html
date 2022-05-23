@@ -37,7 +37,7 @@
 <span class="lable" ><label>備份月份：</label></span>  
 <input class="lable" type="date" id="depdate">&emsp;～&emsp;<input class="lable" type="date" id="enddate">
 <select id="type" class="lable">
-  <option value="fit">散客</option><option value="group">團體</option>
+  <option value="fit">散客</option><option value="group">團體</option><option value="contract">合約</option>
 </select>
 &emsp;<button onclick="search()" class="lable" id ="search"  type="button" >送出</button>
 
@@ -225,6 +225,24 @@ async function search(){
       month=month+1;
     }   
 
+  }else if(type == 'contract'){
+    ref = db.collection('contract');
+
+    let k=0;
+    let docID=[];
+    let docDATA={};
+
+    await ref.get().then(querySnapshot => {
+      querySnapshot.forEach(doc => {
+        docID[k] = doc.id;
+        docDATA[k] = {...doc.data(),'number':doc.id};
+        k++;
+      });
+    });
+
+    let content = JSON.stringify(docDATA);
+    let blob = new Blob([content], {type: "text/plain;charset=utf-8"});
+    saveAs(blob, "contract.json");  
   }
 
  
