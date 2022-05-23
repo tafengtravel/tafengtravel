@@ -1,0 +1,127 @@
+<html>
+   <head> 
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>報帳系統__修改報帳</title>   	
+   
+    <meta http-equiv="cache-control" content="no-cache">  
+    <meta http-equiv="pragma" content="no-cache">
+    <meta http-equiv="expires" content="0">
+    <meta name="format-detection" content="telephone=no">
+
+   </head>
+   <body>
+   <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+   <link rel="stylesheet" href="input.css">
+   
+<style>  
+   
+</style> 
+   
+<div class="title"  >大豐旅行社帳務系統__修改報帳</div> 
+
+<table width="100%"  cellpadding=0px style="background-color:	#AAFFEE" >
+  <tr>
+    <td  style="border: none ; "><a href="home.html">回到首頁</a></td>
+    <td  style="border: none ; "><a href="backup.html">備份系統</a></td>
+    <td  style="border: none ; "><a href="recover.html">還原系統</a></td>
+  </tr>
+</table>
+
+
+<span class="status" >
+  <input type="text" class="lable" id="mail" disabled="disabled" style=" background-color: transparent; border:none; text-align: center; font-family:Microsoft JhengHei;font-weight:bold;">
+</span>
+
+
+<input class="lable" type="file" id="files"/><br>
+<input class="lable" type="date" id="date">&emsp;&emsp;
+<input class="lable" type="text" id="ID">
+
+<button onclick="certain()" class="lable" type="button"  >還原</button>
+
+   <!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="/__/firebase/7.14.3/firebase-app.js"></script>
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+
+<!-- Initialize Firebase -->
+<script src="/__/firebase/init.js"></script>
+   
+   <script src="https://www.gstatic.com/firebasejs/4.12.1/firebase.js"></script>
+
+<script src="https://www.gstatic.com/firebasejs/4.12.1/firebase-firestore.js"></script>
+
+<script type="text/javascript" src="https://cdn.bootcdn.net/ajax/libs/FileSaver.js/2014-11-29/FileSaver.min.js" charset="utf-8"></script>
+
+<script src="secure.js" async></script>
+
+
+<script>
+    var inputElement = document.getElementById("files");
+    inputElement.addEventListener("change", handleFiles, false);
+    let docDATA1 = [];
+
+    function handleFiles() {
+        var selectedFile = document.getElementById("files").files[0];//獲取讀取的File物件
+        var name = selectedFile.name;//讀取選中檔案的檔名
+        var size = selectedFile.size;//讀取選中檔案的大小
+        console.log("檔名:"+name+"大小："+size);
+        var reader = new FileReader();//這裡是核心！！！讀取操作就是由它完成的。
+        reader.readAsText(selectedFile);//讀取檔案的內容
+
+        reader.onload = function(){
+
+            console.log("讀取結果轉為JSON：");
+            let docDATA = JSON.parse(this.result);
+
+            console.log((Object.keys(docDATA)).length);
+            
+            for(i=0;i<(Object.keys(docDATA)).length;i++){
+            console.log(docDATA[i].團號)
+            console.log(docDATA[i])
+            docDATA1[i] = docDATA[i]
+            }
+            
+        };
+
+        
+
+    }
+
+    function certain(){
+
+      let yes = confirm('確定要進行還原');
+      if(yes){
+        recover();
+      }
+
+    }
+
+    function recover(){
+      let obj;
+      let id = document.getElementById("ID").value;
+      let date = document.getElementById("date").value; 
+
+      for(i=0;i<(Object.keys(docDATA1)).length;i++){
+        if(docDATA1[i].團號 == id){
+          console.log(docDATA1[i].團號)
+          console.log(docDATA1[i])
+          obj = docDATA1[i]
+        }        
+      }
+
+
+      let db = firebase.firestore();
+
+      let ref = db.collection(date.substring(0,4)+'-'+date.substring(5,7)).doc(obj.團號);
+        
+      ref.set(obj).then(() => {
+        console.log('set data successful');
+        alert('還原成功');
+      });
+    }
+  
+</script>
