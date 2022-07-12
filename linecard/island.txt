@@ -19,7 +19,7 @@ function gaScreenView (vcard) {
     tid: 'UA-39556213-12', // GA 追蹤代碼
     ul: 'zh-tw', // locale
     v: 1, // api version
-  })}`
+  })}` 
 }
 %>
 
