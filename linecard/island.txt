@@ -35,6 +35,29 @@ function gaScreenView (vcard) {
         "contents": [
           {
             "type": "image",
+            "url": "https://tafengtravel.github.io/tafengtravel/linecard/taiwanhi.jpg",
+            "size": "full",
+            "aspectMode": "cover",
+            "aspectRatio": "1:1",
+            "action": {
+              "type": "uri",
+              "label": "action",
+              "uri": "http://www.tafeng66.com.tw/webeip/HT00215/taiwan-island.asp"
+            }
+          }
+        ],
+        "paddingAll": "0px"
+      }
+    },
+    {
+      "type": "bubble",
+      "size": "giga",
+      "body": {
+        "type": "box",
+        "layout": "vertical",
+        "contents": [
+          {
+            "type": "image",
             "url": "https://tafengtravel.github.io/tafengtravel/linecard/island-penghu1.jpg",
             "size": "full",
             "aspectMode": "cover",
@@ -42,7 +65,7 @@ function gaScreenView (vcard) {
             "action": {
               "type": "uri",
               "label": "action",
-              "uri": "https://tafengtravel.github.io/tafengtravel/index/domestic_island/penghu/tafeng_penghu.html"
+              "uri": "http://www.tafeng66.com.tw/webeip/HT00215/taiwan-island-penghu.asp"
             }
           }
         ],
@@ -65,7 +88,7 @@ function gaScreenView (vcard) {
             "action": {
               "type": "uri",
               "label": "action",
-              "uri": "https://tafengtravel.github.io/tafengtravel/index/domestic_island/kinmen/tafeng_kinmen.html"
+              "uri": "http://www.tafeng66.com.tw/webeip/HT00215/taiwan-island-kinmen.asp"
             }
           }
         ],
@@ -88,7 +111,7 @@ function gaScreenView (vcard) {
             "action": {
               "type": "uri",
               "label": "action",
-              "uri": "https://tafengtravel.github.io/tafengtravel/index/domestic_island/matsu/tafeng_matsu.html"
+              "uri": "http://www.tafeng66.com.tw/webeip/HT00215/taiwan-island-matsu.asp"
             }
           }
         ],
@@ -111,7 +134,7 @@ function gaScreenView (vcard) {
             "action": {
               "type": "uri",
               "label": "action",
-              "uri": "https://tafengtravel.github.io/tafengtravel/index/domestic_island/green/tafeng_green.html"
+              "uri": "http://www.tafeng66.com.tw/webeip/HT00215/taiwan-island-green.asp"
             }
           }
         ],
@@ -134,7 +157,7 @@ function gaScreenView (vcard) {
             "action": {
               "type": "uri",
               "label": "action",
-              "uri": "https://tafengtravel.github.io/tafengtravel/index/domestic_island/lanyu/tafeng_lanyu.html"
+              "uri": "http://www.tafeng66.com.tw/webeip/HT00215/taiwan-island-lanyu.asp"
             }
           }
         ],
@@ -157,7 +180,7 @@ function gaScreenView (vcard) {
             "action": {
               "type": "uri",
               "label": "action",
-              "uri": "https://tafengtravel.github.io/tafengtravel/index/domestic_island/liuqiu/liuqiu.html"
+              "uri": "http://www.tafeng66.com.tw/webeip/HT00215/taiwan-island-liuqiu.asp"
             }
           }
         ],
