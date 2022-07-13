@@ -35,7 +35,7 @@ function gaScreenView (vcard) {
         "contents": [
           {
             "type": "image",
-            "url": "https://raw.githubusercontent.com/tafengtravel/tafengtravel/master/linecard/taiwanhi1.jpg",
+            "url": "https://raw.githubusercontent.com/tafengtravel/tafengtravel/master/linecard/taiwanhi2.jpg",
             "size": "full",
             "aspectMode": "cover",
             "aspectRatio": "1:1",
