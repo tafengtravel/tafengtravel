@@ -81,7 +81,7 @@ function gaScreenView (vcard) {
         "contents": [
           {
             "type": "image",
-            "url": "https://raw.githubusercontent.com/tafengtravel/tafengtravel/master/linecard/foreign-self/cebu.jpg",
+            "url": "https://raw.githubusercontent.com/tafengtravel/tafengtravel/master/linecard/foreign-self/cebu1.jpg",
             "size": "full",
             "aspectMode": "cover",
             "aspectRatio": "1:1.41",
