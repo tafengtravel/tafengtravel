@@ -52,7 +52,7 @@ function gaScreenView (vcard) {
     {
       "type": "bubble",
       "size": "giga",
-      "body": {
+      "body": { 
         "type": "box",
         "layout": "vertical",
         "contents": [
