@@ -58,7 +58,7 @@ function gaScreenView (vcard) {
         "contents": [
           {
             "type": "image",
-            "url": "https://raw.githubusercontent.com/tafengtravel/tafengtravel/master/linecard/sale-self-1.jpg",
+            "url": "https://raw.githubusercontent.com/tafengtravel/tafengtravel/master/linecard/sale-self-2.jpg",
             "size": "full",
             "aspectMode": "cover",
             "aspectRatio": "1:1.41",
@@ -81,7 +81,7 @@ function gaScreenView (vcard) {
         "contents": [
           {
             "type": "image",
-            "url": "https://raw.githubusercontent.com/tafengtravel/tafengtravel/master/linecard/sale-self-1.jpg",
+            "url": "https://raw.githubusercontent.com/tafengtravel/tafengtravel/master/linecard/sale-self-3.jpg",
             "size": "full",
             "aspectMode": "cover",
             "aspectRatio": "1:1.41",
