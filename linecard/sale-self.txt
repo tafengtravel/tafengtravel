@@ -35,14 +35,14 @@ function gaScreenView (vcard) {
         "contents": [
           {
             "type": "image",
-            "url": "https://raw.githubusercontent.com/tafengtravel/tafengtravel/master/linecard/sale-self-1.jpg",
+            "url": "https://raw.githubusercontent.com/tafengtravel/tafengtravel/master/linecard/sale-self-1_1.jpg",
             "size": "full",
             "aspectMode": "cover",
             "aspectRatio": "1:1.41",
             "action": {
               "type": "uri",
               "label": "action",
-              "uri": "http://www.tafeng66.com.tw/webeip/HT00215/foreign-self-japan-tokyo.asp"
+              "uri": "http://www.tafeng66.com.tw/webeip/HT00215/sale.asp"
             }
           }
         ],
@@ -58,14 +58,14 @@ function gaScreenView (vcard) {
         "contents": [
           {
             "type": "image",
-            "url": "https://raw.githubusercontent.com/tafengtravel/tafengtravel/master/linecard/sale-self-2.jpg",
+            "url": "https://raw.githubusercontent.com/tafengtravel/tafengtravel/master/linecard/sale-self-2_1.jpg",
             "size": "full",
             "aspectMode": "cover",
             "aspectRatio": "1:1.41",
             "action": {
               "type": "uri",
               "label": "action",
-              "uri": "http://www.tafeng66.com.tw/webeip/HT00215/foreign-self-japan-osaka.asp"
+              "uri": "http://www.tafeng66.com.tw/webeip/HT00215/sale.asp"
             }
           }
         ],
@@ -81,14 +81,14 @@ function gaScreenView (vcard) {
         "contents": [
           {
             "type": "image",
-            "url": "https://raw.githubusercontent.com/tafengtravel/tafengtravel/master/linecard/sale-self-3.jpg",
+            "url": "https://raw.githubusercontent.com/tafengtravel/tafengtravel/master/linecard/sale-self-3_1.jpg",
             "size": "full",
             "aspectMode": "cover",
             "aspectRatio": "1:1.41",
             "action": {
               "type": "uri",
               "label": "action",
-              "uri": "http://www.tafeng66.com.tw/webeip/HT00215/foreign-self-korea-seoul.asp"
+              "uri": "http://www.tafeng66.com.tw/webeip/HT00215/sale.asp"
             }
           }
         ],
