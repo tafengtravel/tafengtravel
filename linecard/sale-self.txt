@@ -94,6 +94,6 @@ function gaScreenView (vcard) {
         ],
         "paddingAll": "0px"
       }
-    },
+    }
   ]
 }
