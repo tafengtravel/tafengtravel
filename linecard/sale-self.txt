@@ -35,33 +35,10 @@ function gaScreenView (vcard) {
         "contents": [
           {
             "type": "image",
-            "url": "https://raw.githubusercontent.com/tafengtravel/tafengtravel/master/linecard/sale-self-1_2.jpg",
+            "url": "https://raw.githubusercontent.com/tafengtravel/tafengtravel/master/linecard/sale-self-0_3.jpg",
             "size": "full",
             "aspectMode": "cover",
-            "aspectRatio": "1:1.41",
-            "action": {
-              "type": "uri",
-              "label": "action",
-              "uri": "http://www.tafeng66.com.tw/webeip/HT00215/sale.asp"
-            }
-          }
-        ],
-        "paddingAll": "0px"
-      }
-    },
-    {
-      "type": "bubble",
-      "size": "giga",
-      "body": { 
-        "type": "box",
-        "layout": "vertical",
-        "contents": [
-          {
-            "type": "image",
-            "url": "https://raw.githubusercontent.com/tafengtravel/tafengtravel/master/linecard/sale-self-2_2.jpg",
-            "size": "full",
-            "aspectMode": "cover",
-            "aspectRatio": "1:1.41",
+            "aspectRatio": "1:1",
             "action": {
               "type": "uri",
               "label": "action",
@@ -81,10 +58,56 @@ function gaScreenView (vcard) {
         "contents": [
           {
             "type": "image",
-            "url": "https://raw.githubusercontent.com/tafengtravel/tafengtravel/master/linecard/sale-self-3_2.jpg",
+            "url": "https://raw.githubusercontent.com/tafengtravel/tafengtravel/master/linecard/sale-self-1_3.jpg",
             "size": "full",
             "aspectMode": "cover",
-            "aspectRatio": "1:1.41",
+            "aspectRatio": "1:1",
+            "action": {
+              "type": "uri",
+              "label": "action",
+              "uri": "http://www.tafeng66.com.tw/webeip/HT00215/sale.asp"
+            }
+          }
+        ],
+        "paddingAll": "0px"
+      }
+    },
+    {
+      "type": "bubble",
+      "size": "giga",
+      "body": {
+        "type": "box",
+        "layout": "vertical",
+        "contents": [
+          {
+            "type": "image",
+            "url": "https://raw.githubusercontent.com/tafengtravel/tafengtravel/master/linecard/sale-self-2_3.jpg",
+            "size": "full",
+            "aspectMode": "cover",
+            "aspectRatio": "1:1",
+            "action": {
+              "type": "uri",
+              "label": "action",
+              "uri": "http://www.tafeng66.com.tw/webeip/HT00215/sale.asp"
+            }
+          }
+        ],
+        "paddingAll": "0px"
+      }
+    },
+    {
+      "type": "bubble",
+      "size": "giga",
+      "body": {
+        "type": "box",
+        "layout": "vertical",
+        "contents": [
+          {
+            "type": "image",
+            "url": "https://raw.githubusercontent.com/tafengtravel/tafengtravel/master/linecard/sale-self-3_3.jpg",
+            "size": "full",
+            "aspectMode": "cover",
+            "aspectRatio": "1:1",
             "action": {
               "type": "uri",
               "label": "action",
