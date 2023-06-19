@@ -104,6 +104,29 @@ function gaScreenView (vcard) {
         "contents": [
           {
             "type": "image",
+            "url": "https://raw.githubusercontent.com/tafengtravel/tafengtravel/master/linecard/sale-self-4_3.jpg",
+            "size": "full",
+            "aspectMode": "cover",
+            "aspectRatio": "1:1",
+            "action": {
+              "type": "uri",
+              "label": "action",
+              "uri": "http://www.tafeng66.com.tw/webeip/HT00215/sale.asp"
+            }
+          }
+        ],
+        "paddingAll": "0px"
+      }
+    },
+    {
+      "type": "bubble",
+      "size": "giga",
+      "body": {
+        "type": "box",
+        "layout": "vertical",
+        "contents": [
+          {
+            "type": "image",
             "url": "https://raw.githubusercontent.com/tafengtravel/tafengtravel/master/linecard/sale-self-3_4.jpg",
             "size": "full",
             "aspectMode": "cover",
@@ -127,7 +150,30 @@ function gaScreenView (vcard) {
         "contents": [
           {
             "type": "image",
-            "url": "https://raw.githubusercontent.com/tafengtravel/tafengtravel/master/linecard/sale-self-4_2.jpg",
+            "url": "https://raw.githubusercontent.com/tafengtravel/tafengtravel/master/linecard/sale-self-5_1.jpg",
+            "size": "full",
+            "aspectMode": "cover",
+            "aspectRatio": "1:1",
+            "action": {
+              "type": "uri",
+              "label": "action",
+              "uri": "http://www.tafeng66.com.tw/webeip/HT00215/sale.asp"
+            }
+          }
+        ],
+        "paddingAll": "0px"
+      }
+    },
+    {
+      "type": "bubble",
+      "size": "giga",
+      "body": {
+        "type": "box",
+        "layout": "vertical",
+        "contents": [
+          {
+            "type": "image",
+            "url": "https://raw.githubusercontent.com/tafengtravel/tafengtravel/master/linecard/sale-self-6_1.jpg",
             "size": "full",
             "aspectMode": "cover",
             "aspectRatio": "1:1",
