@@ -406,17 +406,25 @@ function show(data){
     doc.setFontSize(10);
     date = (parseInt(year)-1911).toString() +"       "+month+"      "+day;
 
-    doc.addImage(img6, "JPEG", 5, 5, 200, 280);    
-    doc.text(people+'共'+howmanypeople+'人', 31, 44);      
-    doc.text(depdate, 39, 148.5);
-    doc.text(pricedetail, 12, 191);
-    doc.text('定金$'+contractdownpay, 32, 210.5);
+    const foreignSelf_1 = 'https://tafengtravel.github.io/tafengtravel/index/contract/foreign-self_1.jpg'
+    const foreignSelf_2 = 'https://tafengtravel.github.io/tafengtravel/index/contract/foreign-self_2.jpg'
+    const foreignSelf_3 = 'https://tafengtravel.github.io/tafengtravel/index/contract/foreign-self_3.jpg'
+    
+    doc.setFontSize(8);
+    doc.addImage(foreignSelf_1, "JPEG", 5, 5, 200, 280);    
+    doc.text(people+'共'+howmanypeople+'人', 33, 61.5);      
+    doc.text(depdate, 41, 156);
+    doc.text(pricedetail, 18, 200);
+    doc.text(contractdownpay, 38, 217);
 
     doc.addPage();     
-    doc.addImage(img7, "JPEG", 5, 5, 200, 280);
+    doc.addImage(foreignSelf_2, "JPEG", 5, 5, 200, 280);
+    doc.text(contractother, 108, 75);
+    
+    doc.addPage();  
+    doc.addImage(foreignSelf_3, "JPEG", 5, 5, 200, 280);
+    doc.text(date, 50, 128);
 
-    doc.text(date, 143, 268);
-    doc.text(contractother, 108, 100);
     doc.save(number+'_'+people+'_'+name+'.pdf');
   }
 
